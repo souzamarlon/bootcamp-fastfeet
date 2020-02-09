@@ -3,7 +3,11 @@ import * as Yup from 'yup';
 import Recipient from '../models/Recipient';
 
 class RecipientController {
-  // async index(req, res) {}
+  async index(req, res) {
+    const recipientData = await Recipient.findAll();
+
+    return res.json(recipientData);
+  }
 
   async store(req, res) {
     const schema = Yup.object().shape({
@@ -23,6 +27,26 @@ class RecipientController {
     const recipientFields = await Recipient.create(req.body);
 
     return res.json(recipientFields);
+  }
+
+  async update(req, res) {
+    const recipient_id = req.params.id;
+
+    const { name, street, number, complement, state, city, zipcode } = req.body;
+
+    const recipientData = await Recipient.findByPk(recipient_id);
+
+    return res.json(
+      await recipientData.update({
+        name,
+        street,
+        number,
+        complement,
+        state,
+        city,
+        zipcode,
+      })
+    );
   }
 }
 
