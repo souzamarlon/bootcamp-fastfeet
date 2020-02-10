@@ -1,5 +1,5 @@
 import express from 'express';
-// import path from 'path';
+import path from 'path';
 import cors from 'cors';
 // import Youch from 'youch';
 import routes from './routes';
@@ -16,10 +16,10 @@ class App {
   middleware() {
     this.server.use(express.json());
     this.server.use(cors());
-    // this.server.use(
-    //   '/files',
-    //   express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
-    // );
+    this.server.use(
+      '/files',
+      express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
+    );
   }
 
   routes() {
