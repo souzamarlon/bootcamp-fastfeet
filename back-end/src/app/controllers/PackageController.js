@@ -14,6 +14,8 @@ class PackageController {
     const deliverymanData = await Package.findAll({
       where: {
         deliveryman_id: deliverymanId,
+        canceled_at: null,
+        end_date: null,
       },
     });
 
