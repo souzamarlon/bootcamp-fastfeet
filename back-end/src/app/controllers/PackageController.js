@@ -1,5 +1,10 @@
 import * as Yup from 'yup';
 
+import { startOfToday, endOfDay } from 'date-fns';
+import { zonedTimeToUtc } from 'date-fns-tz';
+
+import { Op } from 'sequelize';
+
 import Package from '../models/Package';
 
 class PackageController {
@@ -48,6 +53,43 @@ class PackageController {
     const packageFields = req.body;
 
     return res.json(await packageData.update(packageFields));
+  }
+
+  async status(req, res) {
+    // const schema = Yup.object().shape({
+    //   start_date: Yup.number().required(),
+    //   end_date: Yup.number().required(),
+    // });
+
+    // if (!(await schema.isValid(req.body))) {
+    //   return res.status(400).json({ error: 'Validation fails' });
+    // }
+    const deliverymanId = req.params.id;
+
+    const { start_date, end_date, signature_id } = req.body;
+
+    // TODO
+    // A data de início deve ser cadastrada assim que for feita a retirada do produto pelo entregador, e as retiradas só podem ser feitas entre as 08:00 e 18:00h.
+
+    const pickup = await Package.findAll({
+      where: {
+        deliveryman_id: deliverymanId,
+        start_date: {
+          [Op.between]: [
+            zonedTimeToUtc(startOfToday(new Date()), 'America/Brasília'),
+            zonedTimeToUtc(endOfDay(new Date()), 'America/Brasília'),
+          ],
+        },
+      },
+      attributes: ['id', 'start_date', 'end_date'],
+    });
+
+    if (pickup.length >= 5) {
+      return res.status(400).json({
+        error: 'Você já realizou 5 retiradas no mesmo dia',
+      });
+    }
+    return res.json(pickup);
   }
 
   async delete(req, res) {
