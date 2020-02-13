@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-import { startOfToday, endOfDay } from 'date-fns';
+import { startOfToday, endOfDay, getHours, parseISO } from 'date-fns';
 import { zonedTimeToUtc } from 'date-fns-tz';
 
 import { Op } from 'sequelize';
@@ -64,16 +64,25 @@ class PackageController {
     // if (!(await schema.isValid(req.body))) {
     //   return res.status(400).json({ error: 'Validation fails' });
     // }
-    const deliverymanId = req.params.id;
+    const packageId = req.params.id;
 
     const { start_date, end_date, signature_id } = req.body;
 
-    // TODO
-    // A data de início deve ser cadastrada assim que for feita a retirada do produto pelo entregador, e as retiradas só podem ser feitas entre as 08:00 e 18:00h.
+    // TODO - I need to test!
+    if (
+      getHours(parseISO(start_date)) <= 7 ||
+      getHours(parseISO(start_date)) >= 18
+    ) {
+      return res.status(400).json({
+        error: 'Horário não permitido para realizar a retirada.',
+      });
+    }
+
+    const packageData = await Package.findByPk(packageId);
 
     const pickup = await Package.findAll({
       where: {
-        deliveryman_id: deliverymanId,
+        deliveryman_id: packageData.deliveryman_id,
         start_date: {
           [Op.between]: [
             zonedTimeToUtc(startOfToday(new Date()), 'America/Brasília'),
@@ -89,7 +98,10 @@ class PackageController {
         error: 'Você já realizou 5 retiradas no mesmo dia',
       });
     }
-    return res.json(pickup);
+
+    return res.json(
+      await packageData.update({ start_date, end_date, signature_id })
+    );
   }
 
   async delete(req, res) {
