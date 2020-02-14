@@ -7,6 +7,7 @@ import SessionController from './app/controllers/SessionController';
 import RecipientController from './app/controllers/RecipientController';
 import DelivererController from './app/controllers/DelivererController';
 import PackageController from './app/controllers/PackageController';
+import DelivererFeaturesController from './app/controllers/DelivererFeaturesController';
 
 import FileController from './app/controllers/FileController';
 
@@ -29,10 +30,11 @@ routes.put('/deliverers/:id', DelivererController.update);
 routes.delete('/deliverers/:id', DelivererController.delete);
 
 routes.get('/packages', PackageController.index);
-routes.get('/deliveryman/:id/deliveries', PackageController.index);
 routes.post('/packages', PackageController.store);
 routes.put('/packages/:id', PackageController.update);
-routes.put('/deliveryman/:id/deliveries', PackageController.status);
+
+routes.get('/deliveryman/:id/deliveries', DelivererFeaturesController.index);
+routes.post('/deliveryman/:id/deliveries', DelivererFeaturesController.update);
 
 routes.delete('/packages/:id', PackageController.delete);
 
