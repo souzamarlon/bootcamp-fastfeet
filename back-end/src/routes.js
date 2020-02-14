@@ -8,6 +8,7 @@ import RecipientController from './app/controllers/RecipientController';
 import DelivererController from './app/controllers/DelivererController';
 import PackageController from './app/controllers/PackageController';
 import DelivererFeaturesController from './app/controllers/DelivererFeaturesController';
+import DeliveryProblemController from './app/controllers/DeliveryProblemController';
 
 import FileController from './app/controllers/FileController';
 
@@ -35,6 +36,9 @@ routes.put('/packages/:id', PackageController.update);
 
 routes.get('/deliveryman/:id/deliveries', DelivererFeaturesController.index);
 routes.post('/deliveryman/:id/deliveries', DelivererFeaturesController.update);
+
+routes.get('/delivery/:id/problems', DeliveryProblemController.index);
+routes.post('/delivery/:id/problems', DeliveryProblemController.store);
 
 routes.delete('/packages/:id', PackageController.delete);
 
