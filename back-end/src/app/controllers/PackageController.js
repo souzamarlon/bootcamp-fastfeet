@@ -29,8 +29,7 @@ class PackageController {
   }
 
   async update(req, res) {
-    const packageId = req.params.id;
-    const packageData = await Package.findByPk(packageId);
+    const packageData = await Package.findByPk(req.params.id);
 
     const packageFields = req.body;
 
@@ -38,10 +37,13 @@ class PackageController {
   }
 
   async delete(req, res) {
-    const packageId = req.params.id;
-    const packageData = await Package.findByPk(packageId);
+    const packageData = await Package.findByPk(req.params.id);
 
-    return res.json(await packageData.destroy());
+    packageData.canceled_at = new Date();
+
+    await packageData.save();
+
+    return res.json(packageData);
   }
 }
 

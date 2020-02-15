@@ -53,8 +53,10 @@ class DelivererFeaturesController {
         deliveryman_id: packageData.deliveryman_id,
         start_date: {
           [Op.between]: [
-            zonedTimeToUtc(startOfToday(new Date()), 'America/Brasília'),
-            zonedTimeToUtc(endOfDay(new Date()), 'America/Brasília'),
+            // zonedTimeToUtc(startOfToday(new Date()), 'America/Brasília'),
+            // zonedTimeToUtc(endOfDay(new Date()), 'America/Brasília'),
+            startOfToday(new Date()),
+            endOfDay(new Date()),
           ],
         },
       },

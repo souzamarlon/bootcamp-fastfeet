@@ -40,7 +40,7 @@ routes.post('/deliveryman/:id/deliveries', DelivererFeaturesController.update);
 routes.get('/delivery/:id/problems', DeliveryProblemController.index);
 routes.post('/delivery/:id/problems', DeliveryProblemController.store);
 
-routes.delete('/packages/:id', PackageController.delete);
+routes.delete('/problem/:id/cancel-delivery', PackageController.delete);
 
 routes.post('/files', upload.single('file'), FileController.store);
 
