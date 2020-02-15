@@ -2,6 +2,7 @@ import * as Yup from 'yup';
 
 import Queue from '../../lib/Queue';
 import PackageMail from '../jobs/PackageMail';
+import PackageCancelledMail from '../jobs/PackageCancelledMail';
 
 import Package from '../models/Package';
 import Deliverer from '../models/Deliverer';
@@ -26,7 +27,7 @@ class PackageController {
 
     const { recipient_id, deliveryman_id, product } = req.body;
 
-    // TODO
+    // TODO - I need to test
     // Quando a encomenda é cadastrada para um entregador, o entregador recebe um e-mail com detalhes da encomenda,
     // com nome do produto e uma mensagem informando-o que o produto já está disponível para a retirada.
 
@@ -52,14 +53,29 @@ class PackageController {
   }
 
   async delete(req, res) {
-    const packageData = await Package.findByPk(req.params.id);
+    const packageData = await Package.findByPk(req.params.id, {
+      include: [
+        {
+          model: Deliverer,
+          as: 'deliveryman',
+          attributes: ['name', 'email'],
+        },
+      ],
+    });
 
+    // console.log(packageData);
     packageData.canceled_at = new Date();
 
-    // TODO
+    // TODO - Testing
     // Quando uma encomenda for cancelada, o entregador deve receber um e-mail informando-o sobre o cancelamento.
 
     await packageData.save();
+
+    await Queue.add(PackageCancelledMail.key, {
+      product: packageData.product,
+      name: packageData.deliveryman.name,
+      email: packageData.deliveryman.email,
+    });
 
     return res.json(packageData);
   }
