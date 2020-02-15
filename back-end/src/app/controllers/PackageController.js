@@ -1,6 +1,10 @@
 import * as Yup from 'yup';
 
+import Queue from '../../lib/Queue';
+import PackageMail from '../jobs/PackageMail';
+
 import Package from '../models/Package';
+import Deliverer from '../models/Deliverer';
 
 class PackageController {
   async index(req, res) {
@@ -20,12 +24,23 @@ class PackageController {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
+    const { recipient_id, deliveryman_id, product } = req.body;
+
     // TODO
     // Quando a encomenda é cadastrada para um entregador, o entregador recebe um e-mail com detalhes da encomenda,
     // com nome do produto e uma mensagem informando-o que o produto já está disponível para a retirada.
-    const packageFields = req.body;
 
-    return res.json(await Package.create(packageFields));
+    const { name, email } = await Deliverer.findByPk(deliveryman_id);
+
+    await Queue.add(PackageMail.key, {
+      name,
+      email,
+      product,
+    });
+
+    return res.json(
+      await Package.create({ recipient_id, deliveryman_id, product })
+    );
   }
 
   async update(req, res) {
