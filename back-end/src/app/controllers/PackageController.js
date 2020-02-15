@@ -41,6 +41,9 @@ class PackageController {
 
     packageData.canceled_at = new Date();
 
+    // TODO
+    // Quando uma encomenda for cancelada, o entregador deve receber um e-mail informando-o sobre o cancelamento.
+
     await packageData.save();
 
     return res.json(packageData);
