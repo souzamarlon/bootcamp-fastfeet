@@ -1,2 +1,2 @@
 # bootcamp-fastfeet
-Final test from Rocketseat bootcamp.
+Fastfeet app for the Rocketseat bootcamp final challenge.
