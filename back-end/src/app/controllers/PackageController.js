@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 
+import { Op } from 'sequelize';
 import Queue from '../../lib/Queue';
 import PackageMail from '../jobs/PackageMail';
 import PackageCancelledMail from '../jobs/PackageCancelledMail';
@@ -9,9 +10,21 @@ import Deliverer from '../models/Deliverer';
 
 class PackageController {
   async index(req, res) {
-    const packageData = await Package.findAll();
+    const findPackage = req.query.q;
 
-    return res.json(packageData);
+    if (findPackage === null || findPackage === undefined) {
+      const packageData = await Package.findAll();
+
+      return res.json(packageData);
+    }
+
+    const packageName = await Package.findAll({
+      where: {
+        product: { [Op.iLike]: `${findPackage}%` },
+      },
+    });
+
+    return res.json(packageName);
   }
 
   async store(req, res) {
