@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 import { startOfToday, endOfDay, getHours, parseISO } from 'date-fns';
-import { zonedTimeToUtc } from 'date-fns-tz';
+// import { zonedTimeToUtc } from 'date-fns-tz';
 import { Op } from 'sequelize';
 import Package from '../models/Package';
 
@@ -47,7 +47,7 @@ class DelivererFeaturesController {
     const packageData = await Package.findByPk(packageId);
 
     // Getting how many pickups the delivery man did in the same day.
-    // I am using the Brazilian UTC.
+    // Its possible to use the Brazilian UTC.
     const pickup = await Package.findAll({
       where: {
         deliveryman_id: packageData.deliveryman_id,
