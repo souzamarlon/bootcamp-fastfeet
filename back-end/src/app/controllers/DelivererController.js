@@ -1,12 +1,28 @@
 import * as Yup from 'yup';
 
+import { Op } from 'sequelize';
+
 import Deliverer from '../models/Deliverer';
 
 class DelivererController {
   async index(req, res) {
-    const delivererData = await Deliverer.findAll();
+    const findDeliverer = req.query.q;
 
-    return res.json(delivererData);
+    if (findDeliverer === null || findDeliverer === undefined) {
+      const delivererData = await Deliverer.findAll();
+
+      return res.json(delivererData);
+    }
+
+    const delivererName = await Deliverer.findAll({
+      where: {
+        name: {
+          [Op.iLike]: `${findDeliverer}%`,
+        },
+      },
+    });
+
+    return res.json(delivererName);
   }
 
   async store(req, res) {
