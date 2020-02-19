@@ -4,7 +4,7 @@ import { darken } from 'polished';
 
 export const Wrapper = styled.div`
     height: 100%;
-    background: linear-gradient(-90deg, #ee4d64, #ee4d64);
+    background: linear-gradient(-90deg, #7d40e7, #7d40e7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
     background: #ffffff;
     width: 360px;
-    height: 448px;
+    height: 425px;
     /* left: 540px; */
     /* top: 226px; */
     display: flex;
@@ -20,6 +20,11 @@ export const Container = styled.div`
     align-items: center;
     border: 0;
     border-radius: 4px;
+
+    img {
+        width: 295px;
+        height: 45px;
+    }
 `;
 export const Content = styled.div`
     width: 100%;
@@ -51,7 +56,7 @@ export const Content = styled.div`
         button {
             margin: 5px 0 0;
             height: 45px;
-            background: #ee4d64;
+            background: #7d40e7;
             font-weight: bold;
             color: #fff;
             border: 0;
@@ -59,7 +64,7 @@ export const Content = styled.div`
             font-size: 16px;
             transition: background 0.2s;
             &:hover {
-                background: ${darken(0.03, '#EE4D64')};
+                background: ${darken(0.03, '#7D40E7')};
             }
         }
         p {

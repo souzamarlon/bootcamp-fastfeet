@@ -20,13 +20,13 @@ export default function Header() {
         <Container>
             <Content>
                 <nav>
-                    <Link to="/student">
+                    <Link to="/packages">
                         <img src={logo} alt="Fastfeet" />
                     </Link>
-                    <Link to="/student"> ALUNOS </Link>
-                    <Link to="/plans"> PLANOS </Link>
-                    <Link to="/membership"> MATRÍCULAS </Link>
-                    <Link to="/help-order"> PEDIDOS DE AUXÍLIO </Link>
+                    <Link to="/packages"> ENCOMENDAS </Link>
+                    <Link to="/deliverer"> ENTREGADORES </Link>
+                    <Link to="/recipients"> DESTINATÁRIOS </Link>
+                    <Link to="/problems"> PROBLEMAS </Link>
                 </nav>
 
                 <Profile>

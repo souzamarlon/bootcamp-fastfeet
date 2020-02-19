@@ -27,7 +27,7 @@ export default function SignIn() {
     }
     return (
         <>
-            <img src={logo} alt="Gympoint" />
+            <img src={logo} alt="Fastfeet" />
 
             <Form schema={schema} onSubmit={handleSubmit}>
                 <p>SEU E-MAIL</p>
