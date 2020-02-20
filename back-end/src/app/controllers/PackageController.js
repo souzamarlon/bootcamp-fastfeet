@@ -6,6 +6,7 @@ import PackageMail from '../jobs/PackageMail';
 import PackageCancelledMail from '../jobs/PackageCancelledMail';
 
 import Package from '../models/Package';
+import Recipient from '../models/Recipient';
 import Deliverer from '../models/Deliverer';
 
 class PackageController {
@@ -13,7 +14,28 @@ class PackageController {
     const findPackage = req.query.q;
 
     if (findPackage === null || findPackage === undefined) {
-      const packageData = await Package.findAll();
+      const packageData = await Package.findAll({
+        attributes: [
+          'id',
+          'signature_id',
+          'product',
+          'canceled_at',
+          'start_date',
+          'end_date',
+        ],
+        include: [
+          {
+            model: Recipient,
+            as: 'recipient',
+            attributes: ['id', 'name', 'state', 'city'],
+          },
+          {
+            model: Deliverer,
+            as: 'deliveryman',
+            attributes: ['id', 'name', 'avatar_id'],
+          },
+        ],
+      });
 
       return res.json(packageData);
     }
@@ -22,6 +44,26 @@ class PackageController {
       where: {
         product: { [Op.iLike]: `${findPackage}%` },
       },
+      attributes: [
+        'id',
+        'signature_id',
+        'product',
+        'canceled_at',
+        'start_date',
+        'end_date',
+      ],
+      include: [
+        {
+          model: Recipient,
+          as: 'recipient',
+          attributes: ['id', 'name', 'state', 'city'],
+        },
+        {
+          model: Deliverer,
+          as: 'deliveryman',
+          attributes: ['id', 'name', 'avatar_id'],
+        },
+      ],
     });
 
     return res.json(packageName);
