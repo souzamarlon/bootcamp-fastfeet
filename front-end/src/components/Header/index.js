@@ -28,16 +28,15 @@ export default function Header() {
                     <Link to="/recipients"> DESTINATÁRIOS </Link>
                     <Link to="/problems"> PROBLEMAS </Link>
                 </nav>
-
-                <Profile>
-                    <div>
-                        <strong>{profile.name}</strong>
-                        <button type="button" onClick={handleSignOut}>
-                            Sair do sistema
-                        </button>
-                    </div>
-                </Profile>
             </Content>
+            <Profile>
+                <div>
+                    <strong>{profile.name}</strong>
+                    <button type="button" onClick={handleSignOut}>
+                        Sair do sistema
+                    </button>
+                </div>
+            </Profile>
         </Container>
     );
 }

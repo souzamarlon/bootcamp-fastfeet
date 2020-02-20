@@ -20,7 +20,7 @@ export default function RouteWrapper({
     }
 
     if (signed && !isPrivate) {
-        return <Redirect to="/student" />;
+        return <Redirect to="/packages" />;
     }
 
     const Layout = !signed ? AuthLayout : DefaultLayout;
