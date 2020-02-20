@@ -4,7 +4,8 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
     height: 64px;
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     margin: 24px auto;
     display: flex;
     align-items: center;
@@ -70,8 +71,10 @@ export const Box = styled.div`
 
     tbody td {
         background: #ffff;
-        padding: 15px;
-        padding-right: 120px;
+        padding-left: 15px;
+        padding-right: 130px;
+        text-align: left;
+        margin: 0 auto;
         /* border-bottom: 1px solid #eee; */
     }
     span {
@@ -96,6 +99,6 @@ export const Content = styled.div`
         font-weight: bold;
         padding: 12px;
         padding-top: 30px;
-        padding-right: 109px;
+        padding-right: 119px;
     }
 `;
