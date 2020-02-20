@@ -4,7 +4,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
     height: 64px;
-    max-width: 1225px;
+    width: 1200px;
     margin: 24px auto;
     display: flex;
     align-items: center;
@@ -65,13 +65,27 @@ export const Button = styled.button`
     }
 `;
 
+export const Box = styled.div`
+    padding-bottom: 20px;
+
+    tbody td {
+        background: #ffff;
+        padding: 12px;
+        padding-right: 109px;
+
+        /* border-bottom: 1px solid #eee; */
+    }
+    span {
+        display: block;
+        margin-top: 5px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+`;
 export const Content = styled.div`
-    width: 100%;
-    max-width: 1225px;
+    max-width: 1200px;
     margin: 20px auto;
-    background: #ffff;
-    padding: 0 30px;
-    box-shadow: 0px 0 20px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0px 0 20px rgba(0, 0, 0, 0.2); */
     border: 0;
     border-radius: 4px;
     thead th {
@@ -82,32 +96,6 @@ export const Content = styled.div`
         font-weight: bold;
         padding: 12px;
         padding-top: 30px;
-        padding-right: 285px;
-    }
-    tbody td {
-        padding: 12px;
-        border-bottom: 1px solid #eee;
-    }
-    span {
-        display: block;
-        margin-top: 5px;
-        font-size: 16px;
-        line-height: 20px;
-    }
-    button {
-        background: none;
-        border: 0;
-        padding: 4px;
-        a {
-            color: #4d85ee;
-        }
-    }
-    button.delete {
-        border: 0;
-        padding: 4px;
-        align-items: center;
-        background: none;
-        border: 0;
-        color: #de3b3b;
+        padding-right: 109px;
     }
 `;

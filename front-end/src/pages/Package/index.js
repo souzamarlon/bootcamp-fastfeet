@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Form, Input } from '@rocketseat/unform';
 
 import { Link } from 'react-router-dom';
-import { Container, Title, Button, Content, List } from './styles';
+import { Container, Title, Button, Content, Box } from './styles';
 import api from '~/services/api';
 import history from '~/services/history';
 
@@ -23,7 +23,7 @@ export default function Package() {
         <>
             <Container>
                 <Title>
-                    <h1>Gerenciando alunos</h1>
+                    <h1>Gerenciamento </h1>
                 </Title>
                 <Button>
                     <div>
@@ -42,28 +42,56 @@ export default function Package() {
                     </Form>
                 </Button>
             </Container>
+
             <Content>
                 <thead>
                     <tr>
-                        <th>NOME</th>
-                        <th>E-MAIL</th>
-                        <th>IDADE</th>
+                        <th>ID</th>
+                        <th>Destinatário</th>
+                        <th>Entregador</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                        <th>Status</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
+                {packages.map(item => (
+                    <Box>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span className="ID">{item.id}</span>
+                                </td>
+                                <td>
+                                    <span className="recipient">
+                                        {item.recipient.name}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span className="deliverer">
+                                        {item.deliveryman.name}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span className="city">
+                                        {item.recipient.city}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span className="state">
+                                        {item.recipient.state}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span className="status">Criar</span>
+                                </td>
+                                <td>
+                                    <span className="actions">
+                                        {item.email}
+                                    </span>
+                                </td>
 
-                <tbody>
-                    {packages.map(item => (
-                        <tr>
-                            <td>
-                                <span className="name">{item.name}</span>
-                            </td>
-                            <td>
-                                <span className="email">{item.email}</span>
-                            </td>
-                            <td>
-                                <span className="idade">{item.idade}</span>
-                            </td>
-                            <td>
+                                {/* <td>
                                 <button type="button" onClick={() => {}}>
                                     <Link to={`/editstudent/${item.id}`}>
                                         editar
@@ -76,10 +104,11 @@ export default function Package() {
                                 >
                                     apagar
                                 </button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
+                            </td> */}
+                            </tr>
+                        </tbody>
+                    </Box>
+                ))}
             </Content>
         </>
     );
