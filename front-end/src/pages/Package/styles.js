@@ -70,7 +70,7 @@ export const Box = styled.div`
 
     tbody td {
         background: #ffff;
-        padding: 12px;
+        padding: 15px;
         padding-right: 120px;
         /* border-bottom: 1px solid #eee; */
     }
