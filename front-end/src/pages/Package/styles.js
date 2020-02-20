@@ -71,8 +71,7 @@ export const Box = styled.div`
     tbody td {
         background: #ffff;
         padding: 12px;
-        padding-right: 109px;
-
+        padding-right: 120px;
         /* border-bottom: 1px solid #eee; */
     }
     span {
@@ -84,6 +83,7 @@ export const Box = styled.div`
 `;
 export const Content = styled.div`
     max-width: 1200px;
+    height: 57px;
     margin: 20px auto;
     /* box-shadow: 0px 0 20px rgba(0, 0, 0, 0.2); */
     border: 0;
