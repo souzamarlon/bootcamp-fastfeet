@@ -19,6 +19,8 @@ class PackageController {
           'id',
           'signature_id',
           'product',
+          'recipient_id',
+          'deliveryman_id',
           'canceled_at',
           'start_date',
           'end_date',
