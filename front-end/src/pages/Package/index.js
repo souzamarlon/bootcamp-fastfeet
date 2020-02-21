@@ -4,7 +4,6 @@ import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 import { Container, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
-import history from '~/services/history';
 
 export default function Package() {
     const [packages, setPackages] = useState([]);
@@ -43,7 +42,7 @@ export default function Package() {
                         <Input
                             name="search"
                             type="search"
-                            placeholder="Buscar aluno"
+                            placeholder="Buscar por encomendas"
                         />
                     </Form>
                 </Search>
@@ -97,7 +96,11 @@ export default function Package() {
                                 </span>
                             </td>
                             <td>
-                                <span className="status">Criar</span>
+                                <span className="status">
+                                    {item.start_date || item.end_date
+                                        ? 'Entregue'
+                                        : 'Pendente'}
+                                </span>
                             </td>
                             <td>
                                 <span className="actions">{item.email}</span>

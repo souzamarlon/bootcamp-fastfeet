@@ -78,7 +78,8 @@ export const Content = styled.div`
     margin: 20px auto;
     border: 0;
     border-radius: 4px;
-    /* padding-top: 30px; */
+    padding-top: 30px;
+
     thead th {
         color: #000;
         text-align: left;
@@ -86,13 +87,11 @@ export const Content = styled.div`
         line-height: 19px;
         font-weight: bold;
         padding: 12px;
-
         padding-right: 102px;
     }
 
     tbody td {
         height: 80px;
-
         background: #ffff;
         padding: 12px;
         border-bottom: 21px solid #f5f5f5;
