@@ -75,7 +75,7 @@ export const Button = styled.button`
 export const Content = styled.div`
     width: 1200px;
     height: 57px;
-    margin: 20px auto;
+    margin: 0 auto;
     border: 0;
     border-radius: 4px;
     padding-top: 30px;

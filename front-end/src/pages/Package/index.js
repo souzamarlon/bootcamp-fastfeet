@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Form, Input } from '@rocketseat/unform';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 import { Link } from 'react-router-dom';
 import { Container, Title, Button, Content, Search } from './styles';
@@ -103,6 +104,7 @@ export default function Package() {
                                 </span>
                             </td>
                             <td>
+                                <MoreHorizIcon />
                                 <span className="actions">{item.email}</span>
                             </td>
 
