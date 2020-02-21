@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Form, Input } from '@rocketseat/unform';
 
 import { Link } from 'react-router-dom';
-import { Container, Title, Button, Content, Box } from './styles';
+import { Container, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
 import history from '~/services/history';
 
@@ -21,10 +21,19 @@ export default function Package() {
     }, []);
     return (
         <>
+            <Title>
+                <span>Gerenciando encomendas</span>
+            </Title>
             <Container>
-                <Title>
-                    <h1>Gerenciamento </h1>
-                </Title>
+                <Search>
+                    <Form onSubmit={() => {}}>
+                        <Input
+                            name="search"
+                            type="search"
+                            placeholder="Buscar aluno"
+                        />
+                    </Form>
+                </Search>
                 <Button>
                     <div>
                         <Link to="/newstudent">
@@ -33,13 +42,6 @@ export default function Package() {
                             </button>
                         </Link>
                     </div>
-                    <Form onSubmit={() => {}}>
-                        <Input
-                            name="search"
-                            type="search"
-                            placeholder="Buscar aluno"
-                        />
-                    </Form>
                 </Button>
             </Container>
 
@@ -56,42 +58,39 @@ export default function Package() {
                     </tr>
                 </thead>
                 {packages.map(item => (
-                    <Box>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <span className="ID">{item.id}</span>
-                                </td>
-                                <td>
-                                    <span className="recipient">
-                                        {item.recipient.name}
-                                    </span>
-                                </td>
-                                <td>
-                                    <span className="deliverer">
-                                        {item.deliveryman.name}
-                                    </span>
-                                </td>
-                                <td>
-                                    <span className="city">
-                                        {item.recipient.city}
-                                    </span>
-                                </td>
-                                <td>
-                                    <span className="state">
-                                        {item.recipient.state}
-                                    </span>
-                                </td>
-                                <td>
-                                    <span className="status">Criar</span>
-                                </td>
-                                <td>
-                                    <span className="actions">
-                                        {item.email}
-                                    </span>
-                                </td>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span className="ID">{item.id}</span>
+                            </td>
+                            <td>
+                                <span className="recipient">
+                                    {item.recipient.name}
+                                </span>
+                            </td>
+                            <td>
+                                <span className="deliverer">
+                                    {item.deliveryman.name}
+                                </span>
+                            </td>
+                            <td>
+                                <span className="city">
+                                    {item.recipient.city}
+                                </span>
+                            </td>
+                            <td>
+                                <span className="state">
+                                    {item.recipient.state}
+                                </span>
+                            </td>
+                            <td>
+                                <span className="status">Criar</span>
+                            </td>
+                            <td>
+                                <span className="actions">{item.email}</span>
+                            </td>
 
-                                {/* <td>
+                            {/* <td>
                                 <button type="button" onClick={() => {}}>
                                     <Link to={`/editstudent/${item.id}`}>
                                         editar
@@ -105,9 +104,8 @@ export default function Package() {
                                     apagar
                                 </button>
                             </td> */}
-                            </tr>
-                        </tbody>
-                    </Box>
+                        </tr>
+                    </tbody>
                 ))}
             </Content>
         </>
