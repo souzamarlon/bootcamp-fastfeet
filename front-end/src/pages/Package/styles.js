@@ -82,7 +82,6 @@ export const Content = styled.div`
 
     thead th {
         color: #000;
-        text-align: left;
         font-size: 16px;
         line-height: 19px;
         font-weight: bold;
@@ -101,5 +100,10 @@ export const Content = styled.div`
         margin-top: 5px;
         font-size: 16px;
         line-height: 20px;
+    }
+
+    button {
+        background: transparent;
+        border: 0;
     }
 `;

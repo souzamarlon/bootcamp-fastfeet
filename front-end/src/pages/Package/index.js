@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import Popup from 'reactjs-popup';
 
 import { Link } from 'react-router-dom';
 import { Container, Title, Button, Content, Search } from './styles';
@@ -104,7 +105,24 @@ export default function Package() {
                                 </span>
                             </td>
                             <td>
-                                <MoreHorizIcon />
+                                <Popup
+                                    trigger={
+                                        <button
+                                            type="button"
+                                            className="button"
+                                        >
+                                            <MoreHorizIcon />
+                                        </button>
+                                    }
+                                    position="bottom center"
+                                    on="hover"
+                                >
+                                    <Link to={`/editstudent/${item.id}`}>
+                                        editar
+                                    </Link>
+                                    {/* <Card title="Bottom Center" /> */}
+                                </Popup>
+
                                 <span className="actions">{item.email}</span>
                             </td>
 
