@@ -9,6 +9,19 @@ import history from '~/services/history';
 export default function Package() {
     const [packages, setPackages] = useState([]);
 
+    const searchProducts = useCallback(({ search }) => {
+        async function searchTool() {
+            const response = await api.get(`packages`, {
+                params: { q: search },
+            });
+
+            console.tron.log(response.data);
+
+            setPackages(response.data);
+        }
+        searchTool();
+    }, []);
+
     useEffect(() => {
         async function listStudents() {
             const response = await api.get('packages');
@@ -26,7 +39,7 @@ export default function Package() {
             </Title>
             <Container>
                 <Search>
-                    <Form onSubmit={() => {}}>
+                    <Form onSubmit={searchProducts}>
                         <Input
                             name="search"
                             type="search"
