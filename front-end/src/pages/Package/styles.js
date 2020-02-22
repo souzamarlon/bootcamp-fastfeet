@@ -74,6 +74,7 @@ export const Button = styled.button`
 `;
 
 export const Content = styled.div`
+    width: 100%;
     max-width: 1200px;
     max-height: 57px;
     margin: 0 auto;
@@ -82,6 +83,8 @@ export const Content = styled.div`
     padding-top: 30px;
 
     thead th {
+        max-width: 1200px;
+        /* text-align: left; */
         color: #000;
         font-size: 16px;
         line-height: 19px;
@@ -89,43 +92,55 @@ export const Content = styled.div`
         padding-left: 12px;
         /* margin-right: 12px */
         padding-right: 102px;
+        padding-bottom: 10px;
     }
 
     tbody td {
-        height: 80px;
+        height: 57px;
         background: #ffff;
-        padding: 13px;
+        padding: 12px;
         border-bottom: 21px solid #f5f5f5;
+        border-radius: 4px;
     }
     span {
         display: block;
         margin-top: 5px;
-        font-size: 16px;
+        font-size: 17px;
         line-height: 20px;
     }
 
     button {
+        padding-top: 12px;
         background: transparent;
         border: 0;
+        transition: background 0.3s;
+        &:hover {
+            background: ${darken(0.03, '#FFFFFF')};
+        }
     }
 
     a {
         align-items: center;
-        width: 70px;
         height: 21px;
         size: 10;
         display: flex;
         color: #999999;
-        margin: 12px;
         padding: 12px;
         border-bottom: 1px solid #eeeeee;
+        transition: background 0.3s;
+        &:hover {
+            background: ${darken(0.03, '#ffffff')};
+        }
 
         /* padding-top: 5px; */
     }
     span.Option {
-        align-items: center;
+        text-align: left;
         color: #999999;
         /* padding-top: 5px; */
         padding-left: 10px;
+        font-size: 16px;
+        letter-spacing: 0;
+        padding-bottom: 5px;
     }
 `;

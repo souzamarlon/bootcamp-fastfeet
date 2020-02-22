@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Form, Input } from '@rocketseat/unform';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import CreateIcon from '@material-ui/icons/Create';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import {
+    MoreHoriz,
+    Visibility,
+    Create,
+    DeleteForever,
+} from '@material-ui/icons';
 
 import Popup from 'reactjs-popup';
 
 import { Link } from 'react-router-dom';
+import { deepPurple } from '@material-ui/core/colors';
 import { Container, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
 
@@ -115,16 +118,16 @@ export default function Package() {
                                             type="button"
                                             className="button"
                                         >
-                                            <MoreHorizIcon />
+                                            <MoreHoriz />
                                         </button>
                                     }
                                     position="bottom center"
                                     on="hover"
                                 >
                                     <Link to={`/view/${item.id}`}>
-                                        <VisibilityIcon
-                                            size={10}
-                                            color="#FFF"
+                                        <Visibility
+                                            fontSize="small"
+                                            style={{ color: deepPurple[400] }}
                                         />
                                         <span className="Option">
                                             Visualizar
@@ -132,22 +135,20 @@ export default function Package() {
                                     </Link>
 
                                     <Link to={`/editstudent/${item.id}`}>
-                                        <CreateIcon size={10} color="#FFF" />
+                                        <Create
+                                            fontSize="small"
+                                            color="primary"
+                                        />
                                         <span className="Option">Editar</span>
                                     </Link>
-
                                     <Link to={`/delete/${item.id}`}>
-                                        <DeleteForeverIcon
-                                            size={10}
-                                            color="#DE3B3B"
+                                        <DeleteForever
+                                            fontSize="small"
+                                            color="secondary"
                                         />
                                         <span className="Option">Excluir</span>
                                     </Link>
-
-                                    {/* <Card title="Bottom Center" /> */}
                                 </Popup>
-
-                                <span className="actions">{item.email}</span>
                             </td>
 
                             {/* <td>
