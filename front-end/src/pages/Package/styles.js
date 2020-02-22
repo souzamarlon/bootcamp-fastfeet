@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-    height: 36px;
-    width: 1200px;
-    margin: 24px auto;
+    max-height: 36px;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* padding: 0 30px; */
     display: flex;
     /* margin-top: 100px; */
     align-items: center;
@@ -15,8 +16,8 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
-    height: 36px;
-    width: 1200px;
+    max-height: 36px;
+    max-width: 1200px;
     margin: 24px auto;
     align-items: center;
     margin-top: 34px;
@@ -73,8 +74,8 @@ export const Button = styled.button`
 `;
 
 export const Content = styled.div`
-    width: 1200px;
-    height: 57px;
+    max-width: 1200px;
+    max-height: 57px;
     margin: 0 auto;
     border: 0;
     border-radius: 4px;
@@ -85,14 +86,15 @@ export const Content = styled.div`
         font-size: 16px;
         line-height: 19px;
         font-weight: bold;
-        padding: 12px;
+        padding-left: 12px;
+        /* margin-right: 12px */
         padding-right: 102px;
     }
 
     tbody td {
         height: 80px;
         background: #ffff;
-        padding: 12px;
+        padding: 13px;
         border-bottom: 21px solid #f5f5f5;
     }
     span {
