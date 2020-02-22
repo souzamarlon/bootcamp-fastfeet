@@ -35,7 +35,7 @@ routes.post('/packages', PackageController.store);
 routes.put('/packages/:id', PackageController.update);
 
 routes.get('/deliveryman/:id/deliveries', DelivererFeaturesController.index);
-routes.post('/deliveryman/:id/deliveries', DelivererFeaturesController.update);
+routes.put('/deliveryman/:id/deliveries', DelivererFeaturesController.update);
 
 routes.get('/delivery/:id/problems', DeliveryProblemController.index);
 routes.post('/delivery/:id/problems', DeliveryProblemController.store);

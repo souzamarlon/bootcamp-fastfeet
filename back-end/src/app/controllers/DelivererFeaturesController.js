@@ -22,7 +22,7 @@ class DelivererFeaturesController {
 
   async update(req, res) {
     const schema = Yup.object().shape({
-      start_date: Yup.date().required(),
+      start_date: Yup.date(),
       signature_id: Yup.number(),
       end_date: Yup.date(),
     });
