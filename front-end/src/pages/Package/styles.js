@@ -106,4 +106,24 @@ export const Content = styled.div`
         background: transparent;
         border: 0;
     }
+
+    a {
+        align-items: center;
+        width: 70px;
+        height: 21px;
+        size: 10;
+        display: flex;
+        color: #999999;
+        margin: 12px;
+        padding: 12px;
+        border-bottom: 1px solid #eeeeee;
+
+        /* padding-top: 5px; */
+    }
+    span.Option {
+        align-items: center;
+        color: #999999;
+        /* padding-top: 5px; */
+        padding-left: 10px;
+    }
 `;

@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import CreateIcon from '@material-ui/icons/Create';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+
 import Popup from 'reactjs-popup';
 
 import { Link } from 'react-router-dom';
@@ -117,9 +121,29 @@ export default function Package() {
                                     position="bottom center"
                                     on="hover"
                                 >
-                                    <Link to={`/editstudent/${item.id}`}>
-                                        editar
+                                    <Link to={`/view/${item.id}`}>
+                                        <VisibilityIcon
+                                            size={10}
+                                            color="#FFF"
+                                        />
+                                        <span className="Option">
+                                            Visualizar
+                                        </span>
                                     </Link>
+
+                                    <Link to={`/editstudent/${item.id}`}>
+                                        <CreateIcon size={10} color="#FFF" />
+                                        <span className="Option">Editar</span>
+                                    </Link>
+
+                                    <Link to={`/delete/${item.id}`}>
+                                        <DeleteForeverIcon
+                                            size={10}
+                                            color="#DE3B3B"
+                                        />
+                                        <span className="Option">Excluir</span>
+                                    </Link>
+
                                     {/* <Card title="Bottom Center" /> */}
                                 </Popup>
 
