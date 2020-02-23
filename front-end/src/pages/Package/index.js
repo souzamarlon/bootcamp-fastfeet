@@ -12,7 +12,7 @@ import Popup from 'reactjs-popup';
 import { Link } from 'react-router-dom';
 import { deepPurple } from '@material-ui/core/colors';
 import DeliveryStatus from '~/components/DeliveryStatus';
-import { Container, Title, Button, Content, Search, Avatar } from './styles';
+import { Container, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
 
 export default function Package() {

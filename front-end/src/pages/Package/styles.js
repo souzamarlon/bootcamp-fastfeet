@@ -91,7 +91,7 @@ export const Content = styled.div`
         font-weight: bold;
         padding-left: 17px;
 
-        padding-right: 102px;
+        padding-right: 95px;
         /*
         padding-right: 75px;
         padding-left: 30px; */
