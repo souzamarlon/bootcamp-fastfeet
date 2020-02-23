@@ -5,6 +5,7 @@ import {
     Visibility,
     Create,
     DeleteForever,
+    Add,
 } from '@material-ui/icons';
 
 import Popup from 'reactjs-popup';
@@ -24,9 +25,15 @@ export default function Package() {
                 params: { q: search },
             });
 
-            console.tron.log(response.data);
+            const listPackages = response.data.map(item => ({
+                ...item,
+                index: response.data.indexOf(item) + 0 + 1,
+            }));
 
-            setPackages(response.data);
+            // console.tron.log(response.data);
+
+            // setPackages(listPackages.sort((a, b) => a.index < b.index));
+            setPackages(listPackages);
         }
         searchTool();
     }, []);
@@ -38,9 +45,10 @@ export default function Package() {
 
             const listPackages = response.data.map(item => ({
                 ...item,
-                index: response.data.indexOf(item) + 0 + 1,
+                index: response.data.indexOf(item) + 1,
             }));
-            setPackages(listPackages.sort((a, b) => a.index < b.index));
+            // setPackages(listPackages.sort((a, b) => a.index < b.index));
+            setPackages(listPackages);
         }
 
         listAllPackages();
@@ -64,6 +72,7 @@ export default function Package() {
                     <div>
                         <Link to="/newstudent">
                             <button type="button" onClick={() => {}}>
+                                <Add />
                                 <strong>CADASTRAR</strong>
                             </button>
                         </Link>
@@ -87,7 +96,7 @@ export default function Package() {
                     <tbody>
                         <tr>
                             <td>
-                                <span className="ID">{item.index}</span>
+                                <span className="ID">#{item.index}</span>
                             </td>
                             <td>
                                 <span className="recipient">
