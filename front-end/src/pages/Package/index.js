@@ -11,6 +11,7 @@ import Popup from 'reactjs-popup';
 
 import { Link } from 'react-router-dom';
 import { deepPurple } from '@material-ui/core/colors';
+import DeliveryStatus from '~/components/DeliveryStatus';
 import { Container, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
 
@@ -33,7 +34,7 @@ export default function Package() {
     useEffect(() => {
         async function listStudents() {
             const response = await api.get('packages');
-            console.tron.log(response.data);
+            // console.tron.log(response.data);
 
             setPackages(response.data);
         }
@@ -105,11 +106,7 @@ export default function Package() {
                                 </span>
                             </td>
                             <td>
-                                <span className="status">
-                                    {item.start_date || item.end_date
-                                        ? 'Entregue'
-                                        : 'Pendente'}
-                                </span>
+                                <DeliveryStatus data={item} />
                             </td>
                             <td>
                                 <Popup
@@ -134,7 +131,7 @@ export default function Package() {
                                         </span>
                                     </Link>
 
-                                    <Link to={`/editstudent/${item.id}`}>
+                                    <Link to={`/edit/${item.id}`}>
                                         <Create
                                             fontSize="small"
                                             color="primary"
@@ -150,21 +147,6 @@ export default function Package() {
                                     </Link>
                                 </Popup>
                             </td>
-
-                            {/* <td>
-                                <button type="button" onClick={() => {}}>
-                                    <Link to={`/editstudent/${item.id}`}>
-                                        editar
-                                    </Link>
-                                </button>
-                                <button
-                                    type="button"
-                                    className="delete"
-                                    onClick={() => {}}
-                                >
-                                    apagar
-                                </button>
-                            </td> */}
                         </tr>
                     </tbody>
                 ))}
