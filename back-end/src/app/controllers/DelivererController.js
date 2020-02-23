@@ -10,7 +10,16 @@ class DelivererController {
     const findDeliverer = req.query.q;
 
     if (findDeliverer === null || findDeliverer === undefined) {
-      const delivererData = await Deliverer.findAll();
+      const delivererData = await Deliverer.findAll({
+        attributes: ['id', 'name', 'email'],
+        include: [
+          {
+            model: File,
+            as: 'avatar',
+            attributes: ['name', 'path', 'url'],
+          },
+        ],
+      });
 
       return res.json(delivererData);
     }
@@ -21,6 +30,7 @@ class DelivererController {
           [Op.iLike]: `${findDeliverer}%`,
         },
       },
+      attributes: ['id', 'name', 'email'],
       include: [
         {
           model: File,
