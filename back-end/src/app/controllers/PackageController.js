@@ -78,6 +78,18 @@ class PackageController {
           model: Deliverer,
           as: 'deliveryman',
           attributes: ['id', 'name', 'avatar_id'],
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['id', 'path', 'url'],
+            },
+          ],
+        },
+        {
+          model: File,
+          as: 'signature',
+          attributes: ['id', 'path', 'url'],
         },
       ],
     });
