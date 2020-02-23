@@ -13,60 +13,59 @@ import Popup from 'reactjs-popup';
 
 import { Link } from 'react-router-dom';
 import { deepPurple } from '@material-ui/core/colors';
-import DeliveryStatus from '~/components/DeliveryStatus';
 import { Container, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
 
-export default function Package() {
-    const [packages, setPackages] = useState([]);
+export default function Recipient() {
+    const [recipient, setRecipient] = useState([]);
 
-    const searchProducts = useCallback(({ search }) => {
+    const searchRecipient = useCallback(({ search }) => {
         async function searchTool() {
-            const response = await api.get(`packages`, {
+            const response = await api.get(`recipients`, {
                 params: { q: search },
             });
 
-            const listPackages = response.data.map(item => ({
+            const listRecipient = response.data.map(item => ({
                 ...item,
                 index: response.data.indexOf(item) + 0 + 1,
             }));
 
             // console.tron.log(response.data);
 
-            // setPackages(listPackages.sort((a, b) => a.index < b.index));
-            setPackages(listPackages);
+            // setRecipient(listRecipient.sort((a, b) => a.index < b.index));
+            setRecipient(listRecipient);
         }
         searchTool();
     }, []);
 
     useEffect(() => {
-        async function listAllPackages() {
-            const response = await api.get('packages');
+        async function listAllRecipient() {
+            const response = await api.get('recipients');
             console.tron.log(response.data);
 
-            const listPackages = response.data.map(item => ({
+            const listRecipient = response.data.map(item => ({
                 ...item,
                 index: response.data.indexOf(item) + 1,
             }));
-            // setPackages(listPackages.sort((a, b) => a.index < b.index));
-            setPackages(listPackages);
+            // setRecipient(listRecipient.sort((a, b) => a.index < b.index));
+            setRecipient(listRecipient);
         }
 
-        listAllPackages();
+        listAllRecipient();
     }, []);
     return (
         <>
             <Title>
-                <span>Gerenciando encomendas</span>
+                <span>Gerenciando destinatários</span>
             </Title>
             <Container>
                 <Search>
                     <SearchOutlined size={19} color="disabled" />
-                    <Form onSubmit={searchProducts}>
+                    <Form onSubmit={searchRecipient}>
                         <Input
                             name="search"
                             type="search"
-                            placeholder="Buscar por encomendas"
+                            placeholder="Buscar por destinatários"
                         />
                     </Form>
                 </Search>
@@ -86,52 +85,30 @@ export default function Package() {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Destinatário</th>
-                        <th>Entregador</th>
-                        <th>Cidade</th>
-                        <th>Estado</th>
-                        <th>Status</th>
-                        <th>Ações</th>
+                        <th>Nome</th>
+                        <th>Endereço</th>
+                        <th className="actions">Ações</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    {packages.map(item => (
+                    {recipient.map(item => (
                         <tr>
                             <td>
-                                <span className="id">{`#0${item.index}`}</span>
+                                <span className="id">{`#${item.index}`}</span>
                             </td>
                             <td>
-                                <span className="recipient">
-                                    {item.recipient.name}
+                                <span className="name">{item.name}</span>
+                            </td>
+                            <td>
+                                <span className="Endereço">
+                                    {`${item.street},
+                                        ${item.number},
+                                        ${item.city},
+                                        ${item.state}`}
                                 </span>
                             </td>
-                            <td>
-                                <span className="deliverer">
-                                    <img
-                                        src={
-                                            item.deliveryman.avatar
-                                                ? item.deliveryman.avatar.url
-                                                : 'https://api.adorable.io/avatars/40/abott@adorable.png'
-                                        }
-                                        alt=""
-                                    />
-                                    {item.deliveryman.name}
-                                </span>
-                            </td>
-                            <td>
-                                <span className="city">
-                                    {item.recipient.city}
-                                </span>
-                            </td>
-                            <td>
-                                <span className="state">
-                                    {item.recipient.state}
-                                </span>
-                            </td>
-                            <td>
-                                <DeliveryStatus data={item} />
-                            </td>
-                            <td>
+                            <td className="actions">
                                 <Popup
                                     trigger={
                                         <button
