@@ -8,6 +8,7 @@ import PackageCancelledMail from '../jobs/PackageCancelledMail';
 import Package from '../models/Package';
 import Recipient from '../models/Recipient';
 import Deliverer from '../models/Deliverer';
+import File from '../models/File';
 
 class PackageController {
   async index(req, res) {
@@ -25,6 +26,7 @@ class PackageController {
           'start_date',
           'end_date',
         ],
+
         include: [
           {
             model: Recipient,
@@ -35,6 +37,18 @@ class PackageController {
             model: Deliverer,
             as: 'deliveryman',
             attributes: ['id', 'name', 'avatar_id'],
+            include: [
+              {
+                model: File,
+                as: 'avatar',
+                attributes: ['id', 'path', 'url'],
+              },
+            ],
+          },
+          {
+            model: File,
+            as: 'signature',
+            attributes: ['id', 'path', 'url'],
           },
         ],
       });

@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { Op } from 'sequelize';
 
 import Deliverer from '../models/Deliverer';
+import File from '../models/File';
 
 class DelivererController {
   async index(req, res) {
@@ -20,6 +21,13 @@ class DelivererController {
           [Op.iLike]: `${findDeliverer}%`,
         },
       },
+      include: [
+        {
+          model: File,
+          as: 'avatar',
+          attributes: ['name', 'path', 'url'],
+        },
+      ],
     });
 
     return res.json(delivererName);
