@@ -5,7 +5,6 @@ import { FiberManualRecord } from '@material-ui/icons';
 import { Container } from './styles';
 
 export default function DeliveryStatus({ data }) {
-    console.tron.log(data);
     return (
         <Container>
             <span className="status">

@@ -12,7 +12,7 @@ import Popup from 'reactjs-popup';
 import { Link } from 'react-router-dom';
 import { deepPurple } from '@material-ui/core/colors';
 import DeliveryStatus from '~/components/DeliveryStatus';
-import { Container, Title, Button, Content, Search } from './styles';
+import { Container, Title, Button, Content, Search, Avatar } from './styles';
 import api from '~/services/api';
 
 export default function Package() {
@@ -32,14 +32,18 @@ export default function Package() {
     }, []);
 
     useEffect(() => {
-        async function listStudents() {
+        async function listAllPackages() {
             const response = await api.get('packages');
-            // console.tron.log(response.data);
+            console.tron.log(response.data);
 
-            setPackages(response.data);
+            const listPackages = response.data.map(item => ({
+                ...item,
+                index: response.data.indexOf(item) + 0 + 1,
+            }));
+            setPackages(listPackages.sort((a, b) => a.index < b.index));
         }
 
-        listStudents();
+        listAllPackages();
     }, []);
     return (
         <>
@@ -83,7 +87,7 @@ export default function Package() {
                     <tbody>
                         <tr>
                             <td>
-                                <span className="ID">{item.id}</span>
+                                <span className="ID">{item.index}</span>
                             </td>
                             <td>
                                 <span className="recipient">
@@ -92,6 +96,14 @@ export default function Package() {
                             </td>
                             <td>
                                 <span className="deliverer">
+                                    <img
+                                        src={
+                                            item.deliveryman.avatar
+                                                ? item.deliveryman.avatar.url
+                                                : 'https://api.adorable.io/avatars/50/abott@adorable.png'
+                                        }
+                                        alt=""
+                                    />
                                     {item.deliveryman.name}
                                 </span>
                             </td>

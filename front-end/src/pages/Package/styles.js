@@ -84,14 +84,18 @@ export const Content = styled.div`
 
     thead th {
         max-width: 1200px;
-        /* text-align: left; */
+        text-align: left;
         color: #000;
         font-size: 16px;
         line-height: 19px;
         font-weight: bold;
-        padding-left: 12px;
-        /* margin-right: 12px */
+        padding-left: 17px;
+
         padding-right: 102px;
+        /*
+        padding-right: 75px;
+        padding-left: 30px; */
+
         padding-bottom: 10px;
     }
 
@@ -99,11 +103,12 @@ export const Content = styled.div`
         height: 57px;
         background: #ffff;
         padding: 12px;
+        padding-left: 17px;
         border-bottom: 21px solid #f5f5f5;
         border-radius: 4px;
     }
     span {
-        display: block;
+        /* display: flex; */
         margin-top: 5px;
         font-size: 17px;
         line-height: 20px;
@@ -142,5 +147,19 @@ export const Content = styled.div`
         font-size: 16px;
         letter-spacing: 0;
         padding-bottom: 5px;
+    }
+    span.deliverer {
+        align-items: center;
+        display: flex;
+    }
+
+    img {
+        /* display: flex; */
+        padding-right: 5px;
+        width: 35px;
+        height: 35px;
+        border-radius: 50px;
+        /* border: 3px solid rgba(255, 255, 255, 0.3);
+        background: #eee; */
     }
 `;
