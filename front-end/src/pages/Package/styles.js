@@ -34,14 +34,20 @@ export const Title = styled.div`
 `;
 
 export const Search = styled.div`
+    background: #ffffff;
+    border: 0.5px solid;
+    /* box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); */
+    border-radius: 4px;
+    width: 237px;
+    height: 36px;
+    padding: 0 10px;
+    display: flex;
+    padding-top: 5px;
+
     input {
-        background: #ffffff;
-        border: 0.5px solid;
-        /* box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); */
-        border-radius: 4px;
-        width: 237px;
-        height: 36px;
-        padding: 0 15px;
+        padding-top: 3px;
+        padding-left: 3px;
+        border: 0;
         color: #999999;
 
         &::placeholder {
@@ -55,6 +61,8 @@ export const Button = styled.button`
     border: 0;
     display: flex;
     button {
+        display: flex;
+        justify-content: center;
         height: 36px;
         width: 142px;
         background: #7d40e7;
@@ -68,7 +76,8 @@ export const Button = styled.button`
             background: ${darken(0.03, '#7d40e7')};
         }
         > strong {
-            margin: 2px 0px 0px 15px;
+            /* margin: 2px 0px 0px 15px; */
+            margin: 4px 0px 0px 5px;
         }
     }
 `;

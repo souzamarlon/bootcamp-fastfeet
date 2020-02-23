@@ -6,6 +6,7 @@ import {
     Create,
     DeleteForever,
     Add,
+    SearchOutlined,
 } from '@material-ui/icons';
 
 import Popup from 'reactjs-popup';
@@ -60,6 +61,7 @@ export default function Package() {
             </Title>
             <Container>
                 <Search>
+                    <SearchOutlined size={19} color="disabled" />
                     <Form onSubmit={searchProducts}>
                         <Input
                             name="search"
@@ -72,7 +74,7 @@ export default function Package() {
                     <div>
                         <Link to="/newstudent">
                             <button type="button" onClick={() => {}}>
-                                <Add />
+                                <Add size={19} color="#FFF" />
                                 <strong>CADASTRAR</strong>
                             </button>
                         </Link>
@@ -109,7 +111,7 @@ export default function Package() {
                                         src={
                                             item.deliveryman.avatar
                                                 ? item.deliveryman.avatar.url
-                                                : 'https://api.adorable.io/avatars/50/abott@adorable.png'
+                                                : 'https://api.adorable.io/avatars/40/abott@adorable.png'
                                         }
                                         alt=""
                                     />
