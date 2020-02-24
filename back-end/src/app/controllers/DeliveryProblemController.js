@@ -5,7 +5,12 @@ import DeliveryProblem from '../models/DeliveryProblem';
 class DeliveryProblemController {
   async index(req, res) {
     const delivery_id = req.params.id;
-    const deliveryData = await DeliveryProblem.findOne({
+    if (delivery_id === null || delivery_id === undefined) {
+      const packageData = await DeliveryProblem.findAll();
+
+      return res.json(packageData);
+    }
+    const deliveryData = await DeliveryProblem.findAll({
       where: {
         delivery_id,
       },

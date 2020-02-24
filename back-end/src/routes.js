@@ -38,6 +38,8 @@ routes.get('/deliveryman/:id/deliveries', DelivererFeaturesController.index);
 routes.put('/deliveryman/:id/deliveries', DelivererFeaturesController.update);
 
 routes.get('/delivery/:id/problems', DeliveryProblemController.index);
+routes.get('/delivery/problems', DeliveryProblemController.index);
+
 routes.post('/delivery/:id/problems', DeliveryProblemController.store);
 
 routes.delete('/problem/:id/cancel-delivery', PackageController.delete);
