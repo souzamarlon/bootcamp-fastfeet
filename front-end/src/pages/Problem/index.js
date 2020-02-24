@@ -32,11 +32,10 @@ export default function Problem() {
         listAllProblem();
     }, []);
     return (
-        <>
+        <Container>
             <Title>
                 <span>Problemas na entrega</span>
             </Title>
-            <Container />
 
             <Content>
                 <thead>
@@ -101,6 +100,6 @@ export default function Problem() {
                     ))}
                 </tbody>
             </Content>
-        </>
+        </Container>
     );
 }

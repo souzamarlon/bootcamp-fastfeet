@@ -13,7 +13,7 @@ import Popup from 'reactjs-popup';
 
 import { Link } from 'react-router-dom';
 import { deepPurple } from '@material-ui/core/colors';
-import { Container, Title, Button, Content, Search } from './styles';
+import { Container, Header, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
 
 export default function Deliverer() {
@@ -54,11 +54,11 @@ export default function Deliverer() {
         listAllDeliverer();
     }, []);
     return (
-        <>
+        <Container>
             <Title>
                 <span>Gerenciando entregadores</span>
             </Title>
-            <Container>
+            <Header>
                 <Search>
                     <SearchOutlined size={19} color="disabled" />
                     <Form onSubmit={searchDeliverers}>
@@ -79,7 +79,7 @@ export default function Deliverer() {
                         </Link>
                     </div>
                 </Button>
-            </Container>
+            </Header>
 
             <Content>
                 <thead>
@@ -159,6 +159,6 @@ export default function Deliverer() {
                     ))}
                 </tbody>
             </Content>
-        </>
+        </Container>
     );
 }

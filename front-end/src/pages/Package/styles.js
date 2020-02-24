@@ -98,7 +98,7 @@ export const Content = styled.div`
     max-height: 57px;
     border: 0;
     border-radius: 4px;
-    padding-top: 30px;
+    padding-top: 20px;
 
     thead th {
         width: 1200px;
@@ -107,21 +107,20 @@ export const Content = styled.div`
         font-size: 16px;
         line-height: 19px;
         font-weight: bold;
-        padding-left: 17px;
+        padding-left: 25px;
+        padding-bottom: 10px;
 
-        padding-right: 95px;
+        /* padding-right: 95px; */
         /*
         padding-right: 75px;
         padding-left: 30px; */
-
-        padding-bottom: 10px;
     }
 
     tbody td {
         height: 57px;
         background: #ffff;
         padding: 12px;
-        padding-left: 17px;
+        padding-left: 25px;
         border-bottom: 21px solid #f5f5f5;
         border-radius: 4px;
     }

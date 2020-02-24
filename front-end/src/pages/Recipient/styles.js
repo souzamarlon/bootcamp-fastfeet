@@ -3,24 +3,22 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
+    align-items: center;
+    padding: 0 110px;
+`;
+
+export const Header = styled.div`
     max-height: 36px;
-    max-width: 1200px;
-    margin: 0 auto;
-    /* padding: 0 30px; */
     display: flex;
-    /* margin-top: 100px; */
     align-items: center;
     justify-content: space-between;
-
-    /* align-items: center; */
 `;
 
 export const Title = styled.div`
     max-height: 36px;
-    max-width: 1200px;
-    margin: 24px auto;
     align-items: center;
-    margin-top: 34px;
+    margin-top: 40px;
+    margin-bottom: 43px;
 
     span {
         color: #444444;
@@ -84,23 +82,20 @@ export const Button = styled.button`
 
 export const Content = styled.div`
     width: 100%;
-    width: 1200px;
     max-height: 57px;
-    margin: 0 auto;
     border: 0;
     border-radius: 4px;
-    padding-top: 30px;
+    padding-top: 20px;
 
     thead th {
         width: 1200px;
-        padding-left: 400px;
         color: #000;
         font-size: 16px;
         line-height: 19px;
         font-weight: bold;
         padding: 12px;
         /* padding-top: 30px; */
-        padding-right: 140px;
+        padding-left: 25px;
         text-align: left;
         padding-bottom: 10px;
     }
@@ -110,9 +105,7 @@ export const Content = styled.div`
         border-bottom: 21px solid #f5f5f5;
         height: 57px;
         background: #ffff;
-
-        /* padding-left: 17px; */
-
+        padding-left: 25px;
         border-radius: 4px;
     }
     /* th.actions,

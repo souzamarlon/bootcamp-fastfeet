@@ -3,24 +3,15 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-    max-height: 36px;
-    max-width: 1200px;
-    margin: 0 auto;
-    /* padding: 0 30px; */
-    display: flex;
-    /* margin-top: 100px; */
     align-items: center;
-    justify-content: space-between;
-
-    /* align-items: center; */
+    padding: 0 110px;
 `;
 
 export const Title = styled.div`
     max-height: 36px;
-    max-width: 1200px;
-    margin: 24px auto;
     align-items: center;
-    margin-top: 34px;
+    margin-top: 40px;
+    margin-bottom: 34px;
 
     span {
         color: #444444;
@@ -34,24 +25,22 @@ export const Title = styled.div`
 `;
 
 export const Content = styled.div`
-    /* width: 100%; */
-    width: 1200px;
+    width: 100%;
     max-height: 57px;
-    margin: 0 auto;
     border: 0;
     border-radius: 4px;
-    padding-top: 30px;
+    /* padding-top: 20px; */
 
     thead th {
-        padding-left: 400px;
+        width: 1200px;
         color: #000;
         font-size: 16px;
         line-height: 19px;
         font-weight: bold;
         padding: 12px;
         /* padding-top: 30px; */
-        padding-right: 140px;
         text-align: left;
+        padding-left: 25px;
         padding-bottom: 10px;
     }
 
@@ -60,8 +49,7 @@ export const Content = styled.div`
         border-bottom: 21px solid #f5f5f5;
         height: 57px;
         background: #ffff;
-
-        /* padding-left: 17px; */
+        padding-left: 25px;
 
         border-radius: 4px;
     }
