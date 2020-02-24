@@ -14,7 +14,7 @@ import Popup from 'reactjs-popup';
 import { Link } from 'react-router-dom';
 import { deepPurple } from '@material-ui/core/colors';
 import DeliveryStatus from '~/components/DeliveryStatus';
-import { Container, Title, Button, Content, Search } from './styles';
+import { Container, Header, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
 
 export default function Package() {
@@ -55,11 +55,11 @@ export default function Package() {
         listAllPackages();
     }, []);
     return (
-        <>
+        <Container>
             <Title>
                 <span>Gerenciando encomendas</span>
             </Title>
-            <Container>
+            <Header>
                 <Search>
                     <SearchOutlined size={19} color="disabled" />
                     <Form onSubmit={searchProducts}>
@@ -80,7 +80,7 @@ export default function Package() {
                         </Link>
                     </div>
                 </Button>
-            </Container>
+            </Header>
 
             <Content>
                 <thead>
@@ -147,7 +147,9 @@ export default function Package() {
                                     <Link to={`/view/${item.id}`}>
                                         <Visibility
                                             fontSize="small"
-                                            style={{ color: deepPurple[400] }}
+                                            style={{
+                                                color: deepPurple[400],
+                                            }}
                                         />
                                         <span className="Option">
                                             Visualizar
@@ -174,6 +176,6 @@ export default function Package() {
                     ))}
                 </tbody>
             </Content>
-        </>
+        </Container>
     );
 }

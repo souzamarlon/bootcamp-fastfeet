@@ -92,6 +92,7 @@ export const Content = styled.div`
     padding-top: 30px;
 
     thead th {
+        width: 1200px;
         padding-left: 400px;
         color: #000;
         font-size: 16px;
@@ -114,10 +115,10 @@ export const Content = styled.div`
 
         border-radius: 4px;
     }
-    th.actions,
+    /* th.actions,
     td.actions {
         padding-left: 420px;
-    }
+    } */
 
     span {
         /* display: flex; */

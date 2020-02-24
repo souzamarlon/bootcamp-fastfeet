@@ -3,9 +3,19 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
+    align-items: center;
+    /* background: #ffff; */
+    padding: 0 110px;
+
+    /* box-shadow: 20px 0 20px rgba(0, 0, 0, 0.2); */
+    /* justify-content: space-between; */
+    /* display: flex; */
+`;
+
+export const Header = styled.div`
     max-height: 36px;
-    max-width: 1200px;
-    margin: 0 auto;
+    /* max-width: 1200px; */
+    /* margin: 0 auto; */
     /* padding: 0 30px; */
     display: flex;
     /* margin-top: 100px; */
@@ -17,10 +27,11 @@ export const Container = styled.div`
 
 export const Title = styled.div`
     max-height: 36px;
-    max-width: 1200px;
-    margin: 24px auto;
+    /* max-width: 1200px; */
+    /* margin: 24px auto; */
     align-items: center;
-    margin-top: 34px;
+    margin-top: 40px;
+    margin-bottom: 43px;
 
     span {
         color: #444444;
@@ -84,15 +95,13 @@ export const Button = styled.button`
 
 export const Content = styled.div`
     width: 100%;
-    max-width: 1200px;
     max-height: 57px;
-    margin: 0 auto;
     border: 0;
     border-radius: 4px;
     padding-top: 30px;
 
     thead th {
-        max-width: 1200px;
+        width: 1200px;
         text-align: left;
         color: #000;
         font-size: 16px;

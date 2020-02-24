@@ -8,6 +8,7 @@ import SignIn from '../pages/SignIn';
 import Package from '../pages/Package';
 import Deliverer from '../pages/Deliverer';
 import Recipient from '../pages/Recipient';
+import Problem from '../pages/Problem';
 
 export default function Routes() {
     return (
@@ -16,6 +17,7 @@ export default function Routes() {
             <Route path="/packages" exact component={Package} isPrivate />
             <Route path="/deliverers" exact component={Deliverer} isPrivate />
             <Route path="/recipients" exact component={Recipient} isPrivate />
+            <Route path="/problems" exact component={Problem} isPrivate />
         </Switch>
     );
 }
