@@ -52,6 +52,9 @@ export const Content = styled.div`
         padding-left: 25px;
 
         border-radius: 4px;
+        /* display: table; */
+        /* float: left; */
+        /* margin-right: 10px; */
     }
     th.actions,
     td.actions {
