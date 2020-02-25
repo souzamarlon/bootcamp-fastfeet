@@ -40,9 +40,9 @@ export default function Problem() {
             <Content>
                 <thead>
                     <tr>
-                        <th>Encomenda</th>
-                        <th>Nome</th>
-                        <th className="actions">Ações</th>
+                        <th className="delivery">Encomenda</th>
+                        <th className="name">Problema</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
 
@@ -57,7 +57,7 @@ export default function Problem() {
                                     {item.description}
                                 </span>
                             </td>
-                            <td className="actions">
+                            <td className="name">
                                 <Popup
                                     trigger={
                                         <button

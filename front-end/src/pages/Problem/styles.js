@@ -31,6 +31,16 @@ export const Content = styled.div`
     border-radius: 4px;
     /* padding-top: 20px; */
 
+    th.delivery {
+        padding-right: 100px;
+    }
+    th.name {
+        padding-right: 1200px;
+    }
+    td.name {
+        padding-left: 35px;
+    }
+
     thead th {
         width: 1200px;
         color: #000;
@@ -55,10 +65,6 @@ export const Content = styled.div`
         /* display: table; */
         /* float: left; */
         /* margin-right: 10px; */
-    }
-    th.actions,
-    td.actions {
-        padding-left: 420px;
     }
 
     span {
