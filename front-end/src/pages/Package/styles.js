@@ -124,13 +124,14 @@ export const Content = styled.div`
         }
     }
 
-    button.view {
+    button.actions {
         align-items: center;
-        height: 40px;
+        height: 30px;
         width: 190px;
-        size: 10;
+        border: 0;
         display: flex;
-        padding: 12px;
+        padding: 5px;
+        padding-bottom: 30px;
         border-bottom: 1px solid #eeeeee;
 
         color: #999999;
@@ -143,11 +144,11 @@ export const Content = styled.div`
     a {
         text-align: left;
         align-items: center;
-        width: 100%;
-        size: 10;
+        /* width: 100%; */
+        padding-bottom: 30px;
         display: flex;
     }
-    span.Option {
+    span.options {
         display: flex;
         text-align: left;
         width: 100%;

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import {
     MoreHoriz,
-    Visibility,
     Create,
     DeleteForever,
     Add,
@@ -12,8 +11,10 @@ import {
 import Popup from 'reactjs-popup';
 
 import { Link } from 'react-router-dom';
-import { deepPurple } from '@material-ui/core/colors';
+
 import DeliveryStatus from '~/components/DeliveryStatus';
+import ViewPackageInfo from '~/components/ViewPackageInfo';
+
 import { Container, Header, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
 
@@ -143,35 +144,29 @@ export default function Package() {
                                     }
                                     position="bottom center"
                                     on="hover"
+                                    className="popup"
                                 >
-                                    <button type="button" className="view">
-                                        <Visibility
-                                            fontSize="small"
-                                            style={{
-                                                color: deepPurple[400],
-                                            }}
-                                        />
-                                        <span className="Option">
-                                            Visualizar
-                                        </span>
+                                    <button onClick={() => {}} type="button">
+                                        <ViewPackageInfo data={item} />
                                     </button>
-                                    <button type="button" className="view">
+
+                                    <button type="button" className="actions">
                                         <Link to={`/edit/${item.id}`}>
                                             <Create
                                                 fontSize="small"
                                                 color="primary"
                                             />
-                                            <span className="Option">
+                                            <span className="options">
                                                 Editar
                                             </span>
                                         </Link>
                                     </button>
-                                    <button type="button" className="view">
+                                    <button type="button" className="actions">
                                         <DeleteForever
                                             fontSize="small"
                                             color="secondary"
                                         />
-                                        <span className="Option">Excluir</span>
+                                        <span className="options">Excluir</span>
                                     </button>
                                 </Popup>
                             </td>
