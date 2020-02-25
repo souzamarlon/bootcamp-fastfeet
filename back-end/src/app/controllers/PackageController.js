@@ -31,7 +31,15 @@ class PackageController {
           {
             model: Recipient,
             as: 'recipient',
-            attributes: ['id', 'name', 'street', 'city', 'state', 'zipcode'],
+            attributes: [
+              'id',
+              'name',
+              'street',
+              'number',
+              'city',
+              'state',
+              'zipcode',
+            ],
           },
           {
             model: Deliverer,
