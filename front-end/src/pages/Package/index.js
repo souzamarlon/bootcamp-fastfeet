@@ -144,7 +144,7 @@ export default function Package() {
                                     position="bottom center"
                                     on="hover"
                                 >
-                                    <Link to={`/view/${item.id}`}>
+                                    <button type="button" className="view">
                                         <Visibility
                                             fontSize="small"
                                             style={{
@@ -154,22 +154,25 @@ export default function Package() {
                                         <span className="Option">
                                             Visualizar
                                         </span>
-                                    </Link>
-
-                                    <Link to={`/edit/${item.id}`}>
-                                        <Create
-                                            fontSize="small"
-                                            color="primary"
-                                        />
-                                        <span className="Option">Editar</span>
-                                    </Link>
-                                    <Link to={`/delete/${item.id}`}>
+                                    </button>
+                                    <button type="button" className="view">
+                                        <Link to={`/edit/${item.id}`}>
+                                            <Create
+                                                fontSize="small"
+                                                color="primary"
+                                            />
+                                            <span className="Option">
+                                                Editar
+                                            </span>
+                                        </Link>
+                                    </button>
+                                    <button type="button" className="view">
                                         <DeleteForever
                                             fontSize="small"
                                             color="secondary"
                                         />
                                         <span className="Option">Excluir</span>
-                                    </Link>
+                                    </button>
                                 </Popup>
                             </td>
                         </tr>

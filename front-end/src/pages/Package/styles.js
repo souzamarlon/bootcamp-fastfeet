@@ -6,29 +6,17 @@ export const Container = styled.div`
     align-items: center;
     /* background: #ffff; */
     padding: 0 110px;
-
-    /* box-shadow: 20px 0 20px rgba(0, 0, 0, 0.2); */
-    /* justify-content: space-between; */
-    /* display: flex; */
 `;
 
 export const Header = styled.div`
     max-height: 36px;
-    /* max-width: 1200px; */
-    /* margin: 0 auto; */
-    /* padding: 0 30px; */
     display: flex;
-    /* margin-top: 100px; */
     align-items: center;
     justify-content: space-between;
-
-    /* align-items: center; */
 `;
 
 export const Title = styled.div`
     max-height: 36px;
-    /* max-width: 1200px; */
-    /* margin: 24px auto; */
     align-items: center;
     margin-top: 40px;
     margin-bottom: 43px;
@@ -109,11 +97,6 @@ export const Content = styled.div`
         font-weight: bold;
         padding-left: 25px;
         padding-bottom: 10px;
-
-        /* padding-right: 95px; */
-        /*
-        padding-right: 75px;
-        padding-left: 30px; */
     }
 
     tbody td {
@@ -141,29 +124,36 @@ export const Content = styled.div`
         }
     }
 
-    a {
+    button.view {
         align-items: center;
-        height: 21px;
+        height: 40px;
+        width: 190px;
         size: 10;
         display: flex;
-        color: #999999;
         padding: 12px;
         border-bottom: 1px solid #eeeeee;
+
+        color: #999999;
         transition: background 0.3s;
         &:hover {
             background: ${darken(0.03, '#ffffff')};
         }
+    }
 
-        /* padding-top: 5px; */
+    a {
+        text-align: left;
+        align-items: center;
+        width: 100%;
+        size: 10;
+        display: flex;
     }
     span.Option {
+        display: flex;
         text-align: left;
+        width: 100%;
         color: #999999;
-        /* padding-top: 5px; */
         padding-left: 10px;
         font-size: 16px;
-        letter-spacing: 0;
-        padding-bottom: 5px;
     }
     span.deliverer {
         align-items: center;
