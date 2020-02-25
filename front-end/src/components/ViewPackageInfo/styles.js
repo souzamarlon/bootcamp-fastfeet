@@ -3,10 +3,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
     div {
-        /* border-bottom: 1px solid #eeeeee; */
-        /* height: 10px; */
-
-        > button {
+        button {
             align-items: center;
             margin-top: 0;
             width: 190px;

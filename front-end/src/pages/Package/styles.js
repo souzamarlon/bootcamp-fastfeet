@@ -115,12 +115,18 @@ export const Content = styled.div`
     }
 
     button {
-        padding-top: 12px;
         background: transparent;
-        border: 0;
-        transition: background 0.3s;
-        &:hover {
-            background: ${darken(0.03, '#FFFFFF')};
+        padding-top: 5px;
+        border: 0px;
+
+        div.iconMoreHoriz {
+            padding-top: 5px;
+
+            border-radius: 50%;
+            transition: background 0.15s;
+            &:hover {
+                background: ${darken(0.1, '#ffff')};
+            }
         }
     }
 

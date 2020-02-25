@@ -29,9 +29,10 @@ export default function ViewPackageInfo({ data }) {
                         <a href hclassName="close" onClick={close}>
                             &times;
                         </a>
-                        <div className="header">PERGUNTA DO ALUNO</div>
+                        <div className="header">Informações da encomenda</div>
+                        <div className="header">Datas</div>
 
-                        <div className="resp">SUA RESPOSTA</div>
+                        <div className="resp">Assinatura do destinatário</div>
                     </div>
                 )}
             </Popup>

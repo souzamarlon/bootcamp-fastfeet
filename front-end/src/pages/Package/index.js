@@ -139,11 +139,13 @@ export default function Package() {
                                             type="button"
                                             className="button"
                                         >
-                                            <MoreHoriz />
+                                            <div className="iconMoreHoriz">
+                                                <MoreHoriz />
+                                            </div>
                                         </button>
                                     }
                                     position="bottom center"
-                                    on="hover"
+                                    // on="hover"
                                     className="popup"
                                 >
                                     <button onClick={() => {}} type="button">
