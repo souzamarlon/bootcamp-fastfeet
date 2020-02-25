@@ -35,7 +35,7 @@ export const Content = styled.div`
         padding-right: 100px;
     }
     th.name {
-        padding-right: 1200px;
+        padding-right: 1250px;
     }
     td.name {
         padding-left: 35px;
