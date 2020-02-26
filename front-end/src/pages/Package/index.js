@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Form, Input } from '@rocketseat/unform';
+import { format, parseISO } from 'date-fns';
+import pt from 'date-fns/locale/pt';
 import {
     MoreHoriz,
     Create,
@@ -43,16 +45,21 @@ export default function Package() {
     useEffect(() => {
         async function listAllPackages() {
             const response = await api.get('packages');
-            console.tron.log(response.data);
 
             const listPackages = response.data.map(item => ({
                 ...item,
+                // start_date: format(parseISO(item.start_date), 'MM/dd/yyyy', {
+                //     locale: pt,
+                // }),
+                // end_date: format(parseISO(item.end_date), 'MM/dd/yyyy', {
+                //     locale: pt,
+                // }),
                 index: response.data.indexOf(item) + 1,
             }));
             // setPackages(listPackages.sort((a, b) => a.index < b.index));
             setPackages(listPackages);
+            console.tron.log(listPackages);
         }
-
         listAllPackages();
     }, []);
     return (

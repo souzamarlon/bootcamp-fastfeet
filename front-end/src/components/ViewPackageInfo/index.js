@@ -1,6 +1,6 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
-import { format, parseISO } from 'date-fns';
+import { lightFormat, format, parseISO, parse } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import { Visibility } from '@material-ui/icons';
 import { deepPurple } from '@material-ui/core/colors';
@@ -8,17 +8,54 @@ import { deepPurple } from '@material-ui/core/colors';
 import { Container, Dates, Content, Signatures } from './styles';
 
 export default function ViewPackageInfo({ data }) {
-    const start_date = useMemo(() => {
-        return format(parseISO(data.start_date), "d 'de' MMMM 'de' yyyy", {
-            // locale: pt,
-        });
-    }, [data.start_date]);
+    const [date, setDate] = useState([data]);
 
-    const end_date = useMemo(() => {
-        return format(parseISO(data.end_date), "d 'de' MMMM 'de' yyyy", {
-            // locale: pt,
+    // useEffect(() => {
+    //     async function listAllPackages() {
+    //         if (data.start_date && data.end_date != null) {
+    //             const start_date = format(
+    //                 parseISO(data.start_date),
+    //                 "d 'de' MMMM",
+    //                 {
+    //                     locale: pt,
+    //                 }
+    //             );
+
+    //             const end_date = format(
+    //                 parseISO(data.end_date),
+    //                 "d 'de' MMMM",
+    //                 {
+    //                     locale: pt,
+    //                 }
+    //             );
+    //             setDate(start_date);
+    //         }
+    //     }
+
+    //     listAllPackages();
+    // }, []);
+
+    // console.tron.log(date);
+
+    if (data.start_date != 'null') {
+        const start_date = format(parseISO(data.start_date), "d 'de' MMMM", {
+            locale: pt,
         });
-    }, [data.end_date]);
+
+        const dateStart = date.map(item => ({
+            ...item,
+            start_date,
+        }));
+        console.tron.log(start_date);
+        setDate(dateStart);
+    }
+
+    if (data.end_date != null) {
+        const end_date = format(parseISO(data.end_date), "d 'de' MMMM", {
+            locale: pt,
+        });
+        console.tron.log(end_date);
+    }
 
     return (
         <>
@@ -62,13 +99,13 @@ export default function ViewPackageInfo({ data }) {
                                 <div>
                                     <span className="status">Retirada:</span>
                                     <span className="date">
-                                        {start_date || 'Sem data'}
+                                        {data.start_date || 'Sem data'}
                                     </span>
                                 </div>
                                 <div>
                                     <span className="status">Entrega:</span>
                                     <span className="date">
-                                        {end_date || 'Sem data'}
+                                        {data.end_date || 'Sem data'}
                                     </span>
                                 </div>
                             </Dates>
