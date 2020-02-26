@@ -115,6 +115,7 @@ export default function Package() {
                                                 : 'https://api.adorable.io/avatars/40/abott@adorable.png'
                                         }
                                         alt=""
+                                        className="avatar"
                                     />
                                     {item.deliveryman.name}
                                 </span>
@@ -146,7 +147,6 @@ export default function Package() {
                                     }
                                     position="bottom center"
                                     // on="hover"
-                                    className="popup"
                                 >
                                     <button onClick={() => {}} type="button">
                                         <ViewPackageInfo data={item} />

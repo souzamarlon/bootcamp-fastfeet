@@ -167,7 +167,7 @@ export const Content = styled.div`
         display: flex;
     }
 
-    img {
+    img.avatar {
         /* display: flex; */
         padding-right: 5px;
         width: 35px;
