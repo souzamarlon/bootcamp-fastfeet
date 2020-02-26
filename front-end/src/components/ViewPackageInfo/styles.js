@@ -25,9 +25,6 @@ export const Container = styled.div`
         padding-left: 10px;
         font-size: 16px;
     }
-    div.modal {
-        margin-top: 0 auto;
-    }
 `;
 
 export const Content = styled.div`
@@ -92,9 +89,13 @@ export const Dates = styled.div`
 
 export const Signatures = styled.div`
     img.imgName {
+        /* align-content: center; */
+        justify-content: center;
         width: 234px;
-        height: 36px;
+        height: 56px;
         border: 0;
+        padding-top: 23px;
+        padding-left: 108px;
         border-radius: 10px;
     }
     /* width: 234px;

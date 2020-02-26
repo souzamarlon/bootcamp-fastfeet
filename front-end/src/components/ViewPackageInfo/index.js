@@ -60,6 +60,7 @@ export default function ViewPackageInfo({ data }) {
                             </div>
                         }
                         modal
+                        closeOnDocumentClick
                     >
                         {/* {close => (
                     <div className="modal">
