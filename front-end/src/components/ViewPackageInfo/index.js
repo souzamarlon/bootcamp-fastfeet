@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
-import { lightFormat, format, parseISO, parse } from 'date-fns';
+import { format, parseISO, isValid } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import { Visibility } from '@material-ui/icons';
 import { deepPurple } from '@material-ui/core/colors';
@@ -8,54 +8,38 @@ import { deepPurple } from '@material-ui/core/colors';
 import { Container, Dates, Content, Signatures } from './styles';
 
 export default function ViewPackageInfo({ data }) {
-    const [date, setDate] = useState([data]);
+    const [startDate, setStartDate] = useState({ start_date: data.start_date });
+    const [endDate, setEndDate] = useState({ end_date: data.end_date });
 
-    // useEffect(() => {
-    //     async function listAllPackages() {
-    //         if (data.start_date && data.end_date != null) {
-    //             const start_date = format(
-    //                 parseISO(data.start_date),
-    //                 "d 'de' MMMM",
-    //                 {
-    //                     locale: pt,
-    //                 }
-    //             );
+    useEffect(() => {
+        async function validStartDate() {
+            if (isValid(parseISO(data.start_date))) {
+                setStartDate({
+                    ...startDate,
+                    start_date: format(
+                        parseISO(data.start_date),
+                        "d 'de' MMMM",
+                        {
+                            locale: pt,
+                        }
+                    ),
+                });
+            }
+            if (isValid(parseISO(data.end_date))) {
+                setEndDate({
+                    ...endDate,
+                    end_date: format(parseISO(data.end_date), "d 'de' MMMM", {
+                        locale: pt,
+                    }),
+                });
+            }
+        }
+        validStartDate();
+        // eslint-disable-next-line
+    }, [data]);
 
-    //             const end_date = format(
-    //                 parseISO(data.end_date),
-    //                 "d 'de' MMMM",
-    //                 {
-    //                     locale: pt,
-    //                 }
-    //             );
-    //             setDate(start_date);
-    //         }
-    //     }
-
-    //     listAllPackages();
-    // }, []);
-
-    // console.tron.log(date);
-
-    if (data.start_date != 'null') {
-        const start_date = format(parseISO(data.start_date), "d 'de' MMMM", {
-            locale: pt,
-        });
-
-        const dateStart = date.map(item => ({
-            ...item,
-            start_date,
-        }));
-        console.tron.log(start_date);
-        setDate(dateStart);
-    }
-
-    if (data.end_date != null) {
-        const end_date = format(parseISO(data.end_date), "d 'de' MMMM", {
-            locale: pt,
-        });
-        console.tron.log(end_date);
-    }
+    console.tron.log(startDate);
+    console.tron.log(endDate);
 
     return (
         <>
@@ -99,13 +83,17 @@ export default function ViewPackageInfo({ data }) {
                                 <div>
                                     <span className="status">Retirada:</span>
                                     <span className="date">
-                                        {data.start_date || 'Sem data'}
+                                        {startDate.start_date
+                                            ? startDate.start_date
+                                            : 'Sem data'}
                                     </span>
                                 </div>
                                 <div>
                                     <span className="status">Entrega:</span>
                                     <span className="date">
-                                        {data.end_date || 'Sem data'}
+                                        {endDate.end_date
+                                            ? endDate.end_date
+                                            : 'Sem data'}
                                     </span>
                                 </div>
                             </Dates>
