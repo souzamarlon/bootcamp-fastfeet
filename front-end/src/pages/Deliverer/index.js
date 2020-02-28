@@ -71,7 +71,7 @@ export default function Deliverer() {
                 </Search>
                 <Button>
                     <div>
-                        <Link to="/newstudent">
+                        <Link to="/newdeliverer">
                             <button type="button" onClick={() => {}}>
                                 <Add size={19} color="#FFF" />
                                 <strong>CADASTRAR</strong>
