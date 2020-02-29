@@ -71,7 +71,7 @@ export default function Recipient() {
                 </Search>
                 <Button>
                     <div>
-                        <Link to="/newstudent">
+                        <Link to="/newrecipient">
                             <button type="button" onClick={() => {}}>
                                 <Add size={19} color="#FFF" />
                                 <strong>CADASTRAR</strong>

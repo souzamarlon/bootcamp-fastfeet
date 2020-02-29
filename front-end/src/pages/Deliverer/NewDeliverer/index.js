@@ -3,16 +3,24 @@ import React from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 import { Done, KeyboardArrowLeft } from '@material-ui/icons';
+import { toast } from 'react-toastify';
 import { Container, Content, Title, Button, FormInput } from './styles';
 import AvatarInput from './AvatarInput';
 import history from '~/services/history';
 import api from '~/services/api';
 
-export default function New() {
+export default function NewDeliverer() {
     async function handleSubmit(data) {
-        await api.post('deliverers', data);
+        try {
+            await api.post('deliverers', data);
+            toast.success('Sucesso ao criar o cadastro!');
 
-        history.push('/deliverers');
+            history.push('/deliverers');
+        } catch (err) {
+            toast.error('Erro ao criar o cadastro!');
+            // console.tron.log(err);
+            // console.tron.log(data);
+        }
     }
 
     return (

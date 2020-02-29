@@ -10,6 +10,8 @@ import Deliverer from '../pages/Deliverer';
 import NewDeliverer from '../pages/Deliverer/NewDeliverer';
 
 import Recipient from '../pages/Recipient';
+import NewRecipient from '../pages/Recipient/NewRecipient';
+
 import Problem from '../pages/Problem';
 
 export default function Routes() {
@@ -25,6 +27,12 @@ export default function Routes() {
                 isPrivate
             />
             <Route path="/recipients" exact component={Recipient} isPrivate />
+            <Route
+                path="/newrecipient"
+                exact
+                component={NewRecipient}
+                isPrivate
+            />
             <Route path="/problems" exact component={Problem} isPrivate />
         </Switch>
     );
