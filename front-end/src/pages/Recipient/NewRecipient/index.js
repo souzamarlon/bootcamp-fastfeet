@@ -12,14 +12,14 @@ import api from '~/services/api';
 export default function NewRecipient() {
     async function handleSubmit(data) {
         try {
-            await api.post('deliverers', data);
+            await api.post('recipients', data);
             toast.success('Sucesso ao criar o cadastro!');
 
-            history.push('/deliverers');
+            history.push('/recipients');
         } catch (err) {
             toast.error('Erro ao criar o cadastro!');
-            // console.tron.log(err);
-            // console.tron.log(data);
+            console.tron.log(err);
+            console.tron.log(data);
         }
     }
 
@@ -32,7 +32,7 @@ export default function NewRecipient() {
                     </Title>
                     <Button>
                         <div>
-                            <Link to="/deliverers">
+                            <Link to="/recipients">
                                 <button type="button" onClick={() => {}}>
                                     <KeyboardArrowLeft />
                                     <strong>VOLTAR</strong>
@@ -70,14 +70,14 @@ export default function NewRecipient() {
                                 <td>
                                     <Input
                                         className="address"
-                                        name="address"
+                                        name="number"
                                         placeholder="Número da Rua..."
                                     />
                                 </td>
                                 <td>
                                     <Input
                                         className="address"
-                                        name="address"
+                                        name="complement"
                                         placeholder="Complemento..."
                                     />
                                 </td>
@@ -94,14 +94,14 @@ export default function NewRecipient() {
                             <td>
                                 <Input
                                     className="cityState"
-                                    name="name"
+                                    name="state"
                                     placeholder="Cidade..."
                                 />
                             </td>
                             <td>
                                 <Input
                                     className="cityState"
-                                    name="state"
+                                    name="city"
                                     placeholder="Estado..."
                                 />
                             </td>
