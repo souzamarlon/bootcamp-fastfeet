@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import { useField } from '@rocketseat/unform';
+import InsertPhotoIcon from '@material-ui/icons/InsertPhoto';
 import api from '~/services/api';
 
 import { Container } from './styles';
@@ -39,13 +40,18 @@ export default function AvatarInput() {
     return (
         <Container>
             <label htmlFor="avatar">
-                <img
-                    src={
-                        preview ||
-                        'https://api.adorable.io/avatars/50/abott@adorable.png'
-                    }
-                    alt=""
-                />
+                {preview ? (
+                    <img src={preview} alt="" />
+                ) : (
+                    <div>
+                        <InsertPhotoIcon
+                            className="photoIcon"
+                            color="disabled"
+                            style={{ fontSize: 80 }}
+                        />
+                        <span className="addPicture">Adicionar foto</span>
+                    </div>
+                )}
                 <input
                     type="file"
                     id="avatar"

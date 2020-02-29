@@ -161,7 +161,7 @@ export const Content = styled.div`
         padding-right: 5px;
         width: 35px;
         height: 35px;
-        border-radius: 50px;
+        border-radius: 100%;
         /* border: 3px solid rgba(255, 255, 255, 0.3);
         background: #eee; */
     }
