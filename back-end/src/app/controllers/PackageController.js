@@ -25,6 +25,7 @@ class PackageController {
           'canceled_at',
           'start_date',
           'end_date',
+          'created_at',
         ],
 
         include: [
@@ -75,6 +76,7 @@ class PackageController {
         'canceled_at',
         'start_date',
         'end_date',
+        'created_at',
       ],
       include: [
         {
