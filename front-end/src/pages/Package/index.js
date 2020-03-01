@@ -47,20 +47,17 @@ export default function Package() {
 
             const listPackages = response.data.map(item => ({
                 ...item,
-                // start_date: format(parseISO(item.start_date), 'MM/dd/yyyy', {
-                //     locale: pt,
-                // }),
-                // end_date: format(parseISO(item.end_date), 'MM/dd/yyyy', {
-                //     locale: pt,
-                // }),
-                index: response.data.indexOf(item) + 1,
+                index: response.data.indexOf(item),
             }));
-            // setPackages(listPackages.sort((a, b) => a.index < b.index));
-            setPackages(listPackages);
-            console.tron.log(listPackages);
+            setPackages(
+                listPackages.sort((a, b) => a.created_at < b.created_at)
+            );
+            // setPackages(listPackages);
         }
         listAllPackages();
     }, []);
+    console.tron.log(packages);
+
     return (
         <Container>
             <Title>
@@ -105,7 +102,7 @@ export default function Package() {
                     {packages.map(item => (
                         <tr>
                             <td>
-                                <span className="id">{`#0${item.index}`}</span>
+                                <span className="id">{`#0${item.id}`}</span>
                             </td>
                             <td>
                                 <span className="recipient">

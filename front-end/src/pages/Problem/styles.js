@@ -62,9 +62,6 @@ export const Content = styled.div`
         padding-left: 25px;
 
         border-radius: 4px;
-        /* display: table; */
-        /* float: left; */
-        /* margin-right: 10px; */
     }
 
     span {
@@ -100,12 +97,13 @@ export const Content = styled.div`
     button.actions {
         align-items: center;
         height: 30px;
-        width: 190px;
+        width: 193px;
         border: 0;
         display: flex;
+        text-align: left;
         padding: 5px;
-        padding-bottom: 30px;
-        border-bottom: 1px solid #eeeeee;
+        /* padding-bottom: 30px; */
+        /* border-bottom: 1px solid #eeeeee; */
 
         color: #999999;
         transition: background 0.3s;
@@ -123,8 +121,10 @@ export const Content = styled.div`
         color: #999999;
     }
     span.options {
-        display: flex;
+        /* display: flex; */
         text-align: left;
+        align-items: center;
+
         /* width: 100%; */
         color: #999999;
         padding-left: 10px;

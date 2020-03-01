@@ -25,10 +25,6 @@ export const Title = styled.div`
         width: 100%;
         height: 32px;
         text-align: left;
-
-        /* margin-right: 590px; */
-
-        /* margin: 0px 200px 0px 0px; */
     }
 `;
 
@@ -90,8 +86,6 @@ export const Content = styled.div`
     border-radius: 4px;
 
     background: #ffffff;
-    /* margin: 50px auto; */
-    /* margin-left: 269px; */
 `;
 
 export const FormInput = styled.div`

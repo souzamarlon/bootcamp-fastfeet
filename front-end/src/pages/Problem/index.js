@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { MoreHoriz, DeleteForever } from '@material-ui/icons';
 
 import Popup from 'reactjs-popup';
+import { toast } from 'react-toastify';
 
-import { Link } from 'react-router-dom';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Container, Title, Content } from './styles';
 import ViewProblemDetail from '~/components/ViewProblemDetail';
 
 import api from '~/services/api';
+import history from '~/services/history';
 
 export default function Problem() {
     const [problem, setProblem] = useState([]);
@@ -28,6 +29,22 @@ export default function Problem() {
 
         listAllProblem();
     }, []);
+
+    async function handleCancel(id) {
+        console.tron.log(id);
+        try {
+            // eslint-disable-next-line no-alert
+            if (window.confirm('Você realmente quer deletar?')) {
+                await api.delete(`problem/${id}/cancel-delivery`);
+
+                toast.success('Sucesso ao cancelar a encomenda!');
+                history.push('/');
+            }
+        } catch (err) {
+            toast.error('Erro ao cancelar a encomenda!');
+        }
+    }
+
     return (
         <Container>
             <Title>
@@ -75,16 +92,20 @@ export default function Problem() {
                                     <button onClick={() => {}} type="button">
                                         <ViewProblemDetail data={item} />
                                     </button>
-                                    <button type="button" className="actions">
-                                        <Link to={`/delete/${item.id}`}>
-                                            <DeleteForever
-                                                fontSize="small"
-                                                color="secondary"
-                                            />
-                                            <span className="options">
-                                                Cancelar encomenda
-                                            </span>
-                                        </Link>
+                                    <button
+                                        type="button"
+                                        className="actions"
+                                        onClick={() =>
+                                            handleCancel(item.delivery_id)
+                                        }
+                                    >
+                                        <DeleteForever
+                                            fontSize="small"
+                                            color="secondary"
+                                        />
+                                        <span className="options">
+                                            Cancelar encomenda
+                                        </span>
                                     </button>
                                 </Popup>
                             </td>

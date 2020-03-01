@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Popup from 'reactjs-popup';
-import { format, parseISO, isValid } from 'date-fns';
-import pt from 'date-fns/locale/pt';
+
 import { Visibility } from '@material-ui/icons';
 import { deepPurple } from '@material-ui/core/colors';
 
-import { Container, Dates, Content, Signatures } from './styles';
+import { Container, Content } from './styles';
 
 export default function ViewProblemDetail({ data }) {
     return (
