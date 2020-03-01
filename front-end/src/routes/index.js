@@ -6,6 +6,8 @@ import Route from './Route';
 
 import SignIn from '../pages/SignIn';
 import Package from '../pages/Package';
+import NewPackage from '../pages/Package/NewPackage';
+
 import Deliverer from '../pages/Deliverer';
 import NewDeliverer from '../pages/Deliverer/NewDeliverer';
 
@@ -18,7 +20,10 @@ export default function Routes() {
     return (
         <Switch>
             <Route path="/" exact component={SignIn} />
+
             <Route path="/packages" exact component={Package} isPrivate />
+            <Route path="/newpackages" exact component={NewPackage} isPrivate />
+
             <Route path="/deliverers" exact component={Deliverer} isPrivate />
             <Route
                 path="/newdeliverer"
@@ -33,6 +38,7 @@ export default function Routes() {
                 component={NewRecipient}
                 isPrivate
             />
+
             <Route path="/problems" exact component={Problem} isPrivate />
         </Switch>
     );

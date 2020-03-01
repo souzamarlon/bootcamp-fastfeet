@@ -76,7 +76,7 @@ export default function Package() {
                 </Search>
                 <Button>
                     <div>
-                        <Link to="/newstudent">
+                        <Link to="/newpackages">
                             <button type="button" onClick={() => {}}>
                                 <Add size={19} color="#FFF" />
                                 <strong>CADASTRAR</strong>
