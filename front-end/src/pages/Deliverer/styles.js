@@ -151,18 +151,13 @@ export const Content = styled.div`
         letter-spacing: 0;
         padding-bottom: 5px;
     }
-    span.picture {
-        align-items: center;
-        display: flex;
-    }
 
     img {
-        /* display: flex; */
         padding-right: 5px;
         width: 35px;
         height: 35px;
         border-radius: 100%;
-        /* border: 3px solid rgba(255, 255, 255, 0.3);
-        background: #eee; */
+        align-items: center;
+        display: flex;
     }
 `;

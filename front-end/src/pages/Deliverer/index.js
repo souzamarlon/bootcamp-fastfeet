@@ -99,16 +99,14 @@ export default function Deliverer() {
                                 <span className="id">{`#${item.index}`}</span>
                             </td>
                             <td>
-                                <span className="picture">
-                                    <img
-                                        src={
-                                            item.avatar
-                                                ? item.avatar.url
-                                                : 'https://api.adorable.io/avatars/40/abott@adorable.png'
-                                        }
-                                        alt=""
-                                    />
-                                </span>
+                                <img
+                                    src={
+                                        item.avatar
+                                            ? item.avatar.url
+                                            : 'https://api.adorable.io/avatars/40/abott@adorable.png'
+                                    }
+                                    alt=""
+                                />
                             </td>
                             <td>
                                 <span className="name">{item.name}</span>

@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import {
-    MoreHoriz,
-    Visibility,
-    Create,
-    DeleteForever,
-} from '@material-ui/icons';
+import { MoreHoriz, DeleteForever } from '@material-ui/icons';
 
 import Popup from 'reactjs-popup';
 
 import { Link } from 'react-router-dom';
-import { deepPurple } from '@material-ui/core/colors';
+import LinesEllipsis from 'react-lines-ellipsis';
 import { Container, Title, Content } from './styles';
+import ViewProblemDetail from '~/components/ViewProblemDetail';
+
 import api from '~/services/api';
 
 export default function Problem() {
@@ -53,9 +50,14 @@ export default function Problem() {
                                 <span className="package">{`#${item.delivery_id}`}</span>
                             </td>
                             <td>
-                                <span className="description">
-                                    {item.description}
-                                </span>
+                                <LinesEllipsis
+                                    text={item.description}
+                                    maxLine="1"
+                                    ellipsis="..."
+                                    trimRight
+                                    basedOn="letters"
+                                    className="max-lines"
+                                />
                             </td>
                             <td className="name">
                                 <Popup
@@ -70,30 +72,20 @@ export default function Problem() {
                                     position="bottom center"
                                     on="hover"
                                 >
-                                    <Link to={`/view/${item.id}`}>
-                                        <Visibility
-                                            fontSize="small"
-                                            style={{ color: deepPurple[400] }}
-                                        />
-                                        <span className="Option">
-                                            Visualizar
-                                        </span>
-                                    </Link>
-
-                                    <Link to={`/edit/${item.id}`}>
-                                        <Create
-                                            fontSize="small"
-                                            color="primary"
-                                        />
-                                        <span className="Option">Editar</span>
-                                    </Link>
-                                    <Link to={`/delete/${item.id}`}>
-                                        <DeleteForever
-                                            fontSize="small"
-                                            color="secondary"
-                                        />
-                                        <span className="Option">Excluir</span>
-                                    </Link>
+                                    <button onClick={() => {}} type="button">
+                                        <ViewProblemDetail data={item} />
+                                    </button>
+                                    <button type="button" className="actions">
+                                        <Link to={`/delete/${item.id}`}>
+                                            <DeleteForever
+                                                fontSize="small"
+                                                color="secondary"
+                                            />
+                                            <span className="options">
+                                                Cancelar encomenda
+                                            </span>
+                                        </Link>
+                                    </button>
                                 </Popup>
                             </td>
                         </tr>

@@ -154,10 +154,6 @@ export const Content = styled.div`
         letter-spacing: 0;
         padding-bottom: 5px;
     }
-    span.picture {
-        align-items: center;
-        display: flex;
-    }
 
     img {
         /* display: flex; */
