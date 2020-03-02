@@ -16,7 +16,7 @@ class DelivererController {
           {
             model: File,
             as: 'avatar',
-            attributes: ['name', 'path', 'url'],
+            attributes: ['id', 'name', 'path', 'url'],
           },
         ],
       });
@@ -35,7 +35,7 @@ class DelivererController {
         {
           model: File,
           as: 'avatar',
-          attributes: ['name', 'path', 'url'],
+          attributes: ['id', 'name', 'path', 'url'],
         },
       ],
     });
