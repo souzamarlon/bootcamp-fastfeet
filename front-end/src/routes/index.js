@@ -7,6 +7,7 @@ import Route from './Route';
 import SignIn from '../pages/SignIn';
 import Package from '../pages/Package';
 import NewPackage from '../pages/Package/NewPackage';
+import EditPackage from '../pages/Package/EditPackage';
 
 import Deliverer from '../pages/Deliverer';
 import NewDeliverer from '../pages/Deliverer/NewDeliverer';
@@ -25,6 +26,12 @@ export default function Routes() {
 
             <Route path="/packages" exact component={Package} isPrivate />
             <Route path="/newpackages" exact component={NewPackage} isPrivate />
+            <Route
+                path="/editpackage/:id"
+                exact
+                component={EditPackage}
+                isPrivate
+            />
 
             <Route path="/deliverers" exact component={Deliverer} isPrivate />
             <Route
@@ -39,6 +46,7 @@ export default function Routes() {
                 component={EditDeliverer}
                 isPrivate
             />
+
             <Route path="/recipients" exact component={Recipient} isPrivate />
             <Route
                 path="/newrecipient"

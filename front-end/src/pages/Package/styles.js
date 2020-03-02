@@ -148,6 +148,7 @@ export const Content = styled.div`
     }
 
     a {
+        width: 190px;
         text-align: left;
         align-items: center;
         /* width: 100%; */

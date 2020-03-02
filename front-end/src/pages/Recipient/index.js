@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import {
     MoreHoriz,
-    Visibility,
     Create,
     DeleteForever,
     Add,
@@ -12,7 +11,7 @@ import {
 import Popup from 'reactjs-popup';
 
 import { Link } from 'react-router-dom';
-import { deepPurple } from '@material-ui/core/colors';
+
 import { Container, Header, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
 

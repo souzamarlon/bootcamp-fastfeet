@@ -156,7 +156,7 @@ export default function Package() {
                                     </button>
 
                                     <button type="button" className="actions">
-                                        <Link to={`/edit/${item.id}`}>
+                                        <Link to={`/editpackage/${item.id}`}>
                                             <Create
                                                 fontSize="small"
                                                 color="primary"
