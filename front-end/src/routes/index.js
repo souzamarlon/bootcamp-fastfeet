@@ -14,6 +14,7 @@ import EditDeliverer from '../pages/Deliverer/EditDeliverer';
 
 import Recipient from '../pages/Recipient';
 import NewRecipient from '../pages/Recipient/NewRecipient';
+import EditRecipient from '../pages/Recipient/EditRecipient';
 
 import Problem from '../pages/Problem';
 
@@ -43,6 +44,12 @@ export default function Routes() {
                 path="/newrecipient"
                 exact
                 component={NewRecipient}
+                isPrivate
+            />
+            <Route
+                path="/editrecipient/:id"
+                exact
+                component={EditRecipient}
                 isPrivate
             />
 

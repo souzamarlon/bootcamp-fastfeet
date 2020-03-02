@@ -121,30 +121,29 @@ export default function Recipient() {
                                     position="bottom center"
                                     on="hover"
                                 >
-                                    <Link to={`/view/${item.id}`}>
-                                        <Visibility
-                                            fontSize="small"
-                                            style={{ color: deepPurple[400] }}
-                                        />
-                                        <span className="Option">
-                                            Visualizar
-                                        </span>
-                                    </Link>
-
-                                    <Link to={`/edit/${item.id}`}>
+                                    <Link to={`/editrecipient/${item.id}`}>
                                         <Create
                                             fontSize="small"
                                             color="primary"
                                         />
-                                        <span className="Option">Editar</span>
+                                        <span className="options">Editar</span>
                                     </Link>
-                                    <Link to={`/delete/${item.id}`}>
+
+                                    <hr className="break-line" />
+                                    <button
+                                        type="button"
+                                        className="actions"
+                                        onClick={
+                                            () => {}
+                                            // handleCancel(item.delivery_id)
+                                        }
+                                    >
                                         <DeleteForever
                                             fontSize="small"
                                             color="secondary"
                                         />
-                                        <span className="Option">Excluir</span>
-                                    </Link>
+                                        <span className="options">Excluir</span>
+                                    </button>
                                 </Popup>
                             </td>
                         </tr>

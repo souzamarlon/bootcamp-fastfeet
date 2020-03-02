@@ -121,38 +121,65 @@ export const Content = styled.div`
     }
 
     button {
-        padding-top: 12px;
         background: transparent;
-        border: 0;
-        transition: background 0.3s;
-        &:hover {
-            background: ${darken(0.03, '#FFFFFF')};
+        padding-top: 5px;
+        border: 0px;
+
+        div.iconMoreHoriz {
+            padding-top: 5px;
+
+            border-radius: 50%;
+            transition: background 0.15s;
+            &:hover {
+                background: ${darken(0.1, '#ffff')};
+            }
         }
     }
 
-    a {
+    button.actions {
         align-items: center;
-        height: 21px;
-        size: 10;
+        height: 30px;
+        width: 193px;
+        border: 0;
         display: flex;
+        text-align: left;
+        padding: 5px;
+
         color: #999999;
-        padding: 12px;
-        border-bottom: 1px solid #eeeeee;
         transition: background 0.3s;
         &:hover {
             background: ${darken(0.03, '#ffffff')};
         }
-
-        /* padding-top: 5px; */
     }
-    span.Option {
+
+    a {
+        padding: 5px;
         text-align: left;
+        align-items: center;
+        /* width: 100%; */
+        /* padding-bottom: 30px; */
+        display: flex;
         color: #999999;
-        /* padding-top: 5px; */
+        transition: background 0.3s;
+        &:hover {
+            background: ${darken(0.03, '#ffffff')};
+        }
+    }
+    span.options {
+        /* display: flex; */
+        text-align: left;
+        align-items: center;
+
+        /* width: 100%; */
+        color: #999999;
         padding-left: 10px;
         font-size: 16px;
-        letter-spacing: 0;
-        padding-bottom: 5px;
+    }
+    hr.break-line {
+        padding-top: 3px;
+
+        border: 0;
+        border-bottom: 1px solid #eeeeee;
     }
 
     img {
