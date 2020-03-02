@@ -10,6 +10,7 @@ import NewPackage from '../pages/Package/NewPackage';
 
 import Deliverer from '../pages/Deliverer';
 import NewDeliverer from '../pages/Deliverer/NewDeliverer';
+import EditDeliverer from '../pages/Deliverer/EditDeliverer';
 
 import Recipient from '../pages/Recipient';
 import NewRecipient from '../pages/Recipient/NewRecipient';
@@ -29,6 +30,12 @@ export default function Routes() {
                 path="/newdeliverer"
                 exact
                 component={NewDeliverer}
+                isPrivate
+            />
+            <Route
+                path="/editdeliverer/:id"
+                exact
+                component={EditDeliverer}
                 isPrivate
             />
             <Route path="/recipients" exact component={Recipient} isPrivate />

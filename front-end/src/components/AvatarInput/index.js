@@ -2,23 +2,32 @@ import React, { useState, useRef, useEffect } from 'react';
 
 import { useField } from '@rocketseat/unform';
 import InsertPhotoIcon from '@material-ui/icons/InsertPhoto';
-import api from '~/services/api';
 
+import api from '~/services/api';
 import { Container } from './styles';
 
-export default function AvatarInput() {
-    const { defaultValue, registerField } = useField('avatar');
+export default function AvatarInput({ name, avatarData }) {
+    // const { fieldName, defaultValue, registerField } = useField(name);
+    const { fieldName, defaultValue, registerField } = useField(name);
 
     const [file, setFile] = useState(defaultValue && defaultValue.id);
 
     const [preview, setPreview] = useState(defaultValue && defaultValue.url);
 
-    const ref = useRef();
+    const ref = useRef(null);
+
+    useEffect(() => {
+        async function previewAvatar() {
+            setPreview(avatarData);
+        }
+
+        previewAvatar();
+    }, [avatarData]);
 
     useEffect(() => {
         if (ref.current) {
             registerField({
-                name: 'avatar_id',
+                name: fieldName,
                 ref: ref.current,
                 path: 'dataset.file',
             });
@@ -35,13 +44,13 @@ export default function AvatarInput() {
         const { id, url } = response.data;
 
         setFile(id);
-        setPreview(url);
+        setPreview({ url });
     }
     return (
         <Container>
-            <label htmlFor="avatar">
+            <label htmlFor={fieldName}>
                 {preview ? (
-                    <img src={preview} alt="" />
+                    <img src={preview.url} alt="" />
                 ) : (
                     <div>
                         <InsertPhotoIcon
@@ -54,7 +63,7 @@ export default function AvatarInput() {
                 )}
                 <input
                     type="file"
-                    id="avatar"
+                    id={fieldName}
                     accept="image/*"
                     data-file={file}
                     onChange={handleChange}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
@@ -9,10 +9,28 @@ import AvatarInput from '~/components/AvatarInput';
 import history from '~/services/history';
 import api from '~/services/api';
 
-export default function NewDeliverer() {
+export default function EditDeliverer({ match }) {
+    const [deliverer, setDeliverer] = useState([]);
+
+    const { id } = match.params;
+
+    useEffect(() => {
+        async function loadDetails() {
+            const response = await api.get('deliverers');
+
+            // eslint-disable-next-line
+            const [dataDetails] = response.data.filter(item => item.id == id);
+
+            setDeliverer(dataDetails);
+        }
+
+        loadDetails();
+    }, [id]);
+
     async function handleSubmit(data) {
+        console.tron.log(data);
         try {
-            await api.post('deliverers', data);
+            await api.put(`deliverers/${id}`, data);
             toast.success('Sucesso ao criar o cadastro!');
 
             history.push('/deliverers');
@@ -25,10 +43,10 @@ export default function NewDeliverer() {
 
     return (
         <>
-            <Form onSubmit={handleSubmit}>
+            <Form initialData={deliverer} onSubmit={handleSubmit}>
                 <Container>
                     <Title>
-                        <h1>Cadastro de entregadores</h1>
+                        <h1>Edição de entregadores</h1>
                     </Title>
                     <Button>
                         <div>
@@ -48,7 +66,10 @@ export default function NewDeliverer() {
                 </Container>
                 <Content>
                     <FormInput>
-                        <AvatarInput name="avatar_id" />
+                        <AvatarInput
+                            name="avatar_id"
+                            avatarData={deliverer.avatar}
+                        />
                         <p>Nome</p>
                         <Input name="name" placeholder="Nome completo" />
                         <p>Email</p>
