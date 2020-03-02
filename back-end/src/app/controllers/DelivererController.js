@@ -11,7 +11,7 @@ class DelivererController {
 
     if (findDeliverer === null || findDeliverer === undefined) {
       const delivererData = await Deliverer.findAll({
-        attributes: ['id', 'name', 'email'],
+        attributes: ['id', 'name', 'email', 'avatar_id'],
         include: [
           {
             model: File,
@@ -30,7 +30,7 @@ class DelivererController {
           [Op.iLike]: `${findDeliverer}%`,
         },
       },
-      attributes: ['id', 'name', 'email'],
+      attributes: ['id', 'name', 'email', 'avatar_id'],
       include: [
         {
           model: File,
