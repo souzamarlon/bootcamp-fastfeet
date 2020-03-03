@@ -55,8 +55,8 @@ export default function Problem() {
                 <thead>
                     <tr>
                         <th className="delivery">Encomenda</th>
-                        <th className="name">Problema</th>
-                        <th>Ações</th>
+                        <th>Problema</th>
+                        <th className="action">Ações</th>
                     </tr>
                 </thead>
 
@@ -76,7 +76,7 @@ export default function Problem() {
                                     className="max-lines"
                                 />
                             </td>
-                            <td>
+                            <td className="action">
                                 <Popup
                                     trigger={
                                         <button

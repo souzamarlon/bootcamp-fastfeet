@@ -34,12 +34,6 @@ export const Content = styled.div`
     th.delivery {
         padding-right: 100px;
     }
-    th.name {
-        padding-right: 1250px;
-    }
-    td.name {
-        padding-left: 35px;
-    }
 
     thead th {
         width: 1200px;
@@ -62,6 +56,17 @@ export const Content = styled.div`
         padding-left: 25px;
 
         border-radius: 4px;
+    }
+    th.action {
+        align-items: center;
+        text-align: right;
+        padding-right: 25px;
+    }
+
+    td.action {
+        align-items: center;
+        text-align: right;
+        padding-right: 35px;
     }
 
     span {
@@ -87,10 +92,6 @@ export const Content = styled.div`
             padding-top: 5px;
 
             border-radius: 50%;
-            /* transition: background 0.15s;
-            &:hover {
-                background: ${darken(0.1, '#ffff')};
-            } */
         }
     }
 
@@ -102,8 +103,6 @@ export const Content = styled.div`
         display: flex;
         text-align: left;
         padding: 5px;
-        /* padding-bottom: 30px; */
-        /* border-bottom: 1px solid #eeeeee; */
 
         color: #999999;
         transition: background 0.3s;
@@ -115,17 +114,13 @@ export const Content = styled.div`
     a {
         text-align: left;
         align-items: center;
-        /* width: 100%; */
         padding-bottom: 30px;
         display: flex;
         color: #999999;
     }
     span.options {
-        /* display: flex; */
         text-align: left;
         align-items: center;
-
-        /* width: 100%; */
         color: #999999;
         padding-left: 10px;
         font-size: 16px;
