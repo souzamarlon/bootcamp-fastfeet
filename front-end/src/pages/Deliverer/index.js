@@ -104,7 +104,7 @@ export default function Deliverer() {
                         <th>Foto</th>
                         <th>Nome</th>
                         <th>Email</th>
-                        <th>Ações</th>
+                        <th className="action">Ações</th>
                     </tr>
                 </thead>
 
@@ -130,14 +130,14 @@ export default function Deliverer() {
                             <td>
                                 <span className="email">{item.email}</span>
                             </td>
-                            <td>
+                            <td className="action">
                                 <Popup
                                     trigger={
                                         <button
                                             type="button"
                                             className="button"
                                         >
-                                            <MoreHoriz />
+                                            <MoreHoriz color="disabled" />
                                         </button>
                                     }
                                     position="bottom center"

@@ -85,7 +85,7 @@ export const Content = styled.div`
     max-height: 57px;
     border: 0;
     border-radius: 4px;
-    padding-top: 20px;
+    padding-top: 22px;
 
     thead th {
         width: 1200px;
@@ -93,7 +93,7 @@ export const Content = styled.div`
         font-size: 16px;
         line-height: 19px;
         font-weight: bold;
-        padding: 12px;
+        /* padding: 12px; */
         /* padding-top: 30px; */
         padding-left: 25px;
         text-align: left;
@@ -108,13 +108,19 @@ export const Content = styled.div`
         padding-left: 25px;
         border-radius: 4px;
     }
-    /* th.actions,
-    td.actions {
-        padding-left: 420px;
-    } */
+    th.action {
+        align-items: center;
+        text-align: right;
+        padding-right: 25px;
+    }
+
+    td.action {
+        align-items: center;
+        text-align: right;
+        padding-right: 35px;
+    }
 
     span {
-        /* display: flex; */
         margin-top: 5px;
         font-size: 17px;
         line-height: 20px;
@@ -127,12 +133,7 @@ export const Content = styled.div`
 
         div.iconMoreHoriz {
             padding-top: 5px;
-
             border-radius: 50%;
-            /* transition: background 0.15s;
-            &:hover {
-                background: ${darken(0.1, '#ffff')};
-            } */
         }
     }
 
@@ -156,8 +157,6 @@ export const Content = styled.div`
         padding: 5px;
         text-align: left;
         align-items: center;
-        /* width: 100%; */
-        /* padding-bottom: 30px; */
         display: flex;
         color: #999999;
         transition: background 0.3s;
@@ -166,11 +165,8 @@ export const Content = styled.div`
         }
     }
     span.options {
-        /* display: flex; */
         text-align: left;
         align-items: center;
-
-        /* width: 100%; */
         color: #999999;
         padding-left: 10px;
         font-size: 16px;
@@ -183,12 +179,9 @@ export const Content = styled.div`
     }
 
     img {
-        /* display: flex; */
         padding-right: 5px;
         width: 35px;
         height: 35px;
         border-radius: 50px;
-        /* border: 3px solid rgba(255, 255, 255, 0.3);
-        background: #eee; */
     }
 `;

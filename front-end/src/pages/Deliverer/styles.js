@@ -84,18 +84,14 @@ export const Content = styled.div`
     max-height: 57px;
     border: 0;
     border-radius: 4px;
-    padding-top: 20px;
+    padding-top: 22px;
 
     thead th {
         width: 1200px;
-        /* padding-left: 400px; */
         color: #000;
         font-size: 16px;
         line-height: 19px;
         font-weight: bold;
-        padding: 12px;
-        /* padding-top: 30px; */
-        /* padding-right: 181px; */
         text-align: left;
         padding-bottom: 10px;
         padding-left: 25px;
@@ -109,9 +105,19 @@ export const Content = styled.div`
         padding-left: 25px;
         border-radius: 4px;
     }
+    th.action {
+        align-items: center;
+        text-align: right;
+        padding-right: 25px;
+    }
+
+    td.action {
+        align-items: center;
+        text-align: right;
+        padding-right: 35px;
+    }
 
     span {
-        /* display: flex; */
         margin-top: 5px;
         font-size: 17px;
         line-height: 20px;
@@ -124,7 +130,6 @@ export const Content = styled.div`
 
         div.iconMoreHoriz {
             padding-top: 5px;
-
             border-radius: 50%;
             transition: background 0.15s;
             &:hover {
@@ -141,7 +146,6 @@ export const Content = styled.div`
         display: flex;
         text-align: left;
         padding: 5px;
-
         color: #999999;
         transition: background 0.3s;
         &:hover {
@@ -153,8 +157,6 @@ export const Content = styled.div`
         padding: 5px;
         text-align: left;
         align-items: center;
-        /* width: 100%; */
-        /* padding-bottom: 30px; */
         display: flex;
         color: #999999;
         transition: background 0.3s;
@@ -163,18 +165,14 @@ export const Content = styled.div`
         }
     }
     span.options {
-        /* display: flex; */
         text-align: left;
         align-items: center;
-
-        /* width: 100%; */
         color: #999999;
         padding-left: 10px;
         font-size: 16px;
     }
     hr.break-line {
         padding-top: 3px;
-
         border: 0;
         border-bottom: 1px solid #eeeeee;
     }

@@ -100,7 +100,7 @@ export default function Package() {
                         <th>Cidade</th>
                         <th>Estado</th>
                         <th>Status</th>
-                        <th>Ações</th>
+                        <th className="action">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -152,7 +152,7 @@ export default function Package() {
                             <td>
                                 <DeliveryStatus data={item} />
                             </td>
-                            <td>
+                            <td className="action">
                                 <Popup
                                     trigger={
                                         <button
@@ -160,7 +160,7 @@ export default function Package() {
                                             className="button"
                                         >
                                             <div className="iconMoreHoriz">
-                                                <MoreHoriz />
+                                                <MoreHoriz color="disabled" />
                                             </div>
                                         </button>
                                     }

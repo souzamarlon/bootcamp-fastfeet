@@ -104,7 +104,7 @@ export default function Recipient() {
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Endereço</th>
-                        <th className="actions">Ações</th>
+                        <th className="action">Ações</th>
                     </tr>
                 </thead>
 
@@ -125,14 +125,14 @@ export default function Recipient() {
                                         ${item.state}`}
                                 </span>
                             </td>
-                            <td className="actions">
+                            <td className="action">
                                 <Popup
                                     trigger={
                                         <button
                                             type="button"
                                             className="button"
                                         >
-                                            <MoreHoriz />
+                                            <MoreHoriz color="disabled" />
                                         </button>
                                     }
                                     position="bottom center"

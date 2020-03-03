@@ -76,14 +76,14 @@ export default function Problem() {
                                     className="max-lines"
                                 />
                             </td>
-                            <td className="name">
+                            <td>
                                 <Popup
                                     trigger={
                                         <button
                                             type="button"
                                             className="button"
                                         >
-                                            <MoreHoriz />
+                                            <MoreHoriz color="disabled" />
                                         </button>
                                     }
                                     position="bottom center"
