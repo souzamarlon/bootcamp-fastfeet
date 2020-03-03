@@ -9,10 +9,12 @@ import {
 } from '@material-ui/icons';
 
 import Popup from 'reactjs-popup';
+import { toast } from 'react-toastify';
 
 import { Link } from 'react-router-dom';
 import { Container, Header, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
+import history from '~/services/history';
 
 export default function Deliverer() {
     const [deliverer, setDeliverer] = useState([]);
@@ -51,6 +53,22 @@ export default function Deliverer() {
 
         listAllDeliverer();
     }, []);
+
+    async function handleDelete(id) {
+        console.tron.log(id);
+        try {
+            // eslint-disable-next-line no-alert
+            if (window.confirm('Você realmente quer deletar?')) {
+                await api.delete(`deliverers/${id}`);
+
+                toast.success('Sucesso ao deletar o entregador!');
+                history.push('/deliverers');
+            }
+        } catch (err) {
+            toast.error('Erro ao deletar o entregador!');
+        }
+    }
+
     return (
         <Container>
             <Title>
@@ -123,7 +141,7 @@ export default function Deliverer() {
                                         </button>
                                     }
                                     position="bottom center"
-                                    on="hover"
+                                    // on="hover"
                                 >
                                     <Link to={`/editdeliverer/${item.id}`}>
                                         <Create
@@ -137,10 +155,7 @@ export default function Deliverer() {
                                     <button
                                         type="button"
                                         className="actions"
-                                        onClick={
-                                            () => {}
-                                            // handleCancel(item.delivery_id)
-                                        }
+                                        onClick={() => handleDelete(item.id)}
                                     >
                                         <DeleteForever
                                             fontSize="small"

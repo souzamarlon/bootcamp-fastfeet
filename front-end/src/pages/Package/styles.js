@@ -131,10 +131,10 @@ export const Content = styled.div`
             padding-top: 5px;
 
             border-radius: 50%;
-            transition: background 0.15s;
+            /* transition: background 0.15s;
             &:hover {
                 background: ${darken(0.1, '#ffff')};
-            }
+            } */
         }
     }
 

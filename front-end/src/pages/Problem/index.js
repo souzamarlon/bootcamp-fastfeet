@@ -38,7 +38,7 @@ export default function Problem() {
                 await api.delete(`problem/${id}/cancel-delivery`);
 
                 toast.success('Sucesso ao cancelar a encomenda!');
-                history.push('/');
+                history.push('/problems');
             }
         } catch (err) {
             toast.error('Erro ao cancelar a encomenda!');
@@ -87,7 +87,7 @@ export default function Problem() {
                                         </button>
                                     }
                                     position="bottom center"
-                                    on="hover"
+                                    // on="hover"
                                 >
                                     <button onClick={() => {}} type="button">
                                         <ViewProblemDetail data={item} />

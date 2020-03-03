@@ -9,11 +9,13 @@ import {
 } from '@material-ui/icons';
 
 import Popup from 'reactjs-popup';
+import { toast } from 'react-toastify';
 
 import { Link } from 'react-router-dom';
 
 import { Container, Header, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
+import history from '~/services/history';
 
 export default function Recipient() {
     const [recipient, setRecipient] = useState([]);
@@ -52,6 +54,22 @@ export default function Recipient() {
 
         listAllRecipient();
     }, []);
+
+    async function handleDelete(id) {
+        console.tron.log(id);
+        try {
+            // eslint-disable-next-line no-alert
+            if (window.confirm('Você realmente quer deletar?')) {
+                await api.delete(`recipients/${id}`);
+
+                toast.success('Sucesso ao deletar a encomenda!');
+                history.push('/');
+            }
+        } catch (err) {
+            toast.error('Erro ao deletar a encomenda!');
+        }
+    }
+
     return (
         <Container>
             <Title>
@@ -118,7 +136,7 @@ export default function Recipient() {
                                         </button>
                                     }
                                     position="bottom center"
-                                    on="hover"
+                                    // on="hover"
                                 >
                                     <Link to={`/editrecipient/${item.id}`}>
                                         <Create
@@ -132,10 +150,7 @@ export default function Recipient() {
                                     <button
                                         type="button"
                                         className="actions"
-                                        onClick={
-                                            () => {}
-                                            // handleCancel(item.delivery_id)
-                                        }
+                                        onClick={() => handleDelete(item.id)}
                                     >
                                         <DeleteForever
                                             fontSize="small"
