@@ -1,6 +1,11 @@
 import * as Yup from 'yup';
+import Queue from '../../lib/Queue';
 
 import DeliveryProblem from '../models/DeliveryProblem';
+import Package from '../models/Package';
+import Deliverer from '../models/Deliverer';
+
+import PackageCancelledMail from '../jobs/PackageCancelledMail';
 
 class DeliveryProblemController {
   async index(req, res) {
@@ -37,6 +42,34 @@ class DeliveryProblemController {
     });
 
     return res.json(deliveryCreated);
+  }
+
+  async delete(req, res) {
+    const packageData = await Package.findByPk(req.params.id, {
+      include: [
+        {
+          model: Deliverer,
+          as: 'deliveryman',
+          attributes: ['name', 'email'],
+        },
+      ],
+    });
+
+    // console.log(packageData);
+    packageData.canceled_at = new Date();
+
+    // TODO - Testing
+    // Quando uma encomenda for cancelada, o entregador deve receber um e-mail informando-o sobre o cancelamento.
+
+    await packageData.save();
+
+    await Queue.add(PackageCancelledMail.key, {
+      product: packageData.product,
+      name: packageData.deliveryman.name,
+      email: packageData.deliveryman.email,
+    });
+
+    return res.json(packageData);
   }
 }
 

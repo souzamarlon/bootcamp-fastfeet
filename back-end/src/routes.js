@@ -33,6 +33,7 @@ routes.delete('/deliverers/:id', DelivererController.delete);
 routes.get('/packages', PackageController.index);
 routes.post('/packages', PackageController.store);
 routes.put('/packages/:id', PackageController.update);
+routes.delete('/packages/:id', PackageController.delete);
 
 routes.get('/deliveryman/:id/deliveries', DelivererFeaturesController.index);
 routes.put('/deliveryman/:id/deliveries', DelivererFeaturesController.update);
@@ -42,7 +43,7 @@ routes.get('/delivery/problems', DeliveryProblemController.index);
 
 routes.post('/delivery/:id/problems', DeliveryProblemController.store);
 
-routes.delete('/problem/:id/cancel-delivery', PackageController.delete);
+routes.delete('/problem/:id/cancel-delivery', DeliveryProblemController.delete);
 
 routes.post('/files', upload.single('file'), FileController.store);
 

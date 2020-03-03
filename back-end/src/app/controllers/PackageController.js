@@ -3,7 +3,6 @@ import * as Yup from 'yup';
 import { Op } from 'sequelize';
 import Queue from '../../lib/Queue';
 import PackageMail from '../jobs/PackageMail';
-import PackageCancelledMail from '../jobs/PackageCancelledMail';
 
 import Package from '../models/Package';
 import Recipient from '../models/Recipient';
@@ -146,31 +145,11 @@ class PackageController {
   }
 
   async delete(req, res) {
-    const packageData = await Package.findByPk(req.params.id, {
-      include: [
-        {
-          model: Deliverer,
-          as: 'deliveryman',
-          attributes: ['name', 'email'],
-        },
-      ],
-    });
+    const packageId = req.params.id;
 
-    // console.log(packageData);
-    packageData.canceled_at = new Date();
+    const packageData = await Package.findByPk(packageId);
 
-    // TODO - Testing
-    // Quando uma encomenda for cancelada, o entregador deve receber um e-mail informando-o sobre o cancelamento.
-
-    await packageData.save();
-
-    await Queue.add(PackageCancelledMail.key, {
-      product: packageData.product,
-      name: packageData.deliveryman.name,
-      email: packageData.deliveryman.email,
-    });
-
-    return res.json(packageData);
+    return res.json(await packageData.destroy());
   }
 }
 
