@@ -63,6 +63,14 @@ class RecipientController {
       })
     );
   }
+
+  async delete(req, res) {
+    const recipientId = req.params.id;
+
+    const recipientData = await Recipient.findByPk(recipientId);
+
+    return res.json(await recipientData.destroy());
+  }
 }
 
 export default new RecipientController();
