@@ -30,7 +30,7 @@ export default function EditPackage({ match }) {
         loadDetails();
     }, [id]);
 
-    console.tron.log(packages);
+    // console.tron.log(packages);
 
     //
     // Loading the Recipients
@@ -79,6 +79,8 @@ export default function EditPackage({ match }) {
         });
 
     async function handleSubmit(data) {
+        console.tron.log(data);
+
         try {
             await api.put(`packages/${id}`, data);
             toast.success('Sucesso ao criar o cadastro!');

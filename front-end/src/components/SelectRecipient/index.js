@@ -15,8 +15,6 @@ export default function ReactSelect({ name, label, options, ...rest }) {
         return selectValue ? selectValue.id : '';
     }
 
-    console.tron.log(defaultValue);
-
     useEffect(() => {
         if (ref.current) {
             registerField({
@@ -40,6 +38,7 @@ export default function ReactSelect({ name, label, options, ...rest }) {
                 cacheOptions
                 aria-label="recipient_id"
                 loadOptions={options}
+                defaultValue
                 isMulti={false}
                 ref={ref}
                 getOptionValue={option => option.id}

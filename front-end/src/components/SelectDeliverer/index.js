@@ -38,6 +38,7 @@ export default function ReactSelect({ name, label, options, ...rest }) {
                 cacheOptions
                 aria-label="deliveryman_id"
                 loadOptions={options}
+                defaultValue
                 isMulti={false}
                 ref={ref}
                 getOptionValue={option => option.id}

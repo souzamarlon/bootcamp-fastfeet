@@ -56,7 +56,7 @@ export default function Package() {
         }
         listAllPackages();
     }, []);
-    console.tron.log(packages);
+    // console.tron.log(packages);
 
     return (
         <Container>
