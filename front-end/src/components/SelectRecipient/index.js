@@ -7,13 +7,15 @@ import { Container } from './styles';
 export default function ReactSelect({ name, label, options, ...rest }) {
     const ref = useRef(null);
 
-    const { registerField, error } = useField('recipient_id');
+    const { defaultValue, registerField, error } = useField('recipient_id');
 
     function parseSelectValue(selectRef) {
         const selectValue = selectRef.select.state.value;
 
         return selectValue ? selectValue.id : '';
     }
+
+    console.tron.log(defaultValue);
 
     useEffect(() => {
         if (ref.current) {

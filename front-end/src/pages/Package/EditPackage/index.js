@@ -13,9 +13,10 @@ import api from '~/services/api';
 
 export default function EditPackage({ match }) {
     const [packages, setPackages] = useState([]);
+    const [recipient, setRecipient] = useState([]);
+    const [deliverer, setDeliverer] = useState([]);
 
     const { id } = match.params;
-
     useEffect(() => {
         async function loadDetails() {
             const response = await api.get('packages');
@@ -28,6 +29,9 @@ export default function EditPackage({ match }) {
 
         loadDetails();
     }, [id]);
+
+    console.tron.log(packages);
+
     //
     // Loading the Recipients
     //
@@ -36,6 +40,8 @@ export default function EditPackage({ match }) {
             const response = await api.get(`recipients`, {
                 params: { q: inputValue },
             });
+
+            setRecipient(response.data);
 
             return response.data;
         }
@@ -58,7 +64,7 @@ export default function EditPackage({ match }) {
             const response = await api.get(`deliverers`, {
                 params: { q: inputValue },
             });
-
+            setDeliverer(response.data);
             return response.data;
         }
 
@@ -74,7 +80,7 @@ export default function EditPackage({ match }) {
 
     async function handleSubmit(data) {
         try {
-            await api.post('packages', data);
+            await api.put(`packages/${id}`, data);
             toast.success('Sucesso ao criar o cadastro!');
 
             history.push('/packages');
@@ -83,6 +89,14 @@ export default function EditPackage({ match }) {
             console.tron.log(err);
             console.tron.log(data);
         }
+    }
+
+    function defineRecipient(id) {
+        setPackages({ ...packages, recipient: id });
+    }
+
+    function defineDeliverer(id) {
+        setPackages({ ...packages, deliveryman: id });
     }
 
     return (
@@ -123,8 +137,13 @@ export default function EditPackage({ match }) {
                                         className="select"
                                         name="recipient_id"
                                         // cacheOptions
+                                        value={recipient.find(
+                                            ({ id }) =>
+                                                id === packages.recipient.id
+                                        )}
                                         defaultOptions
                                         options={loadRecipients}
+                                        onChange={defineRecipient}
                                     />
                                 </td>
                                 <td>
@@ -132,8 +151,13 @@ export default function EditPackage({ match }) {
                                         className="select"
                                         name="recipient_id"
                                         // cacheOptions
+                                        value={deliverer.find(
+                                            ({ id }) =>
+                                                id === packages.deliveryman.id
+                                        )}
                                         defaultOptions
                                         options={loadDeliverers}
+                                        onChange={defineDeliverer}
                                     />
                                 </td>
                             </tr>
