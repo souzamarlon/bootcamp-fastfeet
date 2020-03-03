@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+
 import { Form, Input } from '@rocketseat/unform';
 
 import {
@@ -10,6 +11,8 @@ import {
 } from '@material-ui/icons';
 
 import Popup from 'reactjs-popup';
+import { toast } from 'react-toastify';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 import { Link } from 'react-router-dom';
 
@@ -18,6 +21,7 @@ import ViewPackageInfo from '~/components/ViewPackageInfo';
 
 import { Container, Header, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
+import history from '~/services/history';
 
 export default function Package() {
     const [packages, setPackages] = useState([]);
@@ -28,15 +32,7 @@ export default function Package() {
                 params: { q: search },
             });
 
-            const listPackages = response.data.map(item => ({
-                ...item,
-                index: response.data.indexOf(item) + 0 + 1,
-            }));
-
-            // console.tron.log(response.data);
-
-            // setPackages(listPackages.sort((a, b) => a.index < b.index));
-            setPackages(listPackages);
+            setPackages(response.data.sort((a, b) => a.id - b.id));
         }
         searchTool();
     }, []);
@@ -45,18 +41,26 @@ export default function Package() {
         async function listAllPackages() {
             const response = await api.get('packages');
 
-            const listPackages = response.data.map(item => ({
-                ...item,
-                index: response.data.indexOf(item),
-            }));
-            setPackages(
-                listPackages.sort((a, b) => a.created_at < b.created_at)
-            );
+            setPackages(response.data.sort((a, b) => a.id - b.id));
             // setPackages(listPackages);
         }
         listAllPackages();
     }, []);
-    // console.tron.log(packages);
+
+    async function handleDelete(id) {
+        console.tron.log(id);
+        try {
+            // eslint-disable-next-line no-alert
+            if (window.confirm('Você realmente quer deletar?')) {
+                await api.delete(`packages/${id}`);
+
+                toast.success('Sucesso ao deletar a encomenda!');
+                history.push('/');
+            }
+        } catch (err) {
+            toast.error('Erro ao deletar a encomenda!');
+        }
+    }
 
     return (
         <Container>
@@ -90,6 +94,7 @@ export default function Package() {
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Nome do Produto</th>
                         <th>Destinatário</th>
                         <th>Entregador</th>
                         <th>Cidade</th>
@@ -102,7 +107,18 @@ export default function Package() {
                     {packages.map(item => (
                         <tr>
                             <td>
-                                <span className="id">{`#0${item.id}`}</span>
+                                <span className="id">{`#${item.id}`}</span>
+                            </td>
+                            <td>
+                                <LinesEllipsis
+                                    text={item.product}
+                                    maxLine="1"
+                                    ellipsis="..."
+                                    trimRight
+                                    basedOn="letters"
+                                    className="max-lines"
+                                />
+                                {/* <span className="id">{item.product}</span> */}
                             </td>
                             <td>
                                 <span className="recipient">
@@ -166,7 +182,11 @@ export default function Package() {
                                             </span>
                                         </Link>
                                     </button>
-                                    <button type="button" className="actions">
+                                    <button
+                                        type="button"
+                                        className="actions"
+                                        onClick={() => handleDelete(item.id)}
+                                    >
                                         <DeleteForever
                                             fontSize="small"
                                             color="secondary"

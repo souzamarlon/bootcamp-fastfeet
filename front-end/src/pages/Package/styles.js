@@ -113,6 +113,14 @@ export const Content = styled.div`
         font-size: 17px;
         line-height: 20px;
     }
+    .max-lines {
+        font-size: 17px;
+        display: inline-block;
+        width: 200px;
+        line-height: 20px;
+        word-wrap: break-word;
+        overflow: hidden;
+    }
 
     button {
         background: transparent;
