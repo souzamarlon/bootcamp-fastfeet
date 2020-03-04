@@ -53,29 +53,26 @@ export default function Header() {
                         <img src={logo} alt="Fastfeet" />
                     </Link>
                     <Link
-                        aria-current="true"
-                        class="active"
-                        exact
                         to="/packages"
-                        STYLE={open.package ? 'color: #000000 ' : null}
+                        className={open.package ? 'active' : null}
                     >
                         ENCOMENDAS
                     </Link>
                     <Link
                         to="/deliverers"
-                        STYLE={open.deliverer ? 'color: #000000 ' : null}
+                        className={open.deliverer ? 'active' : null}
                     >
                         ENTREGADORES
                     </Link>
                     <Link
                         to="/recipients"
-                        STYLE={open.recipient ? 'color: #000000 ' : null}
+                        className={open.recipient ? 'active' : null}
                     >
                         DESTINATÁRIOS
                     </Link>
                     <Link
                         to="/problems"
-                        STYLE={open.problem ? 'color: #000000 ' : null}
+                        className={open.problem ? 'active' : null}
                     >
                         PROBLEMAS
                     </Link>
