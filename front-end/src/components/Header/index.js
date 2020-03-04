@@ -25,16 +25,19 @@ export default function Header() {
     }
     useEffect(() => {
         async function locationPath() {
-            if (history.location.pathname === '/packages') {
+            // Get the current location.
+            const location = history.location.pathname;
+
+            if (location === '/packages') {
                 setOpen({ package: true });
             }
-            if (history.location.pathname === '/deliverers') {
+            if (location === '/deliverers') {
                 setOpen({ deliverer: true });
             }
-            if (history.location.pathname === '/recipients') {
+            if (location === '/recipients') {
                 setOpen({ recipient: true });
             }
-            if (history.location.pathname === '/problems') {
+            if (location === '/problems') {
                 setOpen({ problem: true });
             }
         }
@@ -50,6 +53,9 @@ export default function Header() {
                         <img src={logo} alt="Fastfeet" />
                     </Link>
                     <Link
+                        aria-current="true"
+                        class="active"
+                        exact
                         to="/packages"
                         STYLE={open.package ? 'color: #000000 ' : null}
                     >

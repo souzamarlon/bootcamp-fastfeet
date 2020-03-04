@@ -37,6 +37,7 @@ export const Content = styled.div`
         a:hover {
             color: #000000;
         }
+
     }
 `;
 export const Profile = styled.div`
