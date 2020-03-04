@@ -142,6 +142,10 @@ export default function Deliverer() {
                                     }
                                     position="bottom center"
                                     // on="hover"
+                                    contentStyle={{
+                                        width: '150px',
+                                        borderRadius: '5%',
+                                    }}
                                 >
                                     <Link to={`/editdeliverer/${item.id}`}>
                                         <Create
