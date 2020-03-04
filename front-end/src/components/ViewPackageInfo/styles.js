@@ -95,8 +95,9 @@ export const Dates = styled.div`
 
         span.date {
             color: #666666;
-            font-size: 14px;
+            font-size: 16px;
             display: flex;
+
             /* border-bottom: 1px solid #eeeeee; */
         }
     }
@@ -106,6 +107,7 @@ export const Signatures = styled.div`
     img.imgName {
         /* align-content: center; */
         justify-content: center;
+        text-align: center;
         width: 234px;
         height: 56px;
         border: 0;
