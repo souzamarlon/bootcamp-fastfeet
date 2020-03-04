@@ -88,6 +88,10 @@ export default function Problem() {
                                     }
                                     position="bottom center"
                                     // on="hover"
+                                    contentStyle={{
+                                        width: '200px',
+                                        borderRadius: '5%',
+                                    }}
                                 >
                                     <button onClick={() => {}} type="button">
                                         <ViewProblemDetail data={item} />
