@@ -137,6 +137,10 @@ export default function Recipient() {
                                     }
                                     position="bottom center"
                                     // on="hover"
+                                    contentStyle={{
+                                        width: '150px',
+                                        borderRadius: '5%',
+                                    }}
                                 >
                                     <Link to={`/editrecipient/${item.id}`}>
                                         <Create

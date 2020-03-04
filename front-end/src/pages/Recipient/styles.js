@@ -140,7 +140,7 @@ export const Content = styled.div`
     button.actions {
         align-items: center;
         height: 30px;
-        width: 193px;
+        width: 140px;
         border: 0;
         display: flex;
         text-align: left;
