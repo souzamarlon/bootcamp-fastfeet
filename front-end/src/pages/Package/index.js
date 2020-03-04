@@ -166,6 +166,10 @@ export default function Package() {
                                     }
                                     position="bottom center"
                                     // on="hover"
+                                    contentStyle={{
+                                        width: '150px',
+                                        borderRadius: '5%',
+                                    }}
                                 >
                                     <button onClick={() => {}} type="button">
                                         <ViewPackageInfo data={item} />

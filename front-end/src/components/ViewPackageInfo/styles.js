@@ -7,7 +7,7 @@ export const Container = styled.div`
     button {
         align-items: center;
         margin-top: 0;
-        width: 190px;
+        width: 140px;
         display: flex;
         padding: 5px;
         border: 0;
@@ -24,10 +24,7 @@ export const Container = styled.div`
         color: #999999;
         padding-left: 10px;
         font-size: 16px;
-    }
-
-    Popup.popup-wrapper {
-        width: 460px;
+        width: 140px;
     }
 `;
 

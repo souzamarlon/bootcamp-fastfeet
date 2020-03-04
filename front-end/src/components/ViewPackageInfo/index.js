@@ -62,14 +62,7 @@ export default function ViewPackageInfo({ data }) {
                             width: '460px',
                             borderRadius: '5%',
                         }}
-
-                        // contentStyle={ {width: '460px'}  }
                     >
-                        {/* {close => (
-                    <div className="modal">
-                        <a href hclassName="close" onClick={close}>
-                            &times;
-                        </a> */}
                         <Content>
                             <h1 className="title">
                                 {`Informações da encomenda N.º #${data.id}.`}
