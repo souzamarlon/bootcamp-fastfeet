@@ -29,26 +29,31 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     text-align: left;
-    width: 450px;
-    height: 353px;
+    width: 460px;
+    height: 425px;
     padding-top: 25px;
 
     h1.header {
         text-align: left;
         font-weight: bold;
-        font-size: 14px;
+        font-size: 16px;
         color: #444444;
-        padding-left: 11px;
+        padding-left: 20px;
         padding-top: 10px;
     }
     span.detail {
         /* width: 397px; */
-        height: 316px;
         color: #666666;
         font-size: 16px;
         text-align: left;
         /* border-bottom: 1px solid #eeeeee; */
         padding-top: 4px;
         padding-bottom: 8px;
+        padding: 0 20px;
+        display: inline-block;
+        width: 100%;
+        line-height: 20px;
+        word-wrap: break-word;
+        overflow: hidden;
     }
 `;

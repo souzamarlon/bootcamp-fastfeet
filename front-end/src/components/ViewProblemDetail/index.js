@@ -30,15 +30,16 @@ export default function ViewProblemDetail({ data }) {
                         contentStyle={{
                             width: '460px',
                             borderRadius: '5%',
+                            height: 'height: 425px',
                         }}
                     >
-                        {/* {close => (
-                    <div className="modal">
-                        <a href hclassName="close" onClick={close}>
-                            &times;
-                        </a> */}
                         <Content>
-                            <h1 className="header">VISUALIZAR PROBLEMA</h1>
+                            <h1 className="header">
+                                {`ENCOMENDA N.º #${data.delivery_id}`}
+                            </h1>
+                            <h1 className="header">
+                                INFORMAÇÕES SOBRE O PROBLEMA:
+                            </h1>
                             <span className="detail">{data.description}</span>
                         </Content>
                     </Popup>
