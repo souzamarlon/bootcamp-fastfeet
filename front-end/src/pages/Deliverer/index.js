@@ -27,13 +27,13 @@ export default function Deliverer() {
 
             const listDeliverer = response.data.map(item => ({
                 ...item,
-                index: response.data.indexOf(item) + 0 + 1,
+                index: response.data.indexOf(item) + 1,
             }));
 
             // console.tron.log(response.data);
 
-            // setDeliverer(listDeliverer.sort((a, b) => a.index < b.index));
-            setDeliverer(listDeliverer);
+            setDeliverer(listDeliverer.sort((a, b) => a.id - b.id));
+            // setDeliverer(listDeliverer);
         }
         searchTool();
     }, []);
@@ -47,8 +47,8 @@ export default function Deliverer() {
                 ...item,
                 index: response.data.indexOf(item) + 1,
             }));
-            // setDeliverer(listDeliverer.sort((a, b) => a.index < b.index));
-            setDeliverer(listDeliverer);
+            setDeliverer(listDeliverer.sort((a, b) => a.id - b.id));
+            // setDeliverer(listDeliverer);
         }
 
         listAllDeliverer();
@@ -112,7 +112,7 @@ export default function Deliverer() {
                     {deliverer.map(item => (
                         <tr>
                             <td>
-                                <span className="id">{`#${item.index}`}</span>
+                                <span className="id">{`#${item.id}`}</span>
                             </td>
                             <td>
                                 <img

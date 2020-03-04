@@ -33,8 +33,8 @@ export default function Recipient() {
 
             // console.tron.log(response.data);
 
-            // setRecipient(listRecipient.sort((a, b) => a.index < b.index));
-            setRecipient(listRecipient);
+            setRecipient(listRecipient.sort((a, b) => a.id - b.id));
+            // setRecipient(listRecipient);
         }
         searchTool();
     }, []);
@@ -48,8 +48,8 @@ export default function Recipient() {
                 ...item,
                 index: response.data.indexOf(item) + 1,
             }));
-            // setRecipient(listRecipient.sort((a, b) => a.index < b.index));
-            setRecipient(listRecipient);
+            setRecipient(listRecipient.sort((a, b) => a.id - b.id));
+            // setRecipient(listRecipient);
         }
 
         listAllRecipient();
@@ -112,7 +112,7 @@ export default function Recipient() {
                     {recipient.map(item => (
                         <tr>
                             <td>
-                                <span className="id">{`#${item.index}`}</span>
+                                <span className="id">{`#${item.id}`}</span>
                             </td>
                             <td>
                                 <span className="name">{item.name}</span>
