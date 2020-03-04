@@ -25,18 +25,31 @@ export const Container = styled.div`
         padding-left: 10px;
         font-size: 16px;
     }
+
+    Popup.popup-wrapper {
+        width: 460px;
+    }
 `;
 
 export const Content = styled.div`
     text-align: left;
     width: 450px;
-    height: 353px;
+    height: 500px;
     padding-top: 25px;
 
-    h1.header {
+    h1.title {
         text-align: left;
         font-weight: bold;
-        font-size: 14px;
+        font-size: 17px;
+        color: #444444;
+        padding-left: 11px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    h1.header {
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
         color: #444444;
         padding-left: 11px;
         padding-top: 10px;
@@ -48,6 +61,11 @@ export const Content = styled.div`
         border-bottom: 1px solid #eeeeee;
         padding-top: 4px;
         padding-bottom: 8px;
+        display: inline-block;
+        width: 100%;
+        line-height: 20px;
+        word-wrap: break-word;
+        overflow: hidden;
     }
 `;
 
@@ -57,9 +75,9 @@ export const Dates = styled.div`
     padding-bottom: 8px;
 
     h1.header {
-        text-align: left;
+        text-align: center;
         font-weight: bold;
-        font-size: 14px;
+        font-size: 16px;
         color: #444444;
         padding-left: 11px;
         padding-top: 10px;
@@ -68,21 +86,18 @@ export const Dates = styled.div`
     div {
         /* width: 100%; */
         display: flex;
-
-        span.date {
-            color: #666666;
-            font-size: 16px;
-            display: flex;
-
-            /* border-bottom: 1px solid #eeeeee; */
-        }
-
         span.status {
             display: flex;
-
             color: #666666;
             font-size: 16px;
             font-weight: bold;
+        }
+
+        span.date {
+            color: #666666;
+            font-size: 14px;
+            display: flex;
+            /* border-bottom: 1px solid #eeeeee; */
         }
     }
 `;

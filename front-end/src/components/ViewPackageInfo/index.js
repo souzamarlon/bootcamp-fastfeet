@@ -38,9 +38,6 @@ export default function ViewPackageInfo({ data }) {
         // eslint-disable-next-line
     }, [data]);
 
-    console.tron.log(startDate);
-    console.tron.log(endDate);
-
     return (
         <>
             <Container>
@@ -61,6 +58,12 @@ export default function ViewPackageInfo({ data }) {
                         }
                         modal
                         closeOnDocumentClick
+                        contentStyle={{
+                            width: '460px',
+                            borderRadius: '5%',
+                        }}
+
+                        // contentStyle={ {width: '460px'}  }
                     >
                         {/* {close => (
                     <div className="modal">
@@ -68,19 +71,24 @@ export default function ViewPackageInfo({ data }) {
                             &times;
                         </a> */}
                         <Content>
-                            <h1 className="header">Informações da encomenda</h1>
+                            <h1 className="title">
+                                {`Informações da encomenda N.º #${data.id}.`}
+                            </h1>
+                            <h1 className="header">Nome do produto:</h1>
+                            <span className="address">{data.product}</span>
+                            <h1 className="header">Endereço completo:</h1>
                             <span className="address">
                                 {`${data.recipient.street},
-                                        ${data.recipient.number},
+                                        ${data.recipient.number}
                                         `}
                                 <br />
-                                {data.recipient.city}
+                                {data.recipient.city} - {data.recipient.state}
                                 <br />
-                                {data.recipient.state}
+                                {data.recipient.zipcode}.
                             </span>
 
                             <Dates>
-                                <h1 className="header">Datas</h1>
+                                <h1 className="header">Datas:</h1>
                                 <div>
                                     <span className="status">Retirada:</span>
                                     <span className="date">
@@ -99,7 +107,7 @@ export default function ViewPackageInfo({ data }) {
                                 </div>
                             </Dates>
                             <h1 className="header">
-                                Assinatura do destinatário
+                                Assinatura do destinatário:
                             </h1>
                             <Signatures>
                                 <span>
