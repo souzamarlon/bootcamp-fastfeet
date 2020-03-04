@@ -16,6 +16,8 @@ export const Content = styled.div`
     nav {
         display: flex;
         align-items: center;
+        color: #000000;
+
         img {
             display: block;
             width: 135px;
@@ -28,6 +30,11 @@ export const Content = styled.div`
         a {
             margin-right: 15px;
             font-weight: bold;
+            color: #999999;
+            /* color: ${props =>
+                props.open.deliver ? '#000000' : '#999999'}; */
+        }
+        a:hover {
             color: #000000;
         }
     }

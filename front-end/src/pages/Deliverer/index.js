@@ -41,7 +41,7 @@ export default function Deliverer() {
     useEffect(() => {
         async function listAllDeliverer() {
             const response = await api.get('deliverers');
-            console.tron.log(response.data);
+            // console.tron.log(response.data);
 
             const listDeliverer = response.data.map(item => ({
                 ...item,
@@ -55,7 +55,7 @@ export default function Deliverer() {
     }, []);
 
     async function handleDelete(id) {
-        console.tron.log(id);
+        // console.tron.log(id);
         try {
             // eslint-disable-next-line no-alert
             if (window.confirm('Você realmente quer deletar?')) {

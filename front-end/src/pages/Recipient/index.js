@@ -42,7 +42,7 @@ export default function Recipient() {
     useEffect(() => {
         async function listAllRecipient() {
             const response = await api.get('recipients');
-            console.tron.log(response.data);
+            // console.tron.log(response.data);
 
             const listRecipient = response.data.map(item => ({
                 ...item,
