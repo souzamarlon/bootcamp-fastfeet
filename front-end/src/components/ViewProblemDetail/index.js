@@ -27,6 +27,10 @@ export default function ViewProblemDetail({ data }) {
                         }
                         modal
                         closeOnDocumentClick
+                        contentStyle={{
+                            width: '460px',
+                            borderRadius: '5%',
+                        }}
                     >
                         {/* {close => (
                     <div className="modal">

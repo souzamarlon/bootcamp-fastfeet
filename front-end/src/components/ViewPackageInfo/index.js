@@ -63,6 +63,11 @@ export default function ViewPackageInfo({ data }) {
                             borderRadius: '5%',
                         }}
                     >
+                        {/* {close => (
+                            <div className="modal">
+                                <a href className="close" onClick={close}>
+                                    &times;
+                                </a> */}
                         <Content>
                             <h1 className="title">
                                 {`Informações da encomenda N.º #${data.id}.`}
@@ -122,6 +127,8 @@ export default function ViewPackageInfo({ data }) {
                                 </span>
                             </Signatures>
                         </Content>
+                        {/* </div>
+                        )} */}
                     </Popup>
                 </div>
             </Container>
