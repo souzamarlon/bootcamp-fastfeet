@@ -42,8 +42,6 @@ export default function Header() {
         locationPath();
     }, []);
 
-    console.tron.log(open);
-
     return (
         <Container>
             <Content open={open}>
