@@ -3,7 +3,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useField } from '@rocketseat/unform';
 import InsertPhotoIcon from '@material-ui/icons/InsertPhoto';
 
+import PropTypes from 'prop-types';
 import api from '~/services/api';
+
 import { Container } from './styles';
 
 export default function AvatarInput({ name, avatarData }) {
@@ -73,3 +75,8 @@ export default function AvatarInput({ name, avatarData }) {
         </Container>
     );
 }
+
+AvatarInput.propTypes = {
+    name: PropTypes.shape().isRequired,
+    avatarData: PropTypes.shape().isRequired,
+};

@@ -4,6 +4,7 @@ import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 import { Done, KeyboardArrowLeft } from '@material-ui/icons';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 import { Container, Content, Title, Button, FormInput } from './styles';
 import AvatarInput from '~/components/AvatarInput';
 import history from '~/services/history';
@@ -84,3 +85,11 @@ export default function EditDeliverer({ match }) {
         </>
     );
 }
+
+EditDeliverer.propTypes = {
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            id: PropTypes.number,
+        }),
+    }).isRequired,
+};

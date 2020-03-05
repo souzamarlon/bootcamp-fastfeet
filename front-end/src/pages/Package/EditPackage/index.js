@@ -4,9 +4,10 @@ import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 import { Done, KeyboardArrowLeft } from '@material-ui/icons';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
+
 import { Container, Content, Title, Button, FormInput } from './styles';
-import SelectRecipient from '../../../components/SelectRecipient';
-import SelectDeliverer from '../../../components/SelectDeliverer';
+import AsyncSelect from '../../../components/AsyncSelect';
 
 import history from '~/services/history';
 import api from '~/services/api';
@@ -16,19 +17,19 @@ export default function EditPackage({ match }) {
     const [recipient, setRecipient] = useState([]);
     const [deliverer, setDeliverer] = useState([]);
 
-    const { id } = match.params;
+    const packageId = match.params.id;
     useEffect(() => {
         async function loadDetails() {
             const response = await api.get('packages');
 
             // eslint-disable-next-line
-            const [dataDetails] = response.data.filter(item => item.id == id);
+            const [dataDetails] = response.data.filter(item => item.id == packageId);
 
             setPackages(dataDetails);
         }
 
         loadDetails();
-    }, [id]);
+    }, [packageId]);
 
     // console.tron.log(packages);
 
@@ -82,7 +83,7 @@ export default function EditPackage({ match }) {
         console.tron.log(data);
 
         try {
-            await api.put(`packages/${id}`, data);
+            await api.put(`packages/${packageId}`, data);
             toast.success('Sucesso ao criar o cadastro!');
 
             history.push('/packages');
@@ -135,7 +136,7 @@ export default function EditPackage({ match }) {
                         <tbody>
                             <tr>
                                 <td>
-                                    <SelectRecipient
+                                    <AsyncSelect
                                         className="select"
                                         name="recipient_id"
                                         // cacheOptions
@@ -149,9 +150,9 @@ export default function EditPackage({ match }) {
                                     />
                                 </td>
                                 <td>
-                                    <SelectDeliverer
+                                    <AsyncSelect
                                         className="select"
-                                        name="recipient_id"
+                                        name="deliveryman_id"
                                         // cacheOptions
                                         value={deliverer.find(
                                             ({ id }) =>
@@ -177,3 +178,11 @@ export default function EditPackage({ match }) {
         </>
     );
 }
+
+EditPackage.propTypes = {
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            id: PropTypes.number,
+        }),
+    }).isRequired,
+};

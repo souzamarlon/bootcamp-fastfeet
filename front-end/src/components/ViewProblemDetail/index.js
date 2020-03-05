@@ -3,6 +3,7 @@ import Popup from 'reactjs-popup';
 
 import { Visibility } from '@material-ui/icons';
 import { deepPurple } from '@material-ui/core/colors';
+import PropTypes from 'prop-types';
 
 import { Container, Content } from './styles';
 
@@ -48,3 +49,10 @@ export default function ViewProblemDetail({ data }) {
         </>
     );
 }
+
+ViewProblemDetail.propTypes = {
+    data: PropTypes.shape({
+        delivery_id: PropTypes.number,
+        description: PropTypes.string,
+    }).isRequired,
+};

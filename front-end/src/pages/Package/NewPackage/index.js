@@ -5,16 +5,13 @@ import { Link } from 'react-router-dom';
 import { Done, KeyboardArrowLeft } from '@material-ui/icons';
 import { toast } from 'react-toastify';
 import { Container, Content, Title, Button, FormInput } from './styles';
-import SelectRecipient from '../../../components/SelectRecipient';
-import SelectDeliverer from '../../../components/SelectDeliverer';
+import AsyncSelect from '../../../components/AsyncSelect';
 
 import history from '~/services/history';
 import api from '~/services/api';
 
 export default function NewPackage() {
-    //
     // Loading the Recipients
-    //
     const searchRecipient = inputValue => {
         async function listRecipients() {
             const response = await api.get(`recipients`, {
@@ -34,9 +31,7 @@ export default function NewPackage() {
             }, 100);
         });
 
-    //
     // Loading the Deliverer
-    //
     const searchDeliverer = inputValue => {
         async function listDeliverers() {
             const response = await api.get(`deliverers`, {
@@ -103,7 +98,7 @@ export default function NewPackage() {
                         <tbody>
                             <tr>
                                 <td>
-                                    <SelectRecipient
+                                    <AsyncSelect
                                         className="select"
                                         name="recipient_id"
                                         // cacheOptions
@@ -112,7 +107,7 @@ export default function NewPackage() {
                                     />
                                 </td>
                                 <td>
-                                    <SelectDeliverer
+                                    <AsyncSelect
                                         className="select"
                                         name="recipient_id"
                                         // cacheOptions

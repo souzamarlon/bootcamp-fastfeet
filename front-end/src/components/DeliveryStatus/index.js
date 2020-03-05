@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { FiberManualRecord } from '@material-ui/icons';
+import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
@@ -53,3 +54,12 @@ export default function DeliveryStatus({ data }) {
         </Container>
     );
 }
+
+DeliveryStatus.propTypes = {
+    data: PropTypes.shape({
+        canceled_at: PropTypes.instanceOf(Date),
+        start_date: PropTypes.string,
+        end_date: PropTypes.instanceOf(Date),
+        signature_id: PropTypes.number,
+    }).isRequired,
+};

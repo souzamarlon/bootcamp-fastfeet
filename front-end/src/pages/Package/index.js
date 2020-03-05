@@ -82,7 +82,7 @@ export default function Package() {
                     <div>
                         <Link to="/newpackages">
                             <button type="button" onClick={() => {}}>
-                                <Add size={19} color="#FFF" />
+                                <Add size={19} />
                                 <strong>CADASTRAR</strong>
                             </button>
                         </Link>
@@ -105,7 +105,7 @@ export default function Package() {
                 </thead>
                 <tbody>
                     {packages.map(item => (
-                        <tr>
+                        <tr key={item.id}>
                             <td>
                                 <span className="id">{`#${item.id}`}</span>
                             </td>
