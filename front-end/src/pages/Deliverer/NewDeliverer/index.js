@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
@@ -22,6 +22,9 @@ export default function NewDeliverer() {
             // console.tron.log(data);
         }
     }
+
+    const inputEl = useRef();
+    console.tron.log(inputEl.current);
 
     return (
         <>
@@ -55,6 +58,7 @@ export default function NewDeliverer() {
                         <Input
                             name="email"
                             type="email"
+                            ref={inputEl}
                             placeholder="Seu endereço de e-mail"
                         />
                     </FormInput>

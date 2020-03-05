@@ -4,6 +4,7 @@ import { format, parseISO, isValid } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import { Visibility } from '@material-ui/icons';
 import { deepPurple } from '@material-ui/core/colors';
+import PropTypes from 'prop-types';
 
 import { Container, Dates, Content, Signatures } from './styles';
 
@@ -135,3 +136,20 @@ export default function ViewPackageInfo({ data }) {
         </>
     );
 }
+
+ViewPackageInfo.propTypes = {
+    data: PropTypes.shape({
+        start_date: PropTypes.instanceOf(Date),
+        end_date: PropTypes.instanceOf(Date),
+        id: PropTypes.number,
+        product: PropTypes.string,
+        signature: PropTypes.shape(),
+        recipient: PropTypes.shape({
+            street: PropTypes.string,
+            number: PropTypes.number,
+            city: PropTypes.string,
+            state: PropTypes.string,
+            zipcode: PropTypes.number,
+        }),
+    }).isRequired,
+};
