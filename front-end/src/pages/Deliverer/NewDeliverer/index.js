@@ -19,9 +19,12 @@ export default function NewDeliverer() {
             email: item.email,
         }));
 
-        const validEmail = listEmails.filter(item => item.email === data.email);
+        const [validEmail] = listEmails.filter(
+            item => item.email === data.email
+        );
 
         if (validEmail) {
+            console.tron.log(validEmail);
             toast.error('Email já cadastrado!');
         }
 
