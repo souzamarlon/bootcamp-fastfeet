@@ -34,6 +34,12 @@ class DelivererFeaturesController {
 
     const { start_date, end_date, signature_id } = req.body;
 
+    if (start_date > end_date) {
+      return res.status(400).json({
+        error: 'A data de retirada é menor que a data de entrega!',
+      });
+    }
+
     // GetHours is
     if (
       getHours(parseISO(start_date)) <= 8 ||
