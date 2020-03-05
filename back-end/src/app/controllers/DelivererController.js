@@ -57,6 +57,18 @@ class DelivererController {
     }
 
     // TODO - Check if the email is already using for someone.
+    const { email } = req.body;
+    const [verifyEmail] = await Deliverer.findAll({
+      where: {
+        email,
+      },
+    });
+
+    if (verifyEmail) {
+      return res
+        .status(400)
+        .json({ error: 'An account with this email already exists!' });
+    }
 
     const delivererFields = await Deliverer.create(req.body);
 
