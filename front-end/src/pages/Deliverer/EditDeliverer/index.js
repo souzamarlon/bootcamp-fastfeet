@@ -41,11 +41,11 @@ export default function EditDeliverer({ match }) {
         console.tron.log(data);
         try {
             await api.put(`deliverers/${id}`, data);
-            toast.success('Sucesso ao criar o cadastro!');
+            toast.success('Sucesso ao editar o cadastro!');
 
             history.push('/deliverers');
         } catch (err) {
-            toast.error('Erro ao criar o cadastro!');
+            toast.error('Erro ao editar o cadastro!');
             // console.tron.log(err);
             // console.tron.log(data);
         }

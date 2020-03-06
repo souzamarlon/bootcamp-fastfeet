@@ -88,11 +88,11 @@ export default function EditPackage({ match }) {
 
         try {
             await api.put(`packages/${packageId}`, data);
-            toast.success('Sucesso ao criar o cadastro!');
+            toast.success('Sucesso ao editar o cadastro!');
 
             history.push('/packages');
         } catch (err) {
-            toast.error('Erro ao criar o cadastro!');
+            toast.error('Erro ao editar o cadastro!');
             console.tron.log(err);
             console.tron.log(data);
         }
