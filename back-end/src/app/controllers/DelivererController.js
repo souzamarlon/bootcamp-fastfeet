@@ -8,9 +8,12 @@ import File from '../models/File';
 class DelivererController {
   async index(req, res) {
     const findDeliverer = req.query.q;
+    const { offset, limit } = req.query;
 
     if (findDeliverer === null || findDeliverer === undefined) {
       const delivererData = await Deliverer.findAll({
+        offset,
+        limit,
         attributes: ['id', 'name', 'email', 'avatar_id'],
         include: [
           {
