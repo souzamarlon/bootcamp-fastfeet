@@ -4,12 +4,23 @@ import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 import { Done, KeyboardArrowLeft } from '@material-ui/icons';
 import { toast } from 'react-toastify';
-import { Container, Content, Title, Button, FormInput } from './styles';
-
+import * as Yup from 'yup';
 import history from '~/services/history';
 import api from '~/services/api';
 
+import { Container, Content, Title, Button, FormInput } from './styles';
+
 export default function NewRecipient() {
+    const schema = Yup.object().shape({
+        name: Yup.string().required('Campo obrigatório'),
+        street: Yup.string().required('Campo obrigatório'),
+        number: Yup.number().required('Campo obrigatório'),
+        complement: Yup.string().required('Campo obrigatório'),
+        state: Yup.string().required('Campo obrigatório'),
+        city: Yup.string().required('Campo obrigatório'),
+        zipcode: Yup.number().required('Campo obrigatório'),
+    });
+
     async function handleSubmit(data) {
         try {
             await api.post('recipients', data);
@@ -25,7 +36,7 @@ export default function NewRecipient() {
 
     return (
         <>
-            <Form onSubmit={handleSubmit}>
+            <Form schema={schema} onSubmit={handleSubmit}>
                 <Container>
                     <Title>
                         <h1>Cadastro de destinatário</h1>

@@ -5,12 +5,21 @@ import { Link } from 'react-router-dom';
 import { Done, KeyboardArrowLeft } from '@material-ui/icons';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
-import { Container, Content, Title, Button, FormInput } from './styles';
-import AvatarInput from '~/components/AvatarInput';
+import * as Yup from 'yup';
 import history from '~/services/history';
 import api from '~/services/api';
+import { Container, Content, Title, Button, FormInput } from './styles';
+import AvatarInput from '~/components/AvatarInput';
 
 export default function EditDeliverer({ match }) {
+    const schema = Yup.object().shape({
+        avatar_id: Yup.number(),
+        name: Yup.string().required('O nome é obrigatório'),
+        email: Yup.string()
+            .email('Insira um e-mail válido')
+            .required('O e-mail é obrigatório'),
+    });
+
     const [deliverer, setDeliverer] = useState([]);
 
     const { id } = match.params;
@@ -44,7 +53,11 @@ export default function EditDeliverer({ match }) {
 
     return (
         <>
-            <Form initialData={deliverer} onSubmit={handleSubmit}>
+            <Form
+                schema={schema}
+                initialData={deliverer}
+                onSubmit={handleSubmit}
+            >
                 <Container>
                     <Title>
                         <h1>Edição de entregadores</h1>

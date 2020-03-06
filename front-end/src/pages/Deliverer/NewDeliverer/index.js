@@ -4,13 +4,22 @@ import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 import { Done, KeyboardArrowLeft } from '@material-ui/icons';
 import { toast } from 'react-toastify';
-
-import { Container, Content, Title, Button, FormInput } from './styles';
-import AvatarInput from '~/components/AvatarInput';
+import * as Yup from 'yup';
 import history from '~/services/history';
 import api from '~/services/api';
 
+import { Container, Content, Title, Button, FormInput } from './styles';
+import AvatarInput from '~/components/AvatarInput';
+
 export default function NewDeliverer() {
+    const schema = Yup.object().shape({
+        avatar_id: Yup.number(),
+        name: Yup.string().required('O nome é obrigatório'),
+        email: Yup.string()
+            .email('Insira um e-mail válido')
+            .required('O e-mail é obrigatório'),
+    });
+
     async function handleSubmit(data) {
         const response = await api.get('deliverers');
 
@@ -42,7 +51,7 @@ export default function NewDeliverer() {
 
     return (
         <>
-            <Form onSubmit={handleSubmit}>
+            <Form schema={schema} onSubmit={handleSubmit}>
                 <Container>
                     <Title>
                         <h1>Cadastro de entregadores</h1>

@@ -3,13 +3,12 @@ import { MoreHoriz, DeleteForever } from '@material-ui/icons';
 
 import Popup from 'reactjs-popup';
 import { toast } from 'react-toastify';
-
 import LinesEllipsis from 'react-lines-ellipsis';
-import { Container, Title, Content } from './styles';
-import ViewProblemDetail from '~/components/ViewProblemDetail';
-
 import api from '~/services/api';
 import history from '~/services/history';
+
+import { Container, Title, Content } from './styles';
+import ViewProblemDetail from '~/components/ViewProblemDetail';
 
 export default function Problem() {
     const [problem, setProblem] = useState([]);

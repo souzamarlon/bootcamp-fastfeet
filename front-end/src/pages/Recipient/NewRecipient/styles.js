@@ -129,6 +129,12 @@ export const FormInput = styled.div`
         padding-top: 9px;
         text-align: left;
     }
+
+    th.street {
+        width: 518px;
+        padding-right: 502px;
+    }
+
     thead.cityState th {
         width: 216px;
         color: #000;
@@ -137,10 +143,6 @@ export const FormInput = styled.div`
         font-weight: bold;
         padding-top: 7px;
         text-align: left;
-    }
-    th.street {
-        width: 518px;
-        padding-right: 502px;
     }
 
     tbody td {
@@ -167,11 +169,9 @@ export const FormInput = styled.div`
     input.address {
         background: #ffffff;
         border: 0.5px solid #eee;
-        /* box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); */
         border-radius: 4px;
         width: 100%;
         max-width: 148px;
-
         height: 45px;
         padding: 0 15px;
         color: #999999;

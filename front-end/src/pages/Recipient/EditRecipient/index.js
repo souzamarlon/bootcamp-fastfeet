@@ -5,13 +5,22 @@ import { Link } from 'react-router-dom';
 import { Done, KeyboardArrowLeft } from '@material-ui/icons';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
-
-import { Container, Content, Title, Button, FormInput } from './styles';
-
+import * as Yup from 'yup';
 import history from '~/services/history';
 import api from '~/services/api';
 
+import { Container, Content, Title, Button, FormInput } from './styles';
+
 export default function EditRecipient({ match }) {
+    const schema = Yup.object().shape({
+        name: Yup.string().required('Campo obrigatório'),
+        street: Yup.string().required('Campo obrigatório'),
+        number: Yup.number().required('Campoobrigatório'),
+        complement: Yup.string().required('Campo obrigatório'),
+        state: Yup.string().required('Campo obrigatório'),
+        city: Yup.string().required('Campoobrigatório'),
+        zipcode: Yup.number().required('Campo obrigatório'),
+    });
     const [recipient, setRecipient] = useState([]);
 
     const { id } = match.params;
@@ -44,7 +53,11 @@ export default function EditRecipient({ match }) {
 
     return (
         <>
-            <Form initialData={recipient} onSubmit={handleSubmit}>
+            <Form
+                schema={schema}
+                initialData={recipient}
+                onSubmit={handleSubmit}
+            >
                 <Container>
                     <Title>
                         <h1>Edição de destinatário</h1>

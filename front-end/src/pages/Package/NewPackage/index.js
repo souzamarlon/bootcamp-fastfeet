@@ -4,13 +4,20 @@ import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 import { Done, KeyboardArrowLeft } from '@material-ui/icons';
 import { toast } from 'react-toastify';
-import { Container, Content, Title, Button, FormInput } from './styles';
-import AsyncSelect from '../../../components/AsyncSelect';
-
+import * as Yup from 'yup';
 import history from '~/services/history';
 import api from '~/services/api';
 
+import { Container, Content, Title, Button, FormInput } from './styles';
+import AsyncSelect from '../../../components/AsyncSelect';
+
 export default function NewPackage() {
+    const schema = Yup.object().shape({
+        recipient_id: Yup.number().required('Campo obrigatório!'),
+        deliveryman_id: Yup.number().required('Campo obrigatório!'),
+        product: Yup.string().required('O nome do produto é obrigatório!'),
+    });
+
     // Loading the Recipients
     const searchRecipient = inputValue => {
         async function listRecipients() {
@@ -66,7 +73,7 @@ export default function NewPackage() {
 
     return (
         <>
-            <Form onSubmit={handleSubmit}>
+            <Form schema={schema} onSubmit={handleSubmit}>
                 <Container>
                     <Title>
                         <h1>Cadastro de encomendas</h1>
@@ -109,7 +116,7 @@ export default function NewPackage() {
                                 <td>
                                     <AsyncSelect
                                         className="select"
-                                        name="recipient_id"
+                                        name="deliveryman_id"
                                         // cacheOptions
                                         defaultOptions
                                         options={loadDeliverers}

@@ -5,14 +5,18 @@ import { Link } from 'react-router-dom';
 import { Done, KeyboardArrowLeft } from '@material-ui/icons';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
+import * as Yup from 'yup';
+import history from '~/services/history';
+import api from '~/services/api';
 
 import { Container, Content, Title, Button, FormInput } from './styles';
 import AsyncSelect from '../../../components/AsyncSelect';
 
-import history from '~/services/history';
-import api from '~/services/api';
-
 export default function EditPackage({ match }) {
+    const schema = Yup.object().shape({
+        product: Yup.string().required('O nome do produto é obrigatório!'),
+    });
+
     const [packages, setPackages] = useState([]);
     const [recipient, setRecipient] = useState([]);
     const [deliverer, setDeliverer] = useState([]);
@@ -104,7 +108,11 @@ export default function EditPackage({ match }) {
 
     return (
         <>
-            <Form initialData={packages} onSubmit={handleSubmit}>
+            <Form
+                schema={schema}
+                initialData={packages}
+                onSubmit={handleSubmit}
+            >
                 <Container>
                     <Title>
                         <h1>Cadastro de encomendas</h1>
