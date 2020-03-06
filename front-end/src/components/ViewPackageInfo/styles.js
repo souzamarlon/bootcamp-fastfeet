@@ -81,19 +81,24 @@ export const Dates = styled.div`
     }
 
     div {
+        text-align: left;
+        width: 200px;
         /* width: 100%; */
         display: flex;
         span.status {
-            display: flex;
+            /* display: flex; */
             color: #666666;
             font-size: 16px;
             font-weight: bold;
         }
 
         span.date {
+            width: 200px;
+
+            text-align: left;
             color: #666666;
             font-size: 16px;
-            display: flex;
+            /* display: flex; */
 
             /* border-bottom: 1px solid #eeeeee; */
         }
@@ -101,19 +106,22 @@ export const Dates = styled.div`
 `;
 
 export const Signatures = styled.div`
+    justify-content: center;
+    text-align: center;
+    display: flex;
+
     img.imgName {
-        /* align-content: center; */
-        justify-content: center;
-        text-align: center;
-        width: 234px;
+        width: 100%;
+        max-width: 200px;
         height: 56px;
         border: 0;
         padding-top: 23px;
-        padding-left: 108px;
-        border-radius: 10px;
-    }
+        /* padding-left: 108px; */
+        /* border-radius: 10px;
+
     /* width: 234px;
     height: 36px;
     border: 0;
     border-radius: 10px; */
+    }
 `;
