@@ -6,18 +6,29 @@ import {
     DeleteForever,
     Add,
     SearchOutlined,
+    KeyboardArrowLeft,
+    KeyboardArrowRight,
 } from '@material-ui/icons';
 
 import Popup from 'reactjs-popup';
 import { toast } from 'react-toastify';
 
 import { Link } from 'react-router-dom';
-import { Container, Header, Title, Button, Content, Search } from './styles';
-import api from '~/services/api';
 import history from '~/services/history';
+import api from '~/services/api';
+import {
+    Container,
+    Header,
+    Title,
+    Button,
+    Content,
+    Search,
+    PageActions,
+} from './styles';
 
 export default function Deliverer() {
     const [deliverer, setDeliverer] = useState([]);
+    const [page, setPage] = useState(0);
 
     const searchDeliverers = useCallback(({ search }) => {
         async function searchTool() {
@@ -40,8 +51,10 @@ export default function Deliverer() {
 
     useEffect(() => {
         async function listAllDeliverer() {
-            const response = await api.get('deliverers');
-            // console.tron.log(response.data);
+            const response = await api.get('deliverers', {
+                params: { page, per_page: 5 },
+            });
+            console.tron.log(response.data);
 
             const listDeliverer = response.data.map(item => ({
                 ...item,
@@ -52,7 +65,7 @@ export default function Deliverer() {
         }
 
         listAllDeliverer();
-    }, []);
+    }, [page]);
 
     async function handleDelete(id) {
         // console.tron.log(id);
@@ -67,6 +80,11 @@ export default function Deliverer() {
         } catch (err) {
             toast.error('Erro ao deletar o entregador!');
         }
+    }
+
+    function handlePage(action) {
+        // const count = action === 'back' ? page - 1 : page + 1;
+        setPage(action === 'back' ? page - 1 : page + 1);
     }
 
     return (
@@ -172,6 +190,23 @@ export default function Deliverer() {
                         </tr>
                     ))}
                 </tbody>
+                <PageActions>
+                    <>
+                        <button
+                            type="button"
+                            disabled={page < 1}
+                            onClick={() => handlePage('back')}
+                        >
+                            <KeyboardArrowLeft />
+                            <strong>Anterior</strong>
+                        </button>
+                    </>
+                    <span className="page-number">{`Página ${page}`}</span>
+                    <button type="button" onClick={() => handlePage('next')}>
+                        <strong>Próximo</strong>
+                        <KeyboardArrowRight />
+                    </button>
+                </PageActions>
             </Content>
         </Container>
     );
