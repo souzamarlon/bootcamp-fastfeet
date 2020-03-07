@@ -10,6 +10,20 @@ import PackageCancelledMail from '../jobs/PackageCancelledMail';
 class DeliveryProblemController {
   async index(req, res) {
     const delivery_id = req.params.id;
+    const { page, per_page } = req.query;
+
+    const offset = (page - 1) * per_page;
+    const limit = per_page;
+
+    if (offset >= 0 && limit) {
+      const packageData = await DeliveryProblem.findAll({
+        offset,
+        limit,
+      });
+
+      return res.json(packageData);
+    }
+
     if (delivery_id === null || delivery_id === undefined) {
       const packageData = await DeliveryProblem.findAll();
 

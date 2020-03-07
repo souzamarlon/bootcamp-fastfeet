@@ -12,6 +12,63 @@ import File from '../models/File';
 class PackageController {
   async index(req, res) {
     const findPackage = req.query.q;
+    const { page, per_page } = req.query;
+
+    const offset = (page - 1) * per_page;
+    const limit = per_page;
+
+    if (offset >= 0 && limit) {
+      const packageData = await Package.findAll({
+        offset,
+        limit,
+        attributes: [
+          'id',
+          'signature_id',
+          'product',
+          'recipient_id',
+          'deliveryman_id',
+          'canceled_at',
+          'start_date',
+          'end_date',
+          'created_at',
+        ],
+
+        include: [
+          {
+            model: Recipient,
+            as: 'recipient',
+            attributes: [
+              'id',
+              'name',
+              'street',
+              'number',
+              'city',
+              'state',
+              'zipcode',
+            ],
+          },
+          {
+            model: Deliverer,
+            as: 'deliveryman',
+            attributes: ['id', 'name', 'avatar_id'],
+            include: [
+              {
+                model: File,
+                as: 'avatar',
+                attributes: ['id', 'path', 'url'],
+              },
+            ],
+          },
+          {
+            model: File,
+            as: 'signature',
+            attributes: ['id', 'path', 'url'],
+          },
+        ],
+      });
+
+      return res.json(packageData);
+    }
 
     if (findPackage === null || findPackage === undefined) {
       const packageData = await Package.findAll({
