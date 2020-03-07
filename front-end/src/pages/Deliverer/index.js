@@ -28,47 +28,36 @@ import {
 
 export default function Deliverer() {
     const [deliverer, setDeliverer] = useState([]);
-    const [page, setPage] = useState(0);
+    const [page, setPage] = useState(1);
 
-    const searchDeliverers = useCallback(({ search }) => {
-        async function searchTool() {
-            const response = await api.get(`deliverers`, {
-                params: { q: search },
-            });
+    const searchDeliverers = useCallback(
+        ({ search }) => {
+            async function searchTool() {
+                const response = await api.get(`deliverers`, {
+                    params: { q: search, page, per_page: 5 },
+                });
 
-            const listDeliverer = response.data.map(item => ({
-                ...item,
-                index: response.data.indexOf(item) + 1,
-            }));
-
-            // console.tron.log(response.data);
-
-            setDeliverer(listDeliverer.sort((a, b) => a.id - b.id));
-            // setDeliverer(listDeliverer);
-        }
-        searchTool();
-    }, []);
+                setDeliverer(response.data.sort((a, b) => a.id - b.id));
+            }
+            searchTool();
+        },
+        [page]
+    );
 
     useEffect(() => {
         async function listAllDeliverer() {
             const response = await api.get('deliverers', {
                 params: { page, per_page: 5 },
             });
-            console.tron.log(response.data);
+            // console.tron.log(response.data);
 
-            const listDeliverer = response.data.map(item => ({
-                ...item,
-                index: response.data.indexOf(item) + 1,
-            }));
-            setDeliverer(listDeliverer.sort((a, b) => a.id - b.id));
-            // setDeliverer(listDeliverer);
+            setDeliverer(response.data.sort((a, b) => a.id - b.id));
         }
 
         listAllDeliverer();
     }, [page]);
 
     async function handleDelete(id) {
-        // console.tron.log(id);
         try {
             // eslint-disable-next-line no-alert
             if (window.confirm('Você realmente quer deletar?')) {
@@ -195,7 +184,7 @@ export default function Deliverer() {
                     <button
                         className="pages-button"
                         type="button"
-                        disabled={page < 1}
+                        disabled={page < 2}
                         onClick={() => handlePage('back')}
                     >
                         <KeyboardArrowLeft />
@@ -207,6 +196,7 @@ export default function Deliverer() {
                     <button
                         className="pages-button"
                         type="button"
+                        disabled={deliverer.length < 1}
                         onClick={() => handlePage('next')}
                     >
                         <strong className="page-next">Próximo</strong>

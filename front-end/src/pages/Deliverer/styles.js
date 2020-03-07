@@ -213,11 +213,9 @@ export const PageActions = styled.div`
             background: ${darken(0.03, '#7d40e7')};
         }
         strong.page-before {
-            /* margin: 2px 0px 0px 15px; */
             margin: 4px 2px 0px 0px;
         }
         strong.page-next {
-            /* margin: 2px 0px 0px 15px; */
             margin: 4px 2px 0px 10px;
         }
     }

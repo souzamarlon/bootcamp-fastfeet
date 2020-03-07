@@ -8,6 +8,8 @@ import {
     DeleteForever,
     Add,
     SearchOutlined,
+    KeyboardArrowLeft,
+    KeyboardArrowRight,
 } from '@material-ui/icons';
 
 import Popup from 'reactjs-popup';
@@ -18,34 +20,48 @@ import { Link } from 'react-router-dom';
 
 import DeliveryStatus from '~/components/DeliveryStatus';
 import ViewPackageInfo from '~/components/ViewPackageInfo';
-
-import { Container, Header, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
 import history from '~/services/history';
 
+import {
+    Container,
+    Header,
+    Title,
+    Button,
+    Content,
+    Search,
+    PageActions,
+} from './styles';
+
 export default function Package() {
     const [packages, setPackages] = useState([]);
+    const [page, setPage] = useState(1);
 
-    const searchProducts = useCallback(({ search }) => {
-        async function searchTool() {
-            const response = await api.get(`packages`, {
-                params: { q: search },
-            });
+    const searchProducts = useCallback(
+        ({ search }) => {
+            async function searchTool() {
+                const response = await api.get(`packages`, {
+                    params: { q: search, page, per_page: 5 },
+                });
 
-            setPackages(response.data.sort((a, b) => a.id - b.id));
-        }
-        searchTool();
-    }, []);
+                setPackages(response.data.sort((a, b) => a.id - b.id));
+            }
+            searchTool();
+        },
+        [page]
+    );
 
     useEffect(() => {
         async function listAllPackages() {
-            const response = await api.get('packages');
+            const response = await api.get('packages', {
+                params: { page, per_page: 5 },
+            });
 
             setPackages(response.data.sort((a, b) => a.id - b.id));
             // setPackages(listPackages);
         }
         listAllPackages();
-    }, []);
+    }, [page]);
 
     async function handleDelete(id) {
         console.tron.log(id);
@@ -60,6 +76,11 @@ export default function Package() {
         } catch (err) {
             toast.error('Erro ao deletar a encomenda!');
         }
+    }
+
+    function handlePage(action) {
+        // const count = action === 'back' ? page - 1 : page + 1;
+        setPage(action === 'back' ? page - 1 : page + 1);
     }
 
     return (
@@ -202,6 +223,29 @@ export default function Package() {
                         </tr>
                     ))}
                 </tbody>
+                <PageActions>
+                    <button
+                        className="pages-button"
+                        type="button"
+                        disabled={page < 2}
+                        onClick={() => handlePage('back')}
+                    >
+                        <KeyboardArrowLeft />
+                        <strong className="page-before">Anterior</strong>
+                    </button>
+
+                    <span className="page-number">{`Página ${page}`}</span>
+
+                    <button
+                        className="pages-button"
+                        type="button"
+                        disabled={packages.length < 1}
+                        onClick={() => handlePage('next')}
+                    >
+                        <strong className="page-next">Próximo</strong>
+                        <KeyboardArrowRight />
+                    </button>
+                </PageActions>
             </Content>
         </Container>
     );

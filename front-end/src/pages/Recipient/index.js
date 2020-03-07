@@ -6,57 +6,59 @@ import {
     DeleteForever,
     Add,
     SearchOutlined,
+    KeyboardArrowLeft,
+    KeyboardArrowRight,
 } from '@material-ui/icons';
 
 import Popup from 'reactjs-popup';
 import { toast } from 'react-toastify';
-
 import { Link } from 'react-router-dom';
-
-import { Container, Header, Title, Button, Content, Search } from './styles';
 import api from '~/services/api';
 import history from '~/services/history';
 
+import {
+    Container,
+    Header,
+    Title,
+    Button,
+    Content,
+    Search,
+    PageActions,
+} from './styles';
+
 export default function Recipient() {
     const [recipient, setRecipient] = useState([]);
+    const [page, setPage] = useState(1);
 
-    const searchRecipient = useCallback(({ search }) => {
-        async function searchTool() {
-            const response = await api.get(`recipients`, {
-                params: { q: search },
-            });
+    const searchRecipient = useCallback(
+        ({ search }) => {
+            async function searchTool() {
+                const response = await api.get(`recipients`, {
+                    params: { q: search, page, per_page: 5 },
+                });
 
-            const listRecipient = response.data.map(item => ({
-                ...item,
-                index: response.data.indexOf(item) + 0 + 1,
-            }));
-
-            // console.tron.log(response.data);
-
-            setRecipient(listRecipient.sort((a, b) => a.id - b.id));
-            // setRecipient(listRecipient);
-        }
-        searchTool();
-    }, []);
+                setRecipient(response.data.sort((a, b) => a.id - b.id));
+                // setRecipient(listRecipient);
+            }
+            searchTool();
+        },
+        [page]
+    );
 
     useEffect(() => {
         async function listAllRecipient() {
-            const response = await api.get('recipients');
-            // console.tron.log(response.data);
+            const response = await api.get('recipients', {
+                params: { page, per_page: 5 },
+            });
 
-            const listRecipient = response.data.map(item => ({
-                ...item,
-                index: response.data.indexOf(item) + 1,
-            }));
-            setRecipient(listRecipient.sort((a, b) => a.id - b.id));
+            setRecipient(response.data.sort((a, b) => a.id - b.id));
             // setRecipient(listRecipient);
         }
 
         listAllRecipient();
-    }, []);
+    }, [page]);
 
     async function handleDelete(id) {
-        console.tron.log(id);
         try {
             // eslint-disable-next-line no-alert
             if (window.confirm('Você realmente quer deletar?')) {
@@ -68,6 +70,11 @@ export default function Recipient() {
         } catch (err) {
             toast.error('Erro ao deletar a encomenda!');
         }
+    }
+
+    function handlePage(action) {
+        // const count = action === 'back' ? page - 1 : page + 1;
+        setPage(action === 'back' ? page - 1 : page + 1);
     }
 
     return (
@@ -167,6 +174,29 @@ export default function Recipient() {
                         </tr>
                     ))}
                 </tbody>
+                <PageActions>
+                    <button
+                        className="pages-button"
+                        type="button"
+                        disabled={page < 2}
+                        onClick={() => handlePage('back')}
+                    >
+                        <KeyboardArrowLeft />
+                        <strong className="page-before">Anterior</strong>
+                    </button>
+
+                    <span className="page-number">{`Página ${page}`}</span>
+
+                    <button
+                        className="pages-button"
+                        type="button"
+                        disabled={recipient.length <= 0}
+                        onClick={() => handlePage('next')}
+                    >
+                        <strong className="page-next">Próximo</strong>
+                        <KeyboardArrowRight />
+                    </button>
+                </PageActions>
             </Content>
         </Container>
     );
