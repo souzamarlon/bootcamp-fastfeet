@@ -4,6 +4,7 @@ import {
     DeleteForever,
     KeyboardArrowLeft,
     KeyboardArrowRight,
+    Warning,
 } from '@material-ui/icons';
 
 import Popup from 'reactjs-popup';
@@ -70,63 +71,74 @@ export default function Problem() {
                         <th className="action">Ações</th>
                     </tr>
                 </thead>
-
-                <tbody>
-                    {problem.map(item => (
-                        <tr>
-                            <td>
-                                <span className="package">{`#${item.delivery_id}`}</span>
-                            </td>
-                            <td>
-                                <LinesEllipsis
-                                    text={item.description}
-                                    maxLine="1"
-                                    ellipsis="..."
-                                    trimRight
-                                    basedOn="letters"
-                                    className="max-lines"
-                                />
-                            </td>
-                            <td className="action">
-                                <Popup
-                                    trigger={
+                {problem.length ? (
+                    <tbody>
+                        {problem.map(item => (
+                            <tr>
+                                <td>
+                                    <span className="package">{`#${item.delivery_id}`}</span>
+                                </td>
+                                <td>
+                                    <LinesEllipsis
+                                        text={item.description}
+                                        maxLine="1"
+                                        ellipsis="..."
+                                        trimRight
+                                        basedOn="letters"
+                                        className="max-lines"
+                                    />
+                                </td>
+                                <td className="action">
+                                    <Popup
+                                        trigger={
+                                            <button
+                                                type="button"
+                                                className="button"
+                                            >
+                                                <MoreHoriz color="disabled" />
+                                            </button>
+                                        }
+                                        position="bottom center"
+                                        // on="hover"
+                                        contentStyle={{
+                                            width: '200px',
+                                            borderRadius: '5%',
+                                        }}
+                                    >
+                                        <button
+                                            onClick={() => {}}
+                                            type="button"
+                                        >
+                                            <ViewProblemDetail data={item} />
+                                        </button>
                                         <button
                                             type="button"
-                                            className="button"
+                                            className="actions"
+                                            onClick={() =>
+                                                handleCancel(item.delivery_id)
+                                            }
                                         >
-                                            <MoreHoriz color="disabled" />
+                                            <DeleteForever
+                                                fontSize="small"
+                                                color="secondary"
+                                            />
+                                            <span className="options">
+                                                Cancelar encomenda
+                                            </span>
                                         </button>
-                                    }
-                                    position="bottom center"
-                                    // on="hover"
-                                    contentStyle={{
-                                        width: '200px',
-                                        borderRadius: '5%',
-                                    }}
-                                >
-                                    <button onClick={() => {}} type="button">
-                                        <ViewProblemDetail data={item} />
-                                    </button>
-                                    <button
-                                        type="button"
-                                        className="actions"
-                                        onClick={() =>
-                                            handleCancel(item.delivery_id)
-                                        }
-                                    >
-                                        <DeleteForever
-                                            fontSize="small"
-                                            color="secondary"
-                                        />
-                                        <span className="options">
-                                            Cancelar encomenda
-                                        </span>
-                                    </button>
-                                </Popup>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
+                                    </Popup>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                ) : (
+                    <div className="warning-text">
+                        <Warning color="secondary" fontSize="large" />
+                        <h1 className="warning-text">
+                            Não encontramos mais problemas!
+                        </h1>
+                    </div>
+                )}
 
                 <PageActions>
                     <button

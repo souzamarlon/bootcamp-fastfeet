@@ -178,11 +178,18 @@ export const Content = styled.div`
         border-bottom: 1px solid #eeeeee;
     }
 
-    img {
-        padding-right: 5px;
-        width: 35px;
-        height: 35px;
-        border-radius: 50px;
+    .recipient-icon {
+        text-align: center;
+        justify-content: center;
+        /* display: flex; */
+        align-content: center;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        color: #999999;
+    }
+    .recipient-img {
+        padding-top: 30px;
+        width: 70px;
     }
 `;
 export const PageActions = styled.div`

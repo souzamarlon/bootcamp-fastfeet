@@ -125,6 +125,19 @@ export const Content = styled.div`
         padding-left: 10px;
         font-size: 16px;
     }
+
+    .warning-text {
+        text-align: center;
+        justify-content: center;
+        /* display: flex; */
+        align-content: center;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        color: #999999;
+    }
+    .warning-img {
+        padding-top: 30px;
+    }
 `;
 
 export const PageActions = styled.div`

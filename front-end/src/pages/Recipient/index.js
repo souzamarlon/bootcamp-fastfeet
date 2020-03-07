@@ -13,6 +13,7 @@ import {
 import Popup from 'reactjs-popup';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import recipientIcon from '~/assets/recipient.svg';
 import api from '~/services/api';
 import history from '~/services/history';
 
@@ -114,66 +115,85 @@ export default function Recipient() {
                         <th className="action">Ações</th>
                     </tr>
                 </thead>
-
-                <tbody>
-                    {recipient.map(item => (
-                        <tr>
-                            <td>
-                                <span className="id">{`#${item.id}`}</span>
-                            </td>
-                            <td>
-                                <span className="name">{item.name}</span>
-                            </td>
-                            <td>
-                                <span className="Endereço">
-                                    {`${item.street},
+                {recipient.length ? (
+                    <tbody>
+                        {recipient.map(item => (
+                            <tr>
+                                <td>
+                                    <span className="id">{`#${item.id}`}</span>
+                                </td>
+                                <td>
+                                    <span className="name">{item.name}</span>
+                                </td>
+                                <td>
+                                    <span className="Endereço">
+                                        {`${item.street},
                                         ${item.number},
                                         ${item.city},
                                         ${item.state}`}
-                                </span>
-                            </td>
-                            <td className="action">
-                                <Popup
-                                    trigger={
+                                    </span>
+                                </td>
+                                <td className="action">
+                                    <Popup
+                                        trigger={
+                                            <button
+                                                type="button"
+                                                className="button"
+                                            >
+                                                <MoreHoriz color="disabled" />
+                                            </button>
+                                        }
+                                        position="bottom center"
+                                        // on="hover"
+                                        contentStyle={{
+                                            width: '150px',
+                                            borderRadius: '5%',
+                                        }}
+                                    >
+                                        <Link to={`/editrecipient/${item.id}`}>
+                                            <Create
+                                                fontSize="small"
+                                                color="primary"
+                                            />
+                                            <span className="options">
+                                                Editar
+                                            </span>
+                                        </Link>
+
+                                        <hr className="break-line" />
                                         <button
                                             type="button"
-                                            className="button"
+                                            className="actions"
+                                            onClick={() =>
+                                                handleDelete(item.id)
+                                            }
                                         >
-                                            <MoreHoriz color="disabled" />
+                                            <DeleteForever
+                                                fontSize="small"
+                                                color="secondary"
+                                            />
+                                            <span className="options">
+                                                Excluir
+                                            </span>
                                         </button>
-                                    }
-                                    position="bottom center"
-                                    // on="hover"
-                                    contentStyle={{
-                                        width: '150px',
-                                        borderRadius: '5%',
-                                    }}
-                                >
-                                    <Link to={`/editrecipient/${item.id}`}>
-                                        <Create
-                                            fontSize="small"
-                                            color="primary"
-                                        />
-                                        <span className="options">Editar</span>
-                                    </Link>
+                                    </Popup>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                ) : (
+                    <div className="recipient-icon">
+                        <img
+                            src={recipientIcon}
+                            className="recipient-img"
+                            alt=""
+                        />
 
-                                    <hr className="break-line" />
-                                    <button
-                                        type="button"
-                                        className="actions"
-                                        onClick={() => handleDelete(item.id)}
-                                    >
-                                        <DeleteForever
-                                            fontSize="small"
-                                            color="secondary"
-                                        />
-                                        <span className="options">Excluir</span>
-                                    </button>
-                                </Popup>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
+                        <h1 className="recipient-icon">
+                            Não encontramos mais destinatários!
+                        </h1>
+                    </div>
+                )}
                 <PageActions>
                     <button
                         className="pages-button"
