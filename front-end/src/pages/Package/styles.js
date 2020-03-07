@@ -188,6 +188,21 @@ export const Content = styled.div`
         height: 35px;
         border-radius: 100%;
     }
+
+    .empty-box {
+        text-align: center;
+        justify-content: center;
+        /* display: flex; */
+        align-content: center;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        color: #999999;
+    }
+    .empty-box-img {
+        padding-top: 30px;
+
+        width: 70px;
+    }
 `;
 export const PageActions = styled.div`
     background: transparent;

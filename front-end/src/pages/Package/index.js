@@ -17,6 +17,7 @@ import { toast } from 'react-toastify';
 import LinesEllipsis from 'react-lines-ellipsis';
 
 import { Link } from 'react-router-dom';
+import emptyBox from '~/assets/emptyBox.png';
 
 import DeliveryStatus from '~/components/DeliveryStatus';
 import ViewPackageInfo from '~/components/ViewPackageInfo';
@@ -124,105 +125,127 @@ export default function Package() {
                         <th className="action">Ações</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {packages.map(item => (
-                        <tr key={item.id}>
-                            <td>
-                                <span className="id">{`#${item.id}`}</span>
-                            </td>
-                            <td>
-                                <LinesEllipsis
-                                    text={item.product}
-                                    maxLine="1"
-                                    ellipsis="..."
-                                    trimRight
-                                    basedOn="letters"
-                                    className="max-lines"
-                                />
-                                {/* <span className="id">{item.product}</span> */}
-                            </td>
-                            <td>
-                                <span className="recipient">
-                                    {item.recipient.name}
-                                </span>
-                            </td>
-                            <td>
-                                <span className="deliverer">
-                                    <img
-                                        src={
-                                            item.deliveryman.avatar
-                                                ? item.deliveryman.avatar.url
-                                                : 'https://api.adorable.io/avatars/40/abott@adorable.png'
-                                        }
-                                        alt=""
-                                        className="avatar"
+                {packages.length ? (
+                    <tbody>
+                        {packages.map(item => (
+                            <tr key={item.id}>
+                                <td>
+                                    <span className="id">{`#${item.id}`}</span>
+                                </td>
+                                <td>
+                                    <LinesEllipsis
+                                        text={item.product}
+                                        maxLine="1"
+                                        ellipsis="..."
+                                        trimRight
+                                        basedOn="letters"
+                                        className="max-lines"
                                     />
-                                    {item.deliveryman.name}
-                                </span>
-                            </td>
-                            <td>
-                                <span className="city">
-                                    {item.recipient.city}
-                                </span>
-                            </td>
-                            <td>
-                                <span className="state">
-                                    {item.recipient.state}
-                                </span>
-                            </td>
-                            <td>
-                                <DeliveryStatus data={item} />
-                            </td>
-                            <td className="action">
-                                <Popup
-                                    trigger={
+                                    {/* <span className="id">{item.product}</span> */}
+                                </td>
+                                <td>
+                                    <span className="recipient">
+                                        {item.recipient.name}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span className="deliverer">
+                                        <img
+                                            src={
+                                                item.deliveryman.avatar
+                                                    ? item.deliveryman.avatar
+                                                          .url
+                                                    : 'https://api.adorable.io/avatars/40/abott@adorable.png'
+                                            }
+                                            alt=""
+                                            className="avatar"
+                                        />
+                                        {item.deliveryman.name}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span className="city">
+                                        {item.recipient.city}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span className="state">
+                                        {item.recipient.state}
+                                    </span>
+                                </td>
+                                <td>
+                                    <DeliveryStatus data={item} />
+                                </td>
+                                <td className="action">
+                                    <Popup
+                                        trigger={
+                                            <button
+                                                type="button"
+                                                className="button"
+                                            >
+                                                <div className="iconMoreHoriz">
+                                                    <MoreHoriz color="disabled" />
+                                                </div>
+                                            </button>
+                                        }
+                                        position="bottom center"
+                                        // on="hover"
+                                        contentStyle={{
+                                            width: '150px',
+                                            borderRadius: '5%',
+                                        }}
+                                    >
+                                        <button
+                                            onClick={() => {}}
+                                            type="button"
+                                        >
+                                            <ViewPackageInfo data={item} />
+                                        </button>
+
                                         <button
                                             type="button"
-                                            className="button"
+                                            className="actions"
                                         >
-                                            <div className="iconMoreHoriz">
-                                                <MoreHoriz color="disabled" />
-                                            </div>
+                                            <Link
+                                                to={`/editpackage/${item.id}`}
+                                            >
+                                                <Create
+                                                    fontSize="small"
+                                                    color="primary"
+                                                />
+                                                <span className="options">
+                                                    Editar
+                                                </span>
+                                            </Link>
                                         </button>
-                                    }
-                                    position="bottom center"
-                                    // on="hover"
-                                    contentStyle={{
-                                        width: '150px',
-                                        borderRadius: '5%',
-                                    }}
-                                >
-                                    <button onClick={() => {}} type="button">
-                                        <ViewPackageInfo data={item} />
-                                    </button>
-
-                                    <button type="button" className="actions">
-                                        <Link to={`/editpackage/${item.id}`}>
-                                            <Create
+                                        <button
+                                            type="button"
+                                            className="actions"
+                                            onClick={() =>
+                                                handleDelete(item.id)
+                                            }
+                                        >
+                                            <DeleteForever
                                                 fontSize="small"
-                                                color="primary"
+                                                color="secondary"
                                             />
                                             <span className="options">
-                                                Editar
+                                                Excluir
                                             </span>
-                                        </Link>
-                                    </button>
-                                    <button
-                                        type="button"
-                                        className="actions"
-                                        onClick={() => handleDelete(item.id)}
-                                    >
-                                        <DeleteForever
-                                            fontSize="small"
-                                            color="secondary"
-                                        />
-                                        <span className="options">Excluir</span>
-                                    </button>
-                                </Popup>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
+                                        </button>
+                                    </Popup>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                ) : (
+                    <div className="empty-box">
+                        <img src={emptyBox} className="empty-box-img" alt="" />
+                        <h1 className="empty-box">
+                            Não encontramos mais encomendas!
+                        </h1>
+                    </div>
+                )}
                 <PageActions>
                     <button
                         className="pages-button"
