@@ -11,13 +11,12 @@ import File from '../models/File';
 
 class PackageController {
   async index(req, res) {
-    const findPackage = req.query.q;
-    const { page, per_page } = req.query;
+    const { page, per_page, q: findPackage } = req.query;
 
     const offset = (page - 1) * per_page;
     const limit = per_page;
 
-    if (offset >= 0 && limit) {
+    if (offset >= 0 && limit && !findPackage) {
       const packageData = await Package.findAll({
         offset,
         limit,

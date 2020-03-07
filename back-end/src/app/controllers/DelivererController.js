@@ -7,13 +7,12 @@ import File from '../models/File';
 
 class DelivererController {
   async index(req, res) {
-    const findDeliverer = req.query.q;
-    const { page, per_page } = req.query;
+    const { page, per_page, q: findDeliverer } = req.query;
 
     const offset = (page - 1) * per_page;
     const limit = per_page;
 
-    if (offset >= 0 && limit) {
+    if (offset >= 0 && limit && !findDeliverer) {
       const delivererData = await Deliverer.findAll({
         offset,
         limit,
@@ -29,12 +28,7 @@ class DelivererController {
 
       return res.json(delivererData);
     }
-
-    if (
-      findDeliverer === null ||
-      findDeliverer === undefined ||
-      findDeliverer === ''
-    ) {
+    if (findDeliverer === null || findDeliverer === undefined) {
       const delivererData = await Deliverer.findAll({
         attributes: ['id', 'name', 'email', 'avatar_id'],
         include: [
@@ -50,8 +44,6 @@ class DelivererController {
     }
 
     const delivererName = await Deliverer.findAll({
-      offset,
-      limit,
       where: {
         name: {
           [Op.iLike]: `${findDeliverer}%`,
