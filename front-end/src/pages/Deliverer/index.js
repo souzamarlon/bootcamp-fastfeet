@@ -39,7 +39,8 @@ export default function Deliverer() {
                     params: { q: search, page, per_page: 5 },
                 });
 
-                setDeliverer(response.data.sort((a, b) => a.id - b.id));
+                // setDeliverer(response.data.sort((a, b) => a.id - b.id));
+                setDeliverer(response.data);
             }
             searchTool();
         },
@@ -53,7 +54,8 @@ export default function Deliverer() {
             });
             // console.tron.log(response.data);
 
-            setDeliverer(response.data.sort((a, b) => a.id - b.id));
+            // setDeliverer(response.data.sort((a, b) => a.id - b.id));
+            setDeliverer(response.data);
         }
 
         listAllDeliverer();

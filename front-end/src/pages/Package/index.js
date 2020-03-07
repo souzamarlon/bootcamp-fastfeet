@@ -45,7 +45,8 @@ export default function Package() {
                     params: { q: search, page, per_page: 5 },
                 });
 
-                setPackages(response.data.sort((a, b) => a.id - b.id));
+                // setPackages(response.data.sort((a, b) => a.id - b.id));
+                setPackages(response.data);
             }
             searchTool();
         },
@@ -58,14 +59,14 @@ export default function Package() {
                 params: { page, per_page: 5 },
             });
 
-            setPackages(response.data.sort((a, b) => a.id - b.id));
-            // setPackages(listPackages);
+            // setPackages(response.data.sort((a, b) => a.id - b.id));
+            setPackages(response.data);
         }
         listAllPackages();
     }, [page]);
 
     async function handleDelete(id) {
-        console.tron.log(id);
+        // console.tron.log(id);
         try {
             // eslint-disable-next-line no-alert
             if (window.confirm('Você realmente quer deletar?')) {
@@ -83,7 +84,7 @@ export default function Package() {
         // const count = action === 'back' ? page - 1 : page + 1;
         setPage(action === 'back' ? page - 1 : page + 1);
     }
-
+    console.tron.log(packages);
     return (
         <Container>
             <Title>

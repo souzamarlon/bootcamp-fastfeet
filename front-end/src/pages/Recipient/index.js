@@ -38,8 +38,8 @@ export default function Recipient() {
                     params: { q: search, page, per_page: 5 },
                 });
 
-                setRecipient(response.data.sort((a, b) => a.id - b.id));
-                // setRecipient(listRecipient);
+                // setRecipient(response.data.sort((a, b) => a.id - b.id));
+                setRecipient(response.data);
             }
             searchTool();
         },
@@ -52,8 +52,8 @@ export default function Recipient() {
                 params: { page, per_page: 5 },
             });
 
-            setRecipient(response.data.sort((a, b) => a.id - b.id));
-            // setRecipient(listRecipient);
+            // setRecipient(response.data.sort((a, b) => a.id - b.id));
+            setRecipient(response.data);
         }
 
         listAllRecipient();

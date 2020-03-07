@@ -25,14 +25,9 @@ export default function Problem() {
             const response = await api.get('delivery/problems', {
                 params: { page, per_page: 5 },
             });
-            console.tron.log(response.data);
 
-            const listProblem = response.data.map(item => ({
-                ...item,
-                index: response.data.indexOf(item) + 1,
-            }));
             // setProblem(listProblem.sort((a, b) => a.index < b.index));
-            setProblem(listProblem);
+            setProblem(response.data);
         }
 
         listAllProblem();
