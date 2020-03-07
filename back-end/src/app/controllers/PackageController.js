@@ -199,9 +199,11 @@ class PackageController {
   async update(req, res) {
     const packageData = await Package.findByPk(req.params.id);
 
-    const packageFields = req.body;
+    const { recipient_id, deliveryman_id, product } = req.body;
 
-    return res.json(await packageData.update(packageFields));
+    return res.json(
+      await packageData.update({ recipient_id, deliveryman_id, product })
+    );
   }
 
   async delete(req, res) {

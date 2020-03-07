@@ -20,7 +20,11 @@ class RecipientController {
       return res.json(recipientData);
     }
 
-    if (findRecipient === null || findRecipient === undefined) {
+    if (
+      findRecipient === null ||
+      findRecipient === undefined ||
+      findRecipient === ''
+    ) {
       const recipientData = await Recipient.findAll({
         order: [['id', 'ASC']],
       });
