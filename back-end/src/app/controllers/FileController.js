@@ -1,4 +1,3 @@
-import { url } from 'inspector';
 import File from '../models/File';
 
 class FileController {

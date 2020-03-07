@@ -15,8 +15,10 @@ class DeliveryProblemController {
     const offset = (page - 1) * per_page;
     const limit = per_page;
 
+    // Return all the problems with offset.
     if (offset >= 0 && limit) {
       const packageData = await DeliveryProblem.findAll({
+        order: [['id', 'ASC']],
         offset,
         limit,
       });
@@ -24,12 +26,18 @@ class DeliveryProblemController {
       return res.json(packageData);
     }
 
+    // Return all the problems without offset. - Probably I will remove this return in the future.
     if (delivery_id === null || delivery_id === undefined) {
-      const packageData = await DeliveryProblem.findAll();
+      const packageData = await DeliveryProblem.findAll({
+        order: [['id', 'ASC']],
+      });
 
       return res.json(packageData);
     }
+
+    // Return the problems open by delivery_id
     const deliveryData = await DeliveryProblem.findAll({
+      order: [['id', 'ASC']],
       where: {
         delivery_id,
       },

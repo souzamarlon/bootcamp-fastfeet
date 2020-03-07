@@ -17,6 +17,7 @@ class DelivererController {
         offset,
         limit,
         attributes: ['id', 'name', 'email', 'avatar_id'],
+        order: [['id', 'ASC']],
         include: [
           {
             model: File,
@@ -28,9 +29,11 @@ class DelivererController {
 
       return res.json(delivererData);
     }
+
     if (findDeliverer === null || findDeliverer === undefined) {
       const delivererData = await Deliverer.findAll({
         attributes: ['id', 'name', 'email', 'avatar_id'],
+        order: [['id', 'ASC']],
         include: [
           {
             model: File,
@@ -49,6 +52,7 @@ class DelivererController {
           [Op.iLike]: `${findDeliverer}%`,
         },
       },
+      order: [['id', 'ASC']],
       attributes: ['id', 'name', 'email', 'avatar_id'],
       include: [
         {

@@ -6,7 +6,6 @@ import Recipient from '../models/Recipient';
 class RecipientController {
   async index(req, res) {
     const { page, per_page, q: findRecipient } = req.query;
-    console.log(findRecipient);
 
     const offset = (page - 1) * per_page;
     const limit = per_page;
@@ -15,13 +14,16 @@ class RecipientController {
       const recipientData = await Recipient.findAll({
         offset,
         limit,
+        order: [['id', 'ASC']],
       });
 
       return res.json(recipientData);
     }
 
     if (findRecipient === null || findRecipient === undefined) {
-      const recipientData = await Recipient.findAll();
+      const recipientData = await Recipient.findAll({
+        order: [['id', 'ASC']],
+      });
 
       return res.json(recipientData);
     }
@@ -32,6 +34,7 @@ class RecipientController {
           [Op.iLike]: `${findRecipient}%`,
         },
       },
+      order: [['id', 'ASC']],
     });
 
     return res.json(recipientName);

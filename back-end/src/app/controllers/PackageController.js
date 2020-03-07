@@ -20,6 +20,7 @@ class PackageController {
       const packageData = await Package.findAll({
         offset,
         limit,
+        order: [['id', 'ASC']],
         attributes: [
           'id',
           'signature_id',
@@ -31,7 +32,6 @@ class PackageController {
           'end_date',
           'created_at',
         ],
-
         include: [
           {
             model: Recipient,
@@ -71,6 +71,7 @@ class PackageController {
 
     if (findPackage === null || findPackage === undefined) {
       const packageData = await Package.findAll({
+        order: [['id', 'ASC']],
         attributes: [
           'id',
           'signature_id',
@@ -121,6 +122,7 @@ class PackageController {
     }
 
     const packageName = await Package.findAll({
+      order: [['id', 'ASC']],
       offset,
       limit,
       where: {
