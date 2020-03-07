@@ -30,7 +30,11 @@ class DelivererController {
       return res.json(delivererData);
     }
 
-    if (findDeliverer === null || findDeliverer === undefined) {
+    if (
+      findDeliverer === null ||
+      findDeliverer === undefined ||
+      findDeliverer === ''
+    ) {
       const delivererData = await Deliverer.findAll({
         attributes: ['id', 'name', 'email', 'avatar_id'],
         include: [

@@ -6,6 +6,8 @@ import Recipient from '../models/Recipient';
 class RecipientController {
   async index(req, res) {
     const findRecipient = req.query.q;
+    console.log(findRecipient);
+
     const { page, per_page } = req.query;
 
     const offset = (page - 1) * per_page;
@@ -20,7 +22,11 @@ class RecipientController {
       return res.json(recipientData);
     }
 
-    if (findRecipient === null || findRecipient === undefined) {
+    if (
+      findRecipient === null ||
+      findRecipient === undefined ||
+      findRecipient === ''
+    ) {
       const recipientData = await Recipient.findAll();
 
       return res.json(recipientData);

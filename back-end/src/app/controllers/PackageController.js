@@ -122,6 +122,8 @@ class PackageController {
     }
 
     const packageName = await Package.findAll({
+      offset,
+      limit,
       where: {
         product: { [Op.iLike]: `${findPackage}%` },
       },
