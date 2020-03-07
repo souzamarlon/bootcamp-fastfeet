@@ -14,6 +14,8 @@ import AsyncSelect from '../../../components/AsyncSelect';
 
 export default function EditPackage({ match }) {
     const schema = Yup.object().shape({
+        recipient_id: Yup.number(),
+        deliveryman_id: Yup.number(),
         product: Yup.string().required('O nome do produto é obrigatório!'),
     });
 
@@ -84,8 +86,6 @@ export default function EditPackage({ match }) {
         });
 
     async function handleSubmit(data) {
-        console.tron.log(data);
-
         try {
             await api.put(`packages/${packageId}`, data);
             toast.success('Sucesso ao editar o cadastro!');
@@ -98,12 +98,16 @@ export default function EditPackage({ match }) {
         }
     }
 
-    function defineRecipient(id) {
-        setPackages({ ...packages, recipient: id });
+    function defineRecipient(data) {
+        setPackages({ ...packages, recipient_id: data.id, recipient: data });
     }
 
-    function defineDeliverer(id) {
-        setPackages({ ...packages, deliveryman: id });
+    function defineDeliverer(data) {
+        setPackages({
+            ...packages,
+            deliveryman_id: data.id,
+            deliveryman: data,
+        });
     }
 
     return (
@@ -115,7 +119,7 @@ export default function EditPackage({ match }) {
             >
                 <Container>
                     <Title>
-                        <h1>Cadastro de encomendas</h1>
+                        <h1>Edição de encomendas</h1>
                     </Title>
                     <Button>
                         <div>
