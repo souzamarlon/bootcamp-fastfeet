@@ -16,6 +16,8 @@ import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import history from '~/services/history';
 import api from '~/services/api';
+import supplierIcon from '~/assets/supplierIcon.png';
+
 import {
     Container,
     Header,
@@ -114,71 +116,90 @@ export default function Deliverer() {
                         <th className="action">Ações</th>
                     </tr>
                 </thead>
+                {deliverer.length ? (
+                    <tbody>
+                        {deliverer.map(item => (
+                            <tr>
+                                <td>
+                                    <span className="id">{`#${item.id}`}</span>
+                                </td>
+                                <td>
+                                    <img
+                                        className="avatar-img"
+                                        src={
+                                            item.avatar
+                                                ? item.avatar.url
+                                                : 'https://api.adorable.io/avatars/40/abott@adorable.png'
+                                        }
+                                        alt=""
+                                    />
+                                </td>
+                                <td>
+                                    <span className="name">{item.name}</span>
+                                </td>
+                                <td>
+                                    <span className="email">{item.email}</span>
+                                </td>
+                                <td className="action">
+                                    <Popup
+                                        trigger={
+                                            <button
+                                                type="button"
+                                                className="button"
+                                            >
+                                                <MoreHoriz color="disabled" />
+                                            </button>
+                                        }
+                                        position="bottom center"
+                                        // on="hover"
+                                        contentStyle={{
+                                            width: '150px',
+                                            borderRadius: '5%',
+                                        }}
+                                    >
+                                        <Link to={`/editdeliverer/${item.id}`}>
+                                            <Create
+                                                fontSize="small"
+                                                color="primary"
+                                            />
+                                            <span className="options">
+                                                Editar
+                                            </span>
+                                        </Link>
 
-                <tbody>
-                    {deliverer.map(item => (
-                        <tr>
-                            <td>
-                                <span className="id">{`#${item.id}`}</span>
-                            </td>
-                            <td>
-                                <img
-                                    src={
-                                        item.avatar
-                                            ? item.avatar.url
-                                            : 'https://api.adorable.io/avatars/40/abott@adorable.png'
-                                    }
-                                    alt=""
-                                />
-                            </td>
-                            <td>
-                                <span className="name">{item.name}</span>
-                            </td>
-                            <td>
-                                <span className="email">{item.email}</span>
-                            </td>
-                            <td className="action">
-                                <Popup
-                                    trigger={
+                                        <hr className="break-line" />
                                         <button
                                             type="button"
-                                            className="button"
+                                            className="actions"
+                                            onClick={() =>
+                                                handleDelete(item.id)
+                                            }
                                         >
-                                            <MoreHoriz color="disabled" />
+                                            <DeleteForever
+                                                fontSize="small"
+                                                color="secondary"
+                                            />
+                                            <span className="options">
+                                                Excluir
+                                            </span>
                                         </button>
-                                    }
-                                    position="bottom center"
-                                    // on="hover"
-                                    contentStyle={{
-                                        width: '150px',
-                                        borderRadius: '5%',
-                                    }}
-                                >
-                                    <Link to={`/editdeliverer/${item.id}`}>
-                                        <Create
-                                            fontSize="small"
-                                            color="primary"
-                                        />
-                                        <span className="options">Editar</span>
-                                    </Link>
-
-                                    <hr className="break-line" />
-                                    <button
-                                        type="button"
-                                        className="actions"
-                                        onClick={() => handleDelete(item.id)}
-                                    >
-                                        <DeleteForever
-                                            fontSize="small"
-                                            color="secondary"
-                                        />
-                                        <span className="options">Excluir</span>
-                                    </button>
-                                </Popup>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
+                                    </Popup>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                ) : (
+                    <div className="supplier">
+                        <img
+                            src={supplierIcon}
+                            className="supplier-img"
+                            alt=""
+                        />
+                        <h1 className="supplier">
+                            Não encontramos mais entregadores!
+                        </h1>
+                    </div>
+                )}
 
                 <PageActions>
                     <button

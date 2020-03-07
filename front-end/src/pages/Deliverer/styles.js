@@ -177,13 +177,28 @@ export const Content = styled.div`
         border-bottom: 1px solid #eeeeee;
     }
 
-    img {
+    img.avatar-img {
         padding-right: 5px;
         width: 35px;
         height: 35px;
         border-radius: 100%;
         align-items: center;
         display: flex;
+    }
+
+    .supplier {
+        text-align: center;
+        justify-content: center;
+        /* display: flex; */
+        align-content: center;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        color: #999999;
+
+        .supplier-img {
+            padding-top: 30px;
+            width: 70px;
+        }
     }
 `;
 

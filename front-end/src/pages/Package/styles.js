@@ -200,7 +200,6 @@ export const Content = styled.div`
     }
     .empty-box-img {
         padding-top: 30px;
-
         width: 70px;
     }
 `;
