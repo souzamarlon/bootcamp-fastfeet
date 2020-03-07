@@ -188,36 +188,42 @@ export const Content = styled.div`
 `;
 
 export const PageActions = styled.div`
-    padding-top: 15px;
+    background: transparent;
+    border: 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    text-align: center;
-    button {
+    padding-top: 15px;
+    justify-content: center;
+
+    button.pages-button {
+        text-align: center;
+
+        padding-bottom: 5px;
         display: flex;
-        /* margin-left: 16px; */
         justify-content: center;
         height: 36px;
-        width: 112px;
+        width: 110px;
         background: #7d40e7;
         font-weight: bold;
         color: #ffffff;
         border: 0;
-        border-radius: 4px;
+        border-radius: 50px;
         box-shadow: 0 0 12px;
         transition: background 0.3s;
         &:hover {
             background: ${darken(0.03, '#7d40e7')};
         }
+        strong.page-before {
+            /* margin: 2px 0px 0px 15px; */
+            margin: 4px 2px 0px 0px;
+        }
+        strong.page-next {
+            /* margin: 2px 0px 0px 15px; */
+            margin: 4px 2px 0px 10px;
+        }
     }
-    strong {
-        margin: 4px 0px 10px 3px;
-    }
-
     .page-number {
-        margin: 4px 2px 0px 2px;
-        padding: 0 14px;
+        /* margin: 4px 2px 0px 2px; */
+        padding: 5px 14px;
         font-size: 12px;
     }
 `;

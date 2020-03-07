@@ -190,20 +190,26 @@ export default function Deliverer() {
                         </tr>
                     ))}
                 </tbody>
+
                 <PageActions>
-                    <>
-                        <button
-                            type="button"
-                            disabled={page < 1}
-                            onClick={() => handlePage('back')}
-                        >
-                            <KeyboardArrowLeft />
-                            <strong>Anterior</strong>
-                        </button>
-                    </>
+                    <button
+                        className="pages-button"
+                        type="button"
+                        disabled={page < 1}
+                        onClick={() => handlePage('back')}
+                    >
+                        <KeyboardArrowLeft />
+                        <strong className="page-before">Anterior</strong>
+                    </button>
+
                     <span className="page-number">{`Página ${page}`}</span>
-                    <button type="button" onClick={() => handlePage('next')}>
-                        <strong>Próximo</strong>
+
+                    <button
+                        className="pages-button"
+                        type="button"
+                        onClick={() => handlePage('next')}
+                    >
+                        <strong className="page-next">Próximo</strong>
                         <KeyboardArrowRight />
                     </button>
                 </PageActions>
