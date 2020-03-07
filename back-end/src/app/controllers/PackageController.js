@@ -16,6 +16,7 @@ class PackageController {
     const offset = (page - 1) * per_page;
     const limit = per_page;
 
+    // Return all the Packages with Offset.
     if (offset >= 0 && limit && !findPackage) {
       const packageData = await Package.findAll({
         offset,
@@ -69,6 +70,7 @@ class PackageController {
       return res.json(packageData);
     }
 
+    // Return all the Packages without Offset.
     if (findPackage === null || findPackage === undefined) {
       const packageData = await Package.findAll({
         order: [['id', 'ASC']],
@@ -121,6 +123,7 @@ class PackageController {
       return res.json(packageData);
     }
 
+    // Return all the Packages with the same name like in findPackage.
     const packageName = await Package.findAll({
       order: [['id', 'ASC']],
       offset,

@@ -10,6 +10,7 @@ class RecipientController {
     const offset = (page - 1) * per_page;
     const limit = per_page;
 
+    // Return all the Recipients with Offset.
     if (offset >= 0 && limit && !findRecipient) {
       const recipientData = await Recipient.findAll({
         offset,
@@ -20,6 +21,7 @@ class RecipientController {
       return res.json(recipientData);
     }
 
+    // Return all the Recipients without Offset.
     if (
       findRecipient === null ||
       findRecipient === undefined ||
@@ -32,6 +34,7 @@ class RecipientController {
       return res.json(recipientData);
     }
 
+    // Return all the Recipients with the same name like findPackage.
     const recipientName = await Recipient.findAll({
       where: {
         name: {
