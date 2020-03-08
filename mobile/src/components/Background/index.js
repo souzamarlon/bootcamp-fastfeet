@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
 export default styled.View`
-  background: #ffff;
+  background: #7d40e7;
   flex: 1;
 `;

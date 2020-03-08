@@ -24,7 +24,6 @@ export default function SignIn() {
     <Background>
       <Container>
         <Image source={logo} />
-
         <Form>
           <FormInput
             icon="person-outline"
@@ -39,7 +38,7 @@ export default function SignIn() {
           />
 
           <SubmitButton loading={loading} onPress={handleSubmit}>
-            Acessar
+            Entrar no sistema
           </SubmitButton>
         </Form>
       </Container>
