@@ -66,7 +66,7 @@ export default function Recipient() {
                 await api.delete(`recipients/${id}`);
 
                 toast.success('Sucesso ao deletar a encomenda!');
-                history.push('/');
+                history.push('/recipients');
             }
         } catch (err) {
             toast.error('Erro ao deletar a encomenda!');
