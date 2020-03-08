@@ -55,7 +55,7 @@ Front-end:
 - [reactotron](https://github.com/infinitered/reactotron)
 
 React native:
-- I am still this part of project and It will release soon.
+- I am still doing this part of project and It will release soon.
 
 Back-end, Front-end, React native:
 - [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
