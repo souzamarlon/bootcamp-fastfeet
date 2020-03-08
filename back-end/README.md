@@ -34,8 +34,6 @@ Back-end:
 - [nodemailer](https://github.com/nodemailer/nodemailer)
 - [sequelize](https://github.com/sequelize/sequelize)
 - [yup](https://github.com/jquense/yup)
-
-Back-end
 - [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 
 ## :information_source: How To Use
