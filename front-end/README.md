@@ -71,7 +71,7 @@ From your command line:
 $ git clone https://github.com/souzamarlon/bootcamp-fastfeet
 
 # Go into the repository
-$ cd bootcamp-gympoint
+$ cd bootcamp-fastfeet
 
 # Install dependencies for the backend
 $ cd backend
