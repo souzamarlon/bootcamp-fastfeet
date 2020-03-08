@@ -1,68 +1,100 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+    <img alt="Fastfeet App" src="https://github.com/souzamarlon/bootcamp-fastfeet/blob/master/front-end/src/assets/logo.png" />
+    <br>
+    Fastfeet app for Rocketseat bootcamp final challenge.
+</h1>
 
-## Available Scripts
+<h4 align="center">
+  A FullStack App to manage the packages, deliverers and recipients.
+</h4>
 
-In the project directory, you can run:
 
-### `yarn start`
+<p align="center">
+  <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-license">License</a>
+</p>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## :rocket: Technologies
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+This project was developed at the [RocketSeat GoStack Bootcamp](https://rocketseat.com.br/gostack) with the following amazing technologies:
 
-### `yarn test`
+Back-end:
+- [NodeJS](https://nodejs.org)
+- [Axios](https://github.com/axios/axios)
+- [Immer](https://github.com/immerjs/immer)
+- [date-fns](https://date-fns.org/)
+- [bcrypt.js](https://github.com/dcodeIO/bcrypt.js)
+- [cors](https://github.com/expressjs/cors)
+- [dotenv](https://github.com/motdotla/dotenv)
+- [express](https://github.com/expressjs/express)
+- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
+- [multer](https://github.com/expressjs/multer)
+- [pg](https://github.com/brianc/node-postgres)
+- [nodemailer](https://github.com/nodemailer/nodemailer)
+- [sequelize](https://github.com/sequelize/sequelize)
+- [yup](https://github.com/jquense/yup)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Front-end:
+- [ReactJS](https://reactjs.org/)
+- [Axios](https://github.com/axios/axios)
+- [Immer](https://github.com/immerjs/immer)
+- [date-fns](https://date-fns.org/)
+- [material-ui](https://github.com/mui-org/material-ui)
+- [@rocketseat/unform](https://github.com/Rocketseat/unform)
+- [history](https://github.com/ReactTraining/history)
+- [styled-components](https://www.styled-components.com/)
+- [prop-types](https://github.com/facebook/prop-types)
+- [react-datepicker](https://github.com/Hacker0x01/react-datepicker)
+- [Redux-Saga](https://redux-saga.js.org/)
+- [react-select](https://github.com/JedWatson/react-select)
+- [react-toastify](https://github.com/fkhadra/react-toastify)
+- [reactjs-popup](https://github.com/yjose/reactjs-popup)
+- [yup](https://github.com/jquense/yup)
+- [prettier](https://prettier.io/)
+- [reactotron](https://github.com/infinitered/reactotron)
 
-### `yarn build`
+React native:
+- I am still this part of project and It will release soon.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Back-end, Front-end, React native:
+- [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## :information_source: How To Use
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher installed on your computer.
+You'll also need to setup and run a Postgres and a Redis database and insert the access informations into a .env file, based on a .env.example file that is provided in the backend folder.
+From your command line:
 
-### `yarn eject`
+```bash
+# Clone this repository
+$ git clone https://github.com/souzamarlon/bootcamp-fastfeet
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Go into the repository
+$ cd bootcamp-gympoint
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Install dependencies for the backend
+$ cd backend
+$ yarn
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Run migrations to your database
+$ yarn migrate
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Run the backend server
+$ yarn dev
+$ yarn queue
 
-## Learn More
+# Install dependencies for the frontend and run the server
+$ cd frontend
+$ yarn
+$ yarn start
+```
+---
+Created by Marlon da Silva Souza :wave: [LinkedIn!](https://www.linkedin.com/in/marlonssouza/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[nodejs]: https://nodejs.org/
+[yarn]: https://yarnpkg.com/
+[vc]: https://code.visualstudio.com/
+[vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+[vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
