@@ -5,7 +5,7 @@
 </h1>
 
 <h4 align="center">
-  A FullStack App to manage the packages, deliverers and recipients.
+  A FullStack App to manage packages, deliverers and recipients.
 </h4>
 
 
