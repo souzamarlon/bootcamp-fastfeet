@@ -14,13 +14,20 @@ export function* signIn({ payload }) {
 
     const response = yield call(api.get, `deliverersauth/${id}`);
 
-    console.tron.log(response.data);
-
     const { name, email, created_at, avatar } = response.data;
 
     // yield delay(100000);
 
-    yield put(signInSuccess(id, name, email, created_at, avatar));
+    // eslint-disable-next-line prefer-object-spread
+    const profile = Object.assign({
+      id,
+      name,
+      email,
+      created_at,
+      avatar,
+    });
+
+    yield put(signInSuccess(profile));
 
     // history.push('/dashboard');
   } catch (err) {
