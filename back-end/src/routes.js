@@ -9,6 +9,7 @@ import DelivererController from './app/controllers/DelivererController';
 import PackageController from './app/controllers/PackageController';
 import DelivererFeaturesController from './app/controllers/DelivererFeaturesController';
 import DeliveryProblemController from './app/controllers/DeliveryProblemController';
+import DelivererAuthController from './app/controllers/DelivererAuthController';
 
 import FileController from './app/controllers/FileController';
 
@@ -31,6 +32,8 @@ routes.post('/deliverers', DelivererController.store);
 routes.put('/deliverers/:id', DelivererController.update);
 routes.delete('/deliverers/:id', DelivererController.delete);
 
+routes.get('/deliverersauth/:id', DelivererAuthController.index);
+
 routes.get('/packages', PackageController.index);
 routes.post('/packages', PackageController.store);
 routes.put('/packages/:id', PackageController.update);
@@ -41,9 +44,7 @@ routes.put('/deliveryman/:id/deliveries', DelivererFeaturesController.update);
 
 routes.get('/delivery/:id/problems', DeliveryProblemController.index);
 routes.get('/delivery/problems', DeliveryProblemController.index);
-
 routes.post('/delivery/:id/problems', DeliveryProblemController.store);
-
 routes.delete('/problem/:id/cancel-delivery', DeliveryProblemController.delete);
 
 routes.post('/files', upload.single('file'), FileController.store);
