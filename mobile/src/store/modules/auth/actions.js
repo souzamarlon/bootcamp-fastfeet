@@ -5,10 +5,10 @@ export function signInRequest(id) {
   };
 }
 
-export function signInSuccess(id, name, email) {
+export function signInSuccess(id, name, email, created_at, avatar) {
   return {
     type: '@auth/SIGN_IN_SUCCESS',
-    payload: { id, name, email },
+    payload: { id, name, email, created_at, avatar },
   };
 }
 
@@ -17,8 +17,8 @@ export function signFailure() {
     type: '@auth/SIGN_IN_FAILURE',
   };
 }
-// export function signOut() {
-//   return {
-//     type: '@auth/SIGN_OUT',
-//   };
-// }
+export function signOut() {
+  return {
+    type: '@auth/SIGN_OUT',
+  };
+}

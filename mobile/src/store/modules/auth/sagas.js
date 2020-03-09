@@ -14,11 +14,13 @@ export function* signIn({ payload }) {
 
     const response = yield call(api.get, `deliverersauth/${id}`);
 
-    const { name, email } = response.data;
+    console.tron.log(response.data);
+
+    const { name, email, created_at, avatar } = response.data;
 
     // yield delay(100000);
 
-    yield put(signInSuccess(id, name, email));
+    yield put(signInSuccess(id, name, email, created_at, avatar));
 
     // history.push('/dashboard');
   } catch (err) {

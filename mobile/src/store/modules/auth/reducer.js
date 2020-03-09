@@ -17,6 +17,8 @@ export default function auth(state = INITIAL_STATE, action) {
         draft.email = action.payload.email;
         draft.name = action.payload.name;
         draft.id = action.payload.id;
+        draft.created_at = action.payload.created_at;
+        draft.avatar = action.payload.avatar;
         draft.signed = true;
         draft.loading = false;
         break;
