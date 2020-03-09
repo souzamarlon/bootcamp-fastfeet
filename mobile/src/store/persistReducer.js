@@ -7,7 +7,7 @@ import { persistReducer } from 'redux-persist';
 export default reducers => {
   const persistedReducer = persistReducer(
     {
-      key: 'gympoint',
+      key: 'fastfeet',
       storage: AsyncStorage,
       whitelist: ['auth'],
     },

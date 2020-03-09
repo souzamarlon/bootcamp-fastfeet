@@ -25,5 +25,4 @@ export const FormInput = styled(Input)`
 `;
 export const SubmitButton = styled(Button)`
   margin-top: 5px;
-  background: #82bf18;
 `;

@@ -19,7 +19,6 @@ export default function SignIn() {
   function handleSubmit() {
     dispatch(signInRequest(id));
   }
-
   return (
     <Background>
       <Container>
