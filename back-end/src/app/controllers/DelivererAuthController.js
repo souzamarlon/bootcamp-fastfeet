@@ -5,7 +5,7 @@ class DelivererAuthController {
   async index(req, res) {
     const { id } = req.params;
 
-    const delivererData = await Deliverer.findByPk({
+    const delivererData = await Deliverer.findOne({
       attributes: ['id', 'name', 'email', 'avatar_id', 'created_at'],
       where: {
         id,
