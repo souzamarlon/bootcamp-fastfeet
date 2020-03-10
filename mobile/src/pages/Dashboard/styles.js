@@ -1,11 +1,14 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  flex: 1;
+  /* flex: 1; */
   background: transparent;
   flex-direction: row;
   margin-left: 20px;
   padding-top: 20px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 `;
 export const Header = styled.View`
   padding-top: 20px;
@@ -19,6 +22,7 @@ export const Avatar = styled.Image`
   border-radius: 50px;
   /* flex: 1; */
 `;
+
 export const Welcome = styled.Text`
   color: #666666;
   font-size: 12px;
@@ -33,6 +37,10 @@ export const Name = styled.Text`
   height: 29px;
   font-weight: bold;
   display: flex;
+`;
+export const Exit = styled.View`
+  /* padding-top: 50px; */
+  /* background: #000000; */
 `;
 
 export const List = styled.FlatList.attrs({
