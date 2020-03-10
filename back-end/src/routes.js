@@ -19,8 +19,16 @@ const routes = new Router();
 const upload = multer(multerConfig);
 
 routes.post('/sessions', SessionController.store);
-routes.get('/deliverersauth/:id', DelivererAuthController.index);
 
+// Deliverer features:
+routes.get('/deliverersauth/:id', DelivererAuthController.index);
+routes.post('/delivery/:id/problems', DeliveryProblemController.store);
+routes.get('/delivery/:id/problems', DeliveryProblemController.index);
+
+routes.get('/deliveryman/:id/deliveries', DelivererFeaturesController.index);
+routes.put('/deliveryman/:id/deliveries', DelivererFeaturesController.update);
+
+// Admin features:
 routes.use(authMiddleware);
 
 routes.get('/recipients', RecipientController.index);
@@ -38,12 +46,7 @@ routes.post('/packages', PackageController.store);
 routes.put('/packages/:id', PackageController.update);
 routes.delete('/packages/:id', PackageController.delete);
 
-routes.get('/deliveryman/:id/deliveries', DelivererFeaturesController.index);
-routes.put('/deliveryman/:id/deliveries', DelivererFeaturesController.update);
-
-routes.get('/delivery/:id/problems', DeliveryProblemController.index);
 routes.get('/delivery/problems', DeliveryProblemController.index);
-routes.post('/delivery/:id/problems', DeliveryProblemController.store);
 routes.delete('/problem/:id/cancel-delivery', DeliveryProblemController.delete);
 
 routes.post('/files', upload.single('file'), FileController.store);

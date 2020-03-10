@@ -4,12 +4,59 @@ import { startOfToday, endOfDay, getHours, parseISO } from 'date-fns';
 // import { zonedTimeToUtc } from 'date-fns-tz';
 import { Op } from 'sequelize';
 import Package from '../models/Package';
+import Recipient from '../models/Recipient';
+import Deliverer from '../models/Deliverer';
+import File from '../models/File';
 
 class DelivererFeaturesController {
   async index(req, res) {
     const deliverymanId = req.params.id;
 
     const deliverymanData = await Package.findAll({
+      order: [['id', 'ASC']],
+      attributes: [
+        'id',
+        'signature_id',
+        'product',
+        'recipient_id',
+        'deliveryman_id',
+        'canceled_at',
+        'start_date',
+        'end_date',
+        'created_at',
+      ],
+      include: [
+        {
+          model: Recipient,
+          as: 'recipient',
+          attributes: [
+            'id',
+            'name',
+            'street',
+            'number',
+            'city',
+            'state',
+            'zipcode',
+          ],
+        },
+        {
+          model: Deliverer,
+          as: 'deliveryman',
+          attributes: ['id', 'name', 'avatar_id'],
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['id', 'path', 'url'],
+            },
+          ],
+        },
+        {
+          model: File,
+          as: 'signature',
+          attributes: ['id', 'path', 'url'],
+        },
+      ],
       where: {
         deliveryman_id: deliverymanId,
         canceled_at: null,
