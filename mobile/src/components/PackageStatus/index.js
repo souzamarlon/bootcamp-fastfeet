@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { parseISO, formatRelative } from 'date-fns';
+import { Text } from 'react-native';
 import { zonedTimeToUtc } from 'date-fns-tz';
 import pt from 'date-fns/locale/pt';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -9,11 +10,12 @@ import {
   Container,
   Info,
   Name,
-  Time,
-  Text,
+  TextContent,
+  TextTitle,
   Content,
-  Data,
-  City,
+  DateColumn,
+  CityColumn,
+  ButtonDetailView,
 } from './styles';
 
 export default function PackageStatus({ data, onPress }) {
@@ -74,14 +76,19 @@ export default function PackageStatus({ data, onPress }) {
         stepCount={3}
       />
       <Content>
-        <Data>
-          <Text>Data</Text>
-          <Time>{dateParsed}</Time>
-        </Data>
-        <City>
-          <Text>Cidade</Text>
-          <Time>{data.recipient.city}</Time>
-        </City>
+        <DateColumn>
+          <TextTitle>Data</TextTitle>
+          <TextContent>{dateParsed}</TextContent>
+        </DateColumn>
+        <CityColumn>
+          <TextTitle>Cidade</TextTitle>
+          <TextContent>{data.recipient.city}</TextContent>
+        </CityColumn>
+        <ButtonDetailView>
+          <Text style={{ color: '#7d40e7', fontSize: 12 }} onPress={() => {}}>
+            Ver detalhes
+          </Text>
+        </ButtonDetailView>
       </Content>
     </Container>
   );
