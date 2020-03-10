@@ -20,6 +20,7 @@ export const Info = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 10px;
   /* justify-content: space-between; */
 `;
 
@@ -30,21 +31,31 @@ export const Name = styled.Text`
   margin-left: 10px;
   margin-top: 2px;
 `;
+
+export const Content = styled.View`
+  margin-top: 10px;
+  /* margin-left: 15px; */
+  /* display: flex; */
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  background: #f8f9fd;
+  height: 50px;
+  width: 100%;
+  /* justify-content: space-between; */
+`;
 export const Time = styled.Text`
   align-items: center;
-  display: flex;
+  /* display: flex; */
   color: #999;
   font-size: 13px;
-  margin-top: 4px;
-  margin-right: 15px;
+  /* margin-top: 4px; */
+  margin-right: 5px;
 `;
 
-export const Text = styled.Text.attrs({
-  numberOfLines: 3,
-})`
-  display: flex;
-  margin: 20px;
+export const Text = styled.Text`
+  /* display: flex; */
+  /* margin: 20px; */
   font-size: 14px;
-  line-height: 26px;
   color: #666666;
 `;

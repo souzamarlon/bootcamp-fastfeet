@@ -1,12 +1,15 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { parseISO, formatRelative } from 'date-fns';
 import { zonedTimeToUtc } from 'date-fns-tz';
 import pt from 'date-fns/locale/pt';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import StepIndicator from 'react-native-step-indicator';
 
-import { Container, Info, Name, Time, Text } from './styles';
+import { Container, Info, Name, Time, Text, Content } from './styles';
 
 export default function PackageStatus({ data, onPress }) {
+  const [currentPosition, setCurrentPosition] = useState(0);
+
   const dateTimeUTC = zonedTimeToUtc(new Date(), 'America/Brasília');
 
   const dateParsed = useMemo(() => {
@@ -16,7 +19,31 @@ export default function PackageStatus({ data, onPress }) {
     });
   }, [data.created_at, dateTimeUTC]);
 
-  console.tron.log(data);
+  const labels = ['Aguardando Retirada', 'Retirada', 'Entregue'];
+
+  const customStyles = {
+    stepIndicatorSize: 25,
+    currentStepIndicatorSize: 30,
+    separatorStrokeWidth: 1,
+    currentStepStrokeWidth: 3,
+    stepStrokeCurrentColor: '#7D40E7',
+    stepStrokeWidth: 3,
+    stepStrokeFinishedColor: '#7D40E7',
+    stepStrokeUnFinishedColor: '#aaaaaa',
+    separatorFinishedColor: '#7D40E7',
+    separatorUnFinishedColor: '#aaaaaa',
+    stepIndicatorFinishedColor: '#7D40E7',
+    stepIndicatorUnFinishedColor: '#ffffff',
+    stepIndicatorCurrentColor: '#ffffff',
+    stepIndicatorLabelFontSize: 13,
+    currentStepIndicatorLabelFontSize: 13,
+    stepIndicatorLabelCurrentColor: '#7D40E7',
+    stepIndicatorLabelFinishedColor: '#ffffff',
+    stepIndicatorLabelUnFinishedColor: '#aaaaaa',
+    labelColor: '#999999',
+    labelSize: 13,
+    currentStepLabelColor: '#999999',
+  };
 
   return (
     <Container>
@@ -29,9 +56,18 @@ export default function PackageStatus({ data, onPress }) {
         />
         <Name>{`Encomenda ${data.id}`}</Name>
       </Info>
-      <Time>{dateParsed}</Time>
-
-      {/* <Text>{data.question}</Text> */}
+      <StepIndicator
+        customStyles={customStyles}
+        currentPosition={currentPosition}
+        labels={labels}
+        stepCount={3}
+      />
+      <Content>
+        <Text>Data</Text>
+        <Time>{dateParsed}</Time>
+        <Text>Cidade</Text>
+        <Time>{data.recipient.city}</Time>
+      </Content>
     </Container>
   );
 }
