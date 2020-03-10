@@ -5,7 +5,16 @@ import pt from 'date-fns/locale/pt';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import StepIndicator from 'react-native-step-indicator';
 
-import { Container, Info, Name, Time, Text, Content } from './styles';
+import {
+  Container,
+  Info,
+  Name,
+  Time,
+  Text,
+  Content,
+  Data,
+  City,
+} from './styles';
 
 export default function PackageStatus({ data, onPress }) {
   const [currentPosition, setCurrentPosition] = useState(0);
@@ -30,6 +39,8 @@ export default function PackageStatus({ data, onPress }) {
     stepStrokeWidth: 3,
     stepStrokeFinishedColor: '#7D40E7',
     stepStrokeUnFinishedColor: '#aaaaaa',
+    // stepStrokeUnFinishedColor: '#aaaaaa',
+
     separatorFinishedColor: '#7D40E7',
     separatorUnFinishedColor: '#aaaaaa',
     stepIndicatorFinishedColor: '#7D40E7',
@@ -63,10 +74,14 @@ export default function PackageStatus({ data, onPress }) {
         stepCount={3}
       />
       <Content>
-        <Text>Data</Text>
-        <Time>{dateParsed}</Time>
-        <Text>Cidade</Text>
-        <Time>{data.recipient.city}</Time>
+        <Data>
+          <Text>Data</Text>
+          <Time>{dateParsed}</Time>
+        </Data>
+        <City>
+          <Text>Cidade</Text>
+          <Time>{data.recipient.city}</Time>
+        </City>
       </Content>
     </Container>
   );
