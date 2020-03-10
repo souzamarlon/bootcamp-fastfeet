@@ -1,15 +1,19 @@
 import React from 'react';
-// import { Text } from 'react-native';
+import { Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useSelector, useDispatch } from 'react-redux';
 import { signOut } from '~/store/modules/auth/actions';
 import {
   Container,
+  HeaderContent,
   Header,
   Avatar,
   Welcome,
   Name,
   LogoutButton,
+  Title,
+  DeliveryStatus,
+  StatusRow,
 } from './styles';
 
 export default function Dashboard() {
@@ -22,8 +26,8 @@ export default function Dashboard() {
 
   console.tron.log(profile.name);
   return (
-    <>
-      <Container>
+    <Container>
+      <HeaderContent>
         <Avatar
           source={{
             uri: profile.avatar.url
@@ -45,7 +49,12 @@ export default function Dashboard() {
             />
           </LogoutButton>
         </Header>
-      </Container>
-    </>
+      </HeaderContent>
+      <DeliveryStatus>
+        <Title>Entregas</Title>
+        <StatusRow> Pendentes </StatusRow>
+        <StatusRow> Entregues </StatusRow>
+      </DeliveryStatus>
+    </Container>
   );
 }
