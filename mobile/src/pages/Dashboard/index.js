@@ -1,8 +1,11 @@
-import React from 'react';
-import { Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+// import { Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useSelector, useDispatch } from 'react-redux';
 import { signOut } from '~/store/modules/auth/actions';
+import api from '~/services/api';
+
+import PackageStatus from '~/components/PackageStatus';
 import {
   Container,
   HeaderContent,
@@ -12,16 +15,34 @@ import {
   Name,
   LogoutButton,
   Title,
-  DeliveryStatus,
+  HeaderStatus,
   StatusRow,
+  List,
 } from './styles';
 
 export default function Dashboard() {
+  const [packages, setPackages] = useState([]);
+  const [refreshList, setRefreshList] = useState(false);
   const dispatch = useDispatch();
   const { profile } = useSelector(state => state.auth);
 
+  useEffect(() => {
+    async function loadQuestions() {
+      const response = await api.get(`deliveryman/${profile.id}/deliveries`);
+
+      setPackages(response.data);
+
+      setRefreshList(false);
+    }
+    loadQuestions();
+  }, [profile.id, refreshList]);
+
   function handleLogout() {
     dispatch(signOut());
+  }
+
+  async function loadPage() {
+    setRefreshList(true);
   }
 
   console.tron.log(profile.name);
@@ -50,11 +71,18 @@ export default function Dashboard() {
           </LogoutButton>
         </Header>
       </HeaderContent>
-      <DeliveryStatus>
+      <HeaderStatus>
         <Title>Entregas</Title>
         <StatusRow> Pendentes </StatusRow>
         <StatusRow> Entregues </StatusRow>
-      </DeliveryStatus>
+      </HeaderStatus>
+      <List
+        data={packages}
+        refreshing={refreshList}
+        onRefresh={loadPage}
+        keyExtractor={item => String(item.id)}
+        renderItem={({ item }) => <PackageStatus data={item} />}
+      />
     </Container>
   );
 }

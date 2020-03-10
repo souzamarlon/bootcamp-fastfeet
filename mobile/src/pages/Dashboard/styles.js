@@ -58,7 +58,7 @@ export const LogoutButton = styled(RectButton)`
   align-items: center;
   justify-content: center;
 `;
-export const DeliveryStatus = styled.View`
+export const HeaderStatus = styled.View`
   display: flex;
   /* flex: 1; */
   justify-content: space-between;
@@ -86,5 +86,5 @@ export const StatusRow = styled.Text`
 
 export const List = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
-  contentContainerStyle: { padding: 30 },
+  contentContainerStyle: { paddingTop: 10 },
 })``;
