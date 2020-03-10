@@ -3,7 +3,14 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useSelector, useDispatch } from 'react-redux';
 import { signOut } from '~/store/modules/auth/actions';
-import { Container, Header, Avatar, Welcome, Name, Exit } from './styles';
+import {
+  Container,
+  Header,
+  Avatar,
+  Welcome,
+  Name,
+  LogoutButton,
+} from './styles';
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -28,13 +35,15 @@ export default function Dashboard() {
         <Header>
           <Welcome>Bem vindo de volta,</Welcome>
           <Name>{profile.name}</Name>
-          <Icon
-            name="exit-to-app"
-            size={24}
-            color="#E74040"
-            style={{ position: 'absolute', left: 200, paddingTop: 30 }}
-            onPress={handleLogout}
-          />
+          <LogoutButton>
+            <Icon
+              name="exit-to-app"
+              size={24}
+              color="#E74040"
+              // style={{ position: 'absolute', left: 200, paddingTop: 30 }}
+              onPress={handleLogout}
+            />
+          </LogoutButton>
         </Header>
       </Container>
     </>
