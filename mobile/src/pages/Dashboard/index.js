@@ -27,14 +27,14 @@ export default function Dashboard() {
   const { profile } = useSelector(state => state.auth);
 
   useEffect(() => {
-    async function loadQuestions() {
+    async function loadPackages() {
       const response = await api.get(`deliveryman/${profile.id}/deliveries`);
 
       setPackages(response.data);
 
       setRefreshList(false);
     }
-    loadQuestions();
+    loadPackages();
   }, [profile.id, refreshList]);
 
   function handleLogout() {

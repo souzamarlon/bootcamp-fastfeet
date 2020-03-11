@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
-import Button from '~/components/Button';
 
 export const Container = styled(RectButton)`
   /* margin-bottom: 8px; */
@@ -68,8 +67,8 @@ export const TextContent = styled.Text`
   font-size: 12px;
   font-weight: bold;
 `;
-export const ButtonDetailView = styled(Button)`
+export const ButtonDetailView = styled(RectButton)`
   background: transparent;
   font-weight: bold;
-  margin-top: 5px;
+  margin-top: 17px;
 `;

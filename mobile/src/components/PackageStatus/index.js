@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { parseISO, formatRelative } from 'date-fns';
 import { Text } from 'react-native';
 import { zonedTimeToUtc } from 'date-fns-tz';
@@ -29,6 +29,22 @@ export default function PackageStatus({ data, onPress }) {
       addSuffix: true,
     });
   }, [data.created_at, dateTimeUTC]);
+
+  useEffect(() => {
+    async function loadStatus() {
+      if (data.start_date) {
+        console.tron.log(data.start_date);
+        setCurrentPosition(1);
+      }
+      if (data.start_date && data.end_date) {
+        console.tron.log(data.end_date);
+        setCurrentPosition(2);
+      }
+    }
+    loadStatus();
+  }, [data]);
+
+  console.tron.log(data);
 
   const labels = ['Aguardando Retirada', 'Retirada', 'Entregue'];
 
