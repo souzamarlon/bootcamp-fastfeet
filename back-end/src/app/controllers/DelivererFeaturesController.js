@@ -11,7 +11,67 @@ import File from '../models/File';
 class DelivererFeaturesController {
   async index(req, res) {
     const deliverymanId = req.params.id;
+    const { q } = req.query;
 
+    if (q) {
+      const deliverymanData = await Package.findAll({
+        order: [['id', 'ASC']],
+        attributes: [
+          'id',
+          'signature_id',
+          'product',
+          'recipient_id',
+          'deliveryman_id',
+          'canceled_at',
+          'start_date',
+          'end_date',
+          'created_at',
+        ],
+        include: [
+          {
+            model: Recipient,
+            as: 'recipient',
+            attributes: [
+              'id',
+              'name',
+              'street',
+              'number',
+              'city',
+              'state',
+              'zipcode',
+            ],
+          },
+          {
+            model: Deliverer,
+            as: 'deliveryman',
+            attributes: ['id', 'name', 'avatar_id'],
+            include: [
+              {
+                model: File,
+                as: 'avatar',
+                attributes: ['id', 'path', 'url'],
+              },
+            ],
+          },
+          {
+            model: File,
+            as: 'signature',
+            attributes: ['id', 'path', 'url'],
+          },
+        ],
+        where: {
+          deliveryman_id: deliverymanId,
+          canceled_at: null,
+          [Op.not]: [
+            {
+              end_date: null,
+            },
+          ],
+        },
+      });
+
+      return res.json(deliverymanData);
+    }
     const deliverymanData = await Package.findAll({
       order: [['id', 'ASC']],
       attributes: [
@@ -80,10 +140,11 @@ class DelivererFeaturesController {
     const packageId = req.params.id;
 
     const { start_date, end_date, signature_id } = req.body;
+    const packageData = await Package.findByPk(packageId);
 
-    if (start_date > end_date) {
+    if (packageData.start_date > parseISO(end_date)) {
       return res.status(400).json({
-        error: 'A data de retirada é menor que a data de entrega!',
+        error: 'A data de entrega é menor que a data de retirada!',
       });
     }
 
@@ -96,8 +157,6 @@ class DelivererFeaturesController {
         error: 'Horário não permitido para realizar a retirada.',
       });
     }
-
-    const packageData = await Package.findByPk(packageId);
 
     // Getting how many pickups the delivery man did in the same day.
     // Its possible to use the Brazilian UTC.
