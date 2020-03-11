@@ -53,8 +53,8 @@ export const LogoutButton = styled(RectButton)`
   left: 190px;
   padding-top: 10px;
 
-  /* height: 20px; */
-
+  height: 25px;
+  width: 25px;
   align-items: center;
   justify-content: center;
 `;
@@ -85,6 +85,6 @@ export const StatusRow = styled.Text`
 `;
 
 export const List = styled.FlatList.attrs({
-  showsVerticalScrollIndicator: false,
+  showsVerticalScrollIndicator: true,
   contentContainerStyle: { paddingTop: 10 },
 })``;

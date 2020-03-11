@@ -35,6 +35,7 @@ export const Name = styled.Text`
 export const Content = styled.View`
   margin-top: 10px;
   background: #f8f9fd;
+  opacity: 1;
   flex-direction: row;
 
   border-radius: 4px;

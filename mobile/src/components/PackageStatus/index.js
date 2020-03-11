@@ -49,16 +49,14 @@ export default function PackageStatus({ data, onPress }) {
   const labels = ['Aguardando Retirada', 'Retirada', 'Entregue'];
 
   const customStyles = {
-    stepIndicatorSize: 25,
+    stepIndicatorSize: 20,
     currentStepIndicatorSize: 30,
     separatorStrokeWidth: 1,
     currentStepStrokeWidth: 3,
     stepStrokeCurrentColor: '#7D40E7',
-    stepStrokeWidth: 3,
+    stepStrokeWidth: 1,
     stepStrokeFinishedColor: '#7D40E7',
     stepStrokeUnFinishedColor: '#aaaaaa',
-    // stepStrokeUnFinishedColor: '#aaaaaa',
-
     separatorFinishedColor: '#7D40E7',
     separatorUnFinishedColor: '#aaaaaa',
     stepIndicatorFinishedColor: '#7D40E7',
@@ -70,7 +68,7 @@ export default function PackageStatus({ data, onPress }) {
     stepIndicatorLabelFinishedColor: '#ffffff',
     stepIndicatorLabelUnFinishedColor: '#aaaaaa',
     labelColor: '#999999',
-    labelSize: 13,
+    labelSize: 12,
     currentStepLabelColor: '#999999',
   };
 
