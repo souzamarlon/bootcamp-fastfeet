@@ -1,7 +1,8 @@
 import React, { useMemo, useState, useEffect } from 'react';
-import { parseISO, formatRelative } from 'date-fns';
+import { parseISO, format } from 'date-fns';
 import { Text } from 'react-native';
 import { zonedTimeToUtc } from 'date-fns-tz';
+import 'react-native-gesture-handler';
 import pt from 'date-fns/locale/pt';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import StepIndicator from 'react-native-step-indicator';
@@ -24,11 +25,11 @@ export default function PackageStatus({ data, onPress }) {
   const dateTimeUTC = zonedTimeToUtc(new Date(), 'America/Brasília');
 
   const dateParsed = useMemo(() => {
-    return formatRelative(parseISO(data.created_at), dateTimeUTC, {
+    return format(parseISO(data.created_at), 'dd/MM/yyyy', {
       locale: pt,
       addSuffix: true,
     });
-  }, [data.created_at, dateTimeUTC]);
+  }, [data.created_at]);
 
   useEffect(() => {
     async function loadStatus() {
@@ -98,10 +99,8 @@ export default function PackageStatus({ data, onPress }) {
           <TextTitle>Cidade</TextTitle>
           <TextContent>{data.recipient.city}</TextContent>
         </CityColumn>
-        <ButtonDetailView>
-          <Text style={{ color: '#7d40e7', fontSize: 12 }} onPress={() => {}}>
-            Ver detalhes
-          </Text>
+        <ButtonDetailView onPress={onPress}>
+          <Text style={{ color: '#7d40e7', fontSize: 12 }}>Ver detalhes</Text>
         </ButtonDetailView>
       </Content>
     </Container>

@@ -1,20 +1,15 @@
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 
-export const Container = styled(RectButton)`
+export const Container = styled.View`
   height: 189px;
   width: 100%;
   max-width: 320px;
   /* padding: 10px; */
+  background: #fff;
   border-radius: 4px;
-  background: #ffffff;
-  border: 0;
-  border-radius: 4px;
-  box-shadow: 30px 30px rgba(0, 0, 0, 0.3);
-  /* border-bottom: 21px solid #f5f5f5; */
-  /* border-bottom-color: #000;
-  border-bottom-width: 20px;
-  margin-bottom: 30px; */
+  border: 1px solid #eee;
+  margin-bottom: 8px;
 `;
 
 export const Info = styled.View`
@@ -40,23 +35,23 @@ export const Content = styled.View`
   background: #f8f9fd;
   opacity: 1;
   flex-direction: row;
-
+  padding-left: 20px;
+  padding-right: 20px;
   border-radius: 4px;
   box-shadow: 30px 30px rgba(0, 0, 0, 0.3);
   height: 100%;
   max-height: 65px;
-  /* border: 1px solid #fff; */
 `;
 
 export const DateColumn = styled.View`
-  margin-top: 10px;
+  margin-top: 15px;
   background: #f8f9fd;
   flex-direction: column;
   flex: 1;
 `;
 
 export const CityColumn = styled.View`
-  margin-top: 10px;
+  margin-top: 15px;
   background: #f8f9fd;
   flex-direction: column;
   flex: 1;
@@ -75,5 +70,5 @@ export const TextContent = styled.Text`
 export const ButtonDetailView = styled(RectButton)`
   background: transparent;
   font-weight: bold;
-  margin-top: 17px;
+  margin-top: 23px;
 `;

@@ -2,12 +2,14 @@ import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
-  margin-left: 20px;
+  /* margin-left: 20px; */
   flex: 1;
   background: #ffffff;
 `;
 
 export const HeaderContent = styled.View`
+  margin-left: 40px;
+
   flex-direction: row;
   padding-top: 20px;
   width: 100%;
@@ -22,8 +24,6 @@ export const Header = styled.View`
 `;
 
 export const Avatar = styled.Image`
-  margin-left: 60px;
-
   width: 100px;
   height: 100px;
   border-radius: 50px;
@@ -59,6 +59,7 @@ export const LogoutButton = styled(RectButton)`
   justify-content: center;
 `;
 export const HeaderStatus = styled.View`
+  margin-left: 20px;
   display: flex;
   /* flex: 1; */
   justify-content: space-between;
@@ -88,5 +89,6 @@ export const List = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
   contentContainerStyle: {
     paddingTop: 20,
+    marginLeft: 20,
   },
 })``;

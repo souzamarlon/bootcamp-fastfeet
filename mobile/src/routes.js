@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
+import PackageDetails from './pages/Dashboard/PackageDetails';
 
 export default (isSigned = false) =>
   createAppContainer(
@@ -11,11 +12,11 @@ export default (isSigned = false) =>
         Sign: SignIn,
         App: createBottomTabNavigator(
           {
-            Dashboard,
             New: {
               screen: createStackNavigator(
                 {
                   Dashboard,
+                  PackageDetails,
                 },
                 {
                   defaultNavigationOptions: {
@@ -31,9 +32,10 @@ export default (isSigned = false) =>
               ),
               navigationOptions: {
                 tabBarVisible: true,
-                tabBarLabel: 'Perfil',
+                tabBarLabel: 'Dashboard',
               },
             },
+            // Profile,
           },
           {
             resetOnBlur: true,

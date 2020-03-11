@@ -20,7 +20,7 @@ import {
   List,
 } from './styles';
 
-export default function Dashboard() {
+export default function Dashboard({ navigation }) {
   const [packages, setPackages] = useState([]);
   const [refreshList, setRefreshList] = useState(false);
   const dispatch = useDispatch();
@@ -81,8 +81,18 @@ export default function Dashboard() {
         refreshing={refreshList}
         onRefresh={loadPage}
         keyExtractor={item => String(item.id)}
-        renderItem={({ item }) => <PackageStatus data={item} />}
+        renderItem={({ item: data }) => (
+          <PackageStatus
+            data={data}
+            onPress={() => {
+              navigation.navigate('PackageDetails', { data });
+            }}
+          />
+        )}
       />
     </Container>
   );
 }
+Dashboard.navigationOptions = {
+  tabBarLabel: 'Dashboard',
+};
