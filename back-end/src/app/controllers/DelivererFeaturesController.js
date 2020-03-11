@@ -13,7 +13,7 @@ class DelivererFeaturesController {
     const deliverymanId = req.params.id;
     const { q } = req.query;
 
-    if (q) {
+    if (q === 'Entregue') {
       const deliverymanData = await Package.findAll({
         order: [['id', 'ASC']],
         attributes: [
