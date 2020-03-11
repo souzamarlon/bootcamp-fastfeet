@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled(RectButton)`
-  height: 180px;
+  height: 189px;
   width: 100%;
   max-width: 320px;
   /* padding: 10px; */
@@ -45,6 +45,7 @@ export const Content = styled.View`
   box-shadow: 30px 30px rgba(0, 0, 0, 0.3);
   height: 100%;
   max-height: 65px;
+  /* border: 1px solid #fff; */
 `;
 
 export const DateColumn = styled.View`
