@@ -2,16 +2,19 @@ import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled(RectButton)`
-  /* margin-bottom: 8px; */
   height: 180px;
   width: 100%;
   max-width: 320px;
   /* padding: 10px; */
   border-radius: 4px;
-  background: #fff;
+  background: #ffffff;
   border: 0;
   border-radius: 4px;
   box-shadow: 30px 30px rgba(0, 0, 0, 0.3);
+  /* border-bottom: 21px solid #f5f5f5; */
+  /* border-bottom-color: #000;
+  border-bottom-width: 20px;
+  margin-bottom: 30px; */
 `;
 
 export const Info = styled.View`

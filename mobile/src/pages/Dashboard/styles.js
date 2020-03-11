@@ -3,8 +3,8 @@ import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   margin-left: 20px;
-  /* flex: 1; */
-  background: transparent;
+  flex: 1;
+  background: #ffffff;
 `;
 
 export const HeaderContent = styled.View`
@@ -85,6 +85,8 @@ export const StatusRow = styled.Text`
 `;
 
 export const List = styled.FlatList.attrs({
-  showsVerticalScrollIndicator: true,
-  contentContainerStyle: { paddingTop: 10 },
+  showsVerticalScrollIndicator: false,
+  contentContainerStyle: {
+    paddingTop: 20,
+  },
 })``;
