@@ -61,3 +61,7 @@ export const StatusInfo = styled.View`
   /* border-top-color: #7d40e7;
   border-top-width: 155px; */
 `;
+
+export const DateInfo = styled.View`
+  display: flex;
+`;

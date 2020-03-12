@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { parseISO } from 'date-fns';
+import { parseISO, format, isValid } from 'date-fns';
+import pt from 'date-fns/locale/pt';
 
 import 'react-native-gesture-handler';
 
@@ -15,22 +16,50 @@ import {
   ContentTitle,
   Text,
   StatusInfo,
+  DateInfo,
 } from './styles';
 
 export default function PackageDetails({ navigation }) {
-  const [status, setStatus] = useState('');
   const data = navigation.getParam('data');
+
+  const [status, setStatus] = useState('');
+  const [startDate, setStartDate] = useState({ start_date: data.start_date });
+  const [endDate, setEndDate] = useState({ end_date: data.end_date });
+
+  useEffect(() => {
+    async function validStartDate() {
+      if (isValid(parseISO(data.start_date))) {
+        setStartDate({
+          ...startDate,
+          start_date: format(parseISO(data.start_date), 'dd/MM/yyyy', {
+            locale: pt,
+          }),
+        });
+      }
+      if (isValid(parseISO(data.end_date))) {
+        setEndDate({
+          ...endDate,
+          end_date: format(parseISO(data.end_date), 'dd/MM/yyyy', {
+            locale: pt,
+            addSuffix: true,
+          }),
+        });
+      }
+    }
+    validStartDate();
+    // eslint-disable-next-line
+}, [data]);
 
   useEffect(() => {
     async function loadStatus() {
       if (!data.start_date && !data.end_date) {
-        console.tron.log('Pendente');
+        setStatus('Pendente');
       }
       if (data.start_date && !data.end_date) {
-        console.tron.log('Retirada');
+        setStatus('Retirada');
       }
       if (data.start_date && data.end_date) {
-        console.tron.log('Entregue');
+        setStatus('Entregue');
       }
     }
     loadStatus();
@@ -63,7 +92,7 @@ export default function PackageDetails({ navigation }) {
         <StatusInfo>
           <Header>
             <Icon
-              name="local-shipping"
+              name="event"
               size={24}
               color="#7d40e7"
               style={{ paddingLeft: 15 }}
@@ -72,10 +101,16 @@ export default function PackageDetails({ navigation }) {
           </Header>
           <ContentTitle>STATUS</ContentTitle>
           <Text>{status}</Text>
-          <ContentTitle>ENDEREÇO DE ENTREGA</ContentTitle>
-          <Text>
-            {`${data.recipient.street}, ${data.recipient.number}, ${data.recipient.city} - ${data.recipient.state}, ${data.recipient.zipcode}  `}
-          </Text>
+          <DateInfo>
+            <ContentTitle>DATA DE RETIRADA</ContentTitle>
+            <Text>
+              {startDate.start_date ? startDate.start_date : '- - / - - / - -'}
+            </Text>
+            <ContentTitle>DATA DE ENTREGA</ContentTitle>
+            <Text>
+              {startDate.end_date ? startDate.end_date : '- - / - - / - -'}
+            </Text>
+          </DateInfo>
         </StatusInfo>
       </Container>
     </PackageBackground>

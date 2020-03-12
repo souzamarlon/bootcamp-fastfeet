@@ -34,11 +34,9 @@ export default function PackageStatus({ data, onPress }) {
   useEffect(() => {
     async function loadStatus() {
       if (data.start_date) {
-        console.tron.log(data.start_date);
         setCurrentPosition(1);
       }
       if (data.start_date && data.end_date) {
-        console.tron.log(data.end_date);
         setCurrentPosition(2);
       }
     }
