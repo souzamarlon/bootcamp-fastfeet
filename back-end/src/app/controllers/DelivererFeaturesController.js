@@ -13,7 +13,8 @@ class DelivererFeaturesController {
     const deliverymanId = req.params.id;
     const { q } = req.query;
 
-    if (q === 'Entregue') {
+    // Return all the packages delivered and it is not canceled.
+    if (!!q === true) {
       const deliverymanData = await Package.findAll({
         order: [['id', 'ASC']],
         attributes: [
@@ -72,6 +73,8 @@ class DelivererFeaturesController {
 
       return res.json(deliverymanData);
     }
+
+    // Return all the packages not delivered and it is not canceled.
     const deliverymanData = await Package.findAll({
       order: [['id', 'ASC']],
       attributes: [
