@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { Text } from 'react-native';
+import { Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useSelector, useDispatch } from 'react-redux';
 import { signOut } from '~/store/modules/auth/actions';
@@ -16,13 +16,15 @@ import {
   LogoutButton,
   Title,
   HeaderStatus,
-  StatusRow,
+  StatusButton,
   List,
 } from './styles';
 
 export default function Dashboard({ navigation }) {
   const [packages, setPackages] = useState([]);
   const [refreshList, setRefreshList] = useState(false);
+  const [delivered, setDelivered] = useState(false);
+
   const dispatch = useDispatch();
   const { profile } = useSelector(state => state.auth);
 
@@ -45,7 +47,15 @@ export default function Dashboard({ navigation }) {
     setRefreshList(true);
   }
 
-  console.tron.log(profile.name);
+  async function packagesFilter(data) {
+    if (data) {
+      setDelivered(true);
+    }
+    if (!data) {
+      setDelivered(false);
+    }
+  }
+  console.tron.log(delivered);
   return (
     <Container>
       <HeaderContent>
@@ -73,8 +83,20 @@ export default function Dashboard({ navigation }) {
       </HeaderContent>
       <HeaderStatus>
         <Title>Entregas</Title>
-        <StatusRow> Pendentes </StatusRow>
-        <StatusRow> Entregues </StatusRow>
+        <StatusButton
+          onPress={() => {
+            packagesFilter(false);
+          }}
+        >
+          <Text>Pendentes</Text>
+        </StatusButton>
+        <StatusButton
+          onPress={() => {
+            packagesFilter(true);
+          }}
+        >
+          <Text>Entregues</Text>
+        </StatusButton>
       </HeaderStatus>
       <List
         data={packages}

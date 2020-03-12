@@ -77,7 +77,7 @@ export const Title = styled.Text`
   padding-right: 100px;
 `;
 
-export const StatusRow = styled.Text`
+export const StatusButton = styled(RectButton)`
   margin-top: 30px;
 
   color: #999999;

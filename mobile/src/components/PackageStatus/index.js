@@ -43,8 +43,6 @@ export default function PackageStatus({ data, onPress }) {
     loadStatus();
   }, [data]);
 
-  console.tron.log(data);
-
   const labels = ['Aguardando Retirada', 'Retirada', 'Entregue'];
 
   const customStyles = {
