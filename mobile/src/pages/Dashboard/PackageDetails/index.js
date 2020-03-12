@@ -17,6 +17,10 @@ import {
   Text,
   StatusInfo,
   DateInfo,
+  DateColumn,
+  PackageOption,
+  Box,
+  BoxText,
 } from './styles';
 
 export default function PackageDetails({ navigation }) {
@@ -102,16 +106,59 @@ export default function PackageDetails({ navigation }) {
           <ContentTitle>STATUS</ContentTitle>
           <Text>{status}</Text>
           <DateInfo>
-            <ContentTitle>DATA DE RETIRADA</ContentTitle>
-            <Text>
-              {startDate.start_date ? startDate.start_date : '- - / - - / - -'}
-            </Text>
-            <ContentTitle>DATA DE ENTREGA</ContentTitle>
-            <Text>
-              {startDate.end_date ? startDate.end_date : '- - / - - / - -'}
-            </Text>
+            <DateColumn>
+              <ContentTitle>DATA DE RETIRADA</ContentTitle>
+              <Text>
+                {startDate.start_date
+                  ? startDate.start_date
+                  : '- - / - - / - -'}
+              </Text>
+            </DateColumn>
+            <DateColumn>
+              <ContentTitle>DATA DE ENTREGA</ContentTitle>
+              <Text>
+                {startDate.end_date ? startDate.end_date : '- - / - - / - -'}
+              </Text>
+            </DateColumn>
           </DateInfo>
         </StatusInfo>
+        <PackageOption>
+          <Box>
+            <Icon
+              name="highlight-off"
+              size={24}
+              color="#E74040"
+              style={{ paddingLeft: 15 }}
+            />
+            <BoxText>Informar Problema</BoxText>
+          </Box>
+          <Box>
+            <Icon
+              name="info-outline"
+              size={24}
+              color="#E7BA40"
+              style={{ paddingLeft: 15 }}
+            />
+            <BoxText>Visualizar Problemas</BoxText>
+          </Box>
+          <Box
+            style={{
+              paddingRight: 24,
+              borderRightColor: null,
+              borderRightWidth: 0,
+            }}
+          >
+            <Icon
+              name="alarm-on"
+              size={24}
+              color="#7D40E7"
+              style={{
+                paddingLeft: 15,
+              }}
+            />
+            <BoxText>Confirmar Entrega</BoxText>
+          </Box>
+        </PackageOption>
       </Container>
     </PackageBackground>
   );
