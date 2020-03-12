@@ -30,14 +30,25 @@ export default function Dashboard({ navigation }) {
 
   useEffect(() => {
     async function loadPackages() {
-      const response = await api.get(`deliveryman/${profile.id}/deliveries`);
+      if (delivered) {
+        const response = await api.get(
+          `deliveryman/${profile.id}/deliveries/`,
+          {
+            params: { q: true },
+          }
+        );
 
-      setPackages(response.data);
+        setPackages(response.data);
+      }
+      if (!delivered) {
+        const response = await api.get(`deliveryman/${profile.id}/deliveries`);
 
+        setPackages(response.data);
+      }
       setRefreshList(false);
     }
     loadPackages();
-  }, [profile.id, refreshList]);
+  }, [delivered, profile.id, refreshList]);
 
   function handleLogout() {
     dispatch(signOut());
