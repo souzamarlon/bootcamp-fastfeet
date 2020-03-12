@@ -99,14 +99,30 @@ export default function Dashboard({ navigation }) {
             packagesFilter(false);
           }}
         >
-          <Text>Pendentes</Text>
+          <Text
+            style={{
+              color: !delivered ? '#7D40E7' : '#999999',
+              fontWeight: 'bold',
+              fontSize: 12,
+            }}
+          >
+            Pendentes
+          </Text>
         </StatusButton>
         <StatusButton
           onPress={() => {
             packagesFilter(true);
           }}
         >
-          <Text>Entregues</Text>
+          <Text
+            style={{
+              color: delivered ? '#7D40E7' : '#999999',
+              fontWeight: 'bold',
+              fontSize: 12,
+            }}
+          >
+            Entregues
+          </Text>
         </StatusButton>
       </HeaderStatus>
       <List
