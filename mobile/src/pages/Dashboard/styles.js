@@ -5,6 +5,7 @@ export const Container = styled.View`
   /* margin-left: 20px; */
   flex: 1;
   background: #ffffff;
+  padding-top: 20px;
 `;
 
 export const HeaderContent = styled.View`

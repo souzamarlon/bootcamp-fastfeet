@@ -1,9 +1,13 @@
+import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
 import PackageDetails from './pages/Dashboard/PackageDetails';
+
+import Profile from './pages/Profile';
 
 export default (isSigned = false) =>
   createAppContainer(
@@ -12,7 +16,7 @@ export default (isSigned = false) =>
         Sign: SignIn,
         App: createBottomTabNavigator(
           {
-            New: {
+            Dashboard: {
               screen: createStackNavigator(
                 {
                   Dashboard,
@@ -20,35 +24,40 @@ export default (isSigned = false) =>
                 },
                 {
                   defaultNavigationOptions: {
-                    headerLayoutPreset: 'center',
-                    headerShown: false,
-                    // headerTitle: () => null,
                     headerTransparent: true,
+                    headerTintColor: '#FFF',
+                    headerTitleStyle: { fontSize: 16, fontWeight: 'bold' },
                     headerLeftContainerStyle: {
-                      marginLeft: 20,
+                      marginLeft: 10,
                     },
                   },
                 }
               ),
               navigationOptions: {
-                tabBarVisible: true,
+                // tabBarVisible: false,
                 tabBarLabel: 'Dashboard',
+                tabBarIcon: ({ tintColor }) => (
+                  <Icon name="reorder" size={20} color={tintColor} />
+                ),
               },
             },
-            // Profile,
+
+            Profile,
           },
           {
             resetOnBlur: true,
             tabBarOptions: {
               keyboardHidesTabBar: true,
+              activeTintColor: '#7D40E7',
+              inactiveTintColor: '#999999',
+
               labelStyle: {
                 fontSize: 14,
-                marginBottom: 10,
+                marginBottom: 5,
               },
-              activeTintColor: '#EE4E62',
-              inactiveTintColor: 'rgba(100,100, 100, 0.8)',
               style: {
-                backgroundColor: '#FFF',
+                height: 50,
+                backgroundColor: '#ffff',
               },
             },
           }

@@ -3,7 +3,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { parseISO, format, isValid } from 'date-fns';
 import pt from 'date-fns/locale/pt';
-
+import { TouchableOpacity } from 'react-native';
 import 'react-native-gesture-handler';
 
 import PackageBackground from '~/components/PackageBackground';
@@ -149,7 +149,7 @@ export default function PackageDetails({ navigation }) {
             }}
           >
             <Icon
-              name="alarm-on"
+              name="check-circle"
               size={24}
               color="#7D40E7"
               style={{
@@ -163,3 +163,16 @@ export default function PackageDetails({ navigation }) {
     </PackageBackground>
   );
 }
+
+PackageDetails.navigationOptions = ({ navigation }) => ({
+  title: 'Detalhes da encomenda',
+  headerLeft: () => (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.goBack();
+      }}
+    >
+      <Icon name="chevron-left" size={20} color="#FFF" />
+    </TouchableOpacity>
+  ),
+});
