@@ -28,7 +28,7 @@ export default (isSigned = false) =>
                     headerTintColor: '#FFF',
                     headerTitleStyle: { fontSize: 16, fontWeight: 'bold' },
                     headerLeftContainerStyle: {
-                      marginLeft: 10,
+                      marginLeft: 20,
                     },
                   },
                 }

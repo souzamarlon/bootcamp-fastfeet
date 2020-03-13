@@ -12,7 +12,7 @@ export const HeaderContent = styled.View`
   margin-left: 40px;
 
   flex-direction: row;
-  padding-top: 20px;
+  padding-top: 10px;
   width: 100%;
   max-width: 375px;
   justify-content: center;
@@ -25,25 +25,27 @@ export const Header = styled.View`
 `;
 
 export const Avatar = styled.Image`
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   border-radius: 50px;
   /* flex: 1; */
 `;
 
 export const Welcome = styled.Text`
+  padding-top: 10px;
   color: #666666;
   font-size: 12px;
   display: flex;
-  height: 16px;
+  /* height: 18px; */
   line-height: 12px;
 `;
 
 export const Name = styled.Text`
+  padding-top: 2px;
   color: #444444;
   font-size: 22px;
   width: 158px;
-  height: 54px;
+  /* height: 54px; */
   font-weight: bold;
   display: flex;
 `;
@@ -52,8 +54,7 @@ export const LogoutButton = styled(RectButton)`
   background: transparent;
   position: absolute;
   left: 190px;
-  padding-top: 10px;
-
+  padding-top: 33px;
   height: 25px;
   width: 25px;
   align-items: center;
@@ -89,7 +90,7 @@ export const StatusButton = styled(RectButton)`
 export const List = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
   contentContainerStyle: {
-    paddingTop: 20,
+    paddingTop: 10,
     marginLeft: 20,
   },
 })``;

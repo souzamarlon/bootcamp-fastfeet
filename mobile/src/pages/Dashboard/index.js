@@ -143,5 +143,6 @@ export default function Dashboard({ navigation }) {
   );
 }
 Dashboard.navigationOptions = {
-  tabBarLabel: 'Dashboard',
+  headerShown: false,
+  headerTransparent: true,
 };
