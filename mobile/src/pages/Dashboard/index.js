@@ -66,7 +66,7 @@ export default function Dashboard({ navigation }) {
       setDelivered(false);
     }
   }
-  console.tron.log(delivered);
+
   return (
     <Container>
       <HeaderContent>

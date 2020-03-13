@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
 import PackageDetails from './pages/Dashboard/PackageDetails';
+import Problems from './pages/Problems';
 
 import Profile from './pages/Profile';
 
@@ -21,6 +22,7 @@ export default (isSigned = false) =>
                 {
                   Dashboard,
                   PackageDetails,
+                  Problems,
                 },
                 {
                   defaultNavigationOptions: {

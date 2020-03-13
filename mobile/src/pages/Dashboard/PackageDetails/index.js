@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { parseISO, format, isValid } from 'date-fns';
@@ -6,7 +6,7 @@ import pt from 'date-fns/locale/pt';
 import { TouchableOpacity } from 'react-native';
 import 'react-native-gesture-handler';
 
-import PackageBackground from '~/components/PackageBackground';
+import PagesBackground from '~/components/PagesBackground';
 
 import {
   Container,
@@ -45,7 +45,6 @@ export default function PackageDetails({ navigation }) {
           ...endDate,
           end_date: format(parseISO(data.end_date), 'dd/MM/yyyy', {
             locale: pt,
-            addSuffix: true,
           }),
         });
       }
@@ -68,10 +67,9 @@ export default function PackageDetails({ navigation }) {
     }
     loadStatus();
   }, [data]);
-
-  console.tron.log(data);
+  console.tron.log(endDate.end_date);
   return (
-    <PackageBackground>
+    <PagesBackground>
       <Container>
         <AddressInfo>
           <Header>
@@ -117,13 +115,17 @@ export default function PackageDetails({ navigation }) {
             <DateColumn>
               <ContentTitle>DATA DE ENTREGA</ContentTitle>
               <Text>
-                {startDate.end_date ? startDate.end_date : '- - / - - / - -'}
+                {endDate.end_date ? endDate.end_date : '- - / - - / - -'}
               </Text>
             </DateColumn>
           </DateInfo>
         </StatusInfo>
         <PackageOption>
-          <Box>
+          <Box
+            onPress={() => {
+              navigation.navigate('Problems', { data });
+            }}
+          >
             <Icon
               name="highlight-off"
               size={24}
@@ -160,7 +162,7 @@ export default function PackageDetails({ navigation }) {
           </Box>
         </PackageOption>
       </Container>
-    </PackageBackground>
+    </PagesBackground>
   );
 }
 
@@ -172,7 +174,7 @@ PackageDetails.navigationOptions = ({ navigation }) => ({
         navigation.goBack();
       }}
     >
-      <Icon name="chevron-left" size={20} color="#FFF" />
+      <Icon name="chevron-left" size={24} color="#FFF" />
     </TouchableOpacity>
   ),
 });
