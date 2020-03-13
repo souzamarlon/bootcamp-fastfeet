@@ -9,8 +9,7 @@ export const Container = styled.View`
 `;
 
 export const HeaderContent = styled.View`
-  margin-left: 40px;
-
+  margin-left: 30px;
   flex-direction: row;
   padding-top: 10px;
   width: 100%;
@@ -53,7 +52,7 @@ export const Name = styled.Text`
 export const LogoutButton = styled(RectButton)`
   background: transparent;
   position: absolute;
-  left: 190px;
+  left: 215px;
   padding-top: 33px;
   height: 25px;
   width: 25px;
