@@ -67,7 +67,7 @@ export default function PackageDetails({ navigation }) {
     }
     loadStatus();
   }, [data]);
-  console.tron.log(endDate.end_date);
+
   return (
     <PagesBackground>
       <Container>
@@ -134,7 +134,11 @@ export default function PackageDetails({ navigation }) {
             />
             <BoxText>Informar Problema</BoxText>
           </Box>
-          <Box>
+          <Box
+            onPress={() => {
+              navigation.navigate('ShowProblems', { data });
+            }}
+          >
             <Icon
               name="info-outline"
               size={24}
