@@ -3,9 +3,8 @@ import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   height: 189px;
-  width: 100%;
-  max-width: 320px;
-  /* padding: 10px; */
+  /* width: 100%; */
+  /* max-width: 320px; */
   background: #fff;
   border-radius: 4px;
   border: 1px solid #eee;
@@ -40,7 +39,7 @@ export const Content = styled.View`
   border-radius: 4px;
   box-shadow: 30px 30px rgba(0, 0, 0, 0.3);
   height: 100%;
-  max-height: 65px;
+  max-height: 80px;
 `;
 
 export const DateColumn = styled.View`

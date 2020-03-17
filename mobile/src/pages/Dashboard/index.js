@@ -104,6 +104,7 @@ export default function Dashboard({ navigation }) {
               color: !delivered ? '#7D40E7' : '#999999',
               fontWeight: 'bold',
               fontSize: 12,
+              textAlign: 'right',
             }}
           >
             Pendentes
@@ -119,6 +120,8 @@ export default function Dashboard({ navigation }) {
               color: delivered ? '#7D40E7' : '#999999',
               fontWeight: 'bold',
               fontSize: 12,
+              textAlign: 'right',
+              paddingRight: 5,
             }}
           >
             Entregues

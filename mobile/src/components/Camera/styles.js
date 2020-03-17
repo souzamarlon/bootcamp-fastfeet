@@ -25,6 +25,7 @@ export const CameraButton = styled(RectButton)`
   /* flex-direction: row; */
   width: 100px;
   height: 30px;
+  border-radius: 100px;
   margin-top: 300px;
   align-self: center;
   justify-content: center;

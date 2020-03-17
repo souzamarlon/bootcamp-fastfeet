@@ -6,6 +6,7 @@ export const Container = styled.View`
   flex: 1;
   background: #ffffff;
   padding-top: 20px;
+  width: 100%;
 `;
 
 export const HeaderContent = styled.View`
@@ -13,14 +14,15 @@ export const HeaderContent = styled.View`
   flex-direction: row;
   padding-top: 10px;
   width: 100%;
-  max-width: 375px;
+  /* max-width: 375px; */
   justify-content: center;
   align-items: center;
+  padding: 0 30px;
 `;
 export const Header = styled.View`
   padding-top: 5px;
   margin-left: 10px;
-  width: 300px;
+  width: 100%;
 `;
 
 export const Avatar = styled.Image`
@@ -53,20 +55,16 @@ export const LogoutButton = styled(RectButton)`
   background: transparent;
   position: absolute;
   left: 215px;
-  padding-top: 33px;
-  height: 25px;
+
+  margin-top: 20px;
+  /* height: 100%; */
   width: 25px;
-  align-items: center;
+  align-self: center;
   justify-content: center;
 `;
 export const HeaderStatus = styled.View`
-  margin-left: 20px;
-  display: flex;
-  /* flex: 1; */
   justify-content: space-between;
-  width: 100%;
-  max-width: 320px;
-  /* background: #000; */
+  margin: 0 20px;
   flex-direction: row;
 `;
 export const Title = styled.Text`
@@ -75,12 +73,12 @@ export const Title = styled.Text`
   height: 29px;
   font-weight: bold;
   margin-top: 20px;
+  display: flex;
   padding-right: 100px;
 `;
 
 export const StatusButton = styled(RectButton)`
   margin-top: 30px;
-
   color: #999999;
   font-size: 12px;
   /* position: absolute; */
@@ -91,5 +89,6 @@ export const List = styled.FlatList.attrs({
   contentContainerStyle: {
     paddingTop: 10,
     marginLeft: 20,
+    marginRight: 20,
   },
 })``;

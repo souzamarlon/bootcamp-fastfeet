@@ -26,7 +26,7 @@ export default function ConfirmDelivery({ navigation }) {
   return (
     <PagesBackground>
       <Container>
-        <Camera ref={cameraRef} />
+        <Camera ref={cameraRef} name="avatar" />
         {/* <View
           style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}
         >

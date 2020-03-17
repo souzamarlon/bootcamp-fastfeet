@@ -4,6 +4,7 @@ import { StyleSheet, Alert } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Container, CameraLayout, CameraButton, CameraIcon } from './styles';
+import api from '~/services/api';
 
 export default function Camera() {
   const [flash, setFlash] = useState('off');
@@ -12,26 +13,30 @@ export default function Camera() {
   const [depth, setDepth] = useState(0);
   const [type, setType] = useState('back');
   const [permission, setPermission] = useState('undetermined');
+
   const cameraRef = useRef(null);
 
-  const styles = StyleSheet.create({
-    capture: {
-      flex: 0,
-      backgroundColor: '#76e',
-      borderRadius: 5,
-      padding: 15,
-      paddingHorizontal: 100,
-      alignSelf: 'center',
-      // margin: 50,
-    },
-  });
-
   async function takePicture() {
-    console.tron.log('teste');
     if (cameraRef) {
       const options = { quality: 0.5, base64: true };
       const data = await cameraRef.current.takePictureAsync(options);
       Alert.alert(data.uri);
+
+      const dataForm = new FormData();
+
+      dataForm.append('file', {
+        uri: data.uri,
+        type: 'image',
+      });
+
+      console.tron.log(dataForm);
+
+      // axios.post('upload', dataForm);
+
+      // const dataForm = new FormData();
+      // dataForm.append('data.uri', cameraRef.target.files[0]);
+      // const response = await api.post('files', dataForm);
+      // const { id, url } = response.data;
     }
   }
   return (
@@ -40,6 +45,7 @@ export default function Camera() {
         {/* <CameraLayout /> */}
         <RNCamera
           ref={cameraRef}
+          path="file:///MobilePic/"
           style={{
             marginTop: 400,
             height: 400,
