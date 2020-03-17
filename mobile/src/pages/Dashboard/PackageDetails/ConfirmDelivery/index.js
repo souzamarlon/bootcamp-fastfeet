@@ -4,53 +4,17 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { RNCamera } from 'react-native-camera';
 
-import { Container } from './styles';
+import { Container, CameraLayout } from './styles';
 
 import PagesBackground from '~/components/PagesBackground';
+import Camera from '~/components/Camera';
+
 import api from '~/services/api';
 
 export default function ConfirmDelivery({ navigation }) {
-  // const data = navigation.getParam('data');
-  const [flash, setFlash] = useState('off');
-  const [zoom, setZoom] = useState(0);
-  const [autoFocus, setAutoFocus] = useState('on');
-  const [depth, setDepth] = useState(0);
-  const [type, setType] = useState('back');
-  const [permission, setPermission] = useState('undetermined');
   const cameraRef = useRef(null);
 
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      flexDirection: 'column',
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    dummy: {
-      backgroundColor: '#76e',
-      height: 250,
-      width: '100%',
-      position: 'absolute',
-      top: 0,
-    },
-    preview: {
-      height: 500,
-      width: 300,
-      borderRadius: 4,
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-    },
-    capture: {
-      flex: 0,
-      backgroundColor: '#76e',
-      borderRadius: 5,
-      padding: 15,
-      paddingHorizontal: 100,
-      alignSelf: 'center',
-      margin: 50,
-    },
-  });
+  // const data = navigation.getParam('data');
 
   async function takePicture() {
     if (cameraRef) {
@@ -59,26 +23,37 @@ export default function ConfirmDelivery({ navigation }) {
       Alert.alert(data.uri);
     }
   }
-
   return (
     <PagesBackground>
       <Container>
-        <View style={styles.container}>
-          <View style={styles.dummy} />
-          <RNCamera
-            ref={cameraRef}
-            style={styles.preview}
-            type={type}
-            flashMode={flash}
-          />
-        </View>
-        <View
+        <Camera ref={cameraRef} />
+        {/* <View
           style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}
         >
-          <TouchableOpacity onPress={takePicture} style={styles.capture}>
-            <Text style={{ fontSize: 14, color: '#fff' }}> Enviar </Text>
+          <TouchableOpacity
+            onPress={takePicture}
+            style={{
+              flex: 1,
+              backgroundColor: '#7D40E7',
+              borderRadius: 5,
+              padding: 15,
+              // paddingHorizontal: 20,
+              alignSelf: 'center',
+              margin: 20,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: 'bold',
+                color: '#FFF',
+                textAlign: 'center',
+              }}
+            >
+              Enviar
+            </Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </Container>
     </PagesBackground>
   );
