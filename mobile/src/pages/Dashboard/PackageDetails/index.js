@@ -123,7 +123,7 @@ export default function PackageDetails({ navigation }) {
         <PackageOption>
           <Box
             onPress={() => {
-              navigation.navigate('Problems', { data });
+              navigation.navigate('NewProblems', { data });
             }}
           >
             <Icon
@@ -152,6 +152,9 @@ export default function PackageDetails({ navigation }) {
               paddingRight: 24,
               borderRightColor: null,
               borderRightWidth: 0,
+            }}
+            onPress={() => {
+              navigation.navigate('ConfirmDelivery', { data });
             }}
           >
             <Icon

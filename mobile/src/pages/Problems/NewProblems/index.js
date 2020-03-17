@@ -6,7 +6,7 @@ import PagesBackground from '~/components/PagesBackground';
 import api from '~/services/api';
 import { Container, Form, TInput, SubmitButton } from './styles';
 
-export default function Problems({ navigation }) {
+export default function NewProblems({ navigation }) {
   const [description, setDescription] = useState('');
   const { id } = navigation.getParam('data');
 
@@ -46,7 +46,7 @@ export default function Problems({ navigation }) {
   );
 }
 
-Problems.navigationOptions = ({ navigation }) => ({
+NewProblems.navigationOptions = ({ navigation }) => ({
   title: 'Informar problema',
   headerLeft: () => (
     <TouchableOpacity

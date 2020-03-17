@@ -6,8 +6,9 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
 import PackageDetails from './pages/Dashboard/PackageDetails';
-import Problems from './pages/Problems';
+import NewProblems from './pages/Problems/NewProblems';
 import ShowProblems from './pages/Problems/ShowProblems';
+import ConfirmDelivery from './pages/Dashboard/PackageDetails/ConfirmDelivery';
 
 import Profile from './pages/Profile';
 
@@ -23,8 +24,9 @@ export default (isSigned = false) =>
                 {
                   Dashboard,
                   PackageDetails,
-                  Problems,
+                  NewProblems,
                   ShowProblems,
+                  ConfirmDelivery,
                 },
                 {
                   defaultNavigationOptions: {
