@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
-  /* margin-left: 20px; */
   flex: 1;
   background: #ffffff;
   padding-top: 20px;
@@ -10,57 +9,54 @@ export const Container = styled.View`
 `;
 
 export const HeaderContent = styled.View`
-  margin-left: 30px;
   flex-direction: row;
   padding-top: 10px;
-  width: 100%;
-  /* max-width: 375px; */
-  justify-content: center;
-  align-items: center;
-  padding: 0 30px;
+  margin-right: 20px;
+  margin-left: 20px;
+  justify-content: space-between;
 `;
 export const Header = styled.View`
   padding-top: 5px;
-  margin-left: 10px;
-  width: 100%;
+  margin-left: 20px;
+  right: 40px;
 `;
 
 export const Avatar = styled.Image`
   width: 70px;
   height: 70px;
-  border-radius: 50px;
-  /* flex: 1; */
+  border-radius: 100px;
 `;
 
 export const Welcome = styled.Text`
   padding-top: 10px;
   color: #666666;
   font-size: 12px;
-  display: flex;
-  /* height: 18px; */
   line-height: 12px;
+  display: flex;
 `;
 
 export const Name = styled.Text`
-  padding-top: 2px;
   color: #444444;
   font-size: 22px;
   width: 158px;
-  /* height: 54px; */
   font-weight: bold;
   display: flex;
 `;
 
 export const LogoutButton = styled(RectButton)`
   background: transparent;
-  position: absolute;
-  left: 215px;
-
-  margin-top: 20px;
-  /* height: 100%; */
-  width: 25px;
+  /* position: absolute; */
+  /* flex-direction: flex-start; */
+  text-align: right;
   align-self: center;
-  justify-content: center;
+
+  /* left: 215px; */
+  /* bottom: 36px; */
+
+  /* margin-top: 20px; */
+  /* height: 100%; */
+
+  /* align-self: center; */
 `;
 export const HeaderStatus = styled.View`
   justify-content: space-between;

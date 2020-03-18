@@ -77,20 +77,19 @@ export default function Dashboard({ navigation }) {
               : `https://avatars.dicebear.com/v2/initials/${profile.name}.svg`,
           }}
         />
-
         <Header>
           <Welcome>Bem vindo de volta,</Welcome>
           <Name>{profile.name}</Name>
-          <LogoutButton>
-            <Icon
-              name="exit-to-app"
-              size={24}
-              color="#E74040"
-              // style={{ position: 'absolute', left: 200, paddingTop: 30 }}
-              onPress={handleLogout}
-            />
-          </LogoutButton>
         </Header>
+        <LogoutButton>
+          <Icon
+            name="exit-to-app"
+            size={24}
+            color="#E74040"
+            // style={{ position: 'absolute', left: 200, paddingTop: 30 }}
+            onPress={handleLogout}
+          />
+        </LogoutButton>
       </HeaderContent>
       <HeaderStatus>
         <Title>Entregas</Title>
