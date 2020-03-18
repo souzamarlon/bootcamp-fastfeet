@@ -14,7 +14,7 @@ export const Title = styled.Text`
 `;
 export const Content = styled.View`
   margin-top: 20px;
-  width: 310px;
+  width: 100%;
   height: 60px;
   background: #fff;
   border-radius: 4px;
