@@ -34,7 +34,7 @@ export default function ShowProblems({ navigation }) {
       <Container>
         <Title>{`Encomenda ${data.id}`}</Title>
         {problems.map(item => (
-          <Content>
+          <Content key={item.id}>
             <Text>{item.description}</Text>
             <Date>{item.createdAt}</Date>
           </Content>
