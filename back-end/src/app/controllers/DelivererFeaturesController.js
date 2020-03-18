@@ -184,6 +184,12 @@ class DelivererFeaturesController {
         error: 'Você já realizou 5 retiradas no mesmo dia',
       });
     }
+    // Check if it has end_date and signature_id before the delivery be confirmed.
+    if (end_date && !signature_id) {
+      return res.status(400).json({
+        error: 'Você não enviou a fota da assinatura.',
+      });
+    }
 
     return res.json(
       await packageData.update({ start_date, end_date, signature_id })
