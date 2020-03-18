@@ -32,7 +32,12 @@ export default (isSigned = false) =>
                   defaultNavigationOptions: {
                     headerTransparent: true,
                     headerTintColor: '#FFF',
-                    headerTitleStyle: { fontSize: 16, fontWeight: 'bold' },
+                    headerTitleStyle: {
+                      fontSize: 16,
+                      fontWeight: 'bold',
+                      textAlign: 'center',
+                      marginLeft: 40,
+                    },
                     headerLeftContainerStyle: {
                       marginLeft: 20,
                     },
