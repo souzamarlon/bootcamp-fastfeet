@@ -7,6 +7,8 @@ import { Container, CameraLayout, CameraButton, CameraIcon } from './styles';
 import api from '~/services/api';
 
 export default function Camera() {
+  const [upload, setUpload] = useState();
+
   const [flash, setFlash] = useState('off');
   const [zoom, setZoom] = useState(0);
   const [autoFocus, setAutoFocus] = useState('on');
@@ -20,32 +22,31 @@ export default function Camera() {
     if (cameraRef) {
       const options = { quality: 0.5, base64: true };
       const data = await cameraRef.current.takePictureAsync(options);
-      Alert.alert(data.uri);
+      Alert.alert('Foto tirada com sucesso!');
 
       const dataForm = new FormData();
 
       dataForm.append('file', {
         uri: data.uri,
-        type: 'image',
+        name: 'signature.jpg',
+        type: 'image/*',
       });
 
-      console.tron.log(dataForm);
+      setUpload(dataForm);
 
-      // axios.post('upload', dataForm);
-
-      // const dataForm = new FormData();
-      // dataForm.append('data.uri', cameraRef.target.files[0]);
       // const response = await api.post('files', dataForm);
-      // const { id, url } = response.data;
+
+      // console.tron.log(response.data);
     }
   }
+
   return (
     <>
       <Container>
         {/* <CameraLayout /> */}
         <RNCamera
+          data-file={upload}
           ref={cameraRef}
-          path="file:///MobilePic/"
           style={{
             marginTop: 400,
             height: 400,

@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { RNCamera } from 'react-native-camera';
 
-import { Container, CameraLayout } from './styles';
+import { Container, SubmitButton } from './styles';
 
 import PagesBackground from '~/components/PagesBackground';
 import Camera from '~/components/Camera';
@@ -12,48 +12,32 @@ import Camera from '~/components/Camera';
 import api from '~/services/api';
 
 export default function ConfirmDelivery({ navigation }) {
+  const [upload, setUpload] = useState({});
+
   const cameraRef = useRef(null);
 
-  // const data = navigation.getParam('data');
+  const data = navigation.getParam('data');
 
-  async function takePicture() {
-    if (cameraRef) {
-      const options = { quality: 0.5, base64: true };
-      const data = await cameraRef.current.takePictureAsync(options);
-      Alert.alert(data.uri);
-    }
+  async function handleSubmit({ data }) {
+    console.tron.log(upload);
+
+    // try {
+    //   const response = await api.post(`students/${id}/help-orders`, {
+    //     question,
+    //   });
+    //   Alert.alert('Sucesso!', 'Pergunta realizada com sucesso!');
+    //   console.tron.log(response.data);
+    // } catch (err) {
+    //   Alert.alert('Falha!', 'Erro ao tentar enviar sua pergunta!');
+    //   console.tron.log(err);
+    // }
   }
+
   return (
     <PagesBackground>
       <Container>
-        <Camera ref={cameraRef} name="avatar" />
-        {/* <View
-          style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}
-        >
-          <TouchableOpacity
-            onPress={takePicture}
-            style={{
-              flex: 1,
-              backgroundColor: '#7D40E7',
-              borderRadius: 5,
-              padding: 15,
-              // paddingHorizontal: 20,
-              alignSelf: 'center',
-              margin: 20,
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 16,
-                fontWeight: 'bold',
-                color: '#FFF',
-                textAlign: 'center',
-              }}
-            >
-              Enviar
-            </Text>
-          </TouchableOpacity>
-        </View> */}
+        <Camera ref={cameraRef} value={setUpload} />
+        <SubmitButton onPress={handleSubmit}>Enviar pedido</SubmitButton>
       </Container>
     </PagesBackground>
   );
