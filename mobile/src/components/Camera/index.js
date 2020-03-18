@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react';
 
-import { StyleSheet, Alert } from 'react-native';
+import { Alert, ActivityIndicator } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Container, CameraLayout, CameraButton, CameraIcon } from './styles';
+import { Container, CameraButton, CameraIcon, SignImage } from './styles';
 import api from '~/services/api';
 
-export default function Camera() {
-  const [upload, setUpload] = useState();
+export default function Camera({ onChange, PackageId }) {
+  const [loading, setLoading] = useState(false);
 
   const [flash, setFlash] = useState('off');
   const [zoom, setZoom] = useState(0);
@@ -22,36 +22,36 @@ export default function Camera() {
     if (cameraRef) {
       const options = { quality: 0.5, base64: true };
       const data = await cameraRef.current.takePictureAsync(options);
-      Alert.alert('Foto tirada com sucesso!');
 
       const dataForm = new FormData();
-
       dataForm.append('file', {
         uri: data.uri,
-        name: 'signature.jpg',
+        name: `Signature_Package${PackageId}.jpg`,
         type: 'image/*',
       });
 
-      setUpload(dataForm);
+      setLoading(true);
+      const response = await api.post('files', dataForm);
 
-      // const response = await api.post('files', dataForm);
+      if (response) {
+        const { id, url } = response.data;
+        onChange({ id, url });
+        Alert.alert('Foto tirada com sucesso!');
 
-      // console.tron.log(response.data);
+        setLoading(false);
+      }
     }
   }
 
   return (
     <>
       <Container>
-        {/* <CameraLayout /> */}
         <RNCamera
-          data-file={upload}
           ref={cameraRef}
           style={{
             marginTop: 400,
             height: 400,
             width: '100%',
-
             borderRadius: 4,
             justifyContent: 'flex-end',
             alignItems: 'center',
@@ -59,6 +59,7 @@ export default function Camera() {
           type={type}
           flashMode={flash}
         />
+        {loading ? <ActivityIndicator size="small" color="#000" /> : null}
       </Container>
 
       <CameraButton onPress={() => takePicture()}>

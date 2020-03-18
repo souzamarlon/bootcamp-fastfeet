@@ -11,7 +11,8 @@ export const Container = styled.View`
 `;
 
 export const SubmitButton = styled(Button)`
-  max-width: 335px;
+  width: 100%;
   /* margin: 0 0px; */
   margin-top: 80px;
+  background: #7d40e7;
 `;

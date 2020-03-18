@@ -11,14 +11,6 @@ export const Container = styled.View`
   justify-content: center;
 `;
 
-export const CameraLayout = styled.View`
-  background-color: transparent;
-  height: 400px;
-  width: 100%;
-  position: absolute;
-  top: 0;
-`;
-
 export const CameraButton = styled(RectButton)`
   /* background: #7d40e7; */
   /* padding: 15px; */
@@ -38,4 +30,10 @@ export const CameraIcon = styled.View`
   height: 80px;
   border-radius: 100px;
   align-self: center;
+`;
+
+export const SignImage = styled.Image`
+  width: 100px;
+  height: 70px;
+  /* border-radius: 100px; */
 `;

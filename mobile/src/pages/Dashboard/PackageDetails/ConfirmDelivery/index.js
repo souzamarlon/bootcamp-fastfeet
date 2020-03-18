@@ -18,26 +18,25 @@ export default function ConfirmDelivery({ navigation }) {
 
   const data = navigation.getParam('data');
 
-  async function handleSubmit({ data }) {
-    console.tron.log(upload);
-
-    // try {
-    //   const response = await api.post(`students/${id}/help-orders`, {
-    //     question,
-    //   });
-    //   Alert.alert('Sucesso!', 'Pergunta realizada com sucesso!');
-    //   console.tron.log(response.data);
-    // } catch (err) {
-    //   Alert.alert('Falha!', 'Erro ao tentar enviar sua pergunta!');
-    //   console.tron.log(err);
-    // }
+  async function handleSubmit() {
+    try {
+      await api.put(`/deliveryman/${data.id}/deliveries`, {
+        signature_id: upload.id,
+        end_date: new Date(),
+      });
+      Alert.alert('Sucesso!', 'Foto da assinatura foi enviada com sucesso!');
+      // console.tron.log(response.data);
+    } catch (err) {
+      Alert.alert('Falha!', 'Erro ao tentar enviar a foto da sua assinatura!');
+      console.tron.log(err);
+    }
   }
 
   return (
     <PagesBackground>
       <Container>
-        <Camera ref={cameraRef} value={setUpload} />
-        <SubmitButton onPress={handleSubmit}>Enviar pedido</SubmitButton>
+        <Camera ref={cameraRef} PackageId={data.id} onChange={setUpload} />
+        <SubmitButton onPress={handleSubmit}>Enviar</SubmitButton>
       </Container>
     </PagesBackground>
   );
