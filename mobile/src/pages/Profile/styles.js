@@ -3,11 +3,10 @@ import Button from '~/components/Button';
 
 export const Container = styled.View`
   align-content: center;
-  margin-left: 36px;
+  margin: 0 36px;
 `;
 
 export const Avatar = styled.Image`
-  margin-right: 40px;
   margin-bottom: 10px;
   align-self: center;
   margin-top: 50px;
@@ -39,7 +38,7 @@ export const Text = styled.Text`
 
 export const LogoutButton = styled(Button)`
   margin-top: 30px;
-  width: 293px;
+  width: 100%;
   height: 40px;
   background: #e74040;
   color: #ffffff;
