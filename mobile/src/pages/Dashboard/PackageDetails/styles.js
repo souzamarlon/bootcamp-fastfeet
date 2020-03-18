@@ -65,28 +65,29 @@ export const DateColumn = styled.View`
 `;
 
 export const PackageOption = styled.View`
-  padding-top: 5px;
+  top: 10px;
   border-radius: 4px;
   margin-top: 8px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0 20px;
   flex-direction: row;
-  width: 316px;
-  height: 83px;
+  justify-content: space-evenly;
+
   background: #f8f9fd;
+  display: flex;
+  height: 85px;
+`;
+
+export const Box1 = styled(RectButton)`
+  padding-top: 15px;
+  width: 110px;
+  align-items: center;
+
   display: flex;
 `;
 
-export const Box = styled(RectButton)`
-  padding-top: 5px;
-  padding-right: 10px;
-  height: 85px;
-  width: 100%;
-  max-width: 110px;
-  flex-direction: column;
-  border-right-color: #eee;
-  border-right-width: 2px;
-  align-items: center;
+export const Divider = styled.View`
+  border-right-color: #0000001a;
+  border-right-width: 1px;
 `;
 
 export const BoxText = styled.Text`

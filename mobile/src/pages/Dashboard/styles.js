@@ -45,18 +45,8 @@ export const Name = styled.Text`
 
 export const LogoutButton = styled(RectButton)`
   background: transparent;
-  /* position: absolute; */
-  /* flex-direction: flex-start; */
   text-align: right;
   align-self: center;
-
-  /* left: 215px; */
-  /* bottom: 36px; */
-
-  /* margin-top: 20px; */
-  /* height: 100%; */
-
-  /* align-self: center; */
 `;
 export const HeaderStatus = styled.View`
   justify-content: space-between;

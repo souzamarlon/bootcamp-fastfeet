@@ -19,7 +19,8 @@ import {
   DateInfo,
   DateColumn,
   PackageOption,
-  Box,
+  Box1,
+  Divider,
   BoxText,
 } from './styles';
 
@@ -121,7 +122,7 @@ export default function PackageDetails({ navigation }) {
           </DateInfo>
         </StatusInfo>
         <PackageOption>
-          <Box
+          <Box1
             onPress={() => {
               navigation.navigate('NewProblems', { data });
             }}
@@ -133,8 +134,9 @@ export default function PackageDetails({ navigation }) {
               style={{ paddingLeft: 15 }}
             />
             <BoxText>Informar Problema</BoxText>
-          </Box>
-          <Box
+          </Box1>
+          <Divider />
+          <Box1
             onPress={() => {
               navigation.navigate('ShowProblems', { data });
             }}
@@ -146,12 +148,13 @@ export default function PackageDetails({ navigation }) {
               style={{ paddingLeft: 15 }}
             />
             <BoxText>Visualizar Problemas</BoxText>
-          </Box>
-          <Box
+          </Box1>
+          <Divider />
+          <Box1
             style={{
               paddingRight: 24,
-              borderRightColor: null,
-              borderRightWidth: 0,
+              // borderRightColor: null,
+              // borderRightWidth: 0,
             }}
             onPress={() => {
               navigation.navigate('ConfirmDelivery', { data });
@@ -166,7 +169,7 @@ export default function PackageDetails({ navigation }) {
               }}
             />
             <BoxText>Confirmar Entrega</BoxText>
-          </Box>
+          </Box1>
         </PackageOption>
       </Container>
     </PagesBackground>
