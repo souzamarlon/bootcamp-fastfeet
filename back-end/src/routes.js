@@ -28,6 +28,8 @@ routes.get('/delivery/:id/problems', DeliveryProblemController.index);
 routes.get('/deliveryman/:id/deliveries', DelivererFeaturesController.index);
 routes.put('/deliveryman/:id/deliveries', DelivererFeaturesController.update);
 
+routes.post('/files', upload.single('file'), FileController.store);
+
 // Admin features:
 routes.use(authMiddleware);
 
