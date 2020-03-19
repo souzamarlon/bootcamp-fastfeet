@@ -6,6 +6,7 @@ import { signOut } from '~/store/modules/auth/actions';
 import api from '~/services/api';
 
 import PackageStatus from '~/components/PackageStatus';
+
 import {
   Container,
   HeaderContent,

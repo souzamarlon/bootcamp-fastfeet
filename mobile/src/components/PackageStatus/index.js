@@ -5,7 +5,8 @@ import { zonedTimeToUtc } from 'date-fns-tz';
 import 'react-native-gesture-handler';
 import pt from 'date-fns/locale/pt';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import StepIndicator from 'react-native-step-indicator';
+// import StepIndicator from 'react-native-step-indicator';
+import StepIndicator from '~/components/StepIndicator';
 
 import {
   Container,
