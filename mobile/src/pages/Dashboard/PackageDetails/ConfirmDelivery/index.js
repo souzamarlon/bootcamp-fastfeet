@@ -19,6 +19,9 @@ export default function ConfirmDelivery({ navigation }) {
   const data = navigation.getParam('data');
 
   async function handleSubmit() {
+    if (upload) {
+      Alert.alert('Falha!', 'Foto da assinatura não foi enviada!');
+    }
     try {
       await api.put(`/deliveryman/${data.id}/deliveries`, {
         signature_id: upload.id,
@@ -33,12 +36,14 @@ export default function ConfirmDelivery({ navigation }) {
   }
 
   return (
-    <PagesBackground>
-      <Container>
+    <>
+      <PagesBackground>
         <Camera ref={cameraRef} PackageId={data.id} onChange={setUpload} />
+      </PagesBackground>
+      <Container>
         <SubmitButton onPress={handleSubmit}>Enviar</SubmitButton>
       </Container>
-    </PagesBackground>
+    </>
   );
 }
 

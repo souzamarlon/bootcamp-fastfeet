@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 
-import { Alert, ActivityIndicator } from 'react-native';
+import { Alert, ActivityIndicator, StyleSheet } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Container, CameraButton, CameraIcon, SignImage } from './styles';
@@ -17,6 +17,17 @@ export default function Camera({ onChange, PackageId }) {
   const [permission, setPermission] = useState('undetermined');
 
   const cameraRef = useRef(null);
+
+  const styles = StyleSheet.create({
+    preview: {
+      flex: 1,
+      top: 250,
+      marginRight: 20,
+      marginLeft: 20,
+      // height: 200,
+      // width: 350,
+    },
+  });
 
   async function takePicture() {
     if (cameraRef) {
@@ -48,29 +59,35 @@ export default function Camera({ onChange, PackageId }) {
       <Container>
         <RNCamera
           ref={cameraRef}
-          style={{
-            marginTop: 400,
-            height: 400,
-            width: '100%',
-            borderRadius: 4,
-            justifyContent: 'flex-end',
-            alignItems: 'center',
-          }}
+          style={styles.preview}
+          // style={{
+          //   top: 150,
+          //   margin: 'auto',
+          //   // width: 350,
+          //   height: 350,
+          //   aspectRatio: 1,
+          //   // borderRadius: 4,
+          //   alignSelf: 'center',
+          // }}
+
           type={type}
           flashMode={flash}
         />
-        {loading ? <ActivityIndicator size="small" color="#000" /> : null}
       </Container>
 
       <CameraButton onPress={() => takePicture()}>
-        <CameraIcon>
-          <Icon
-            name="photo-camera"
-            size={35}
-            color="#FFF"
-            style={{ alignSelf: 'center', marginTop: 24 }}
-          />
-        </CameraIcon>
+        {loading ? (
+          <ActivityIndicator size="large" color="#fff" />
+        ) : (
+          <CameraIcon>
+            <Icon
+              name="photo-camera"
+              size={35}
+              color="#FFF"
+              style={{ alignSelf: 'center', marginTop: 24 }}
+            />
+          </CameraIcon>
+        )}
       </CameraButton>
     </>
   );
