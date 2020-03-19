@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 
-import { Alert, ActivityIndicator } from 'react-native';
+import { Alert, ActivityIndicator, Text } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Container, CameraButton, CameraIcon } from './styles';
@@ -36,7 +36,7 @@ export default function Camera({ onChange, PackageId }) {
       if (response) {
         const { id, url } = response.data;
         onChange({ id, url });
-        Alert.alert('Foto tirada com sucesso!');
+        Alert.alert('Foto enviada com sucesso!');
 
         setLoading(false);
       }
@@ -63,7 +63,12 @@ export default function Camera({ onChange, PackageId }) {
 
       <CameraButton onPress={() => takePicture()}>
         {loading ? (
-          <ActivityIndicator size="large" color="#fff" />
+          <>
+            <ActivityIndicator size="large" color="#fff" />
+            <Text style={{ color: '#fff', textAlign: 'center', fontSize: 10 }}>
+              Enviando a foto, por favor aguarde!
+            </Text>
+          </>
         ) : (
           <CameraIcon>
             <Icon
