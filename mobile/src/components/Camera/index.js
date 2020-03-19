@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 
-import { Alert, ActivityIndicator, StyleSheet } from 'react-native';
+import { Alert, ActivityIndicator } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Container, CameraButton, CameraIcon, SignImage } from './styles';
+import { Container, CameraButton, CameraIcon } from './styles';
 import api from '~/services/api';
 
 export default function Camera({ onChange, PackageId }) {
@@ -17,17 +17,6 @@ export default function Camera({ onChange, PackageId }) {
   const [permission, setPermission] = useState('undetermined');
 
   const cameraRef = useRef(null);
-
-  const styles = StyleSheet.create({
-    preview: {
-      flex: 1,
-      top: 250,
-      marginRight: 20,
-      marginLeft: 20,
-      // height: 200,
-      // width: 350,
-    },
-  });
 
   async function takePicture() {
     if (cameraRef) {
@@ -59,17 +48,14 @@ export default function Camera({ onChange, PackageId }) {
       <Container>
         <RNCamera
           ref={cameraRef}
-          style={styles.preview}
-          // style={{
-          //   top: 150,
-          //   margin: 'auto',
-          //   // width: 350,
-          //   height: 350,
-          //   aspectRatio: 1,
-          //   // borderRadius: 4,
-          //   alignSelf: 'center',
-          // }}
-
+          style={{
+            flex: 1,
+            top: 250,
+            marginRight: 20,
+            marginLeft: 20,
+            // height: 200,
+            // width: 350,
+          }}
           type={type}
           flashMode={flash}
         />

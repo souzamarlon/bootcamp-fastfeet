@@ -166,6 +166,7 @@ export default function PackageDetails({ navigation }) {
           <Divider />
           {startDate.start_date ? (
             <Box1
+              disabled
               style={{
                 paddingRight: 24,
                 // borderRightColor: null,

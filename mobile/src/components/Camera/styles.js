@@ -22,9 +22,3 @@ export const CameraIcon = styled.View`
   border-radius: 100px;
   align-self: center;
 `;
-
-export const SignImage = styled.Image`
-  width: 100px;
-  height: 70px;
-  /* border-radius: 100px; */
-`;
