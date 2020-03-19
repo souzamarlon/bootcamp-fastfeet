@@ -195,9 +195,9 @@ export default function PackageDetails({ navigation }) {
               onPress={() => pickItUp()}
             >
               <Icon
-                name="check-circle"
+                name="add-circle"
                 size={24}
-                color="#008000"
+                color="#7D40E7"
                 style={{
                   paddingLeft: 15,
                 }}
