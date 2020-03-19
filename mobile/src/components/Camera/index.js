@@ -36,7 +36,7 @@ export default function Camera({ onChange, PackageId }) {
       if (response) {
         const { id, url } = response.data;
         onChange({ id, url });
-        Alert.alert('Foto enviada com sucesso!');
+        Alert.alert('Upload da foto efetuado com sucesso!');
 
         setLoading(false);
       }
@@ -66,7 +66,7 @@ export default function Camera({ onChange, PackageId }) {
           <>
             <ActivityIndicator size="large" color="#fff" />
             <Text style={{ color: '#fff', textAlign: 'center', fontSize: 10 }}>
-              Enviando a foto, por favor aguarde!
+              Carregando a foto, por favor aguarde!
             </Text>
           </>
         ) : (

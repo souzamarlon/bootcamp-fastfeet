@@ -10,16 +10,13 @@ import Camera from '~/components/Camera';
 import api from '~/services/api';
 
 export default function ConfirmDelivery({ navigation }) {
-  const [upload, setUpload] = useState({});
+  const [upload, setUpload] = useState([]);
 
   const cameraRef = useRef(null);
 
   const data = navigation.getParam('data');
 
   async function handleSubmit() {
-    if (upload) {
-      Alert.alert('Falha!', 'Foto da assinatura não foi enviada!');
-    }
     try {
       await api.put(`/deliveryman/${data.id}/deliveries`, {
         signature_id: upload.id,
@@ -28,8 +25,20 @@ export default function ConfirmDelivery({ navigation }) {
       Alert.alert('Sucesso!', 'Foto da assinatura foi enviada com sucesso!');
       // console.tron.log(response.data);
     } catch (err) {
-      Alert.alert('Falha!', 'Erro ao tentar enviar a foto da sua assinatura!');
-      console.tron.log(err);
+      if (!upload.id) {
+        console.tron.log(upload.id);
+        Alert.alert(
+          'Falha ao enviar!',
+          'Foto da assinatura não foi enviada, for favor envie uma foto!'
+        );
+      }
+      if (upload.id) {
+        Alert.alert(
+          'Falha ao enviar!',
+          'Erro ao tentar enviar a foto da sua assinatura!'
+        );
+        console.tron.log(err);
+      }
     }
   }
 
