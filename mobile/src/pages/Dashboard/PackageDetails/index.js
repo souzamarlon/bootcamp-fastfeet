@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { parseISO, format, isValid } from 'date-fns';
 import pt from 'date-fns/locale/pt';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Alert } from 'react-native';
 import 'react-native-gesture-handler';
+import api from '~/services/api';
 
 import PagesBackground from '~/components/PagesBackground';
 
@@ -68,6 +69,19 @@ export default function PackageDetails({ navigation }) {
     }
     loadStatus();
   }, [data]);
+
+  async function pickItUp() {
+    try {
+      await api.put(`/deliveryman/${data.id}/deliveries`, {
+        start_date: new Date(),
+      });
+      Alert.alert('Sucesso!', 'Realizado a retirada do produto!');
+      // console.tron.log(response.data);
+    } catch (err) {
+      Alert.alert('Falha!', 'Erro ao realizar a retirada do produto!');
+      console.tron.log(err);
+    }
+  }
 
   return (
     <PagesBackground>
@@ -150,26 +164,47 @@ export default function PackageDetails({ navigation }) {
             <BoxText>Visualizar Problemas</BoxText>
           </Box1>
           <Divider />
-          <Box1
-            style={{
-              paddingRight: 24,
-              // borderRightColor: null,
-              // borderRightWidth: 0,
-            }}
-            onPress={() => {
-              navigation.navigate('ConfirmDelivery', { data });
-            }}
-          >
-            <Icon
-              name="check-circle"
-              size={24}
-              color="#7D40E7"
+          {startDate.start_date ? (
+            <Box1
               style={{
-                paddingLeft: 15,
+                paddingRight: 24,
+                // borderRightColor: null,
+                // borderRightWidth: 0,
               }}
-            />
-            <BoxText>Confirmar Entrega</BoxText>
-          </Box1>
+              onPress={() => {
+                navigation.navigate('ConfirmDelivery', { data });
+              }}
+            >
+              <Icon
+                name="check-circle"
+                size={24}
+                color="#7D40E7"
+                style={{
+                  paddingLeft: 15,
+                }}
+              />
+              <BoxText>Confirmar Entrega</BoxText>
+            </Box1>
+          ) : (
+            <Box1
+              style={{
+                paddingRight: 24,
+                // borderRightColor: null,
+                // borderRightWidth: 0,
+              }}
+              onPress={() => pickItUp()}
+            >
+              <Icon
+                name="check-circle"
+                size={24}
+                color="#008000"
+                style={{
+                  paddingLeft: 15,
+                }}
+              />
+              <BoxText>Realizar a retirada</BoxText>
+            </Box1>
+          )}
         </PackageOption>
       </Container>
     </PagesBackground>

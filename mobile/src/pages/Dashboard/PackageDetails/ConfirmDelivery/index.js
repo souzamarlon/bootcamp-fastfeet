@@ -1,8 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Alert } from 'react-native';
+import { TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
-import { RNCamera } from 'react-native-camera';
 
 import { Container, SubmitButton } from './styles';
 
