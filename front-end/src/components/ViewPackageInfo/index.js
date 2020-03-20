@@ -93,7 +93,7 @@ export default function ViewPackageInfo({ data }) {
                                     <span className="date">
                                         {startDate.start_date
                                             ? startDate.start_date
-                                            : 'Sem data'}
+                                            : '- - / - - / - -'}
                                     </span>
                                 </div>
                                 <div>
@@ -101,7 +101,7 @@ export default function ViewPackageInfo({ data }) {
                                     <span className="date">
                                         {endDate.end_date
                                             ? endDate.end_date
-                                            : 'Sem data'}
+                                            : '- - / - - / - -'}
                                     </span>
                                 </div>
                             </Dates>
