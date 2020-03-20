@@ -29,7 +29,7 @@ export const Text = styled.Text.attrs({
   font-size: 16px;
   color: #999999;
   padding: 20px;
-  width: 250px;
+  width: 220px;
   line-height: 20px;
   overflow: hidden;
 `;

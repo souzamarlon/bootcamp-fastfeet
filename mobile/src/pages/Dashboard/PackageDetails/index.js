@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { parseISO, format, isValid } from 'date-fns';
 import pt from 'date-fns/locale/pt';
-import { TouchableOpacity, Alert } from 'react-native';
+import { TouchableOpacity, Alert, StatusBar } from 'react-native';
 import 'react-native-gesture-handler';
 import api from '~/services/api';
 
