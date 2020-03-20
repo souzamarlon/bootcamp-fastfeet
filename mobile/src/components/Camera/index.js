@@ -10,7 +10,7 @@ export default function Camera({ onChange, PackageId }) {
   const [loading, setLoading] = useState(false);
 
   const [flash, setFlash] = useState('off');
-  const [zoom, setZoom] = useState(0);
+  const [zoom, setZoom] = useState(0.5);
   const [autoFocus, setAutoFocus] = useState('on');
   const [depth, setDepth] = useState(0);
   const [type, setType] = useState('back');
@@ -56,8 +56,10 @@ export default function Camera({ onChange, PackageId }) {
             // height: 200,
             // width: 350,
           }}
+          autoFocus={autoFocus}
           type={type}
           flashMode={flash}
+          zoom={zoom}
         />
       </Container>
 
