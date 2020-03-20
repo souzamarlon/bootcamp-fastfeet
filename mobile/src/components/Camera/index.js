@@ -61,7 +61,7 @@ export default function Camera({ onChange, PackageId }) {
         />
       </Container>
 
-      <CameraButton onPress={() => takePicture()}>
+      <CameraButton enabled={!loading} onPress={() => takePicture()}>
         {loading ? (
           <>
             <ActivityIndicator size="large" color="#fff" />
