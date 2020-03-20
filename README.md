@@ -67,6 +67,11 @@ React native:
 - [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated)
 - [react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context)
 - [Reactotron](https://infinite.red/reactotron)
+- [React-native-camera](https://github.com/react-native-community/react-native-camera)
+- [Step indicator](https://github.com/24ark/react-native-step-indicator)
+
+
+
 
 Back-end, Front-end, React native:
 - [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
