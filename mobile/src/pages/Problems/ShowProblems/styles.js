@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   margin: 0 25px;
@@ -12,7 +13,7 @@ export const Title = styled.Text`
   text-align: center;
   color: #ffffff;
 `;
-export const Content = styled.View`
+export const Content = styled(RectButton)`
   margin-top: 20px;
   width: 100%;
   height: 60px;

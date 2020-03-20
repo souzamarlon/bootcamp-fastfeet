@@ -34,7 +34,13 @@ export default function ShowProblems({ navigation }) {
       <Container>
         <Title>{`Encomenda ${data.id}`}</Title>
         {problems.map(item => (
-          <Content key={item.id}>
+          <Content
+            key={item.id}
+            data={item.description}
+            onPress={() => {
+              navigation.navigate('ProblemView', { data: item.description });
+            }}
+          >
             <Text>{item.description}</Text>
             <Date>{item.createdAt}</Date>
           </Content>

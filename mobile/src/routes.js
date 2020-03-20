@@ -8,6 +8,8 @@ import Dashboard from './pages/Dashboard';
 import PackageDetails from './pages/Dashboard/PackageDetails';
 import NewProblems from './pages/Problems/NewProblems';
 import ShowProblems from './pages/Problems/ShowProblems';
+import ProblemView from './pages/Problems/ShowProblems/ProblemView';
+
 import ConfirmDelivery from './pages/Dashboard/PackageDetails/ConfirmDelivery';
 
 import Profile from './pages/Profile';
@@ -26,6 +28,7 @@ export default (isSigned = false) =>
                   PackageDetails,
                   NewProblems,
                   ShowProblems,
+                  ProblemView,
                   ConfirmDelivery,
                 },
                 {

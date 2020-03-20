@@ -74,7 +74,7 @@ export const PackageOption = styled.View`
   margin-top: 8px;
   margin: 0 20px;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
   background: #f8f9fd;
   display: flex;
@@ -85,7 +85,6 @@ export const Box1 = styled(RectButton)`
   padding-top: 15px;
   width: 110px;
   align-items: center;
-
   display: flex;
 `;
 
