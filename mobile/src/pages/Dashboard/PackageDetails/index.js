@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { parseISO, format, isValid } from 'date-fns';
+import { parseISO, format, isValid, getHours } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import { TouchableOpacity, Alert, StatusBar } from 'react-native';
 import 'react-native-gesture-handler';
@@ -78,8 +78,18 @@ export default function PackageDetails({ navigation }) {
       Alert.alert('Sucesso!', 'Realizado a retirada do produto!');
       // console.tron.log(response.data);
     } catch (err) {
-      Alert.alert('Falha!', 'Erro ao realizar a retirada do produto!');
-      console.tron.log(err);
+      if (getHours(new Date()) <= 8 || getHours(new Date()) >= 10) {
+        Alert.alert(
+          'Falha!',
+          `O Horario permitido para realizar as retiradas é entre às 08:00 - 18:00 horas. Hora atual: ${getHours(
+            new Date()
+          )} horas`
+        );
+      }
+      if (getHours(new Date()) > 8 || getHours(new Date()) < 18) {
+        Alert.alert('Falha!', 'Erro ao realizar a retirada do produto!');
+        console.tron.log(err);
+      }
     }
   }
 
