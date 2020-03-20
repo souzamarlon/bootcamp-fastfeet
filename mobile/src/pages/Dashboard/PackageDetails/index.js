@@ -155,7 +155,7 @@ export default function PackageDetails({ navigation }) {
               name="highlight-off"
               size={24}
               color="#E74040"
-              style={{ paddingLeft: 15 }}
+              style={{ paddingLeft: 10 }}
             />
             <BoxText>Informar Problema</BoxText>
           </Box1>
@@ -169,7 +169,7 @@ export default function PackageDetails({ navigation }) {
               name="info-outline"
               size={24}
               color="#E7BA40"
-              style={{ paddingLeft: 15 }}
+              style={{ paddingLeft: 10 }}
             />
             <BoxText>Visualizar Problemas</BoxText>
           </Box1>
