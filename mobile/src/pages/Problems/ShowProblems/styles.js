@@ -23,10 +23,15 @@ export const Content = styled.View`
   justify-content: space-between;
 `;
 
-export const Text = styled.Text`
+export const Text = styled.Text.attrs({
+  numberOfLines: 1,
+})`
   font-size: 16px;
   color: #999999;
   padding: 20px;
+  width: 250px;
+  line-height: 20px;
+  overflow: hidden;
 `;
 export const Date = styled.Text`
   padding: 23px;
