@@ -88,6 +88,16 @@ $ yarn queue
 $ cd frontend
 $ yarn
 $ yarn start
+
+# Install dependencies for the mobile
+$ cd mobile
+$ yarn
+
+# Start React Native Server
+$ react-native start
+
+# Run the app (Android) - This app was just tested in Android smartphones.
+$ react-native run-android
 ```
 ---
 Created by Marlon da Silva Souza :wave: [LinkedIn!](https://www.linkedin.com/in/marlonssouza/)
