@@ -15,9 +15,9 @@
   <a href="#memo-license">License</a>
 </p>
 
-## :rocket: Technologies
+## :rocket: Libraries
 
-This project was developed at the [RocketSeat GoStack Bootcamp](https://rocketseat.com.br/gostack) with the following amazing technologies:
+This project was developed at the [RocketSeat GoStack Bootcamp](https://rocketseat.com.br/gostack) with the following amazing Libraries:
 
 Back-end:
 - [NodeJS](https://nodejs.org)
@@ -55,7 +55,18 @@ Front-end:
 - [reactotron](https://github.com/infinitered/reactotron)
 
 React native:
-- I am still doing this part of project and It will release soon.
+- [React Native](https://facebook.github.io/react-native/)
+- [react-navigation](https://reactnavigation.org/)
+- [Redux](https://redux.js.org/)
+- [Immer](https://github.com/immerjs/immer)
+- [Axios](https://github.com/axios/axios)
+- [date-fns](https://date-fns.org/)
+- [prop-types](https://github.com/facebook/prop-types)
+- [react-native-gesture-handler](https://github.com/software-mansion/react-native-gesture-handler)
+- [react-native-linear-gradient](https://github.com/react-native-community/react-native-linear-gradient)
+- [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated)
+- [react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context)
+- [Reactotron](https://infinite.red/reactotron)
 
 Back-end, Front-end, React native:
 - [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
