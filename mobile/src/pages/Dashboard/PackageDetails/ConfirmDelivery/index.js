@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -11,8 +11,6 @@ import api from '~/services/api';
 
 export default function ConfirmDelivery({ navigation }) {
   const [upload, setUpload] = useState([]);
-
-  const cameraRef = useRef(null);
 
   const data = navigation.getParam('data');
 
@@ -35,7 +33,7 @@ export default function ConfirmDelivery({ navigation }) {
       if (upload.id) {
         Alert.alert(
           'Falha ao enviar!',
-          'Erro ao tentar enviar a foto da sua assinatura!'
+          'Erro ao tentar enviar a foto da assinatura!'
         );
         console.tron.log(err);
       }
@@ -45,7 +43,7 @@ export default function ConfirmDelivery({ navigation }) {
   return (
     <>
       <PagesBackground>
-        <Camera ref={cameraRef} PackageId={data.id} onChange={setUpload} />
+        <Camera PackageId={data.id} onChange={setUpload} />
       </PagesBackground>
       <Container>
         <SubmitButton onPress={handleSubmit}>Enviar</SubmitButton>

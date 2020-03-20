@@ -6,6 +6,7 @@ export const Container = styled.View.attrs({
 })`
   flex: 1;
   top: 34px;
+  overflow: visible;
 `;
 
 export const AddressInfo = styled.View`
