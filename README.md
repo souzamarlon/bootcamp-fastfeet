@@ -104,7 +104,7 @@ $ yarn start
 $ cd mobile
 $ yarn
 It is necessary to change the IP in api.js to IP where you installed the back end.
-You can find the api.js accessing src/services/api.js
+You can find the api.js file accessing src/services/api.js
 
 # Start React Native Server
 $ react-native start
