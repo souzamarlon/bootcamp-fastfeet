@@ -178,9 +178,9 @@ export const Content = styled.div`
     }
 
     img.avatar-img {
-        padding-right: 5px;
-        width: 35px;
-        height: 35px;
+        // padding-right: 5px;
+        width: 40px;
+        height: 40px;
         border-radius: 100%;
         align-items: center;
         display: flex;
