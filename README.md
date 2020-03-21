@@ -93,6 +93,8 @@ $ cd bootcamp-fastfeet
 $ cd backend
 $ yarn
 
+It is necessary to create the database in postgres before to run the yarn migrate.
+
 # Run migrations to your database
 $ yarn migrate
 
