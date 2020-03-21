@@ -183,7 +183,7 @@ export const Content = styled.div`
     }
 
     img.avatar {
-        padding-right: 5px;
+        margin-right: 5px;
         width: 35px;
         height: 35px;
         border-radius: 100%;

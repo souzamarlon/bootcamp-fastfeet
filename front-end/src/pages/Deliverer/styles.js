@@ -178,7 +178,6 @@ export const Content = styled.div`
     }
 
     img.avatar-img {
-        // padding-right: 5px;
         width: 40px;
         height: 40px;
         border-radius: 100%;
