@@ -95,8 +95,10 @@ $ yarn
 
 It is necessary to create the database in postgres before to run the yarn sequelize db:migrate.
 
-# Run migrations to your database
+# Run migrations and the seed to your database
+# The command yarn sequelize db:seed:all is just necessary if you wanna create the admin user automatically.
 $ yarn sequelize db:migrate
+$ yarn sequelize db:seed:all
 
 # Run the backend server
 $ yarn dev
