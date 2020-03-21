@@ -10,10 +10,7 @@
 
 
 <p align="center">
-    <a href="/blob/master/README.md">How To Use</a>
+    <a href="/README.md">How To Use</a>
 </p>
 
-
-
-## :information_source: How To Use
 
