@@ -93,10 +93,10 @@ $ cd bootcamp-fastfeet
 $ cd backend
 $ yarn
 
-It is necessary to create the database in postgres before to run the yarn migrate.
+It is necessary to create the database in postgres before to run the yarn sequelize db:migrate.
 
 # Run migrations to your database
-$ yarn migrate
+$ yarn sequelize db:migrate
 
 # Run the backend server
 $ yarn dev
