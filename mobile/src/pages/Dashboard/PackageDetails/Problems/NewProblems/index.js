@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Alert, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Alert } from 'react-native';
+import PropTypes from 'prop-types';
 
 import PagesBackground from '~/components/PagesBackground';
 import api from '~/services/api';
 import { Container, Form, TInput, SubmitButton } from './styles';
 
-export default function NewProblems({ navigation }) {
+export default function NewProblems({ navigation, route }) {
   const [description, setDescription] = useState('');
-  const { id } = navigation.getParam('data');
+  const { id } = route.params.data;
 
   async function handleSubmit() {
     try {
@@ -46,15 +46,8 @@ export default function NewProblems({ navigation }) {
   );
 }
 
-NewProblems.navigationOptions = ({ navigation }) => ({
-  title: 'Informar problema',
-  headerLeft: () => (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.goBack();
-      }}
-    >
-      <Icon name="chevron-left" size={24} color="#FFF" />
-    </TouchableOpacity>
-  ),
-});
+NewProblems.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }).isRequired,
+};

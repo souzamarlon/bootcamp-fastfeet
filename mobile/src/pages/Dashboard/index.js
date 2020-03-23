@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Text } from 'react-native';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { signOut } from '~/store/modules/auth/actions';
 import api from '~/services/api';
 
@@ -48,6 +50,7 @@ export default function Dashboard({ navigation }) {
       }
       setRefreshList(false);
     }
+
     loadPackages();
   }, [delivered, profile.id, refreshList]);
 
@@ -145,7 +148,13 @@ export default function Dashboard({ navigation }) {
     </Container>
   );
 }
-Dashboard.navigationOptions = {
-  headerShown: false,
-  headerTransparent: true,
+// Dashboard.navigationOptions = {
+//   headerShown: false,
+//   headerTransparent: true,
+// };
+
+Dashboard.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }).isRequired,
 };

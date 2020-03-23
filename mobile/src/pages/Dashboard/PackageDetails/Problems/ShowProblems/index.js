@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import { parseISO, format } from 'date-fns';
 import pt from 'date-fns/locale/pt';
+import PropTypes from 'prop-types';
 
 import { Container, Title, Content, Text, Date } from './styles';
 import PagesBackground from '~/components/PagesBackground';
 import api from '~/services/api';
 
-export default function ShowProblems({ navigation }) {
+export default function ShowProblems({ navigation, route }) {
   const [problems, setProblems] = useState([]);
-  const data = navigation.getParam('data');
+  const { data } = route.params;
 
   useEffect(() => {
     async function loadPackageProblems() {
@@ -50,15 +50,8 @@ export default function ShowProblems({ navigation }) {
   );
 }
 
-ShowProblems.navigationOptions = ({ navigation }) => ({
-  title: 'Visualizar problemas',
-  headerLeft: () => (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.goBack();
-      }}
-    >
-      <Icon name="chevron-left" size={24} color="#FFF" />
-    </TouchableOpacity>
-  ),
-});
+ShowProblems.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }).isRequired,
+};

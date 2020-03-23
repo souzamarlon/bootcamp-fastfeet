@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
+import PropTypes from 'prop-types';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { parseISO, format, isValid, getHours } from 'date-fns';
 import pt from 'date-fns/locale/pt';
-import { TouchableOpacity, Alert } from 'react-native';
+import { Alert } from 'react-native';
 import 'react-native-gesture-handler';
 import api from '~/services/api';
 
@@ -25,8 +27,9 @@ import {
   BoxText,
 } from './styles';
 
-export default function PackageDetails({ navigation }) {
-  const data = navigation.getParam('data');
+export default function PackageDetails({ navigation, route }) {
+  // const data = navigation.getParam('data');
+  const { data } = route.params;
 
   const [status, setStatus] = useState('');
   const [startDate, setStartDate] = useState({ start_date: data.start_date });
@@ -222,15 +225,13 @@ export default function PackageDetails({ navigation }) {
   );
 }
 
-PackageDetails.navigationOptions = ({ navigation }) => ({
-  title: 'Detalhes da encomenda',
-  headerLeft: () => (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.goBack();
-      }}
-    >
-      <Icon name="chevron-left" size={24} color="#FFF" />
-    </TouchableOpacity>
-  ),
-});
+PackageDetails.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }).isRequired,
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      data: PropTypes.shape({}),
+    }),
+  }).isRequired,
+};

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, Alert } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Alert } from 'react-native';
 
 import { Container, SubmitButton } from './styles';
 
@@ -9,10 +8,11 @@ import Camera from '~/components/Camera';
 
 import api from '~/services/api';
 
-export default function ConfirmDelivery({ navigation }) {
+export default function ConfirmDelivery({ navigation, route }) {
   const [upload, setUpload] = useState([]);
 
-  const data = navigation.getParam('data');
+  const { data } = route.params;
+  console.tron.log(upload);
 
   async function handleSubmit() {
     try {
@@ -27,14 +27,11 @@ export default function ConfirmDelivery({ navigation }) {
         console.tron.log(upload.id);
         Alert.alert(
           'Falha ao enviar!',
-          'Foto da assinatura não foi enviada, for favor envie uma foto!'
+          'Não foi possível confirmar a entrega porque não foi enviado a foto!'
         );
       }
       if (upload.id) {
-        Alert.alert(
-          'Falha ao enviar!',
-          'Erro ao tentar enviar a foto da assinatura!'
-        );
+        Alert.alert('Falha ao enviar!', 'Erro ao confirmar a entrega!');
         console.tron.log(err);
       }
     }
@@ -51,16 +48,3 @@ export default function ConfirmDelivery({ navigation }) {
     </>
   );
 }
-
-ConfirmDelivery.navigationOptions = ({ navigation }) => ({
-  title: 'Confirmar entrega',
-  headerLeft: () => (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.goBack();
-      }}
-    >
-      <Icon name="chevron-left" size={24} color="#FFF" />
-    </TouchableOpacity>
-  ),
-});
