@@ -1,10 +1,12 @@
 import React, { useMemo } from 'react';
 import { parseISO, format } from 'date-fns';
+import { zonedTimeToUtc } from 'date-fns-tz';
 
 import pt from 'date-fns/locale/pt';
 
 import { useSelector, useDispatch } from 'react-redux';
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { signOut } from '~/store/modules/auth/actions';
 
 import { Container, Avatar, Name, Text, LogoutButton } from './styles';
@@ -43,3 +45,10 @@ export default function Profile() {
     </Container>
   );
 }
+
+Profile.navigationOptions = {
+  tabBarLabel: 'Profile',
+  tabBarIcon: ({ tintColor }) => (
+    <Icon name="person" size={20} color={tintColor} />
+  ),
+};
