@@ -7,7 +7,7 @@ import PagesBackground from '~/components/PagesBackground';
 
 export default function ProblemView({ navigation }) {
   const data = navigation.getParam('data');
-  console.tron.log(data);
+
   return (
     <PagesBackground>
       <Container>

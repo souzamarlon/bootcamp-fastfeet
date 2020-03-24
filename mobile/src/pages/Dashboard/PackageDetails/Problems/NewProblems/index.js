@@ -16,7 +16,6 @@ export default function NewProblems({ navigation }) {
         description,
       });
       Alert.alert('Sucesso!', 'Seu problema foi cadastrado com sucesso!');
-
       console.tron.log(response.data);
     } catch (err) {
       Alert.alert('Falha!', 'Erro ao tentar enviar seu problema!');

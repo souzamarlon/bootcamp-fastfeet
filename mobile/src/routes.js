@@ -6,9 +6,9 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
 import PackageDetails from './pages/Dashboard/PackageDetails';
-import NewProblems from './pages/Problems/NewProblems';
-import ShowProblems from './pages/Problems/ShowProblems';
-import ProblemView from './pages/Problems/ShowProblems/ProblemView';
+import NewProblems from './pages/Dashboard/PackageDetails/Problems/NewProblems';
+import ShowProblems from './pages/Dashboard/PackageDetails/Problems/ShowProblems';
+import ProblemView from './pages/Dashboard/PackageDetails/Problems/ShowProblems/ProblemView';
 
 import ConfirmDelivery from './pages/Dashboard/PackageDetails/ConfirmDelivery';
 

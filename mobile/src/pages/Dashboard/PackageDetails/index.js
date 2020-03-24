@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { parseISO, format, isValid, getHours } from 'date-fns';
 import pt from 'date-fns/locale/pt';
@@ -32,6 +31,7 @@ export default function PackageDetails({ navigation }) {
   const [startDate, setStartDate] = useState({ start_date: data.start_date });
   const [endDate, setEndDate] = useState({ end_date: data.end_date });
 
+  // Check if the date is valid before call the format function. If the date is null will appear this '- - / - - / - -'.
   useEffect(() => {
     async function validStartDate() {
       if (isValid(parseISO(data.start_date))) {
@@ -55,6 +55,7 @@ export default function PackageDetails({ navigation }) {
     // eslint-disable-next-line
 }, [data]);
 
+  // Show the package Status
   useEffect(() => {
     async function loadStatus() {
       if (!data.start_date && !data.end_date) {
@@ -68,14 +69,16 @@ export default function PackageDetails({ navigation }) {
       }
     }
     loadStatus();
-  }, [data]);
+  }, [data.end_date, data.start_date]);
 
+  // Send the pick it up Date.
   async function pickItUp() {
     try {
       await api.put(`/deliveryman/${data.id}/deliveries`, {
         start_date: new Date(),
       });
       Alert.alert('Sucesso!', 'Realizado a retirada do produto!');
+      navigation.goBack();
       // console.tron.log(response.data);
     } catch (err) {
       if (getHours(new Date()) <= 8 || getHours(new Date()) >= 10) {

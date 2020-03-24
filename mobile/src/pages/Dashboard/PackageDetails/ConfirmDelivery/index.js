@@ -12,11 +12,7 @@ import api from '~/services/api';
 export default function ConfirmDelivery({ navigation }) {
   const [upload, setUpload] = useState([]);
 
-<<<<<<< HEAD
-  const { data } = route.params;
-=======
   const data = navigation.getParam('data');
->>>>>>> parent of 7156419... Upgrade the React navigation to version 5
 
   async function handleSubmit() {
     try {
@@ -29,17 +25,14 @@ export default function ConfirmDelivery({ navigation }) {
       // console.tron.log(response.data);
     } catch (err) {
       if (!upload.id) {
-        console.tron.log(upload.id);
+        // console.tron.log(upload.id);
         Alert.alert(
           'Falha ao enviar!',
-          'Foto da assinatura não foi enviada, for favor envie uma foto!'
+          'Não foi possível confirmar a entrega porque não foi enviado a foto!'
         );
       }
       if (upload.id) {
-        Alert.alert(
-          'Falha ao enviar!',
-          'Erro ao tentar enviar a foto da assinatura!'
-        );
+        Alert.alert('Falha ao enviar!', 'Erro ao confirmar a entrega!');
         console.tron.log(err);
       }
     }

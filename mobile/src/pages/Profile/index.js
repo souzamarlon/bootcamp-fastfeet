@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import { parseISO, format } from 'date-fns';
-import { zonedTimeToUtc } from 'date-fns-tz';
 
 import pt from 'date-fns/locale/pt';
 
