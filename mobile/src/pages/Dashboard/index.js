@@ -33,6 +33,8 @@ export default function Dashboard({ navigation }) {
 
   useEffect(() => {
     async function loadPackages() {
+      // Search for Delivered packages.
+
       if (delivered) {
         const response = await api.get(
           `deliveryman/${profile.id}/deliveries/`,
@@ -43,6 +45,7 @@ export default function Dashboard({ navigation }) {
 
         setPackages(response.data);
       }
+      // Search for not Delivered packages.
       if (!delivered) {
         const response = await api.get(`deliveryman/${profile.id}/deliveries`);
 
@@ -54,7 +57,7 @@ export default function Dashboard({ navigation }) {
     loadPackages();
   }, [delivered, profile.id, refreshList]);
 
-  function handleLogout() {
+  async function handleLogout() {
     dispatch(signOut());
   }
 

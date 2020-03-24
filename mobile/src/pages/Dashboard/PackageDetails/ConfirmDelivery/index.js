@@ -12,7 +12,6 @@ export default function ConfirmDelivery({ navigation, route }) {
   const [upload, setUpload] = useState([]);
 
   const { data } = route.params;
-  console.tron.log(upload);
 
   async function handleSubmit() {
     try {
@@ -21,6 +20,7 @@ export default function ConfirmDelivery({ navigation, route }) {
         end_date: new Date(),
       });
       Alert.alert('Sucesso!', 'Foto da assinatura foi enviada com sucesso!');
+
       // console.tron.log(response.data);
     } catch (err) {
       if (!upload.id) {
