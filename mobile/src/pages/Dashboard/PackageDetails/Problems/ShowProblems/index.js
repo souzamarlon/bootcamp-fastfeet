@@ -4,7 +4,14 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { parseISO, format } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 
-import { Background, Container, Title, List } from './styles';
+import {
+  BackgroundTop,
+  BackgroundBottom,
+  Container,
+  Content,
+  Title,
+  List,
+} from './styles';
 import PagesBackground from '~/components/PagesBackground';
 import ProblemList from '~/components/ProblemList';
 
@@ -33,24 +40,26 @@ export default function ShowProblems({ navigation }) {
 
   return (
     <>
-      <Background>
-        <Container>
+      <Container>
+        <BackgroundTop>
           <Title>{`Encomenda ${data.id}`}</Title>
-
-          <List
-            data={problems}
-            keyExtractor={item => String(item.id)}
-            renderItem={({ item }) => (
-              <ProblemList
-                data={item}
-                onPress={() => {
-                  navigation.navigate('ReadProblem', { item });
-                }}
-              />
-            )}
-          />
-        </Container>
-      </Background>
+          <Content>
+            <List
+              data={problems}
+              keyExtractor={item => String(item.id)}
+              renderItem={({ item }) => (
+                <ProblemList
+                  data={item}
+                  onPress={() => {
+                    navigation.navigate('ReadProblem', { item });
+                  }}
+                />
+              )}
+            />
+          </Content>
+        </BackgroundTop>
+        <BackgroundBottom />
+      </Container>
     </>
   );
 }
