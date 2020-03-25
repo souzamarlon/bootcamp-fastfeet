@@ -35,8 +35,6 @@ export default function ShowProblems({ navigation }) {
     <>
       <Container>
         <Title>{`Encomenda ${data.id}`}</Title>
-        {/* <Content>
-        </Content> */}
 
         <List
           data={problems}

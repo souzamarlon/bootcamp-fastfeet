@@ -66,6 +66,9 @@ export const DateInfo = styled.View`
 export const DateColumn = styled.View`
   flex-direction: column;
   display: flex;
+  text-align: right;
+  width: 175px;
+  /* background-color: #000; */
 `;
 
 export const PackageOption = styled.View`
