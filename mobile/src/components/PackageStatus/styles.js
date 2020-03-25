@@ -39,7 +39,7 @@ export const Content = styled.View`
   border-radius: 4px;
   /* box-shadow: 30px 30px rgba(0, 0, 0, 0.3); */
   height: 100%;
-  max-height: 60px;
+  max-height: 65px;
 `;
 
 export const DateColumn = styled.View`
