@@ -9,22 +9,11 @@ export const BackgroundTop = styled.View`
   flex: 1;
   background-color: #7d40e7;
   height: 155px;
-
-  /*
-  position: absolute;
-
-  flex-direction: column; */
 `;
 
 export const BackgroundBottom = styled.View`
   flex: 3;
   background: transparent;
-  /* padding: 0 25px; */
-  /*
-
-  padding: 0 25px;
-  height: 520px;
-  background: transparent; */
 `;
 
 export const Title = styled.Text`
