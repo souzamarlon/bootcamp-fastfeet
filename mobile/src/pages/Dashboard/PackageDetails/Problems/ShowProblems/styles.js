@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import LinearGradient from 'react-native-linear-gradient';
 
 export const Container = styled.View.attrs({
   borderTopColor: '#7D40E7',

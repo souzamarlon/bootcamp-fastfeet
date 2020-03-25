@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
-import { Container, SubmitButton } from './styles';
-
-import PagesBackground from '~/components/PagesBackground';
+import { Container, Content, SubmitButton } from './styles';
 import Camera from '~/components/Camera';
 
 import api from '~/services/api';
@@ -40,10 +37,10 @@ export default function ConfirmDelivery({ navigation }) {
 
   return (
     <>
-      <PagesBackground>
-        <Camera PackageId={data.id} onChange={setUpload} />
-      </PagesBackground>
       <Container>
+        <Content>
+          <Camera PackageId={data.id} onChange={setUpload} />
+        </Content>
         <SubmitButton onPress={handleSubmit}>Enviar</SubmitButton>
       </Container>
     </>

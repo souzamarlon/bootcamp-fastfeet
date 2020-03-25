@@ -11,7 +11,7 @@ export const Container = styled.View`
 
 export const CameraButton = styled(RectButton)`
   border-radius: 100px;
-  top: 200px;
+  top: 150px;
   width: 80px;
   height: 80px;
   align-self: center;

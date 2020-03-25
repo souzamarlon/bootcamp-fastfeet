@@ -4,8 +4,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { parseISO, format } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 
-import { Container, Content, Title, List } from './styles';
-import PagesBackground from '~/components/PagesBackground';
+import { Container, Title, List } from './styles';
+
 import ProblemList from '~/components/ProblemList';
 
 import api from '~/services/api';
