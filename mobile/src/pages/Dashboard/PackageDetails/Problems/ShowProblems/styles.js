@@ -10,6 +10,7 @@ export const Background = styled.View`
 
 export const Container = styled.View`
   top: 70px;
+
   padding: 0 25px;
   height: 520px;
   background: transparent;
