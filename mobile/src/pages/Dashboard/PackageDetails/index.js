@@ -4,6 +4,8 @@ import { parseISO, format, isValid, getHours } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import { TouchableOpacity, Alert } from 'react-native';
 import 'react-native-gesture-handler';
+import PropTypes from 'prop-types';
+
 import api from '~/services/api';
 
 import PagesBackground from '~/components/PagesBackground';
@@ -237,3 +239,26 @@ PackageDetails.navigationOptions = ({ navigation }) => ({
     </TouchableOpacity>
   ),
 });
+
+PackageDetails.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+    goBack: PropTypes.func,
+    getParam: PropTypes.func,
+    data: PropTypes.shape({
+      start_date: PropTypes.instanceOf(Date),
+      end_date: PropTypes.instanceOf(Date),
+      id: PropTypes.number,
+      product: PropTypes.string,
+      signature: PropTypes.shape(),
+      recipient: PropTypes.shape({
+        name: PropTypes.string,
+        street: PropTypes.string,
+        number: PropTypes.number,
+        city: PropTypes.string,
+        state: PropTypes.string,
+        zipcode: PropTypes.number,
+      }),
+    }),
+  }).isRequired,
+};

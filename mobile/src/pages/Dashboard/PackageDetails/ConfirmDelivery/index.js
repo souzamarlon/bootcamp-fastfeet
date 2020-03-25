@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import PropTypes from 'prop-types';
 import { Container, Content, SubmitButton } from './styles';
 import Camera from '~/components/Camera';
 
@@ -59,3 +60,12 @@ ConfirmDelivery.navigationOptions = ({ navigation }) => ({
     </TouchableOpacity>
   ),
 });
+
+ConfirmDelivery.propTypes = {
+  navigation: PropTypes.shape({
+    getParam: PropTypes.func,
+    data: PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  }).isRequired,
+};

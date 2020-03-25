@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { signOut } from '~/store/modules/auth/actions';
 import api from '~/services/api';
 
@@ -151,4 +152,10 @@ export default function Dashboard({ navigation }) {
 Dashboard.navigationOptions = {
   headerShown: false,
   headerTransparent: true,
+};
+
+Dashboard.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }).isRequired,
 };
