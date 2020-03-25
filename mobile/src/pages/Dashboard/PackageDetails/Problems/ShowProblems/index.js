@@ -3,6 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { parseISO, format } from 'date-fns';
 import pt from 'date-fns/locale/pt';
+import PropTypes from 'prop-types';
 
 import { Container, Title, List } from './styles';
 
@@ -29,7 +30,7 @@ export default function ShowProblems({ navigation }) {
     }
 
     loadPackageProblems();
-  }, [data.id, data.start_date]);
+  }, [data.id]);
 
   return (
     <>
@@ -65,3 +66,14 @@ ShowProblems.navigationOptions = ({ navigation }) => ({
     </TouchableOpacity>
   ),
 });
+
+ShowProblems.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+    goBack: PropTypes.func,
+    getParam: PropTypes.func,
+    data: PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  }).isRequired,
+};

@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import PropTypes from 'prop-types';
 
 import { Container, Text } from './styles';
 import PagesBackground from '~/components/PagesBackground';
@@ -28,3 +29,13 @@ ReadProblem.navigationOptions = ({ navigation }) => ({
     </TouchableOpacity>
   ),
 });
+ReadProblem.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+    goBack: PropTypes.func,
+    getParam: PropTypes.func,
+    item: PropTypes.shape({
+      description: PropTypes.string,
+    }),
+  }).isRequired,
+};
