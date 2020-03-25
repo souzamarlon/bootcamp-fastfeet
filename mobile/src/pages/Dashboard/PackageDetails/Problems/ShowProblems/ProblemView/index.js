@@ -6,12 +6,12 @@ import { Container, Text } from './styles';
 import PagesBackground from '~/components/PagesBackground';
 
 export default function ProblemView({ navigation }) {
-  const data = navigation.getParam('data');
+  const item = navigation.getParam('item');
 
   return (
     <PagesBackground>
       <Container>
-        <Text>{data}</Text>
+        <Text>{item.description}</Text>
       </Container>
     </PagesBackground>
   );

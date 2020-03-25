@@ -4,8 +4,10 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { parseISO, format } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 
-import { Container, Title, Content, Text, Date } from './styles';
+import { Background, Container, Title, List } from './styles';
 import PagesBackground from '~/components/PagesBackground';
+import ProblemList from '~/components/ProblemList';
+
 import api from '~/services/api';
 
 export default function ShowProblems({ navigation }) {
@@ -30,23 +32,25 @@ export default function ShowProblems({ navigation }) {
   }, [data.id, data.start_date]);
 
   return (
-    <PagesBackground>
-      <Container>
-        <Title>{`Encomenda ${data.id}`}</Title>
-        {problems.map(item => (
-          <Content
-            key={item.id}
-            data={item.description}
-            onPress={() => {
-              navigation.navigate('ProblemView', { data: item.description });
-            }}
-          >
-            <Text>{item.description}</Text>
-            <Date>{item.createdAt}</Date>
-          </Content>
-        ))}
-      </Container>
-    </PagesBackground>
+    <>
+      <Background>
+        <Container>
+          <Title>{`Encomenda ${data.id}`}</Title>
+          <List
+            data={problems}
+            keyExtractor={item => String(item.id)}
+            renderItem={({ item }) => (
+              <ProblemList
+                data={item}
+                onPress={() => {
+                  navigation.navigate('ProblemView', { item });
+                }}
+              />
+            )}
+          />
+        </Container>
+      </Background>
+    </>
   );
 }
 
