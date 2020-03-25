@@ -96,7 +96,7 @@ export const Divider = styled.View`
 export const BoxText = styled.Text`
   font-size: 12px;
   color: #7d40e7;
-  margin-left: 10px;
+  margin-left: 11px;
   margin-top: 2px;
   text-align: center;
 `;

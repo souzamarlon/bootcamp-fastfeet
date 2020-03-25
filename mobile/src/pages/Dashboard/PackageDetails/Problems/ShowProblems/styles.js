@@ -1,37 +1,39 @@
 import styled from 'styled-components/native';
+import LinearGradient from 'react-native-linear-gradient';
 
-export const Container = styled.View`
-  flex: 1;
-  flex-direction: column;
-  background: transparent;
-`;
-export const BackgroundTop = styled.View`
-  flex: 1;
-  background-color: #7d40e7;
-  height: 155px;
-`;
+export const Container = styled.View.attrs({
+  // width: 200,
+  // height: 200,
+  borderTopColor: '#7D40E7',
+  borderTopWidth: 200,
+  // borderTopHeight: 200,
 
-export const BackgroundBottom = styled.View`
-  flex: 3;
+  // colors: ['#7D40E7', '#fff'],
+})`
+  flex: 1;
+  padding: 0 25px;
+  /* padding-top: 2px; */
   background: transparent;
 `;
 
 export const Title = styled.Text`
-  top: 100px;
+  bottom: 90px;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
   color: #ffffff;
 `;
 
-export const Content = styled.View`
-  position: relative;
-  height: 520px;
+export const Content = styled.SafeAreaView`
+  /* height: 520px; */
   top: 100px;
   padding: 0 25px;
 `;
 
 export const List = styled.FlatList.attrs({
-  showsVerticalScrollIndicator: true,
-  BackgroundColor: 'transparent',
-})``;
+  // numColumns: 1,
+  showsVerticalScrollIndicator: false,
+  // BackgroundColor: 'transparent',
+})`
+  bottom: 85px;
+`;
