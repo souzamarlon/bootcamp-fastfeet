@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Container, Text } from './styles';
 import PagesBackground from '~/components/PagesBackground';
 
-export default function ProblemView({ navigation }) {
+export default function ReadProblem({ navigation }) {
   const item = navigation.getParam('item');
 
   return (
@@ -16,7 +16,7 @@ export default function ProblemView({ navigation }) {
     </PagesBackground>
   );
 }
-ProblemView.navigationOptions = ({ navigation }) => ({
+ReadProblem.navigationOptions = ({ navigation }) => ({
   title: 'Descrição do problema',
   headerLeft: () => (
     <TouchableOpacity

@@ -36,6 +36,7 @@ export default function ShowProblems({ navigation }) {
       <Background>
         <Container>
           <Title>{`Encomenda ${data.id}`}</Title>
+
           <List
             data={problems}
             keyExtractor={item => String(item.id)}
@@ -43,7 +44,7 @@ export default function ShowProblems({ navigation }) {
               <ProblemList
                 data={item}
                 onPress={() => {
-                  navigation.navigate('ProblemView', { item });
+                  navigation.navigate('ReadProblem', { item });
                 }}
               />
             )}

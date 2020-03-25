@@ -8,7 +8,7 @@ import Dashboard from './pages/Dashboard';
 import PackageDetails from './pages/Dashboard/PackageDetails';
 import NewProblems from './pages/Dashboard/PackageDetails/Problems/NewProblems';
 import ShowProblems from './pages/Dashboard/PackageDetails/Problems/ShowProblems';
-import ProblemView from './pages/Dashboard/PackageDetails/Problems/ShowProblems/ProblemView';
+import ReadProblem from './pages/Dashboard/PackageDetails/Problems/ShowProblems/ReadProblem';
 
 import ConfirmDelivery from './pages/Dashboard/PackageDetails/ConfirmDelivery';
 
@@ -28,7 +28,7 @@ export default (isSigned = false) =>
                   PackageDetails,
                   NewProblems,
                   ShowProblems,
-                  ProblemView,
+                  ReadProblem,
                   ConfirmDelivery,
                 },
                 {
