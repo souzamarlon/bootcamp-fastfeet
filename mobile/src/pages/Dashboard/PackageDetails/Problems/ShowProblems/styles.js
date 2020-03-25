@@ -17,9 +17,9 @@ export const BackgroundTop = styled.View`
 `;
 
 export const BackgroundBottom = styled.View`
-  flex: 2;
+  flex: 3;
   background: transparent;
-  padding: 0 25px;
+  /* padding: 0 25px; */
   /*
 
   padding: 0 25px;
@@ -28,7 +28,7 @@ export const BackgroundBottom = styled.View`
 `;
 
 export const Title = styled.Text`
-  top: 90px;
+  top: 100px;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
@@ -38,10 +38,11 @@ export const Title = styled.Text`
 export const Content = styled.View`
   position: relative;
   height: 520px;
-  top: 90px;
+  top: 100px;
   padding: 0 25px;
 `;
 
 export const List = styled.FlatList.attrs({
   showsVerticalScrollIndicator: true,
+  BackgroundColor: 'transparent',
 })``;
