@@ -2,6 +2,8 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { parseISO, format } from 'date-fns';
 import { Text } from 'react-native';
 import { zonedTimeToUtc } from 'date-fns-tz';
+import PropTypes from 'prop-types';
+
 import 'react-native-gesture-handler';
 import pt from 'date-fns/locale/pt';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -22,8 +24,6 @@ import {
 
 export default function PackageStatus({ data, onPress }) {
   const [currentPosition, setCurrentPosition] = useState(0);
-
-  const dateTimeUTC = zonedTimeToUtc(new Date(), 'America/Brasília');
 
   const dateParsed = useMemo(() => {
     return format(parseISO(data.created_at), 'dd/MM/yyyy', {
@@ -103,3 +103,16 @@ export default function PackageStatus({ data, onPress }) {
     </Container>
   );
 }
+
+PackageStatus.propTypes = {
+  data: PropTypes.shape({
+    start_date: PropTypes.string,
+    end_date: PropTypes.instanceOf(Date),
+    created_at: PropTypes.string,
+    id: PropTypes.number,
+    recipient: PropTypes.shape({
+      city: PropTypes.string,
+    }),
+  }).isRequired,
+  onPress: PropTypes.func.isRequired,
+};

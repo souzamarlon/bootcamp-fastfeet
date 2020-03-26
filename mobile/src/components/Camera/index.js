@@ -88,8 +88,6 @@ export default function Camera({ onChange, PackageId }) {
 }
 
 Camera.propTypes = {
-  onChange: PropTypes.shape({
-    id: PropTypes.number,
-    url: PropTypes.string,
-  }).isRequired,
+  onChange: PropTypes.func.isRequired,
+  PackageId: PropTypes.number.isRequired,
 };
