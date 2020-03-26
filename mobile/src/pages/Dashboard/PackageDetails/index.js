@@ -83,17 +83,15 @@ export default function PackageDetails({ navigation }) {
       navigation.goBack();
       // console.tron.log(response.data);
     } catch (err) {
-      if (getHours(new Date()) <= 8 || getHours(new Date()) >= 10) {
+      Alert.alert('Falha!', 'Erro ao realizar a retirada do produto!');
+
+      if (getHours(new Date()) <= 8 || getHours(new Date()) >= 18) {
         Alert.alert(
           'Falha!',
-          `O Horario permitido para realizar as retiradas é entre às 08:00 - 18:00 horas. Hora atual: ${getHours(
+          `Os Horarios permitidos para realizarem as retiradas são entre às 08:00 - 18:00 horas. Hora atual: ${getHours(
             new Date()
           )} horas`
         );
-      }
-      if (getHours(new Date()) > 8 || getHours(new Date()) < 18) {
-        Alert.alert('Falha!', 'Erro ao realizar a retirada do produto!');
-        console.tron.log(err);
       }
     }
   }

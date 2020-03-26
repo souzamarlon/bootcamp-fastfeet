@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react';
 import { Alert, ActivityIndicator, Text } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import PropTypes from 'prop-types';
 import { Container, CameraButton, CameraIcon } from './styles';
 import api from '~/services/api';
 
@@ -85,3 +86,10 @@ export default function Camera({ onChange, PackageId }) {
     </>
   );
 }
+
+Camera.propTypes = {
+  onChange: PropTypes.shape({
+    id: PropTypes.number,
+    url: PropTypes.string,
+  }).isRequired,
+};
