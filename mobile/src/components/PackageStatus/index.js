@@ -1,7 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { parseISO, format } from 'date-fns';
 import { Text } from 'react-native';
-import { zonedTimeToUtc } from 'date-fns-tz';
 import PropTypes from 'prop-types';
 
 import 'react-native-gesture-handler';
@@ -107,7 +106,7 @@ export default function PackageStatus({ data, onPress }) {
 PackageStatus.propTypes = {
   data: PropTypes.shape({
     start_date: PropTypes.string,
-    end_date: PropTypes.instanceOf(Date),
+    end_date: PropTypes.string,
     created_at: PropTypes.string,
     id: PropTypes.number,
     recipient: PropTypes.shape({
