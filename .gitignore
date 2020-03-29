@@ -105,3 +105,6 @@ dist
 
 # Files uploaded
 back-end/tmp/uploads/*
+
+# Build folder
+/dist
