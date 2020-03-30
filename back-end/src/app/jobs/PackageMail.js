@@ -12,7 +12,7 @@ class PackageMail {
     await Mail.sendMail({
       to: `${name} <${email}>`,
       subject: 'Produto pronto para retirada!',
-      template: 'package',
+      template: 'packages',
       context: {
         name,
         product,
