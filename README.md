@@ -79,7 +79,9 @@ Back-end, Front-end, React native:
 ## :information_source: How To Use
 
 To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher installed on your computer.
-You'll also need to setup and run a Postgres and a Redis database and insert the access informations into a .env file, based on a .env.example file that is provided in the backend folder.
+
+You'll also need to setup and run a Postgres and a Redis database and insert the access informations into a .env file, based on a .env.example file that is provided in the backend, front-end folders.
+
 From your command line:
 
 ```bash
@@ -93,7 +95,7 @@ $ cd bootcamp-fastfeet
 $ cd backend
 $ yarn
 
-It is necessary to create the database in postgres before to run the yarn sequelize db:migrate.
+It is necessary to create the database in postgres and then you can execute yarn sequelize db:migrate.
 
 # Run migrations and the seed to your database
 # The command yarn sequelize db:seed:all is just necessary if you wanna create the admin user automatically.
@@ -101,26 +103,28 @@ $ yarn sequelize db:migrate
 $ yarn sequelize db:seed:all
 
 # Run the backend server
-$ yarn dev
-$ yarn queue
+$ yarn dev -- Development environment.
+$ OR yarn start -- Production environment.
+$ yarn queue -- Development environment.
+$ OR yarn queueProd -- Production environment.
 
 # Install dependencies for the frontend and run the server
 $ cd frontend
 $ yarn
 $ yarn start
 
-# Install dependencies for the mobile
+# Install dependencies for the mobile - Available just for Android because this app was just tested in Android smartphones.
 $ cd mobile
 $ yarn
 
-It is necessary to change the IP in the api.js file to IP where you installed the back end.
+It is necessary to change the IP in the api.js file to where you installed the back end.
 You can find the api.js file in src/services/api.js
+
+# Run the app (Android)
+$ react-native run-android
 
 # Start React Native Server
 $ react-native start
-
-# Run the app (Android) - This app was just tested in Android smartphones.
-$ react-native run-android
 ```
 ---
 Created by Marlon da Silva Souza :wave: [LinkedIn!](https://www.linkedin.com/in/marlonssouza/)
