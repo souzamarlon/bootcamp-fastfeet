@@ -78,7 +78,7 @@ Back-end, Front-end, React native:
 - [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 
 ## :information_source: Front-end Demonstration:
-<h4>Link: https://bootcamp-fastfeet-frontend.herokuapp.com/</h4>
+<h4>Link: <a href="https://bootcamp-fastfeet-frontend.herokuapp.com/">https://bootcamp-fastfeet-frontend.herokuapp.com/</h4>
 <h4>Login: admin@fastfeet.com</h4>
 <h4>Password: 123456</h4>
 
