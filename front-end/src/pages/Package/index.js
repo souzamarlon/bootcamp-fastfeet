@@ -84,7 +84,7 @@ export default function Package() {
         // const count = action === 'back' ? page - 1 : page + 1;
         setPage(action === 'back' ? page - 1 : page + 1);
     }
-    console.tron.log(packages);
+    // console.tron.log(packages);
     return (
         <Container>
             <Title>

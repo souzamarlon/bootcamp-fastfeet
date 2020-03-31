@@ -46,8 +46,8 @@ export default function EditRecipient({ match }) {
             history.push('/recipients');
         } catch (err) {
             toast.error('Erro ao editar o cadastro!');
-            console.tron.log(err);
-            console.tron.log(data);
+            // console.tron.log(err);
+            // console.tron.log(data);
         }
     }
 

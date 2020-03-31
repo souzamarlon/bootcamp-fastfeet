@@ -29,8 +29,8 @@ export default function NewRecipient() {
             history.push('/recipients');
         } catch (err) {
             toast.error('Erro ao criar o cadastro!');
-            console.tron.log(err);
-            console.tron.log(data);
+            // console.tron.log(err);
+            // console.tron.log(data);
         }
     }
 

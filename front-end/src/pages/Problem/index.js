@@ -34,7 +34,7 @@ export default function Problem() {
     }, [page]);
 
     async function handleCancel(id) {
-        console.tron.log(id);
+        // console.tron.log(id);
         try {
             // eslint-disable-next-line no-alert
             if (window.confirm('Você realmente quer deletar?')) {

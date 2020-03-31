@@ -38,7 +38,7 @@ export default function EditDeliverer({ match }) {
     }, [id]);
 
     async function handleSubmit(data) {
-        console.tron.log(data);
+        // console.tron.log(data);
         try {
             await api.put(`deliverers/${id}`, data);
             toast.success('Sucesso ao editar o cadastro!');

@@ -33,7 +33,7 @@ export default function NewDeliverer() {
         );
 
         if (validEmail) {
-            console.tron.log(validEmail);
+            // console.tron.log(validEmail);
             toast.error('Email já cadastrado!');
         }
 

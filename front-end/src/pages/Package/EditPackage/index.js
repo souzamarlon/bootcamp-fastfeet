@@ -93,8 +93,8 @@ export default function EditPackage({ match }) {
             history.push('/packages');
         } catch (err) {
             toast.error('Erro ao editar o cadastro!');
-            console.tron.log(err);
-            console.tron.log(data);
+            // console.tron.log(err);
+            // console.tron.log(data);
         }
     }
 

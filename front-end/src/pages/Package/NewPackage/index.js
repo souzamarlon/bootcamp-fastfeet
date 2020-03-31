@@ -66,8 +66,8 @@ export default function NewPackage() {
             history.push('/packages');
         } catch (err) {
             toast.error('Erro ao criar o cadastro!');
-            console.tron.log(err);
-            console.tron.log(data);
+            // console.tron.log(err);
+            // console.tron.log(data);
         }
     }
 
