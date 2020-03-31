@@ -12,7 +12,7 @@
 <p align="center">
   <a href="#rocket-Libraries and Technologies">Libraries and Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_source-front-end-demonstration">Front-end demonstration</a>
+  <a href="#information_source-front-end-demonstration">Front-end Demo</a>
 </p>
 
 ## :rocket: Libraries and Technologies
@@ -77,7 +77,7 @@ React native:
 Back-end, Front-end, React native:
 - [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 
-## :information_source: Front-end demonstration:
+## :information_source: Front-end Demonstration:
 <h4>Link: https://bootcamp-fastfeet-frontend.herokuapp.com/</h4>
 <h4>Login: admin@fastfeet.com</h4>
 <h4>Password: 123456</h4>
