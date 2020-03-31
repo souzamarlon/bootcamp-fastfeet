@@ -12,7 +12,7 @@
 <p align="center">
   <a href="#rocket-Libraries and Technologies">Libraries and Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">License</a>
+  <a href="#information_source-front-end-demonstration">Front-end demonstration</a>
 </p>
 
 ## :rocket: Libraries and Technologies
