@@ -10,12 +10,12 @@
 
 
 <p align="center">
-  <a href="#rocket-Libraries">Libraries</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-Libraries and Technologies">Libraries and Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-license">License</a>
 </p>
 
-## :rocket: Libraries
+## :rocket: Libraries and Technologies
 
 This project was developed at the [RocketSeat GoStack Bootcamp](https://rocketseat.com.br/gostack) with the following amazing Libraries:
 
@@ -34,6 +34,7 @@ Back-end:
 - [nodemailer](https://github.com/nodemailer/nodemailer)
 - [sequelize](https://github.com/sequelize/sequelize)
 - [yup](https://github.com/jquense/yup)
+- [sentry](https://sentry.io/)
 
 Front-end:
 - [ReactJS](https://reactjs.org/)
