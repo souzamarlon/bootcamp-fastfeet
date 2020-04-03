@@ -27,7 +27,6 @@ export default function Header() {
         async function locationPath() {
             // Get the current location.
             const location = history.location.pathname;
-            console.tron.log(location);
 
             if (
                 location === '/packages' ||
