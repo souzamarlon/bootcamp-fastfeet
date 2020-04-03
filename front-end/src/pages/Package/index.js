@@ -102,14 +102,12 @@ export default function Package() {
                     </Form>
                 </Search>
                 <Button>
-                    <div>
-                        <Link to="/newpackages">
-                            <button type="button" onClick={() => {}}>
-                                <Add size={19} />
-                                <strong>CADASTRAR</strong>
-                            </button>
-                        </Link>
-                    </div>
+                    <Link to="/newpackages">
+                        <div className="button-enroll">
+                            <Add style={{ fontSize: 19 }} color="#FFF" />
+                            <strong className="enroll">CADASTRAR</strong>
+                        </div>
+                    </Link>
                 </Button>
             </Header>
 

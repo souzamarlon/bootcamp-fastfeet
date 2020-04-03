@@ -95,14 +95,12 @@ export default function Recipient() {
                     </Form>
                 </Search>
                 <Button>
-                    <div>
-                        <Link to="/newrecipient">
-                            <button type="button" onClick={() => {}}>
-                                <Add size={19} color="#FFF" />
-                                <strong>CADASTRAR</strong>
-                            </button>
-                        </Link>
-                    </div>
+                    <Link to="/newrecipient">
+                        <div>
+                            <Add style={{ fontSize: 19 }} color="#FFF" />
+                            <strong>CADASTRAR</strong>
+                        </div>
+                    </Link>
                 </Button>
             </Header>
 

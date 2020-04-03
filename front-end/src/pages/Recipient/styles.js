@@ -57,14 +57,17 @@ export const Search = styled.div`
 export const Button = styled.button`
     background: transparent;
     border: 0;
-    display: flex;
-    button {
+
+    div {
+        text-align: center;
         display: flex;
+        padding-top: 8px;
+        /* padding-bottom: 5px; */
         justify-content: center;
         height: 36px;
         width: 142px;
         background: #7d40e7;
-        font-weight: bold;
+        /* font-weight: bold; */
         color: #ffffff;
         border: 0;
         border-radius: 4px;
@@ -74,8 +77,7 @@ export const Button = styled.button`
             background: ${darken(0.03, '#7d40e7')};
         }
         > strong {
-            /* margin: 2px 0px 0px 15px; */
-            margin: 4px 0px 0px 5px;
+            margin: 2px 0px 0px 5px;
         }
     }
 `;

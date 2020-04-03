@@ -97,14 +97,12 @@ export default function Deliverer() {
                     </Form>
                 </Search>
                 <Button>
-                    <div>
-                        <Link to="/newdeliverer">
-                            <button type="button" onClick={() => {}}>
-                                <Add size={19} color="#FFF" />
-                                <strong>CADASTRAR</strong>
-                            </button>
-                        </Link>
-                    </div>
+                    <Link to="/newdeliverer">
+                        <div>
+                            <Add style={{ fontSize: 19 }} color="#FFF" />
+                            <strong>CADASTRAR</strong>
+                        </div>
+                    </Link>
                 </Button>
             </Header>
 
