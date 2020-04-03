@@ -65,11 +65,11 @@ export default function Recipient() {
             if (window.confirm('Você realmente quer deletar?')) {
                 await api.delete(`recipients/${id}`);
 
-                toast.success('Sucesso ao deletar a encomenda!');
+                toast.success('Sucesso ao deletar o destinatário!');
                 history.push('/recipients');
             }
         } catch (err) {
-            toast.error('Erro ao deletar a encomenda!');
+            toast.error('Erro ao deletar o destinatário!');
         }
     }
 

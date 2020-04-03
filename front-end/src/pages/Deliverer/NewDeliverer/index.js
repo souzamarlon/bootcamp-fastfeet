@@ -57,19 +57,17 @@ export default function NewDeliverer() {
                         <h1>Cadastro de entregadores</h1>
                     </Title>
                     <Button>
-                        <div>
-                            <Link to="/deliverers">
-                                <button type="button" onClick={() => {}}>
-                                    <KeyboardArrowLeft />
-                                    <strong>VOLTAR</strong>
-                                </button>
-                            </Link>
-                        </div>
+                        <Link to="/deliverers">
+                            <div className="go-back">
+                                <KeyboardArrowLeft style={{ fontSize: 24 }} />
+                                <strong>VOLTAR</strong>
+                            </div>
+                        </Link>
 
-                        <button type="submit" className="submit">
-                            <Done />
+                        <div className="submit">
+                            <Done style={{ fontSize: 22 }} />
                             <strong>SALVAR</strong>
-                        </button>
+                        </div>
                     </Button>
                 </Container>
                 <Content>

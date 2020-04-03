@@ -30,9 +30,12 @@ export const Button = styled.button`
     background: transparent;
     border: 0;
     display: flex;
-    button {
+
+    div.go-back {
         display: flex;
         justify-content: center;
+        padding-top: 7px;
+
         height: 36px;
         width: 112px;
         background: #cccccc;
@@ -49,9 +52,10 @@ export const Button = styled.button`
             margin: 4px 2px 0px 2px;
         }
     }
-    > button.submit {
+    div.submit {
         display: flex;
         justify-content: center;
+        padding-top: 7px;
         height: 36px;
         width: 112px;
         margin-left: 16px;
@@ -66,7 +70,7 @@ export const Button = styled.button`
             background: ${darken(0.03, '#7D40E7')};
         }
         > strong {
-            margin: 5px 0px 0px 5px;
+            margin: 4px 0px 0px 5px;
         }
     }
 `;

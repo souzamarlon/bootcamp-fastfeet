@@ -63,19 +63,17 @@ export default function EditRecipient({ match }) {
                         <h1>Edição de destinatário</h1>
                     </Title>
                     <Button>
-                        <div>
-                            <Link to="/recipients">
-                                <button type="button" onClick={() => {}}>
-                                    <KeyboardArrowLeft />
-                                    <strong>VOLTAR</strong>
-                                </button>
-                            </Link>
-                        </div>
+                        <Link to="/recipients">
+                            <div className="go-back">
+                                <KeyboardArrowLeft style={{ fontSize: 24 }} />
+                                <strong>VOLTAR</strong>
+                            </div>
+                        </Link>
 
-                        <button type="submit" className="submit">
-                            <Done />
+                        <div className="submit">
+                            <Done style={{ fontSize: 22 }} />
                             <strong>SALVAR</strong>
-                        </button>
+                        </div>
                     </Button>
                 </Container>
                 <Content>
