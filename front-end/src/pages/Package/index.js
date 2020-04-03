@@ -104,7 +104,7 @@ export default function Package() {
                 <Button>
                     <Link to="/newpackages">
                         <div className="button-enroll">
-                            <Add style={{ fontSize: 19 }} color="#FFF" />
+                            <Add style={{ fontSize: 19 }} />
                             <strong className="enroll">CADASTRAR</strong>
                         </div>
                     </Link>
@@ -177,6 +177,7 @@ export default function Package() {
                                 </td>
                                 <td className="action">
                                     <Popup
+                                        key={item.id}
                                         trigger={
                                             <button
                                                 type="button"

@@ -27,14 +27,27 @@ export default function Header() {
         async function locationPath() {
             // Get the current location.
             const location = history.location.pathname;
+            console.tron.log(location);
 
-            if (location === '/packages') {
+            if (
+                location === '/packages' ||
+                location === '/newpackages' ||
+                location.match('/editpackage.*/')
+            ) {
                 setOpen({ package: true });
             }
-            if (location === '/deliverers') {
+            if (
+                location === '/deliverers' ||
+                location === '/newdeliverer' ||
+                location.match('/editdeliverer.*/')
+            ) {
                 setOpen({ deliverer: true });
             }
-            if (location === '/recipients') {
+            if (
+                location === '/recipients' ||
+                location === '/newrecipient' ||
+                location.match('/editrecipient.*/')
+            ) {
                 setOpen({ recipient: true });
             }
             if (location === '/problems') {
