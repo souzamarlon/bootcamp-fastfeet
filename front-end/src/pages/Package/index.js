@@ -180,14 +180,14 @@ export default function Package() {
                                         trigger={
                                             <button
                                                 type="button"
-                                                className="button"
+                                                className="more-button"
                                             >
                                                 <div className="iconMoreHoriz">
                                                     <MoreHoriz color="disabled" />
                                                 </div>
                                             </button>
                                         }
-                                        position="bottom center"
+                                        // position="bottom center"
                                         // on="hover"
                                         contentStyle={{
                                             width: '150px',
@@ -197,14 +197,12 @@ export default function Package() {
                                         <button
                                             onClick={() => {}}
                                             type="button"
+                                            className="more-button"
                                         >
                                             <ViewPackageInfo data={item} />
                                         </button>
 
-                                        <button
-                                            type="button"
-                                            className="actions"
-                                        >
+                                        <button type="button" className="edit">
                                             <Link
                                                 to={`/editpackage/${item.id}`}
                                             >
@@ -219,7 +217,7 @@ export default function Package() {
                                         </button>
                                         <button
                                             type="button"
-                                            className="actions"
+                                            className="delete"
                                             onClick={() =>
                                                 handleDelete(item.id)
                                             }
@@ -227,6 +225,9 @@ export default function Package() {
                                             <DeleteForever
                                                 fontSize="small"
                                                 color="secondary"
+                                                style={{
+                                                    marginTop: 4,
+                                                }}
                                             />
                                             <span className="options">
                                                 Excluir

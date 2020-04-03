@@ -4,13 +4,14 @@ import { darken } from 'polished';
 export const Container = styled.div`
     border-bottom: 1px solid #eeeeee;
 
-    button {
+    button.button-view {
         align-items: center;
         margin-top: 0;
         width: 140px;
         display: flex;
         padding: 5px;
         border: 0;
+        background: transparent;
 
         color: #999999;
         transition: background 0.3s;

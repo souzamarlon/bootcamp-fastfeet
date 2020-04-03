@@ -139,7 +139,7 @@ export const Content = styled.div`
         overflow: hidden;
     }
 
-    button {
+    button.more-button {
         background: transparent;
         padding-top: 5px;
         border: 0px;
@@ -150,15 +150,34 @@ export const Content = styled.div`
         }
     }
 
-    button.actions {
+    button.edit {
         align-items: center;
         height: 30px;
         width: 140px;
         border: 0;
-        display: flex;
+        background: transparent;
+
         padding: 5px;
         padding-bottom: 30px;
         border-bottom: 1px solid #eeeeee;
+
+        color: #999999;
+        transition: background 0.3s;
+        &:hover {
+            background: ${darken(0.03, '#ffffff')};
+        }
+    }
+    button.delete {
+        align-self: center;
+        text-align: center;
+        height: 30px;
+        width: 140px;
+        border: 0;
+        display: flex;
+        margin-top: 4px;
+        background: transparent;
+        padding: 0 5px;
+        padding-bottom: 30px;
 
         color: #999999;
         transition: background 0.3s;
@@ -175,7 +194,7 @@ export const Content = styled.div`
         display: flex;
     }
     span.options {
-        display: flex;
+        /* display: flex; */
         text-align: left;
         width: 100%;
         color: #999999;

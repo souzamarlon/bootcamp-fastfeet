@@ -46,7 +46,7 @@ export default function ViewPackageInfo({ data }) {
                     <Popup
                         trigger={
                             <div>
-                                <button type="button">
+                                <button type="button" className="button-view">
                                     <Visibility
                                         fontSize="small"
                                         style={{
