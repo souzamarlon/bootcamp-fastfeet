@@ -234,16 +234,27 @@ export const PageActions = styled.div`
     padding-top: 15px;
     justify-content: center;
 
-    button.pages-button {
-        text-align: center;
+    .page-number {
+        /* margin: 4px 2px 0px 2px; */
+        padding: 5px 14px;
+        font-size: 12px;
+    }
+`;
 
-        padding-bottom: 5px;
+export const ButtonSwitchPages = styled.button`
+    background: transparent;
+    border: 0;
+
+    div.button-goback {
+        text-align: center;
         display: flex;
+        padding-top: 6px;
+        /* padding-bottom: 5px; */
         justify-content: center;
         height: 36px;
         width: 110px;
         background: #7d40e7;
-        font-weight: bold;
+        /* font-weight: bold; */
         color: #ffffff;
         border: 0;
         border-radius: 50px;
@@ -252,16 +263,32 @@ export const PageActions = styled.div`
         &:hover {
             background: ${darken(0.03, '#7d40e7')};
         }
-        strong.page-before {
-            margin: 4px 2px 0px 0px;
-        }
-        strong.page-next {
-            margin: 4px 2px 0px 10px;
+        strong.text-goback {
+            margin: 4px 2px 0 0;
         }
     }
-    .page-number {
-        /* margin: 4px 2px 0px 2px; */
-        padding: 5px 14px;
-        font-size: 12px;
+
+    div.button-next {
+        text-align: center;
+        display: flex;
+        padding-top: 6px;
+        /* padding-bottom: 5px; */
+        justify-content: center;
+        height: 36px;
+        width: 110px;
+        background: #7d40e7;
+        /* font-weight: bold; */
+        color: #ffffff;
+        border: 0;
+        border-radius: 50px;
+        box-shadow: 0 0 12px;
+        transition: background 0.3s;
+        &:hover {
+            background: ${darken(0.03, '#7d40e7')};
+        }
+
+        strong.text-next {
+            margin: 3px 2px 0px 10px;
+        }
     }
 `;

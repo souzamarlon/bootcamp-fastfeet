@@ -25,6 +25,7 @@ import {
     Content,
     Search,
     PageActions,
+    ButtonSwitchPages,
 } from './styles';
 
 export default function Recipient() {
@@ -193,27 +194,25 @@ export default function Recipient() {
                     </div>
                 )}
                 <PageActions>
-                    <button
-                        className="pages-button"
-                        type="button"
+                    <ButtonSwitchPages
                         disabled={page < 2}
                         onClick={() => handlePage('back')}
                     >
-                        <KeyboardArrowLeft />
-                        <strong className="page-before">Anterior</strong>
-                    </button>
-
+                        <div className="button-goback">
+                            <KeyboardArrowLeft />
+                            <strong className="text-goback">Anterior</strong>
+                        </div>
+                    </ButtonSwitchPages>
                     <span className="page-number">{`Página ${page}`}</span>
-
-                    <button
-                        className="pages-button"
-                        type="button"
+                    <ButtonSwitchPages
                         disabled={recipient.length <= 0}
                         onClick={() => handlePage('next')}
                     >
-                        <strong className="page-next">Próximo</strong>
-                        <KeyboardArrowRight />
-                    </button>
+                        <div className="button-next">
+                            <strong className="text-next">Próximo</strong>
+                            <KeyboardArrowRight />
+                        </div>
+                    </ButtonSwitchPages>
                 </PageActions>
             </Content>
         </Container>
