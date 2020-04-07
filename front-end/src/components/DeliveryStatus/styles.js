@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     span.DeliveryStatus {
         align-items: center;
-        font-size: 14px;
+        font-size: 1.4rem;
         text-align: left;
         border-radius: 12px;
 

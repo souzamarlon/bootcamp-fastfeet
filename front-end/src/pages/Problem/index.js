@@ -13,7 +13,13 @@ import LinesEllipsis from 'react-lines-ellipsis';
 import api from '~/services/api';
 import history from '~/services/history';
 
-import { Container, Title, Content, PageActions } from './styles';
+import {
+    Container,
+    Title,
+    Content,
+    PageActions,
+    ButtonSwitchPages,
+} from './styles';
 import ViewProblemDetail from '~/components/ViewProblemDetail';
 
 export default function Problem() {
@@ -134,31 +140,29 @@ export default function Problem() {
                         </h1>
                     </div>
                 )}
-
-                <PageActions>
-                    <button
-                        className="pages-button"
-                        type="button"
-                        disabled={page < 2}
-                        onClick={() => handlePage('back')}
-                    >
-                        <KeyboardArrowLeft />
-                        <strong className="page-before">Anterior</strong>
-                    </button>
-
-                    <span className="page-number">{`Página ${page}`}</span>
-
-                    <button
-                        className="pages-button"
-                        type="button"
-                        disabled={problem.length <= 0}
-                        onClick={() => handlePage('next')}
-                    >
-                        <strong className="page-next">Próximo</strong>
-                        <KeyboardArrowRight />
-                    </button>
-                </PageActions>
             </Content>
+
+            <PageActions>
+                <ButtonSwitchPages
+                    disabled={page < 2}
+                    onClick={() => handlePage('back')}
+                >
+                    <div className="button-goback">
+                        <KeyboardArrowLeft style={{ fontSize: 24 }} />
+                        <strong className="text-goback">Anterior</strong>
+                    </div>
+                </ButtonSwitchPages>
+                <span className="page-number">{`Página ${page}`}</span>
+                <ButtonSwitchPages
+                    disabled={problem.length <= 0}
+                    onClick={() => handlePage('next')}
+                >
+                    <div className="button-next">
+                        <strong className="text-next">Próximo</strong>
+                        <KeyboardArrowRight style={{ fontSize: 24 }} />
+                    </div>
+                </ButtonSwitchPages>
+            </PageActions>
         </Container>
     );
 }

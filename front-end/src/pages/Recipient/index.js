@@ -86,7 +86,10 @@ export default function Recipient() {
             </Title>
             <Header>
                 <Search>
-                    <SearchOutlined size={19} color="disabled" />
+                    <SearchOutlined
+                        style={{ fontSize: 20, marginTop: 2 }}
+                        color="disabled"
+                    />
                     <Form onSubmit={searchRecipient}>
                         <Input
                             name="search"
@@ -117,7 +120,7 @@ export default function Recipient() {
                 {recipient.length ? (
                     <tbody>
                         {recipient.map(item => (
-                            <tr>
+                            <tr key={item.id}>
                                 <td>
                                     <span className="id">{`#${item.id}`}</span>
                                 </td>
@@ -193,28 +196,29 @@ export default function Recipient() {
                         </h1>
                     </div>
                 )}
-                <PageActions>
-                    <ButtonSwitchPages
-                        disabled={page < 2}
-                        onClick={() => handlePage('back')}
-                    >
-                        <div className="button-goback">
-                            <KeyboardArrowLeft />
-                            <strong className="text-goback">Anterior</strong>
-                        </div>
-                    </ButtonSwitchPages>
-                    <span className="page-number">{`Página ${page}`}</span>
-                    <ButtonSwitchPages
-                        disabled={recipient.length <= 0}
-                        onClick={() => handlePage('next')}
-                    >
-                        <div className="button-next">
-                            <strong className="text-next">Próximo</strong>
-                            <KeyboardArrowRight />
-                        </div>
-                    </ButtonSwitchPages>
-                </PageActions>
             </Content>
+
+            <PageActions>
+                <ButtonSwitchPages
+                    disabled={page < 2}
+                    onClick={() => handlePage('back')}
+                >
+                    <div className="button-goback">
+                        <KeyboardArrowLeft style={{ fontSize: 24 }} />
+                        <strong className="text-goback">Anterior</strong>
+                    </div>
+                </ButtonSwitchPages>
+                <span className="page-number">{`Página ${page}`}</span>
+                <ButtonSwitchPages
+                    disabled={recipient.length <= 0}
+                    onClick={() => handlePage('next')}
+                >
+                    <div className="button-next">
+                        <strong className="text-next">Próximo</strong>
+                        <KeyboardArrowRight style={{ fontSize: 24 }} />
+                    </div>
+                </ButtonSwitchPages>
+            </PageActions>
         </Container>
     );
 }

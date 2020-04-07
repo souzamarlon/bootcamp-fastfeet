@@ -14,12 +14,14 @@ export default createGlobalStyle`
 }
 html, body, #root {
     height: 100%;
+    font-size: 62.5%;
 }
 body{
     -webkit-font-smoothing: antialiased;
 }
 body, input, button {
     font: 14px 'Roboto', sans-serif;
+
 }
 a {
    text-decoration: none;
@@ -30,4 +32,33 @@ ul {
 button {
     cursor: pointer;
 }
+
+@media (max-width: 1040px){
+    html{
+        font-size: 40%;
+    }
+}
+
+
+@media (max-width: 890px){
+    html{
+        font-size: 30%;
+    }
+
+    thead th {
+        height: 5vh;
+
+    }
+
+    tbody td {
+        height: 5vh;
+
+    }
+
+}
+
+.Toastify {
+    font-size: 1.6rem;
+}
+
 `;

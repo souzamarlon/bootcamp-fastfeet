@@ -4,7 +4,10 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
     align-items: center;
-    padding: 0 110px;
+    /* padding: 0 110px; */
+    margin: auto;
+    max-width: 1440;
+    width: 90%;
 `;
 
 export const Header = styled.div`
@@ -40,7 +43,7 @@ export const Search = styled.div`
     height: 36px;
     padding: 0 10px;
     display: flex;
-    padding-top: 5px;
+    padding-top: 7px;
 
     input {
         padding-top: 3px;
@@ -82,31 +85,30 @@ export const Button = styled.button`
     }
 `;
 
-export const Content = styled.div`
+export const Content = styled.table`
     width: 100%;
-    max-height: 57px;
+    /* max-height: 57px; */
     border: 0;
     border-radius: 4px;
-    padding-top: 22px;
+    border-collapse: separate;
+
+    border-spacing: 0 20px;
 
     thead th {
-        width: 1200px;
-        color: #000;
-        font-size: 16px;
-        line-height: 19px;
-        font-weight: bold;
-        /* padding: 12px; */
-        /* padding-top: 30px; */
-        padding-left: 25px;
         text-align: left;
-        padding-bottom: 10px;
+        color: #000;
+        font-size: 1.6rem;
+
+        line-height: 1.9rem;
+        font-weight: bold;
+        padding-left: 25px;
+        padding-top: 5px;
     }
 
     tbody td {
-        padding: 12px;
-        border-bottom: 21px solid #f5f5f5;
-        height: 57px;
+        height: 7vh;
         background: #ffff;
+        padding: 12px;
         padding-left: 25px;
         border-radius: 4px;
     }
@@ -124,8 +126,8 @@ export const Content = styled.div`
 
     span {
         margin-top: 5px;
-        font-size: 17px;
-        line-height: 20px;
+        font-size: 1.7rem;
+        line-height: 2rem;
     }
 
     button {
@@ -175,7 +177,6 @@ export const Content = styled.div`
     }
     hr.break-line {
         padding-top: 3px;
-
         border: 0;
         border-bottom: 1px solid #eeeeee;
     }
@@ -210,7 +211,6 @@ export const PageActions = styled.div`
 export const ButtonSwitchPages = styled.button`
     background: transparent;
     border: 0;
-
     div.button-goback {
         text-align: center;
         display: flex;
@@ -230,7 +230,7 @@ export const ButtonSwitchPages = styled.button`
             background: ${darken(0.03, '#7d40e7')};
         }
         strong.text-goback {
-            margin: 4px 2px 0 0;
+            margin-top: 3px;
         }
     }
 
@@ -254,7 +254,7 @@ export const ButtonSwitchPages = styled.button`
         }
 
         strong.text-next {
-            margin: 3px 2px 0px 10px;
+            margin: 3px 0 0 10px;
         }
     }
 `;

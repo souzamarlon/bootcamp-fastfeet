@@ -26,6 +26,7 @@ import {
     Content,
     Search,
     PageActions,
+    ButtonSwitchPages,
 } from './styles';
 
 export default function Deliverer() {
@@ -87,7 +88,10 @@ export default function Deliverer() {
             </Title>
             <Header>
                 <Search>
-                    <SearchOutlined size={19} color="disabled" />
+                    <SearchOutlined
+                        style={{ fontSize: 20, marginTop: 2 }}
+                        color="disabled"
+                    />
                     <Form onSubmit={searchDeliverers}>
                         <Input
                             name="search"
@@ -200,31 +204,30 @@ export default function Deliverer() {
                         </h1>
                     </div>
                 )}
-
-                <PageActions>
-                    <button
-                        className="pages-button"
-                        type="button"
-                        disabled={page < 2}
-                        onClick={() => handlePage('back')}
-                    >
-                        <KeyboardArrowLeft />
-                        <strong className="page-before">Anterior</strong>
-                    </button>
-
-                    <span className="page-number">{`Página ${page}`}</span>
-
-                    <button
-                        className="pages-button"
-                        type="button"
-                        disabled={deliverer.length < 1}
-                        onClick={() => handlePage('next')}
-                    >
-                        <strong className="page-next">Próximo</strong>
-                        <KeyboardArrowRight />
-                    </button>
-                </PageActions>
             </Content>
+
+            <PageActions>
+                <ButtonSwitchPages
+                    disabled={page < 2}
+                    onClick={() => handlePage('back')}
+                >
+                    <div className="button-goback">
+                        <KeyboardArrowLeft style={{ fontSize: 24 }} />
+                        <strong className="text-goback">Anterior</strong>
+                    </div>
+                </ButtonSwitchPages>
+
+                <span className="page-number">{`Página ${page}`}</span>
+                <ButtonSwitchPages
+                    disabled={deliverer.length < 1}
+                    onClick={() => handlePage('next')}
+                >
+                    <div className="button-next">
+                        <strong className="text-next">Próximo</strong>
+                        <KeyboardArrowRight style={{ fontSize: 24 }} />
+                    </div>
+                </ButtonSwitchPages>
+            </PageActions>
         </Container>
     );
 }

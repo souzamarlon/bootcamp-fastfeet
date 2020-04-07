@@ -93,7 +93,10 @@ export default function Package() {
             </Title>
             <Header>
                 <Search>
-                    <SearchOutlined size={19} color="disabled" />
+                    <SearchOutlined
+                        color="disabled"
+                        style={{ fontSize: 20, marginTop: 2 }}
+                    />
                     <Form onSubmit={searchProducts}>
                         <Input
                             name="search"
@@ -248,28 +251,29 @@ export default function Package() {
                         </h1>
                     </div>
                 )}
-                <PageActions>
-                    <ButtonSwitchPages
-                        disabled={page < 2}
-                        onClick={() => handlePage('back')}
-                    >
-                        <div className="button-goback">
-                            <KeyboardArrowLeft />
-                            <strong className="text-goback">Anterior</strong>
-                        </div>
-                    </ButtonSwitchPages>
-                    <span className="page-number">{`Página ${page}`}</span>
-                    <ButtonSwitchPages
-                        disabled={packages.length < 1}
-                        onClick={() => handlePage('next')}
-                    >
-                        <div className="button-next">
-                            <strong className="text-next">Próximo</strong>
-                            <KeyboardArrowRight />
-                        </div>
-                    </ButtonSwitchPages>
-                </PageActions>
             </Content>
+
+            <PageActions>
+                <ButtonSwitchPages
+                    disabled={page < 2}
+                    onClick={() => handlePage('back')}
+                >
+                    <div className="button-goback">
+                        <KeyboardArrowLeft style={{ fontSize: 24 }} />
+                        <strong className="text-goback">Anterior</strong>
+                    </div>
+                </ButtonSwitchPages>
+                <span className="page-number">{`Página ${page}`}</span>
+                <ButtonSwitchPages
+                    disabled={packages.length < 1}
+                    onClick={() => handlePage('next')}
+                >
+                    <div className="button-next">
+                        <strong className="text-next">Próximo</strong>
+                        <KeyboardArrowRight style={{ fontSize: 24 }} />
+                    </div>
+                </ButtonSwitchPages>
+            </PageActions>
         </Container>
     );
 }

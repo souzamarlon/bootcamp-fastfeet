@@ -28,6 +28,7 @@ export const Content = styled.div`
             border-right: 1px solid #dddddd;
         }
         a {
+            font-size: 1.5rem;
             margin-right: 15px;
             font-weight: bold;
             color: #999999;
@@ -55,13 +56,13 @@ export const Profile = styled.div`
         strong {
             display: block;
             color: #666666;
-            font-size: 14px;
-            line-height: 16px;
+            font-size: 1.4rem;
+            line-height: 1.6rem;
         }
         button {
             display: 1;
             /* margin-top: 2px; */
-            font-size: 12px;
+            font-size: 1.2rem;
             background: #ffff;
             color: #de3b3b;
             border: 0;

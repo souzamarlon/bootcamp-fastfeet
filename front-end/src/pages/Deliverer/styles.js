@@ -4,7 +4,10 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
     align-items: center;
-    padding: 0 110px;
+    /* padding: 0 110px; */
+    margin: auto;
+    max-width: 1440;
+    width: 90%;
 `;
 
 export const Header = styled.div`
@@ -23,7 +26,7 @@ export const Title = styled.div`
     span {
         color: #444444;
         align-content: center;
-        font-size: 24px;
+        font-size: 2.4rem;
         line-height: 37px;
         font-weight: bold;
         width: 223px;
@@ -39,8 +42,7 @@ export const Search = styled.div`
     height: 36px;
     padding: 0 10px;
     display: flex;
-    padding-top: 5px;
-
+    padding-top: 7px;
     input {
         padding-top: 3px;
         padding-left: 3px;
@@ -84,7 +86,7 @@ export const Button = styled.button`
 
 export const Content = styled.div`
     width: 100%;
-    max-height: 57px;
+    /* max-height: 57px; */
     border: 0;
     border-radius: 4px;
     padding-top: 22px;
@@ -92,8 +94,8 @@ export const Content = styled.div`
     thead th {
         width: 1200px;
         color: #000;
-        font-size: 16px;
-        line-height: 19px;
+        font-size: 1.6rem;
+        line-height: 1.9rem;
         font-weight: bold;
         text-align: left;
         padding-bottom: 10px;
@@ -122,8 +124,8 @@ export const Content = styled.div`
 
     span {
         margin-top: 5px;
-        font-size: 17px;
-        line-height: 20px;
+        font-size: 1.7rem;
+        line-height: 2rem;
     }
 
     button {
@@ -172,7 +174,7 @@ export const Content = styled.div`
         align-items: center;
         color: #999999;
         padding-left: 10px;
-        font-size: 16px;
+        font-size: 1.6rem;
     }
     hr.break-line {
         padding-top: 3px;
@@ -211,16 +213,27 @@ export const PageActions = styled.div`
     padding-top: 15px;
     justify-content: center;
 
-    button.pages-button {
-        text-align: center;
+    .page-number {
+        /* margin: 4px 2px 0px 2px; */
+        padding: 5px 14px;
+        font-size: 1.2rem;
+    }
+`;
 
-        padding-bottom: 5px;
+export const ButtonSwitchPages = styled.button`
+    background: transparent;
+    border: 0;
+
+    div.button-goback {
+        text-align: center;
         display: flex;
+        padding-top: 6px;
+        /* padding-bottom: 5px; */
         justify-content: center;
         height: 36px;
         width: 110px;
         background: #7d40e7;
-        font-weight: bold;
+        /* font-weight: bold; */
         color: #ffffff;
         border: 0;
         border-radius: 50px;
@@ -229,16 +242,32 @@ export const PageActions = styled.div`
         &:hover {
             background: ${darken(0.03, '#7d40e7')};
         }
-        strong.page-before {
-            margin: 4px 2px 0px 0px;
-        }
-        strong.page-next {
-            margin: 4px 2px 0px 10px;
+        strong.text-goback {
+            margin-top: 3px;
         }
     }
-    .page-number {
-        /* margin: 4px 2px 0px 2px; */
-        padding: 5px 14px;
-        font-size: 12px;
+
+    div.button-next {
+        text-align: center;
+        display: flex;
+        padding-top: 6px;
+        /* padding-bottom: 5px; */
+        justify-content: center;
+        height: 36px;
+        width: 110px;
+        background: #7d40e7;
+        /* font-weight: bold; */
+        color: #ffffff;
+        border: 0;
+        border-radius: 50px;
+        box-shadow: 0 0 12px;
+        transition: background 0.3s;
+        &:hover {
+            background: ${darken(0.03, '#7d40e7')};
+        }
+
+        strong.text-next {
+            margin: 3px 0 0 10px;
+        }
     }
 `;
