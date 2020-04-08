@@ -4,11 +4,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
     align-items: center;
-
-    /* background: #ffff; */
-    /* padding: 0 110px; */
     margin: auto;
-    max-width: 1440;
     width: 90%;
 `;
 
@@ -89,15 +85,14 @@ export const Button = styled.button`
     }
 `;
 
-export const Content = styled.div`
+export const Content = styled.table`
     width: 100%;
-    /* max-height: 57px; */
     border: 0;
     border-radius: 4px;
-    padding-top: 22px;
+    border-collapse: separate;
+    border-spacing: 0 20px;
 
     thead th {
-        width: 1200px;
         text-align: left;
         color: #000;
         font-size: 1.6rem;
@@ -105,16 +100,14 @@ export const Content = styled.div`
         line-height: 1.9rem;
         font-weight: bold;
         padding-left: 25px;
-        padding-bottom: 10px;
+        padding-top: 5px;
     }
 
     tbody td {
-        height: 8vh;
+        height: 7vh;
         background: #ffff;
         padding: 12px;
         padding-left: 25px;
-        border-bottom: 21px solid #f5f5f5;
-        border-radius: 4px;
     }
 
     th.action {
@@ -136,12 +129,11 @@ export const Content = styled.div`
     }
     .max-lines {
         font-size: 1.7rem;
-        display: inline-block;
+        /* white-space: nowrap; */
         width: 100%;
-        max-width: 200px;
-        line-height: 2rem;
-        word-wrap: break-word;
+        max-width: 150px;
         overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     button.more-button {
@@ -198,6 +190,7 @@ export const Content = styled.div`
         padding-bottom: 30px;
         display: flex;
     }
+
     span.options {
         /* display: flex; */
         text-align: left;
@@ -206,6 +199,7 @@ export const Content = styled.div`
         padding-left: 10px;
         font-size: 1.6rem;
     }
+
     span.deliverer {
         align-items: center;
         display: flex;
@@ -217,6 +211,12 @@ export const Content = styled.div`
         height: 35px;
         border-radius: 100%;
     }
+`;
+
+export const NoMorePackages = styled.div`
+    width: 100%;
+    /* background: #000; */
+    align-self: center;
 
     .empty-box {
         text-align: center;
@@ -232,6 +232,7 @@ export const Content = styled.div`
         width: 70px;
     }
 `;
+
 export const PageActions = styled.div`
     background: transparent;
     border: 0;

@@ -6,7 +6,6 @@ export const Container = styled.div`
     align-items: center;
     /* padding: 0 110px; */
     margin: auto;
-    max-width: 1440;
     width: 90%;
 `;
 
@@ -15,7 +14,6 @@ export const Title = styled.div`
     align-items: center;
     margin-top: 40px;
     margin-bottom: 34px;
-
     span {
         color: #444444;
         align-content: center;
@@ -27,70 +25,62 @@ export const Title = styled.div`
     }
 `;
 
-export const Content = styled.div`
+export const Content = styled.table`
     width: 100%;
     border: 0;
     border-radius: 4px;
-    padding-top: 22px;
+    border-collapse: separate;
 
-    th.delivery {
-        padding-right: 100px;
-    }
+    border-spacing: 0 20px;
+    text-align: left;
 
     thead th {
-        width: 1200px;
+        text-align: left;
         color: #000;
         font-size: 1.6rem;
+
         line-height: 1.9rem;
         font-weight: bold;
-        padding: 12px;
-        text-align: left;
-        padding-bottom: 10px;
+        padding-left: 25px;
+        padding-top: 5px;
     }
 
     tbody td {
-        padding: 12px;
-        border-bottom: 21px solid #f5f5f5;
-        height: 9vh;
+        height: 7vh;
         background: #ffff;
-        border-radius: 4px;
+        padding: 12px;
+        padding-left: 25px;
     }
     th.action {
         align-items: center;
         text-align: right;
         padding-right: 25px;
     }
-
     td.action {
         align-items: center;
         text-align: right;
         padding-right: 35px;
     }
-
     span {
         margin-top: 5px;
         font-size: 1.7rem;
     }
     .max-lines {
         font-size: 1.7rem;
-        display: inline-block;
-        width: 900px;
-        word-wrap: break-word;
+        white-space: nowrap;
+        width: 100%;
         overflow: hidden;
+        text-overflow: ellipsis;
     }
-
     button {
         background: transparent;
         padding-top: 5px;
         border: 0px;
-
         div.iconMoreHoriz {
             padding-top: 5px;
-
             border-radius: 50%;
         }
     }
-
     button.actions {
         align-items: center;
         height: 30px;
@@ -99,14 +89,12 @@ export const Content = styled.div`
         display: flex;
         text-align: left;
         padding: 5px;
-
         color: #999999;
         transition: background 0.3s;
         &:hover {
             background: ${darken(0.03, '#ffffff')};
         }
     }
-
     a {
         text-align: left;
         align-items: center;
@@ -121,6 +109,12 @@ export const Content = styled.div`
         padding-left: 10px;
         font-size: 1.6rem;
     }
+`;
+
+export const NoMoreProblems = styled.div`
+    width: 100%;
+
+    align-self: center;
 
     .warning-text {
         text-align: center;
@@ -141,7 +135,6 @@ export const PageActions = styled.div`
     display: flex;
     padding-top: 15px;
     justify-content: center;
-
     .page-number {
         padding: 5px 14px;
         font-size: 1.2rem;
@@ -171,7 +164,6 @@ export const ButtonSwitchPages = styled.button`
             margin-top: 3px;
         }
     }
-
     div.button-next {
         text-align: center;
         display: flex;
@@ -188,7 +180,6 @@ export const ButtonSwitchPages = styled.button`
         &:hover {
             background: ${darken(0.03, '#7d40e7')};
         }
-
         strong.text-next {
             margin: 3px 0 0 10px;
         }

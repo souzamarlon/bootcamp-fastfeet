@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import history from '~/services/history';
 import api from '~/services/api';
 
-import { Container, Content, Title, Button, FormInput } from './styles';
+import { Container, Header, Title, Button, FormInput } from './styles';
 import AsyncSelect from '../../../components/AsyncSelect';
 
 export default function NewPackage() {
@@ -72,9 +72,9 @@ export default function NewPackage() {
     }
 
     return (
-        <>
+        <Container>
             <Form schema={schema} onSubmit={handleSubmit}>
-                <Container>
+                <Header>
                     <Title>
                         <h1>Cadastro de encomendas</h1>
                     </Title>
@@ -91,47 +91,53 @@ export default function NewPackage() {
                             <strong>SALVAR</strong>
                         </div>
                     </Button>
-                </Container>
-                <Content>
-                    <FormInput>
-                        <thead>
-                            <tr>
-                                <th>Destinatário</th>
-                                <th>Entregador</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <AsyncSelect
-                                        className="select"
-                                        name="recipient_id"
-                                        // cacheOptions
-                                        defaultOptions
-                                        options={loadRecipients}
-                                    />
-                                </td>
-                                <td>
-                                    <AsyncSelect
-                                        className="select"
-                                        name="deliveryman_id"
-                                        // cacheOptions
-                                        defaultOptions
-                                        options={loadDeliverers}
-                                    />
-                                </td>
-                            </tr>
-                        </tbody>
+                </Header>
 
-                        <p>Nome do produto</p>
-                        <Input
-                            className="name"
-                            name="product"
-                            placeholder="Nome do produto..."
-                        />
-                    </FormInput>
-                </Content>
+                <FormInput>
+                    <thead>
+                        <tr>
+                            <th>Destinatário</th>
+                            <th>Entregador</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <AsyncSelect
+                                    name="recipient_id"
+                                    // cacheOptions
+                                    defaultOptions
+                                    options={loadRecipients}
+                                />
+                            </td>
+                            <td>
+                                <AsyncSelect
+                                    name="deliveryman_id"
+                                    // cacheOptions
+                                    defaultOptions
+                                    options={loadDeliverers}
+                                />
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th style={{ paddingTop: 40 }}>Nome do produto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <Input
+                                    className="name"
+                                    name="product"
+                                    placeholder="Nome do produto..."
+                                />
+                            </td>
+                        </tr>
+                    </tbody>
+                </FormInput>
             </Form>
-        </>
+        </Container>
     );
 }

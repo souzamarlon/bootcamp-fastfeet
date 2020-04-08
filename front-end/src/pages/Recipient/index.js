@@ -26,6 +26,7 @@ import {
     Search,
     PageActions,
     ButtonSwitchPages,
+    NoMoreRecipients,
 } from './styles';
 
 export default function Recipient() {
@@ -107,17 +108,17 @@ export default function Recipient() {
                     </Link>
                 </Button>
             </Header>
+            {recipient.length ? (
+                <Content>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Endereço</th>
+                            <th className="action">Ações</th>
+                        </tr>
+                    </thead>
 
-            <Content>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Endereço</th>
-                        <th className="action">Ações</th>
-                    </tr>
-                </thead>
-                {recipient.length ? (
                     <tbody>
                         {recipient.map(item => (
                             <tr key={item.id}>
@@ -183,7 +184,9 @@ export default function Recipient() {
                             </tr>
                         ))}
                     </tbody>
-                ) : (
+                </Content>
+            ) : (
+                <NoMoreRecipients>
                     <div className="recipient-icon">
                         <img
                             src={recipientIcon}
@@ -195,9 +198,8 @@ export default function Recipient() {
                             Não encontramos mais destinatários!
                         </h1>
                     </div>
-                )}
-            </Content>
-
+                </NoMoreRecipients>
+            )}
             <PageActions>
                 <ButtonSwitchPages
                     disabled={page < 2}

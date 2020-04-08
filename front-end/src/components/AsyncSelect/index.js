@@ -45,6 +45,8 @@ export default function ReactSelect({ name, label, options, ...rest }) {
                 getOptionValue={option => option.id}
                 getOptionLabel={option => option.name}
                 {...rest}
+                placeholder="Selecionar..."
+                className="select-style"
             />
 
             {error && <span>{error}</span>}

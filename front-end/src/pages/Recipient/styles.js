@@ -4,9 +4,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
     align-items: center;
-    /* padding: 0 110px; */
     margin: auto;
-    max-width: 1440;
     width: 90%;
 `;
 
@@ -110,7 +108,6 @@ export const Content = styled.table`
         background: #ffff;
         padding: 12px;
         padding-left: 25px;
-        border-radius: 4px;
     }
     th.action {
         align-items: center;
@@ -180,6 +177,12 @@ export const Content = styled.table`
         border: 0;
         border-bottom: 1px solid #eeeeee;
     }
+`;
+
+export const NoMoreRecipients = styled.div`
+    width: 100%;
+    /* background: #000; */
+    align-self: center;
 
     .recipient-icon {
         text-align: center;
@@ -195,6 +198,7 @@ export const Content = styled.table`
         width: 70px;
     }
 `;
+
 export const PageActions = styled.div`
     background: transparent;
     border: 0;

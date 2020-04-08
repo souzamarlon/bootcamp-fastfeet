@@ -27,6 +27,7 @@ import {
     Search,
     PageActions,
     ButtonSwitchPages,
+    NoMoreDeliverers,
 } from './styles';
 
 export default function Deliverer() {
@@ -109,18 +110,18 @@ export default function Deliverer() {
                     </Link>
                 </Button>
             </Header>
+            {deliverer.length ? (
+                <Content>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Foto</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th className="action">Ações</th>
+                        </tr>
+                    </thead>
 
-            <Content>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Foto</th>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th className="action">Ações</th>
-                    </tr>
-                </thead>
-                {deliverer.length ? (
                     <tbody>
                         {deliverer.map(item => (
                             <tr>
@@ -192,7 +193,9 @@ export default function Deliverer() {
                             </tr>
                         ))}
                     </tbody>
-                ) : (
+                </Content>
+            ) : (
+                <NoMoreDeliverers>
                     <div className="supplier">
                         <img
                             src={supplierIcon}
@@ -200,11 +203,11 @@ export default function Deliverer() {
                             alt=""
                         />
                         <h1 className="supplier">
-                            Não encontramos mais entregadores!
+                            Não encontramos entregadores!
                         </h1>
                     </div>
-                )}
-            </Content>
+                </NoMoreDeliverers>
+            )}
 
             <PageActions>
                 <ButtonSwitchPages

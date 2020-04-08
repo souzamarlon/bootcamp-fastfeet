@@ -9,7 +9,6 @@ import {
 
 import Popup from 'reactjs-popup';
 import { toast } from 'react-toastify';
-import LinesEllipsis from 'react-lines-ellipsis';
 import api from '~/services/api';
 import history from '~/services/history';
 
@@ -19,6 +18,7 @@ import {
     Content,
     PageActions,
     ButtonSwitchPages,
+    NoMoreProblems,
 } from './styles';
 import ViewProblemDetail from '~/components/ViewProblemDetail';
 
@@ -63,31 +63,28 @@ export default function Problem() {
             <Title>
                 <span>Problemas na entrega</span>
             </Title>
+            {problem.length ? (
+                <Content>
+                    <thead>
+                        <tr>
+                            {/* <th className="delivery">Encomenda</th> */}
+                            <th>Encomenda</th>
 
-            <Content>
-                <thead>
-                    <tr>
-                        <th className="delivery">Encomenda</th>
-                        <th>Problema</th>
-                        <th className="action">Ações</th>
-                    </tr>
-                </thead>
-                {problem.length ? (
+                            <th>Problema</th>
+                            <th className="action">Ações</th>
+                        </tr>
+                    </thead>
+
                     <tbody>
                         {problem.map(item => (
                             <tr>
                                 <td>
                                     <span className="package">{`#${item.delivery_id}`}</span>
                                 </td>
-                                <td>
-                                    <LinesEllipsis
-                                        text={item.description}
-                                        maxLine="1"
-                                        ellipsis="..."
-                                        trimRight
-                                        basedOn="letters"
-                                        className="max-lines"
-                                    />
+                                <td style={{ maxWidth: 100, width: '100%' }}>
+                                    <p className="max-lines">
+                                        {item.description}
+                                    </p>
                                 </td>
                                 <td className="action">
                                     <Popup
@@ -132,15 +129,17 @@ export default function Problem() {
                             </tr>
                         ))}
                     </tbody>
-                ) : (
+                </Content>
+            ) : (
+                <NoMoreProblems>
                     <div className="warning-text">
                         <Warning color="secondary" fontSize="large" />
                         <h1 className="warning-text">
                             Não encontramos mais problemas!
                         </h1>
                     </div>
-                )}
-            </Content>
+                </NoMoreProblems>
+            )}
 
             <PageActions>
                 <ButtonSwitchPages

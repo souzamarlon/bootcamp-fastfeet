@@ -14,8 +14,6 @@ import {
 
 import Popup from 'reactjs-popup';
 import { toast } from 'react-toastify';
-import LinesEllipsis from 'react-lines-ellipsis';
-
 import { Link } from 'react-router-dom';
 import emptyBox from '~/assets/emptyBox.png';
 
@@ -33,6 +31,7 @@ import {
     Search,
     PageActions,
     ButtonSwitchPages,
+    NoMorePackages,
 } from './styles';
 
 export default function Package() {
@@ -114,21 +113,21 @@ export default function Package() {
                     </Link>
                 </Button>
             </Header>
+            {packages.length ? (
+                <Content>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome do Produto</th>
+                            <th>Destinatário</th>
+                            <th>Entregador</th>
+                            <th>Cidade</th>
+                            <th>Estado</th>
+                            <th>Status</th>
+                            <th className="action">Ações</th>
+                        </tr>
+                    </thead>
 
-            <Content>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome do Produto</th>
-                        <th>Destinatário</th>
-                        <th>Entregador</th>
-                        <th>Cidade</th>
-                        <th>Estado</th>
-                        <th>Status</th>
-                        <th className="action">Ações</th>
-                    </tr>
-                </thead>
-                {packages.length ? (
                     <tbody>
                         {packages.map(item => (
                             <tr key={item.id}>
@@ -136,15 +135,15 @@ export default function Package() {
                                     <span className="id">{`#${item.id}`}</span>
                                 </td>
                                 <td>
-                                    <LinesEllipsis
+                                    {/* <LinesEllipsis
                                         text={item.product}
                                         maxLine="1"
                                         ellipsis="..."
                                         trimRight
                                         basedOn="letters"
                                         className="max-lines"
-                                    />
-                                    {/* <span className="id">{item.product}</span> */}
+                                    /> */}
+                                    <p className="max-lines">{item.product}</p>
                                 </td>
                                 <td>
                                     <span className="recipient">
@@ -243,16 +242,17 @@ export default function Package() {
                             </tr>
                         ))}
                     </tbody>
-                ) : (
+                </Content>
+            ) : (
+                <NoMorePackages>
                     <div className="empty-box">
                         <img src={emptyBox} className="empty-box-img" alt="" />
                         <h1 className="empty-box">
-                            Não encontramos mais encomendas!
+                            Não encontramos encomendas!
                         </h1>
                     </div>
-                )}
-            </Content>
-
+                </NoMorePackages>
+            )}
             <PageActions>
                 <ButtonSwitchPages
                     disabled={page < 2}

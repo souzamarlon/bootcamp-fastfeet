@@ -45,15 +45,7 @@ button {
         font-size: 30%;
     }
 
-    thead th {
-        height: 5vh;
 
-    }
-
-    tbody td {
-        height: 5vh;
-
-    }
 
 }
 

@@ -4,9 +4,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
     align-items: center;
-    /* padding: 0 110px; */
     margin: auto;
-    max-width: 1440;
     width: 90%;
 `;
 
@@ -84,32 +82,32 @@ export const Button = styled.button`
     }
 `;
 
-export const Content = styled.div`
+export const Content = styled.table`
     width: 100%;
-    /* max-height: 57px; */
     border: 0;
     border-radius: 4px;
-    padding-top: 22px;
+    border-collapse: separate;
+
+    border-spacing: 0 20px;
 
     thead th {
-        width: 1200px;
+        text-align: left;
         color: #000;
         font-size: 1.6rem;
+
         line-height: 1.9rem;
         font-weight: bold;
-        text-align: left;
-        padding-bottom: 10px;
         padding-left: 25px;
+        padding-top: 5px;
     }
 
     tbody td {
-        padding: 12px;
-        border-bottom: 21px solid #f5f5f5;
-        height: 57px;
+        height: 7vh;
         background: #ffff;
+        padding: 12px;
         padding-left: 25px;
-        border-radius: 4px;
     }
+
     th.action {
         align-items: center;
         text-align: right;
@@ -189,6 +187,12 @@ export const Content = styled.div`
         align-items: center;
         display: flex;
     }
+`;
+
+export const NoMoreDeliverers = styled.div`
+    width: 100%;
+    /* background: #000; */
+    align-self: center;
 
     .supplier {
         text-align: center;

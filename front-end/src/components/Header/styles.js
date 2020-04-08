@@ -7,12 +7,14 @@ export const Container = styled.div`
     box-shadow: 20px 0 20px rgba(0, 0, 0, 0.2);
     justify-content: space-between;
     display: flex;
+    width: 100vw;
+    /* margin: auto; */
 `;
 export const Content = styled.div`
     display: flex;
     height: 64px;
-    width: 1440px;
     align-items: center;
+
     nav {
         display: flex;
         align-items: center;
@@ -32,13 +34,11 @@ export const Content = styled.div`
             margin-right: 15px;
             font-weight: bold;
             color: #999999;
-            /* color: ${props =>
-                props.open.deliver ? '#000000' : '#999999'}; */
         }
         a:hover {
             color: #000000;
         }
-        .active{
+        .active {
             color: #000000;
         }
     }
@@ -46,9 +46,6 @@ export const Content = styled.div`
 export const Profile = styled.div`
     display: flex;
     align-items: center;
-
-    /* margin-left: 20px; */
-    /* padding-left: 20px; */
 
     div {
         text-align: right;
@@ -61,7 +58,6 @@ export const Profile = styled.div`
         }
         button {
             display: 1;
-            /* margin-top: 2px; */
             font-size: 1.2rem;
             background: #ffff;
             color: #de3b3b;

@@ -3,15 +3,23 @@ import styled from 'styled-components';
 export const Container = styled.div`
     width: 408px;
     align-items: center;
-    /* display: block; */
-    /* flex: 1; */
+    font-size: 1.4rem;
     background: #ffffff;
-    /* box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); */
-    height: 45px;
-    /* padding: 0 15px; */
-    /* margin: 0 auto; */
-    height: 10px;
-    line-height: 10px;
+
+    height: 2vh;
+    line-height: 1rem;
     color: #999999;
-    /* margin: 5px 0 10px; */
+    margin-right: 12px;
+
+    @media (min-width: 1217px) {
+        .select-style {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 890px) {
+        .select-style {
+            width: 90%;
+        }
+    }
 `;
