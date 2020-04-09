@@ -99,7 +99,7 @@ export default function Problem() {
                                         position="bottom center"
                                         // on="hover"
                                         contentStyle={{
-                                            width: '200px',
+                                            width: '10.41vw',
                                             borderRadius: '5%',
                                         }}
                                     >

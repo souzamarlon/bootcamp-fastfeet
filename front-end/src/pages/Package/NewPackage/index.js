@@ -81,13 +81,15 @@ export default function NewPackage() {
                     <Button>
                         <Link to="/packages">
                             <div className="go-back">
-                                <KeyboardArrowLeft style={{ fontSize: 24 }} />
+                                <KeyboardArrowLeft
+                                    style={{ fontSize: '2.4rem' }}
+                                />
                                 <strong>VOLTAR</strong>
                             </div>
                         </Link>
 
                         <div className="submit">
-                            <Done style={{ fontSize: 22 }} />
+                            <Done style={{ fontSize: '2.2rem' }} />
                             <strong>SALVAR</strong>
                         </div>
                     </Button>
@@ -120,9 +122,9 @@ export default function NewPackage() {
                             </td>
                         </tr>
                     </tbody>
-                    <thead>
+                    <thead style={{ paddingTop: 10 }}>
                         <tr>
-                            <th style={{ paddingTop: 40 }}>Nome do produto</th>
+                            <th>Nome do produto</th>
                         </tr>
                     </thead>
                     <tbody>

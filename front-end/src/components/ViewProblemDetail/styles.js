@@ -7,7 +7,7 @@ export const Container = styled.div`
     button {
         align-items: center;
         margin-top: 0;
-        width: 190px;
+        width: 9.89vw;
         display: flex;
         padding: 5px;
         border: 0;
@@ -23,30 +23,28 @@ export const Container = styled.div`
         text-align: left;
         color: #999999;
         padding-left: 10px;
-        font-size: 16px;
+        font-size: 1.6rem;
     }
 `;
 
 export const Content = styled.div`
     text-align: left;
-    width: 460px;
-    height: 425px;
+    width: 24vw;
+    height: 45vh;
     padding-top: 25px;
 
     h1.header {
         text-align: left;
         font-weight: bold;
-        font-size: 16px;
+        font-size: 1.6rem;
         color: #444444;
         padding-left: 20px;
         padding-top: 10px;
     }
     span.detail {
-        /* width: 397px; */
         color: #666666;
-        font-size: 16px;
+        font-size: 1.6rem;
         text-align: left;
-        /* border-bottom: 1px solid #eeeeee; */
         padding-top: 4px;
         padding-bottom: 8px;
         padding: 0 20px;

@@ -8,10 +8,10 @@ export const Container = styled.div`
         border-radius: 12px;
 
         padding-left: 5px;
-        padding-right: 9px;
+        padding-right: 12px;
 
         display: flex;
-        max-width: 110px;
+        width: 115px;
         font-weight: bold;
 
         justify-content: space-between;

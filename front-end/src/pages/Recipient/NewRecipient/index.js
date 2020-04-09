@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import history from '~/services/history';
 import api from '~/services/api';
 
-import { Container, Content, Title, Button, FormInput } from './styles';
+import { Container, Header, Title, Button, FormInput } from './styles';
 
 export default function NewRecipient() {
     const schema = Yup.object().shape({
@@ -35,96 +35,106 @@ export default function NewRecipient() {
     }
 
     return (
-        <>
+        <Container>
             <Form schema={schema} onSubmit={handleSubmit}>
-                <Container>
+                <Header>
                     <Title>
                         <h1>Cadastro de destinatário</h1>
                     </Title>
                     <Button>
                         <Link to="/recipients">
                             <div className="go-back">
-                                <KeyboardArrowLeft style={{ fontSize: 24 }} />
+                                <KeyboardArrowLeft
+                                    style={{ fontSize: '2.4rem' }}
+                                />
                                 <strong>VOLTAR</strong>
                             </div>
                         </Link>
 
                         <div className="submit">
-                            <Done style={{ fontSize: 22 }} />
+                            <Done style={{ fontSize: '2.2rem' }} />
                             <strong>SALVAR</strong>
                         </div>
                     </Button>
-                </Container>
-                <Content>
-                    <FormInput>
-                        <p>Nome</p>
-                        <Input name="name" placeholder="Nome completo" />
+                </Header>
 
-                        <thead>
-                            <tr>
-                                <th className="street">Rua</th>
-                                <th>Número</th>
-                                <th>Complemento</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <Input
-                                        className="street"
-                                        name="street"
-                                        placeholder="Nome da Rua..."
-                                    />
-                                </td>
-                                <td>
-                                    <Input
-                                        className="address"
-                                        name="number"
-                                        placeholder="Número da Rua..."
-                                    />
-                                </td>
-                                <td>
-                                    <Input
-                                        className="address"
-                                        name="complement"
-                                        placeholder="Complemento..."
-                                    />
-                                </td>
-                            </tr>
-                        </tbody>
-                        <thead className="cityState">
-                            <tr>
-                                <th>Cidade</th>
-                                <th>Estado</th>
-                                <th>CEP</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <FormInput>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
                             <td>
                                 <Input
-                                    className="cityState"
-                                    name="state"
-                                    placeholder="Cidade..."
+                                    name="name"
+                                    placeholder="Nome completo"
+                                />
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th>Rua</th>
+                            <th>Número</th>
+                            <th>Complemento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <Input
+                                    className="street"
+                                    name="street"
+                                    placeholder="Nome da Rua..."
                                 />
                             </td>
                             <td>
                                 <Input
-                                    className="cityState"
-                                    name="city"
-                                    placeholder="Estado..."
+                                    className="address"
+                                    name="number"
+                                    placeholder="Número da Rua..."
                                 />
                             </td>
                             <td>
-                                <Input
-                                    className="cityState"
-                                    name="zipcode"
-                                    placeholder="CEP..."
-                                />
+                                <Input className="address" name="complement" />
                             </td>
-                        </tbody>
-                    </FormInput>
-                </Content>
+                        </tr>
+                    </tbody>
+                    <thead className="cityState">
+                        <tr>
+                            <th>Cidade</th>
+                            <th>Estado</th>
+                            <th>CEP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td>
+                            <Input
+                                className="cityState"
+                                name="state"
+                                placeholder="Cidade..."
+                            />
+                        </td>
+                        <td>
+                            <Input
+                                className="cityState"
+                                name="city"
+                                placeholder="Estado..."
+                            />
+                        </td>
+                        <td>
+                            <Input
+                                className="cityState"
+                                name="zipcode"
+                                type="zipcode"
+                                placeholder="CEP..."
+                            />
+                        </td>
+                    </tbody>
+                </FormInput>
             </Form>
-        </>
+        </Container>
     );
 }

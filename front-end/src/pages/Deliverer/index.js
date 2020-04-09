@@ -90,7 +90,7 @@ export default function Deliverer() {
             <Header>
                 <Search>
                     <SearchOutlined
-                        style={{ fontSize: 20, marginTop: 2 }}
+                        style={{ fontSize: '2rem', marginTop: 2 }}
                         color="disabled"
                     />
                     <Form onSubmit={searchDeliverers}>
@@ -104,7 +104,7 @@ export default function Deliverer() {
                 <Button>
                     <Link to="/newdeliverer">
                         <div>
-                            <Add style={{ fontSize: 19 }} color="#FFF" />
+                            <Add style={{ fontSize: '1.9rem' }} color="#FFF" />
                             <strong>CADASTRAR</strong>
                         </div>
                     </Link>
@@ -215,7 +215,7 @@ export default function Deliverer() {
                     onClick={() => handlePage('back')}
                 >
                     <div className="button-goback">
-                        <KeyboardArrowLeft style={{ fontSize: 24 }} />
+                        <KeyboardArrowLeft style={{ fontSize: '2.4rem' }} />
                         <strong className="text-goback">Anterior</strong>
                     </div>
                 </ButtonSwitchPages>
@@ -227,7 +227,7 @@ export default function Deliverer() {
                 >
                     <div className="button-next">
                         <strong className="text-next">Próximo</strong>
-                        <KeyboardArrowRight style={{ fontSize: 24 }} />
+                        <KeyboardArrowRight style={{ fontSize: '2.4rem' }} />
                     </div>
                 </ButtonSwitchPages>
             </PageActions>

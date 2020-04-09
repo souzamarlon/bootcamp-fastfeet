@@ -9,10 +9,7 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-    /* width: 100%; */
-    /* max-width: 900px; */
     margin-top: 30px;
-    /* margin: 20px auto; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,7 +23,7 @@ export const Title = styled.div`
         font-size: 2.4rem;
         font-weight: bold;
         width: 100%;
-        height: 32px;
+        height: 3vh;
         text-align: left;
     }
 `;
@@ -40,9 +37,8 @@ export const Button = styled.button`
         display: flex;
         justify-content: center;
         padding-top: 7px;
-
         height: 36px;
-        width: 112px;
+        width: 110px;
         background: #cccccc;
         font-weight: bold;
         color: #ffffff;
@@ -54,6 +50,7 @@ export const Button = styled.button`
             background: ${darken(0.03, '#CCCCCC')};
         }
         > strong {
+            font-size: 1.4rem;
             margin: 4px 2px 0px 2px;
         }
     }
@@ -62,7 +59,7 @@ export const Button = styled.button`
         justify-content: center;
         padding-top: 7px;
         height: 36px;
-        width: 112px;
+        width: 110px;
         margin-left: 16px;
         background: #7d40e7;
         font-weight: bold;
@@ -75,6 +72,7 @@ export const Button = styled.button`
             background: ${darken(0.03, '#7D40E7')};
         }
         > strong {
+            font-size: 1.4rem;
             margin: 4px 0px 0px 5px;
         }
     }
@@ -82,7 +80,6 @@ export const Button = styled.button`
 
 export const FormInput = styled.table`
     height: 22vh;
-    margin: auto;
     border: 0;
     border-radius: 4px;
     border-collapse: collapse;
@@ -90,22 +87,16 @@ export const FormInput = styled.table`
     box-shadow: 0px 0 20px rgba(0, 0, 0, 0.2);
 
     background: #ffffff;
-
-    /* padding-top: 26px; */
-    /* margin: 20px; */
     display: flex;
     flex-direction: column;
 
     thead th {
-        width: 450px;
+        width: 440px;
         color: #000;
         font-size: 1.4rem;
-        /* line-height: 19px; */
         font-weight: bold;
         padding-top: 26px;
         padding-left: 30px;
-
-        /* padding-right: 45px; */
 
         text-align: left;
     }
@@ -117,27 +108,20 @@ export const FormInput = styled.table`
         border-radius: 4px;
     }
 
-    p {
-        display: flex;
-        font-size: 1.4rem;
-        font-weight: bold;
-        margin-top: 40px;
-        padding-left: 10px;
-    }
     .name {
         background: #ffffff;
         border: 0.5px solid #eee;
         /* box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); */
         border-radius: 4px;
-        width: 100vw;
-        max-width: 840px;
-        height: 45px;
+        width: 44vw;
+        height: 5vh;
         padding: 0 15px;
         color: #999999;
         /* margin: 5px 0 10px; */
         /* margin-left: 10px; */
 
         &::placeholder {
+            font-size: 1.4rem;
             color: #999999;
         }
     }

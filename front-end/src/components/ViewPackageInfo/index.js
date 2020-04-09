@@ -60,7 +60,7 @@ export default function ViewPackageInfo({ data }) {
                         modal
                         closeOnDocumentClick
                         contentStyle={{
-                            width: '460px',
+                            width: '24vw',
                             borderRadius: '5%',
                         }}
                     >
@@ -112,15 +112,9 @@ export default function ViewPackageInfo({ data }) {
                                 <span>
                                     <img
                                         src={
-                                            data.signature ? (
-                                                data.signature.url
-                                            ) : (
-                                                <img
-                                                    src="http://localhost:3333/files/0c09b96a5e11788e251684d74a956104.jpg"
-                                                    className="imgName"
-                                                    alt=""
-                                                />
-                                            )
+                                            data.signature
+                                                ? data.signature.url
+                                                : null
                                         }
                                         alt=""
                                         className="imgName"

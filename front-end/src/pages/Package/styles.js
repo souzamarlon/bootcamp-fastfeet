@@ -270,6 +270,7 @@ export const ButtonSwitchPages = styled.button`
             background: ${darken(0.03, '#7d40e7')};
         }
         strong.text-goback {
+            font-size: 14px;
             margin-top: 3px;
         }
     }
@@ -294,6 +295,7 @@ export const ButtonSwitchPages = styled.button`
         }
 
         strong.text-next {
+            font-size: 14px;
             margin: 3px 0 0 10px;
         }
     }

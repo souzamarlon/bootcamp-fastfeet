@@ -29,9 +29,9 @@ export default function ViewProblemDetail({ data }) {
                         modal
                         closeOnDocumentClick
                         contentStyle={{
-                            width: '460px',
+                            width: '23.95vw',
                             borderRadius: '5%',
-                            height: 'height: 425px',
+                            height: '45vh',
                         }}
                     >
                         <Content>

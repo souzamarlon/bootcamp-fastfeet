@@ -35,19 +35,10 @@ button {
 
 @media (max-width: 1040px){
     html{
-        font-size: 40%;
+        font-size: 60%;
     }
 }
 
-
-@media (max-width: 890px){
-    html{
-        font-size: 30%;
-    }
-
-
-
-}
 
 .Toastify {
     font-size: 1.6rem;

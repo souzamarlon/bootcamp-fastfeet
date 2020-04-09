@@ -3,32 +3,28 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-    height: 64px;
-    width: 100%;
-    max-width: 900px;
-    padding-top: 30px;
-    margin: 20px auto;
+    align-items: center;
+    margin: auto;
+    width: 48%;
+`;
+
+export const Header = styled.div`
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* align-items: center; */
 `;
 
 export const Title = styled.div`
     h1 {
         color: #444444;
         align-content: center;
-
-        font-size: 24px;
+        font-size: 2.4rem;
         /* line-height: 37px; */
         font-weight: bold;
         width: 100%;
-        height: 32px;
+        height: 3vh;
         text-align: left;
-
-        /* margin-right: 590px; */
-
-        /* margin: 0px 200px 0px 0px; */
     }
 `;
 
@@ -40,9 +36,8 @@ export const Button = styled.button`
         display: flex;
         justify-content: center;
         padding-top: 7px;
-
         height: 36px;
-        width: 112px;
+        width: 110px;
         background: #cccccc;
         font-weight: bold;
         color: #ffffff;
@@ -50,10 +45,12 @@ export const Button = styled.button`
         border-radius: 4px;
         box-shadow: 0 0 12px;
         transition: background 0.3s;
+
         &:hover {
             background: ${darken(0.03, '#CCCCCC')};
         }
         > strong {
+            font-size: 1.4rem;
             margin: 4px 2px 0px 2px;
         }
     }
@@ -62,7 +59,7 @@ export const Button = styled.button`
         justify-content: center;
         padding-top: 7px;
         height: 36px;
-        width: 112px;
+        width: 110px;
         margin-left: 16px;
         background: #7d40e7;
         font-weight: bold;
@@ -75,30 +72,23 @@ export const Button = styled.button`
             background: ${darken(0.03, '#7D40E7')};
         }
         > strong {
+            font-size: 1.4rem;
             margin: 4px 0px 0px 5px;
         }
     }
 `;
 
-export const Content = styled.div`
-    width: 100%;
-    max-width: 900px;
-    height: 300px;
-    margin: 0px auto;
-    /* padding: 10px; */
-    background: #ffff;
-    box-shadow: 0px 0 20px rgba(0, 0, 0, 0.2);
+export const FormInput = styled.table`
+    height: 32vh;
     border: 0;
     border-radius: 4px;
+    border-collapse: collapse;
+    margin-top: 20px;
+    padding-top: 20px;
+    box-shadow: 0px 0 20px rgba(0, 0, 0, 0.2);
+    padding-left: 30px;
 
     background: #ffffff;
-`;
-
-export const FormInput = styled.div`
-    width: 100%;
-    max-width: 900px;
-    padding-top: 26px;
-    margin: 20px;
     display: flex;
     flex-direction: column;
 
@@ -107,50 +97,31 @@ export const FormInput = styled.div`
         border: 0.5px solid #eee;
         /* box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); */
         border-radius: 4px;
-        width: 840px;
-        height: 45px;
+        width: 43.75vw;
+        height: 5vh;
         padding: 0 15px;
         color: #999999;
         margin: 5px 0 10px;
         &::placeholder {
+            font-size: 1.4rem;
             color: #999999;
         }
     }
 
-    p {
-        display: flex;
-        font-size: 14px;
-        font-weight: bold;
-        margin-top: 8px;
-    }
     thead th {
-        width: 900px;
+        width: 85%;
         color: #000;
-        font-size: 14px;
+        font-size: 1.4rem;
         /* line-height: 19px; */
         font-weight: bold;
         padding-top: 9px;
         text-align: left;
-    }
-
-    th.street {
-        width: 518px;
-        padding-right: 502px;
-    }
-
-    thead.cityState th {
-        width: 216px;
-        color: #000;
-        font-size: 14px;
-        /* line-height: 19px; */
-        font-weight: bold;
-        padding-top: 7px;
-        text-align: left;
+        padding-right: 105px;
     }
 
     tbody td {
         padding-top: 3px;
-        height: 57px;
+        height: 6vh;
         padding-right: 13px;
         border-radius: 4px;
     }
@@ -159,12 +130,13 @@ export const FormInput = styled.div`
         background: #ffffff;
         border: 0.5px solid #eee;
         border-radius: 4px;
-        width: 518px;
-        height: 45px;
+        width: 26.97vw;
+        height: 5vh;
         padding: 0 15px;
         color: #999999;
         margin: 5px 0 10px;
         &::placeholder {
+            font-size: 1.4rem;
             color: #999999;
         }
     }
@@ -175,13 +147,24 @@ export const FormInput = styled.div`
         border-radius: 4px;
         width: 100%;
         max-width: 148px;
-        height: 45px;
+        height: 5vh;
         padding: 0 15px;
         color: #999999;
         margin: 5px 0 10px;
         &::placeholder {
+            font-size: 1.4rem;
             color: #999999;
         }
+    }
+
+    thead.cityState th {
+        width: 15vw;
+        color: #000;
+        font-size: 1.4rem;
+        /* line-height: 19px; */
+        font-weight: bold;
+        padding-top: 7px;
+        text-align: left;
     }
 
     input.cityState {
@@ -189,14 +172,13 @@ export const FormInput = styled.div`
         border: 0.5px solid #eee;
         /* box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); */
         border-radius: 4px;
-        width: 100%;
-        max-width: 269px;
-
-        height: 45px;
+        width: 14.16vw;
+        height: 5vh;
         padding: 0 15px;
         color: #999999;
         margin: 5px 0 10px;
         &::placeholder {
+            font-size: 1.4rem;
             color: #999999;
         }
     }

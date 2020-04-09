@@ -7,7 +7,7 @@ export const Container = styled.div`
     box-shadow: 20px 0 20px rgba(0, 0, 0, 0.2);
     justify-content: space-between;
     display: flex;
-    width: 100vw;
+    /* width: 100vw; */
     /* margin: auto; */
 `;
 export const Content = styled.div`

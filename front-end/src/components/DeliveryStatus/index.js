@@ -12,9 +12,9 @@ export default function DeliveryStatus({ data }) {
                 {data.start_date && !data.end_date && !data.canceled_at ? (
                     <span
                         className="DeliveryStatus"
-                        STYLE="background-color: #BAD2FF; color: #4D85EE "
+                        style={{ backgroundColor: '#BAD2FF', color: '#4D85EE' }}
                     >
-                        <FiberManualRecord style={{ fontSize: 14 }} />
+                        <FiberManualRecord style={{ fontSize: '1.4rem' }} />
                         RETIRADA
                     </span>
                 ) : (
@@ -25,27 +25,36 @@ export default function DeliveryStatus({ data }) {
                     !data.canceled_at ? (
                         <span
                             className="DeliveryStatus"
-                            STYLE="background-color: #DFF0DF; color: #2CA42B;  "
+                            style={{
+                                backgroundColor: '#DFF0DF',
+                                color: '#2CA42B',
+                            }}
                         >
-                            <FiberManualRecord style={{ fontSize: 14 }} />
+                            <FiberManualRecord style={{ fontSize: '1.4rem' }} />
                             ENTREGUE
                         </span>
                     ) : null) ||
                     (!data.start_date && !data.end_date && !data.canceled_at ? (
                         <span
                             className="DeliveryStatus"
-                            STYLE="background-color: #F0F0DF; color: #C1BC35;  "
+                            style={{
+                                backgroundColor: '#F0F0DF',
+                                color: '#C1BC35',
+                            }}
                         >
-                            <FiberManualRecord style={{ fontSize: 14 }} />
+                            <FiberManualRecord style={{ fontSize: '1.4rem' }} />
                             PENDENTE
                         </span>
                     ) : null) ||
                     (data.canceled_at ? (
                         <span
                             className="DeliveryStatus"
-                            STYLE="background-color: #FAB0B0; color: #DE3B3B;  "
+                            style={{
+                                backgroundColor: '#FAB0B0',
+                                color: '#DE3B3B',
+                            }}
                         >
-                            <FiberManualRecord style={{ fontSize: 14 }} />
+                            <FiberManualRecord style={{ fontSize: '1.4rem' }} />
                             CANCELADA
                         </span>
                     ) : null)
@@ -58,7 +67,7 @@ export default function DeliveryStatus({ data }) {
 DeliveryStatus.propTypes = {
     data: PropTypes.shape({
         canceled_at: PropTypes.instanceOf(Date),
-        start_date: PropTypes.string,
+        start_date: PropTypes.instanceOf(Date),
         end_date: PropTypes.instanceOf(Date),
         signature_id: PropTypes.number,
     }).isRequired,

@@ -60,7 +60,7 @@ export default function Header() {
     return (
         <Container>
             <Content open={open}>
-                <nav media="(min-width: 768px)">
+                <nav>
                     <Link to="/packages">
                         <img src={logo} alt="Fastfeet" />
                     </Link>

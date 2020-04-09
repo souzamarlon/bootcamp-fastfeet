@@ -58,7 +58,7 @@ export default function AvatarInput({ name, avatarData }) {
                         <InsertPhotoIcon
                             className="photoIcon"
                             color="disabled"
-                            style={{ fontSize: 80 }}
+                            style={{ fontSize: '8rem' }}
                         />
                         <span className="addPicture">Adicionar foto</span>
                     </div>

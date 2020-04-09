@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import history from '~/services/history';
 import api from '~/services/api';
 
-import { Container, Content, Title, Button, FormInput } from './styles';
+import { Container, Header, Title, Button, FormInput } from './styles';
 import AvatarInput from '~/components/AvatarInput';
 
 export default function NewDeliverer() {
@@ -50,40 +50,41 @@ export default function NewDeliverer() {
     }
 
     return (
-        <>
+        <Container>
             <Form schema={schema} onSubmit={handleSubmit}>
-                <Container>
+                <Header>
                     <Title>
                         <h1>Cadastro de entregadores</h1>
                     </Title>
                     <Button>
                         <Link to="/deliverers">
                             <div className="go-back">
-                                <KeyboardArrowLeft style={{ fontSize: 24 }} />
+                                <KeyboardArrowLeft
+                                    style={{ fontSize: '2.4rem' }}
+                                />
                                 <strong>VOLTAR</strong>
                             </div>
                         </Link>
 
                         <div className="submit">
-                            <Done style={{ fontSize: 22 }} />
+                            <Done style={{ fontSize: '2.2rem' }} />
                             <strong>SALVAR</strong>
                         </div>
                     </Button>
-                </Container>
-                <Content>
-                    <FormInput>
-                        <AvatarInput name="avatar_id" />
-                        <p>Nome</p>
-                        <Input name="name" placeholder="Nome completo" />
-                        <p>Email</p>
-                        <Input
-                            name="email"
-                            type="email"
-                            placeholder="Seu endereço de e-mail"
-                        />
-                    </FormInput>
-                </Content>
+                </Header>
+
+                <FormInput>
+                    <AvatarInput name="avatar_id" />
+                    <p>Nome</p>
+                    <Input name="name" placeholder="Nome completo" />
+                    <p>Email</p>
+                    <Input
+                        name="email"
+                        type="email"
+                        placeholder="Seu endereço de e-mail"
+                    />
+                </FormInput>
             </Form>
-        </>
+        </Container>
     );
 }

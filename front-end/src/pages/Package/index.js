@@ -194,7 +194,7 @@ export default function Package() {
                                         // position="bottom center"
                                         // on="hover"
                                         contentStyle={{
-                                            width: '150px',
+                                            width: '7.81vw',
                                             borderRadius: '5%',
                                         }}
                                     >

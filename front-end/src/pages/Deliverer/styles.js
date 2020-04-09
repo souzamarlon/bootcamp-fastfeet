@@ -76,7 +76,7 @@ export const Button = styled.button`
             background: ${darken(0.03, '#7d40e7')};
         }
         > strong {
-            /* margin: 2px 0px 0px 15px; */
+            font-size: 1.4rem;
             margin: 2px 0px 0px 5px;
         }
     }
@@ -247,6 +247,7 @@ export const ButtonSwitchPages = styled.button`
             background: ${darken(0.03, '#7d40e7')};
         }
         strong.text-goback {
+            font-size: 1.4rem;
             margin-top: 3px;
         }
     }
@@ -271,6 +272,7 @@ export const ButtonSwitchPages = styled.button`
         }
 
         strong.text-next {
+            font-size: 1.4rem;
             margin: 3px 0 0 10px;
         }
     }

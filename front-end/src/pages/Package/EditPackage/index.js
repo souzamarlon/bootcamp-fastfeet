@@ -9,7 +9,7 @@ import * as Yup from 'yup';
 import history from '~/services/history';
 import api from '~/services/api';
 
-import { Container, Content, Title, Button, FormInput } from './styles';
+import { Header, Container, Title, Button, FormInput } from './styles';
 import AsyncSelect from '../../../components/AsyncSelect';
 
 export default function EditPackage({ match }) {
@@ -111,81 +111,90 @@ export default function EditPackage({ match }) {
     }
 
     return (
-        <>
+        <Container>
             <Form
                 schema={schema}
                 initialData={packages}
                 onSubmit={handleSubmit}
             >
-                <Container>
+                <Header>
                     <Title>
                         <h1>Edição de encomendas</h1>
                     </Title>
                     <Button>
                         <Link to="/packages">
                             <div className="go-back">
-                                <KeyboardArrowLeft style={{ fontSize: 24 }} />
+                                <KeyboardArrowLeft
+                                    style={{ fontSize: '2.4rem' }}
+                                />
                                 <strong>VOLTAR</strong>
                             </div>
                         </Link>
 
                         <div className="submit">
-                            <Done style={{ fontSize: 22 }} />
+                            <Done style={{ fontSize: '2.2rem' }} />
                             <strong>SALVAR</strong>
                         </div>
                     </Button>
-                </Container>
-                <Content>
-                    <FormInput>
-                        <thead>
-                            <tr>
-                                <th>Destinatário</th>
-                                <th>Entregador</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <AsyncSelect
-                                        className="select"
-                                        name="recipient_id"
-                                        // cacheOptions
-                                        value={recipient.find(
-                                            ({ id }) =>
-                                                id === packages.recipient.id
-                                        )}
-                                        defaultOptions
-                                        options={loadRecipients}
-                                        onChange={defineRecipient}
-                                    />
-                                </td>
-                                <td>
-                                    <AsyncSelect
-                                        className="select"
-                                        name="deliveryman_id"
-                                        // cacheOptions
-                                        value={deliverer.find(
-                                            ({ id }) =>
-                                                id === packages.deliveryman.id
-                                        )}
-                                        defaultOptions
-                                        options={loadDeliverers}
-                                        onChange={defineDeliverer}
-                                    />
-                                </td>
-                            </tr>
-                        </tbody>
+                </Header>
 
-                        <p>Nome do produto</p>
-                        <Input
-                            className="name"
-                            name="product"
-                            placeholder="Nome do produto..."
-                        />
-                    </FormInput>
-                </Content>
+                <FormInput>
+                    <thead>
+                        <tr>
+                            <th>Destinatário</th>
+                            <th>Entregador</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <AsyncSelect
+                                    className="select"
+                                    name="recipient_id"
+                                    // cacheOptions
+                                    value={recipient.find(
+                                        ({ id }) => id === packages.recipient.id
+                                    )}
+                                    defaultOptions
+                                    options={loadRecipients}
+                                    onChange={defineRecipient}
+                                />
+                            </td>
+                            <td>
+                                <AsyncSelect
+                                    className="select"
+                                    name="deliveryman_id"
+                                    // cacheOptions
+                                    value={deliverer.find(
+                                        ({ id }) =>
+                                            id === packages.deliveryman.id
+                                    )}
+                                    defaultOptions
+                                    options={loadDeliverers}
+                                    onChange={defineDeliverer}
+                                />
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead style={{ paddingTop: 10 }}>
+                        <tr>
+                            <th>Nome do produto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <Input
+                                    className="name"
+                                    name="product"
+                                    placeholder="Nome do produto..."
+                                />
+                            </td>
+                        </tr>
+                    </tbody>
+                </FormInput>
             </Form>
-        </>
+        </Container>
     );
 }
 
