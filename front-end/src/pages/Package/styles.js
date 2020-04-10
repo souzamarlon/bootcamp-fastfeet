@@ -129,9 +129,10 @@ export const Content = styled.table`
     }
     .max-lines {
         font-size: 1.7rem;
-        /* white-space: nowrap; */
-        width: 100%;
-        max-width: 150px;
+        white-space: nowrap;
+        width: 8vw;
+        /* width: 100%;
+        max-width: 150px; */
         overflow: hidden;
         text-overflow: ellipsis;
     }
