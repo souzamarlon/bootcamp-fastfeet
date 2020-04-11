@@ -19,6 +19,7 @@ export default function ConfirmDelivery({ navigation }) {
         end_date: new Date(),
       });
       Alert.alert('Sucesso!', 'Foto da assinatura foi enviada com sucesso!');
+      navigation.navigate('Dashboard');
 
       // console.tron.log(response.data);
     } catch (err) {
@@ -31,7 +32,7 @@ export default function ConfirmDelivery({ navigation }) {
       }
       if (upload.id) {
         Alert.alert('Falha ao enviar!', 'Erro ao confirmar a entrega!');
-        console.tron.log(err);
+        // console.tron.log(err);
       }
     }
   }
@@ -63,6 +64,7 @@ ConfirmDelivery.navigationOptions = ({ navigation }) => ({
 
 ConfirmDelivery.propTypes = {
   navigation: PropTypes.shape({
+    navigate: PropTypes.func,
     getParam: PropTypes.func,
     data: PropTypes.shape({
       id: PropTypes.number,

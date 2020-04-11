@@ -13,14 +13,14 @@ export default function NewProblems({ navigation }) {
 
   async function handleSubmit() {
     try {
-      const response = await api.post(`/delivery/${id}/problems`, {
+      await api.post(`/delivery/${id}/problems`, {
         description,
       });
       Alert.alert('Sucesso!', 'Seu problema foi cadastrado com sucesso!');
-      console.tron.log(response.data);
+      // console.tron.log(response.data);
     } catch (err) {
       Alert.alert('Falha!', 'Erro ao tentar enviar seu problema!');
-      console.tron.log(err);
+      // console.tron.log(err);
     }
   }
 

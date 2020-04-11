@@ -1,14 +1,16 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 import { Alert, ActivityIndicator, Text } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
+import ImageEditor from '@react-native-community/image-editor';
 import { Container, CameraButton, CameraIcon } from './styles';
 import api from '~/services/api';
 
 export default function Camera({ onChange, PackageId }) {
   const [loading, setLoading] = useState(false);
+  const [dataPic, setDataPic] = useState(false);
 
   const [flash, setFlash] = useState('off');
   const [zoom, setZoom] = useState(0.5);
@@ -22,27 +24,59 @@ export default function Camera({ onChange, PackageId }) {
   async function takePicture() {
     if (cameraRef) {
       const options = { quality: 0.5, base64: true };
-      const data = await cameraRef.current.takePictureAsync(options);
+      await cameraRef.current.takePictureAsync(options).then(capturedImg => {
+        const uriName = capturedImg.uri.split('/');
+        const name = uriName[uriName.length - 1];
 
-      const dataForm = new FormData();
-      dataForm.append('file', {
-        uri: data.uri,
-        name: `Signature_Package${PackageId}.jpg`,
-        type: 'image/*',
+        const { uri, width, height } = capturedImg;
+
+        const cropData = {
+          offset: { x: 0, y: 0 },
+          size: { width, height },
+          displaySize: { width: 300, height: 210 },
+        };
+        ImageEditor.cropImage(uri, cropData).then(
+          url => {
+            setDataPic({
+              name,
+              url,
+            });
+          },
+          error => {
+            console.error('Error resizing image: ', error.getMessage());
+          }
+        );
       });
-
-      setLoading(true);
-      const response = await api.post('files', dataForm);
-
-      if (response) {
-        const { id, url } = response.data;
-        onChange({ id, url });
-        Alert.alert('Upload da foto efetuado com sucesso!');
-
-        setLoading(false);
-      }
     }
   }
+
+  useEffect(() => {
+    async function sendPicture() {
+      if (dataPic) {
+        setLoading(true);
+        console.tron.log('dataPic:', dataPic);
+        const dataForm = new FormData();
+        dataForm.append('file', {
+          uri: dataPic.url,
+          name: dataPic.name,
+          type: 'image/*',
+        });
+
+        const response = await api.post('files', dataForm);
+
+        if (response) {
+          const { id, url } = response.data;
+          onChange({ id, url });
+          Alert.alert('Upload da foto efetuado com sucesso!');
+
+          setLoading(false);
+        }
+      }
+    }
+
+    sendPicture();
+    // eslint-disable-next-line
+  }, [dataPic]);
 
   return (
     <>
