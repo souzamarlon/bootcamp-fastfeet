@@ -37,17 +37,19 @@ export const Search = styled.div`
     border: 0.5px solid;
     /* box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); */
     border-radius: 4px;
-    width: 237px;
+    width: 100%;
+    max-width: 237px;
     height: 36px;
     padding: 0 10px;
     display: flex;
     padding-top: 7px;
 
     input {
-        padding-top: 3px;
+        padding-top: 2px;
         padding-left: 3px;
         border: 0;
         color: #999999;
+        width: 200px;
 
         &::placeholder {
             color: #999999;

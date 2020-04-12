@@ -46,10 +46,11 @@ export const Search = styled.div`
     padding-top: 7px;
 
     input {
-        padding-top: 3px;
+        padding-top: 2px;
         padding-left: 3px;
         border: 0;
         color: #999999;
+        width: 200px;
 
         &::placeholder {
             color: #999999;
