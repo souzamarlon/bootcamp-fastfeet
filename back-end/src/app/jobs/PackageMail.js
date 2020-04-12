@@ -9,15 +9,19 @@ class PackageMail {
     const { name, email, product } = data;
 
     console.log('A fila executou!');
-    await Mail.sendMail({
-      to: `${name} <${email}>`,
-      subject: 'Produto pronto para retirada!',
-      template: 'packages',
-      context: {
-        name,
-        product,
-      },
-    });
+    try {
+      await Mail.sendMail({
+        to: `${name} <${email}>`,
+        subject: 'Produto pronto para retirada!',
+        template: 'packages',
+        context: {
+          name,
+          product,
+        },
+      });
+    } catch (err) {
+      console.log('Error in PackageMail', err);
+    }
   }
 }
 

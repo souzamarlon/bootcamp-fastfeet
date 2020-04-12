@@ -9,15 +9,19 @@ class PackageCancelledMail {
     const { name, email, product } = data;
 
     console.log('A fila executou!');
-    await Mail.sendMail({
-      to: `${name} <${email}>`,
-      subject: 'Foi cancelada a retirada do produto!',
-      template: 'packageCancelled',
-      context: {
-        name,
-        product,
-      },
-    });
+    try {
+      await Mail.sendMail({
+        to: `${name} <${email}>`,
+        subject: 'Foi cancelada a retirada do produto!',
+        template: 'packageCancelled',
+        context: {
+          name,
+          product,
+        },
+      });
+    } catch (err) {
+      console.log('Error in PackageCancelledMail', err);
+    }
   }
 }
 
