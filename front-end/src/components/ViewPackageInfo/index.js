@@ -109,17 +109,15 @@ export default function ViewPackageInfo({ data }) {
                                 Assinatura do destinatário:
                             </h1>
                             <Signatures>
-                                <span>
-                                    <img
-                                        src={
-                                            data.signature
-                                                ? data.signature.url
-                                                : null
-                                        }
-                                        alt=""
-                                        className="imgName"
-                                    />
-                                </span>
+                                <img
+                                    src={
+                                        data.signature
+                                            ? data.signature.url
+                                            : null
+                                    }
+                                    alt=""
+                                    className="imgName"
+                                />
                             </Signatures>
                         </Content>
                         {/* </div>

@@ -102,13 +102,12 @@ export const Dates = styled.div`
 
 export const Signatures = styled.div`
     justify-content: center;
-    text-align: center;
+    align-self: center;
     display: flex;
 
     img.imgName {
-        width: 100%;
-        max-width: 15.41vw;
-        height: 10vh;
+        width: 15.62vw;
+        height: 11vh;
         border: 0;
         padding-top: 10px;
     }
