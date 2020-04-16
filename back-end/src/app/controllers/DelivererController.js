@@ -73,7 +73,7 @@ class DelivererController {
   async store(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
-      avatar_id: Yup.string().required(),
+      avatar_id: Yup.number().required(),
       email: Yup.string()
         .email()
         .required(),
