@@ -24,11 +24,11 @@ export default function Header() {
     function handleSignOut() {
         dispatch(signOut());
     }
+
+    // Get the current location.
+    const location = history.location.pathname;
     useEffect(() => {
         async function locationPath() {
-            // Get the current location.
-            const location = history.location.pathname;
-
             if (
                 location === '/packages' ||
                 location === '/newpackages' ||
@@ -56,7 +56,7 @@ export default function Header() {
         }
 
         locationPath();
-    }, []);
+    }, [location]);
 
     return (
         <Container>
