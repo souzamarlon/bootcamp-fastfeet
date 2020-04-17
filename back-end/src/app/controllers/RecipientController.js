@@ -22,11 +22,7 @@ class RecipientController {
     }
 
     // Return all the Recipients without Offset.
-    if (
-      findRecipient === null ||
-      findRecipient === undefined ||
-      findRecipient === ''
-    ) {
+    if (!findRecipient) {
       const recipientData = await Recipient.findAll({
         order: [['id', 'ASC']],
       });
@@ -34,7 +30,7 @@ class RecipientController {
       return res.json(recipientData);
     }
 
-    // Return all the Recipients with the same name like findPackage.
+    // it will find all the Recipients by name.
     const recipientName = await Recipient.findAll({
       where: {
         name: {

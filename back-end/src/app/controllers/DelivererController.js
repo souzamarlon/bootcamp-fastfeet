@@ -12,6 +12,7 @@ class DelivererController {
     const offset = (page - 1) * per_page;
     const limit = per_page;
 
+    // Return all the deliverers with offset.
     if (offset >= 0 && limit && !findDeliverer) {
       const delivererData = await Deliverer.findAll({
         offset,
@@ -30,11 +31,8 @@ class DelivererController {
       return res.json(delivererData);
     }
 
-    if (
-      findDeliverer === null ||
-      findDeliverer === undefined ||
-      findDeliverer === ''
-    ) {
+    // Return all the deliverers without offset.
+    if (!findDeliverer) {
       const delivererData = await Deliverer.findAll({
         attributes: ['id', 'name', 'email', 'avatar_id'],
         order: [['id', 'ASC']],
@@ -50,6 +48,7 @@ class DelivererController {
       return res.json(delivererData);
     }
 
+    // It will find the deliverer by his name.
     const delivererName = await Deliverer.findAll({
       where: {
         name: {
@@ -83,7 +82,7 @@ class DelivererController {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
-    // TODO - Check if the email is already using for someone.
+    // It will receive the Deliverer email to compare if it does not have any using the same email.
     const { email } = req.body;
     const [verifyEmail] = await Deliverer.findAll({
       where: {
@@ -97,6 +96,7 @@ class DelivererController {
         .json({ error: 'An account with this email already exists!' });
     }
 
+    // It will Save the deliverer register data.
     const delivererFields = await Deliverer.create(req.body);
 
     return res.json(delivererFields);

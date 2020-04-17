@@ -71,7 +71,7 @@ class PackageController {
     }
 
     // Return all the Packages without Offset.
-    if (findPackage === null || findPackage === undefined) {
+    if (!findPackage) {
       const packageData = await Package.findAll({
         order: [['id', 'ASC']],
         attributes: [
@@ -123,7 +123,7 @@ class PackageController {
       return res.json(packageData);
     }
 
-    // Return all the Packages with the same name like in findPackage.
+    // It will find all the Packages by name.
     const packageName = await Package.findAll({
       order: [['id', 'ASC']],
       offset,
@@ -184,15 +184,14 @@ class PackageController {
 
     const { name, email } = await Deliverer.findByPk(deliveryman_id);
 
-    // Quando a encomenda é cadastrada para um entregador, o entregador recebe um e-mail com detalhes da encomenda,
-    // com nome do produto e uma mensagem informando-o que o produto já está disponível para a retirada.
-
+    //  The deliverer will receive a email saying the package is available to pick up.
     await Queue.add(PackageMail.key, {
       name,
       email,
       product,
     });
 
+    // It will save the register data
     return res.json(
       await Package.create({ recipient_id, deliveryman_id, product })
     );

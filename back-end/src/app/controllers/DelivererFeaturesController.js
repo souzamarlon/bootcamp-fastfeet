@@ -143,15 +143,16 @@ class DelivererFeaturesController {
     const packageId = req.params.id;
 
     const { start_date, end_date, signature_id } = req.body;
-    const packageData = await Package.findByPk(packageId);
 
+    // It will check If the package will be delivery in a date above than when the package was pick up.
+    const packageData = await Package.findByPk(packageId);
     if (packageData.start_date > parseISO(end_date)) {
       return res.status(400).json({
         error: 'A data de entrega é menor que a data de retirada!',
       });
     }
 
-    // GetHours is
+    // It will check if the pick up hour is between 8 AM and 18 PM.
     if (
       getHours(parseISO(start_date)) <= 8 ||
       getHours(parseISO(start_date)) >= 18
@@ -161,7 +162,7 @@ class DelivererFeaturesController {
       });
     }
 
-    // Getting how many pickups the delivery man did in the same day.
+    // Getting how many pickups the delivery man did in the same day. The limit is 5.
     // Its possible to use the Brazilian UTC.
     const pickup = await Package.findAll({
       where: {

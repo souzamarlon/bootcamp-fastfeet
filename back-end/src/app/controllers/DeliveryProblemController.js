@@ -27,15 +27,15 @@ class DeliveryProblemController {
     }
 
     // Return all the problems without offset. - Probably I will remove this return in the future.
-    if (delivery_id === null || delivery_id === undefined) {
-      const packageData = await DeliveryProblem.findAll({
-        order: [['id', 'ASC']],
-      });
+    // if (delivery_id === null || delivery_id === undefined) {
+    //   const packageData = await DeliveryProblem.findAll({
+    //     order: [['id', 'ASC']],
+    //   });
 
-      return res.json(packageData);
-    }
+    //   return res.json(packageData);
+    // }
 
-    // Return the problems open by delivery_id
+    // Return the problems opened by delivery_id
     const deliveryData = await DeliveryProblem.findAll({
       order: [['id', 'ASC']],
       where: {
@@ -56,8 +56,10 @@ class DeliveryProblemController {
     }
     const delivery_id = req.params.id;
 
+    // Receive the problem detail.
     const { description } = req.body;
 
+    // Save the problem detail.
     const deliveryCreated = await DeliveryProblem.create({
       delivery_id,
       description,
@@ -78,13 +80,19 @@ class DeliveryProblemController {
     });
 
     // console.log(packageData);
+
+    // It will check if the package is not already delivered before cancel.
+    if (packageData.end_date) {
+      return res
+        .status(400)
+        .json({ error: 'The package is already delivered!' });
+    }
+
+    // It will save the delivery cancellation.
     packageData.canceled_at = new Date();
-
-    // TODO - Testing
-    // Quando uma encomenda for cancelada, o entregador deve receber um e-mail informando-o sobre o cancelamento.
-
     await packageData.save();
 
+    // It will send a email to deliverer when the package is cancelled!
     await Queue.add(PackageCancelledMail.key, {
       product: packageData.product,
       name: packageData.deliveryman.name,

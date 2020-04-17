@@ -5,6 +5,8 @@ class DelivererAuthController {
   async index(req, res) {
     const { id } = req.params;
 
+    // It will find the deliverer information with his id.
+    // We use this controller to deliverer authenticate in his app.
     const delivererData = await Deliverer.findOne({
       attributes: ['id', 'name', 'email', 'avatar_id', 'created_at'],
       where: {
