@@ -102,7 +102,7 @@ export default function Recipient() {
                 <Button>
                     <Link to="/newrecipient">
                         <div>
-                            <Add style={{ fontSize: 19 }} color="#FFF" />
+                            <Add style={{ fontSize: 19 }} />
                             <strong>CADASTRAR</strong>
                         </div>
                     </Link>

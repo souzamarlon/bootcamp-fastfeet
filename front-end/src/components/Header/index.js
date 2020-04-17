@@ -11,13 +11,14 @@ import history from '~/services/history';
 import { Container, Content, Profile } from './styles';
 
 export default function Header() {
+    const dispatch = useDispatch();
     const [open, setOpen] = useState({
         package: false,
         deliverer: false,
         recipient: false,
         problem: false,
     });
-    const dispatch = useDispatch();
+
     const profile = useSelector(state => state.user.profile);
 
     function handleSignOut() {

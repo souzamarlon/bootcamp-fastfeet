@@ -104,7 +104,7 @@ export default function Deliverer() {
                 <Button>
                     <Link to="/newdeliverer">
                         <div>
-                            <Add style={{ fontSize: '1.9rem' }} color="#FFF" />
+                            <Add style={{ fontSize: '1.9rem' }} />
                             <strong>CADASTRAR</strong>
                         </div>
                     </Link>
