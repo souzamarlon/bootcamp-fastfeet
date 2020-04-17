@@ -50,7 +50,9 @@ export default function Problem() {
                 history.push('/problems');
             }
         } catch (err) {
-            toast.error('Erro ao cancelar a encomenda!');
+            toast.error(
+                'Erro ao cancelar a encomenda, verifique se a encomenda está com status entregue.'
+            );
         }
     }
 
