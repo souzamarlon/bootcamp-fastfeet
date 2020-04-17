@@ -98,34 +98,45 @@ $ git clone https://github.com/souzamarlon/bootcamp-fastfeet
 # Go into the repository
 $ cd bootcamp-fastfeet
 
-# Install dependencies for the backend
+# Install dependencies for backend:
 $ cd backend
 $ yarn
 
-<h4>Note:</h4>It is necessary to create the database in postgres and then you can execute yarn sequelize db:migrate.
+# Note:
+# It is necessary to create the database in postgres and then you can execute yarn sequelize db:migrate.
 
-# Run migrations and the seed to your database
-# The command yarn sequelize db:seed:all is just necessary if you wanna create the admin user automatically.
+# Run migrations and the seed to your database:
 $ yarn sequelize db:migrate
 $ yarn sequelize db:seed:all
 
-# Run the backend server
-$ yarn dev -- Development environment.
-$ OR yarn start -- Production environment.
-$ yarn queue -- Development environment.
-$ OR yarn queueProd -- Production environment.
+# Note: 
+# The command yarn sequelize db:seed:all is just necessary if you wanna create the admin user automatically.
 
-# Install dependencies for the frontend and run the server
+# Run the backend server
+# Development environmen:
+$ yarn dev
+
+# Production environment:
+$ yarn start
+
+# Development environment:
+$ yarn queue 
+
+# Production environment:
+$ yarn queueProd
+
+# Install dependencies for frontend and run the server:
 $ cd frontend
 $ yarn
 $ yarn start
 
-# Install dependencies for the mobile - Available just for Android because this app was just tested in Android smartphones.
+# Install dependencies for mobile - Available just for Android smartphones.
 $ cd mobile
 $ yarn
 
-It is necessary to change the IP in the api.js file to where you installed the back end.
-You can find the api.js file in src/services/api.js
+# Note:
+# It is necessary to change the IP address in the api.js file to IP address where you installed the back end.
+# You can find the api file in src/services/api.js
 
 # Run the app (Android)
 $ react-native run-android
