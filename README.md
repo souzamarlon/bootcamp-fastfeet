@@ -1,11 +1,11 @@
 <h1 align="center">
     <img alt="Fastfeet App" src="https://github.com/souzamarlon/bootcamp-fastfeet/blob/master/front-end/src/assets/logo.png" />
     <br>
-    Fastfeet app for Rocketseat bootcamp final challenge.
+    Fastfeet app for Rocketseat Bootcamp Final Challenge.
 </h1>
 
 <h4 align="center">
-  A FullStack App to manage packages, deliverers and recipients.
+  A FullStack App to delivery.
 </h4>
 
 
@@ -17,7 +17,7 @@
 
 ## :rocket: Libraries and Technologies
 
-This project was developed at the [RocketSeat GoStack Bootcamp](https://rocketseat.com.br/gostack) with the following amazing Libraries:
+This project was developed at the [RocketSeat GoStack Bootcamp](https://rocketseat.com.br/gostack) with the following amazing Libraries and Technologies:
 
 Back-end:
 - [NodeJS](https://nodejs.org)
@@ -69,10 +69,7 @@ React native:
 - [react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context)
 - [Reactotron](https://infinite.red/reactotron)
 - [React-native-camera](https://github.com/react-native-community/react-native-camera)
-- [Step indicator](https://github.com/24ark/react-native-step-indicator)
-
-
-
+- [React-native-image-editor](https://github.com/react-native-community/react-native-image-editor)
 
 Back-end, Front-end, React native:
 - [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
@@ -81,6 +78,9 @@ Back-end, Front-end, React native:
 <h4>Link: <a href="http://bootcamp-fastfeet-frontend.herokuapp.com/">http://bootcamp-fastfeet-frontend.herokuapp.com/</h4>
 <h4>Login: admin@fastfeet.com</h4>
 <h4>Password: 123456</h4>
+
+<h4> It is possible to take some secods to loading the page because Heroku put the App to sleep after some minutes of inactivity.</h4>
+<h4> It is necessary to access the site using "http" because I hosted the back end in Digital ocean and I do not have a domain to obtain the SSL Certificate from Certbot.</h4>
 
 ## :information_source: How To Use
 
@@ -101,7 +101,7 @@ $ cd bootcamp-fastfeet
 $ cd backend
 $ yarn
 
-It is necessary to create the database in postgres and then you can execute yarn sequelize db:migrate.
+<h4>Note:</h4>It is necessary to create the database in postgres and then you can execute yarn sequelize db:migrate.
 
 # Run migrations and the seed to your database
 # The command yarn sequelize db:seed:all is just necessary if you wanna create the admin user automatically.
