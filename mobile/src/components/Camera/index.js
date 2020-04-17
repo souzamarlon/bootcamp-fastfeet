@@ -8,16 +8,16 @@ import ImageEditor from '@react-native-community/image-editor';
 import { Container, CameraButton, CameraIcon } from './styles';
 import api from '~/services/api';
 
-export default function Camera({ onChange, PackageId }) {
+export default function Camera({ onChange }) {
   const [loading, setLoading] = useState(false);
   const [dataPic, setDataPic] = useState(false);
 
   const [flash, setFlash] = useState('off');
   const [zoom, setZoom] = useState(0.5);
   const [autoFocus, setAutoFocus] = useState('on');
-  const [depth, setDepth] = useState(0);
   const [type, setType] = useState('back');
-  const [permission, setPermission] = useState('undetermined');
+  // const [depth, setDepth] = useState(0);
+  // const [permission, setPermission] = useState('undetermined');
 
   const cameraRef = useRef(null);
 
@@ -123,5 +123,4 @@ export default function Camera({ onChange, PackageId }) {
 
 Camera.propTypes = {
   onChange: PropTypes.func.isRequired,
-  PackageId: PropTypes.number.isRequired,
 };

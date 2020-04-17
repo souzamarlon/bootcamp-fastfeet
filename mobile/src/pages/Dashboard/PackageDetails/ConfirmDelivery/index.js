@@ -41,7 +41,7 @@ export default function ConfirmDelivery({ navigation }) {
     <>
       <Container>
         <Content>
-          <Camera PackageId={data.id} onChange={setUpload} />
+          <Camera onChange={setUpload} />
         </Content>
         <SubmitButton onPress={handleSubmit}>Enviar</SubmitButton>
       </Container>

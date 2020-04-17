@@ -17,6 +17,7 @@ export default function NewProblems({ navigation }) {
         description,
       });
       Alert.alert('Sucesso!', 'Seu problema foi cadastrado com sucesso!');
+      navigation.goBack();
       // console.tron.log(response.data);
     } catch (err) {
       Alert.alert('Falha!', 'Erro ao tentar enviar seu problema!');
@@ -62,6 +63,7 @@ NewProblems.navigationOptions = ({ navigation }) => ({
 NewProblems.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func,
+    goBack: PropTypes.func,
     getParam: PropTypes.func,
     data: PropTypes.shape({
       id: PropTypes.number,

@@ -3,8 +3,6 @@ import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   height: 170px;
-  /* width: 100%; */
-  /* max-width: 320px; */
   background: #fff;
   border-radius: 4px;
   border: 1px solid #eee;
@@ -13,12 +11,10 @@ export const Container = styled.View`
 
 export const Info = styled.View`
   margin-top: 10px;
-  /* margin-left: 15px; */
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-bottom: 10px;
-  /* justify-content: space-between; */
 `;
 
 export const Name = styled.Text`
