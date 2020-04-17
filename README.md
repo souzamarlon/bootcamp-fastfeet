@@ -79,7 +79,7 @@ Back-end, Front-end, React native:
 <h4>Login: admin@fastfeet.com</h4>
 <h4>Password: 123456</h4>
 
-<h4> It is possible to take some secods to loading the page because Heroku put the App to sleep after some minutes of inactivity.</h4>
+<h4> It is possible to take some secods to loading the page because Heroku can put the App to sleep after some minutes of inactivity.</h4>
 <h4> It is necessary to access the site using "http" because I hosted the back end in Digital ocean and I do not have a domain to obtain the SSL Certificate from Certbot.</h4>
 
 ## :information_source: How To Use
