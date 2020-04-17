@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import 'react-native-gesture-handler';
 import pt from 'date-fns/locale/pt';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-// import StepIndicator from 'react-native-step-indicator';
 import StepIndicator from '~/components/StepIndicator';
 
 import {
@@ -43,32 +42,6 @@ export default function PackageStatus({ data, onPress }) {
     loadStatus();
   }, [data]);
 
-  const labels = ['Aguardando Retirada', 'Retirada', 'Entregue'];
-
-  const customStyles = {
-    stepIndicatorSize: 20,
-    currentStepIndicatorSize: 25,
-    separatorStrokeWidth: 2,
-    currentStepStrokeWidth: 3,
-    stepStrokeCurrentColor: '#7D40E7',
-    stepStrokeWidth: 1,
-    stepStrokeFinishedColor: '#7D40E7',
-    stepStrokeUnFinishedColor: '#aaaaaa',
-    separatorFinishedColor: '#7D40E7',
-    separatorUnFinishedColor: '#aaaaaa',
-    stepIndicatorFinishedColor: '#7D40E7',
-    stepIndicatorUnFinishedColor: '#ffffff',
-    stepIndicatorCurrentColor: '#7D40E7',
-    stepIndicatorLabelFontSize: 13,
-    currentStepIndicatorLabelFontSize: 13,
-    stepIndicatorLabelCurrentColor: '#7D40E7',
-    stepIndicatorLabelFinishedColor: '#7D40E7',
-    stepIndicatorLabelUnFinishedColor: '#aaaaaa',
-    labelColor: '#999999',
-    labelSize: 12,
-    currentStepLabelColor: '#999999',
-  };
-
   return (
     <Container>
       <Info>
@@ -80,12 +53,7 @@ export default function PackageStatus({ data, onPress }) {
         />
         <Name>{`Encomenda ${data.id}`}</Name>
       </Info>
-      <StepIndicator
-        customStyles={customStyles}
-        currentPosition={currentPosition}
-        labels={labels}
-        stepCount={3}
-      />
+      <StepIndicator currentPosition={currentPosition} />
       <Content>
         <DateColumn>
           <TextTitle>Data</TextTitle>
