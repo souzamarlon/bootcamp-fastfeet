@@ -150,6 +150,7 @@ export default function PackageDetails({ navigation }) {
         </StatusInfo>
         <PackageOption>
           <Box1
+            enabled={!!startDate.start_date}
             onPress={() => {
               navigation.navigate('NewProblems', { data });
             }}
@@ -164,6 +165,7 @@ export default function PackageDetails({ navigation }) {
           </Box1>
           <Divider />
           <Box1
+            enabled={!!startDate.start_date}
             onPress={() => {
               navigation.navigate('ShowProblems', { data });
             }}

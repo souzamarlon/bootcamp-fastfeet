@@ -18,7 +18,7 @@ export default function ConfirmDelivery({ navigation }) {
         signature_id: upload.id,
         end_date: new Date(),
       });
-      Alert.alert('Sucesso!', 'Foto da assinatura foi enviada com sucesso!');
+      Alert.alert('Sucesso!', 'Confirmação de entrega efetuada com sucesso!');
       navigation.navigate('Dashboard');
 
       // console.tron.log(response.data);
