@@ -156,6 +156,8 @@ export default function EditRecipient({ match }) {
                                 className="cityState"
                                 name="zipcode"
                                 placeholder="CEP..."
+                                type="number"
+                                max={9999}
                             />
                         </td>
                     </tbody>

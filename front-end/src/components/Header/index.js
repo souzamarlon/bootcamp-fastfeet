@@ -29,28 +29,16 @@ export default function Header() {
     const location = history.location.pathname;
     useEffect(() => {
         async function locationPath() {
-            if (
-                location === '/packages' ||
-                location === '/newpackages' ||
-                location.match('/editpackage.*/')
-            ) {
+            if (location.match('package')) {
                 setOpen({ package: true });
             }
-            if (
-                location === '/deliverers' ||
-                location === '/newdeliverer' ||
-                location.match('/editdeliverer.*/')
-            ) {
+            if (location.match('deliverer')) {
                 setOpen({ deliverer: true });
             }
-            if (
-                location === '/recipients' ||
-                location === '/newrecipient' ||
-                location.match('/editrecipient.*/')
-            ) {
+            if (location.match('recipient')) {
                 setOpen({ recipient: true });
             }
-            if (location === '/problems') {
+            if (location.match('problem')) {
                 setOpen({ problem: true });
             }
         }
