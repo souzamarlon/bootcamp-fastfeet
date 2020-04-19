@@ -23,7 +23,7 @@ export default function NewRecipient() {
         state: Yup.string().required('Campo obrigatório'),
         city: Yup.string().required('Campo obrigatório'),
         zipcode: Yup.number()
-            .required('Campo obrigatório')
+            .required('Campo obrigatório!')
             .positive()
             .integer(),
     });
