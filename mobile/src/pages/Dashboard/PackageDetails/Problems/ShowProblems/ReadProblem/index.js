@@ -22,7 +22,6 @@ export default function ReadProblem({ navigation }) {
 }
 ReadProblem.navigationOptions = ({ navigation }) => ({
   title: 'Descrição do problema',
-
   headerLeft: () => (
     <TouchableOpacity
       onPress={() => {
