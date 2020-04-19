@@ -17,7 +17,6 @@ export const Content = styled.View`
 export const SubmitButton = styled(Button)`
   margin-right: 20px;
   margin-left: 20px;
-
   display: flex;
   bottom: 130px;
   background: #7d40e7;
