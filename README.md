@@ -17,7 +17,7 @@
 
 ## :rocket: Libraries and Technologies
 
-This project was developed at the [RocketSeat GoStack Bootcamp](https://rocketseat.com.br/gostack) with the following amazing Libraries and Technologies:
+This project was developed at the [RocketSeat GoStack Bootcamp Final Challenge](https://rocketseat.com.br/gostack) with the following amazing Libraries and Technologies:
 
 Back-end:
 - [NodeJS](https://nodejs.org)
