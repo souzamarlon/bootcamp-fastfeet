@@ -14,11 +14,18 @@ export default function NewRecipient() {
     const schema = Yup.object().shape({
         name: Yup.string().required('Campo obrigatório'),
         street: Yup.string().required('Campo obrigatório'),
-        number: Yup.number().required('Campo obrigatório'),
+        number: Yup.number()
+            .required('Campo obrigatório')
+            .positive()
+            .integer(),
         complement: Yup.string().required('Campo obrigatório'),
         state: Yup.string().required('Campo obrigatório'),
         city: Yup.string().required('Campo obrigatório'),
-        zipcode: Yup.number().required('Campo obrigatório'),
+        zipcode: Yup.number('Campo obrigatório')
+            .required('Campo obrigatório')
+            .required()
+            .positive()
+            .integer(),
     });
 
     async function handleSubmit(data) {
