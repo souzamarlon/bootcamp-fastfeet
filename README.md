@@ -130,13 +130,14 @@ $ cd frontend
 $ yarn
 $ yarn start
 
-# Install dependencies for mobile - Available just for Android smartphones.
+# Note: Available just for Android smartphones.
+# Install dependencies for mobile
 $ cd mobile
 $ yarn
 
 # Note:
 # It is necessary to change the IP address in the api.js file to IP address where you installed the back end.
-# You can find the api file in src/services/api.js
+# You can find the api file at src/services/api.js
 
 # Run the app (Android)
 $ react-native run-android
