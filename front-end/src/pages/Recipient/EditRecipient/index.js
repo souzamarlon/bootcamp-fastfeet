@@ -22,9 +22,8 @@ export default function EditRecipient({ match }) {
         complement: Yup.string().required('Campo obrigatório'),
         state: Yup.string().required('Campo obrigatório'),
         city: Yup.string().required('Campo obrigatório'),
-        zipcode: Yup.number('Campo obrigatório')
+        zipcode: Yup.number()
             .required('Campo obrigatório')
-            .required()
             .positive()
             .integer(),
     });
@@ -156,8 +155,8 @@ export default function EditRecipient({ match }) {
                                 className="cityState"
                                 name="zipcode"
                                 placeholder="CEP..."
-                                type="number"
-                                max={9999}
+                                type="text"
+                                maxLength="8"
                             />
                         </td>
                     </tbody>
