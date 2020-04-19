@@ -184,6 +184,12 @@ class PackageController {
 
     const { name, email } = await Deliverer.findByPk(deliveryman_id);
 
+    const packageCreated = await Package.create({
+      recipient_id,
+      deliveryman_id,
+      product,
+    });
+
     //  The deliverer will receive a email saying the package is available to pick up.
     await Queue.add(PackageMail.key, {
       name,
@@ -192,9 +198,7 @@ class PackageController {
     });
 
     // It will save the register data
-    return res.json(
-      await Package.create({ recipient_id, deliveryman_id, product })
-    );
+    return res.json(packageCreated);
   }
 
   async update(req, res) {
