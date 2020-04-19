@@ -26,7 +26,8 @@ export default function NewProblems({ navigation }) {
   }
 
   return (
-    <PagesBackground>
+    <>
+      <PagesBackground />
       <Container>
         <Form>
           <TInput
@@ -43,12 +44,18 @@ export default function NewProblems({ navigation }) {
         </Form>
         <SubmitButton onPress={handleSubmit}>Enviar</SubmitButton>
       </Container>
-    </PagesBackground>
+    </>
   );
 }
 
 NewProblems.navigationOptions = ({ navigation }) => ({
   title: 'Informar problema',
+  headerTitleStyle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginLeft: 40,
+  },
   headerLeft: () => (
     <TouchableOpacity
       onPress={() => {

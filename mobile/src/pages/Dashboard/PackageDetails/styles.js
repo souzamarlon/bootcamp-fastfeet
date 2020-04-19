@@ -1,21 +1,20 @@
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 
-export const Container = styled.View.attrs({
-  showsVerticalScrollIndicator: true,
-})`
-  flex: 1;
-  top: 34px;
-  overflow: visible;
+export const Container = styled.View`
+  margin: auto;
+  width: 90%;
+  top: 88px;
+  align-self: center;
+  background: transparent;
+  position: absolute;
 `;
 
 export const AddressInfo = styled.View`
   padding-top: 5px;
-  border-radius: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  border-radius: 4px;
   background: #fff;
-  height: 206px;
+  /* height: 206px; */
 `;
 
 export const Header = styled.View`
@@ -51,31 +50,27 @@ export const Text = styled.Text`
 
 export const StatusInfo = styled.View`
   padding-top: 5px;
-  border-radius: 20px;
+  border-radius: 4px;
   margin-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
   background: #fff;
-  height: 158px;
+  /* height: 158px; */
 `;
 
 export const DateInfo = styled.View`
   flex-direction: row;
   display: flex;
+  justify-content: space-between;
 `;
 export const DateColumn = styled.View`
   flex-direction: column;
   display: flex;
   text-align: right;
-  width: 175px;
-  /* background-color: #000; */
+  margin-right: auto;
 `;
 
 export const PackageOption = styled.View`
   top: 10px;
   border-radius: 4px;
-  margin-top: 8px;
-  margin: 0 20px;
   flex-direction: row;
   justify-content: space-between;
 

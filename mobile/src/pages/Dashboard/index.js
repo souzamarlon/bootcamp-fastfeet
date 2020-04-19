@@ -91,7 +91,6 @@ export default function Dashboard({ navigation }) {
             name="exit-to-app"
             size={24}
             color="#E74040"
-            // style={{ position: 'absolute', left: 200, paddingTop: 30 }}
             onPress={handleLogout}
           />
         </LogoutButton>

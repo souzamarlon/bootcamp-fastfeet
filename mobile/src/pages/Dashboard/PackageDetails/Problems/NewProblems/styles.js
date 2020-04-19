@@ -2,16 +2,16 @@ import styled from 'styled-components/native';
 import Button from '~/components/Button';
 
 export const Container = styled.View`
-  width: 100%;
-  /* max-width: 335px; */
-
-  padding: 20px 20px;
+  width: 90%;
+  margin: auto;
+  position: absolute;
+  align-self: center;
+  top: 75px;
 `;
+
 export const Form = styled.ScrollView`
   height: 300px;
   margin-bottom: 20px;
-
-  /* margin-top: 50px; */
 `;
 
 export const TInput = styled.TextInput.attrs({
@@ -19,9 +19,9 @@ export const TInput = styled.TextInput.attrs({
   textAlignVertical: 'top',
 })`
   background: #fff;
-  padding: 10px 20px;
+  padding: 20px 20px;
   height: 300px;
-  font-size: 15px;
+  font-size: 16px;
   border-radius: 4px;
 `;
 

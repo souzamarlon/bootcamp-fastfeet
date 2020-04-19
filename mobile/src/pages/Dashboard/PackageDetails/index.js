@@ -33,7 +33,7 @@ export default function PackageDetails({ navigation }) {
   const [startDate, setStartDate] = useState({ start_date: data.start_date });
   const [endDate, setEndDate] = useState({ end_date: data.end_date });
 
-  // Check if the date is valid before call the format function. If the date is null will appear this '- - / - - / - -'.
+  // It will check if the date is valid before call the format function. If the date is null will appear this '- - / - - / - -'.
   useEffect(() => {
     async function validStartDate() {
       if (isValid(parseISO(data.start_date))) {
@@ -97,7 +97,8 @@ export default function PackageDetails({ navigation }) {
   }
 
   return (
-    <PagesBackground>
+    <>
+      <PagesBackground />
       <Container>
         <AddressInfo>
           <Header>
@@ -165,7 +166,6 @@ export default function PackageDetails({ navigation }) {
           </Box1>
           <Divider />
           <Box1
-            enabled={!!startDate.start_date}
             onPress={() => {
               navigation.navigate('ShowProblems', { data });
             }}
@@ -223,7 +223,7 @@ export default function PackageDetails({ navigation }) {
           )}
         </PackageOption>
       </Container>
-    </PagesBackground>
+    </>
   );
 }
 

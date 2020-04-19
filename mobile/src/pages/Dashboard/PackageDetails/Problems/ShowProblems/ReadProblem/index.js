@@ -3,22 +3,26 @@ import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
 
-import { Container, Text } from './styles';
+import { Container, Content, Text } from './styles';
 import PagesBackground from '~/components/PagesBackground';
 
 export default function ReadProblem({ navigation }) {
   const item = navigation.getParam('item');
 
   return (
-    <PagesBackground>
+    <>
+      <PagesBackground />
       <Container>
-        <Text>{item.description}</Text>
+        <Content>
+          <Text>{item.description}</Text>
+        </Content>
       </Container>
-    </PagesBackground>
+    </>
   );
 }
 ReadProblem.navigationOptions = ({ navigation }) => ({
   title: 'Descrição do problema',
+
   headerLeft: () => (
     <TouchableOpacity
       onPress={() => {
