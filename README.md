@@ -13,11 +13,14 @@
 
 </div>
 <div align="center">
-    <a href="https://www.youtube.com/watch?v=k602NgpZCuQ">Better quality video</a>
+    <a href="https://www.youtube.com/watch?v=k602NgpZCuQ">Link to have a better quality video.</a>
 </div>
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/42625569/82817742-e940ff00-9e73-11ea-8636-61e470f7d3bb.gif" alt="demo-web" height="320">
+</div>
+<div align="center">
+    <a href="https://youtu.be/ANhVuMlqItI">Link to have a better quality video.</a>
 </div>
 
 <hr>
