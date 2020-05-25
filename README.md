@@ -10,8 +10,8 @@
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/42625569/82815845-60749400-9e70-11ea-861d-67e04729b48d.gif" alt="demo-web" height="320">
-</div>
 <h4><a href="https://www.youtube.com/watch?v=k602NgpZCuQ">Better quality video.</h4>
+</div>
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/42625569/82817742-e940ff00-9e73-11ea-8636-61e470f7d3bb.gif" alt="demo-web" height="320">
