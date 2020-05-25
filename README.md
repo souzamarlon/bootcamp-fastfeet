@@ -5,7 +5,7 @@
 </h1>
 
 <h4 align="center">
-  A FullStack App to delivery.
+  A FullStack App for delivery.
 </h4>
 
 <div align="center">
