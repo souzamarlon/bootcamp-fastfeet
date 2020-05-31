@@ -4,7 +4,6 @@
     Fastfeet app for Rocketseat Bootcamp Final Challenge.
 </h1>
 
-![](https://img.shields.io/github/package-json/v/souzamarlon/bootcamp-fastfeet.svg)
 ![](https://img.shields.io/github/last-commit/souzamarlon/bootcamp-fastfeet.svg?color=red)
 ![](https://img.shields.io/github/languages/top/souzamarlon/bootcamp-fastfeet.svg?color=yellow)
 ![](https://img.shields.io/github/languages/count/souzamarlon/bootcamp-fastfeet.svg?color=lightgrey)
