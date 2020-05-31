@@ -4,6 +4,14 @@
     Fastfeet app for Rocketseat Bootcamp Final Challenge.
 </h1>
 
+![](https://img.shields.io/github/package-json/v/souzamarlon/bootcamp-fastfeet.svg)
+![](https://img.shields.io/github/last-commit/souzamarlon/bootcamp-fastfeet.svg?color=red)
+![](https://img.shields.io/github/languages/top/souzamarlon/bootcamp-fastfeet.svg?color=yellow)
+![](https://img.shields.io/github/languages/count/souzamarlon/bootcamp-fastfeet.svg?color=lightgrey)
+![](https://img.shields.io/github/languages/code-size/souzamarlon/bootcamp-fastfeet.svg)
+![](https://img.shields.io/github/repo-size/souzamarlon/bootcamp-fastfeet.svg?color=blueviolet)
+[![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
+
 <h4 align="center">
   A FullStack App for delivery.
 </h4>
