@@ -12,7 +12,10 @@
 [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
 
 <h4 align="center">
-  A FullStack App for delivery.
+A FullStack App for delivery.
+This web application provides the establishment a tool to manage the packages, deliverers, recipient information, and an area to answer their problems.
+
+Deliverers have a mobile app to manage all the packages.
 </h4>
 
 <div align="center">
